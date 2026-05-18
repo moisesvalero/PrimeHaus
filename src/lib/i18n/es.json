@@ -41,8 +41,8 @@
   },
   "componentsPage": {
     "seo": {
-      "title": "Componentes | My SvelteKit Starter",
-      "description": "Galería de componentes UI shadcn-svelte, demos de páginas (about, pricing, faq, SSR, blog) y formulario."
+      "title": "Componentes | PrimeHaus",
+      "description": "Galería interna de componentes UI, demos de páginas y formulario de PrimeHaus."
     },
     "nav": {
       "root": "Componentes",

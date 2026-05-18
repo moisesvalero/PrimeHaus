@@ -1,10 +1,10 @@
 {
-  "name": "My SvelteKit Starter",
-  "short_name": "SvelteKit Starter",
+  "name": "PrimeHaus",
+  "short_name": "PrimeHaus",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "theme_color": "#bc9c6a",
   "icons": [
     {
       "src": "/favicon.svg",

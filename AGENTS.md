@@ -1,6 +1,6 @@
 # AGENTS.md — Instructions for AI assistants
 
-## Project: My SvelteKit Starter
+## Project: PrimeHaus
 
 This is a **Svelte 5 + SvelteKit 2 + TypeScript + Tailwind CSS v4** project.
 It uses Svelte 5 runes (`$state`, `$props`, `$derived`, `$effect`) and shadcn-svelte.
@@ -315,7 +315,7 @@ When the user brings **reference from another tool** and asks for **visual parit
 3. **Ask the user** (if missing) for screenshots or exported CSS/HTML and breakpoints to respect.
 4. **Finish with** `npm run check` and summarize what matched vs. what was approximated.
 
-Detailed guide and copy-paste prompt: **`DESIGN_TO_CURSOR.md`**.
+When adapting external designs, keep the existing tokens, components, i18n and responsive behavior aligned with PrimeHaus.
 
 ---
 
