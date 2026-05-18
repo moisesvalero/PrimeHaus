@@ -11,7 +11,9 @@ export const siteConfig = {
   },
   contact: {
     phone: '+34900123456',
-    whatsapp: '34900123456'
+    whatsapp: '34900123456',
+    email: 'contact@primehaus.example',
+    address: 'Calle de Serrano 45, 2ª Planta, 28001 Madrid'
   },
   author: {
     name: 'PrimeHaus Real Estate',
