@@ -258,4 +258,6 @@ Despues, desplegar en Vercel conectando el repositorio o usando la CLI de Vercel
 
 ## Licencia
 
-Consulta `LICENSE`.
+Este proyecto no es open source. El codigo, el diseno y los assets estan protegidos por una licencia propietaria con todos los derechos reservados.
+
+No se permite usar, copiar, modificar, desplegar, revender, publicar ni reutilizar este proyecto sin permiso previo por escrito o una licencia comercial pagada. Consulta `LICENSE`.
