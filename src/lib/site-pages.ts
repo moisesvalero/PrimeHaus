@@ -62,6 +62,40 @@ export const sitePages: SitePage[] = [
     descKey: 'componentsPage.seo.description',
     changefreq: 'monthly',
     priority: 0.9,
+    group: 'demo',
+    index: false,
+    aeoTwin: false
+  },
+  {
+    path: '/proyectos',
+    titleKey: 'projects.seo.title',
+    descKey: 'projects.seo.description',
+    changefreq: 'weekly',
+    priority: 0.9,
+    group: 'primary'
+  },
+  {
+    path: '/sobre-nosotros',
+    titleKey: 'about.seo.title',
+    descKey: 'about.seo.description',
+    changefreq: 'monthly',
+    priority: 0.8,
+    group: 'primary'
+  },
+  {
+    path: '/contacto',
+    titleKey: 'contact.seo.title',
+    descKey: 'contact.seo.description',
+    changefreq: 'monthly',
+    priority: 0.8,
+    group: 'primary'
+  },
+  {
+    path: '/blog',
+    titleKey: 'blog.seo.title',
+    descKey: 'blog.seo.description',
+    changefreq: 'monthly',
+    priority: 0.7,
     group: 'primary'
   }
 ];

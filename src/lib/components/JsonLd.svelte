@@ -26,6 +26,7 @@
     image = '',
     author = siteConfig.author.name,
     description = siteConfig.tagline,
+    locale = 'es',
     faq = [],
     howto = [],
     softwareName = '',
@@ -38,6 +39,7 @@
     image?: string;
     author?: string;
     description?: string;
+    locale?: string;
     faq?: FaqItem[];
     howto?: HowToStep[];
     softwareName?: string;
@@ -50,11 +52,20 @@
 
   const organization = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': ['Organization', 'RealEstateAgent', 'LocalBusiness'],
     name: siteConfig.name,
     url: base,
     logo: `${base}/favicon.svg`,
-    sameAs: [siteConfig.social.github, siteConfig.social.linkedin].filter(Boolean)
+    email: siteConfig.contact.email,
+    telephone: siteConfig.contact.phone,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: siteConfig.contact.address,
+      addressLocality: 'Madrid',
+      addressCountry: 'ES'
+    },
+    areaServed: ['Madrid', 'Marbella', 'Palma', 'Europe'],
+    sameAs: [siteConfig.social.instagram, siteConfig.social.linkedin].filter(Boolean)
   };
 
   const website = {
@@ -62,7 +73,7 @@
     '@type': 'WebSite',
     name: siteConfig.name,
     url: base,
-    inLanguage: ['es', 'en'],
+    inLanguage: ['es', 'en', 'fr', 'de'],
     potentialAction: {
       '@type': 'SearchAction',
       target: {
@@ -79,7 +90,7 @@
     name: headline || siteConfig.name,
     description,
     url: fullUrl,
-    inLanguage: 'es',
+    inLanguage: locale,
     ...(headline && { headline }),
     ...(datePublished && { datePublished }),
     ...(dateModified && { dateModified }),

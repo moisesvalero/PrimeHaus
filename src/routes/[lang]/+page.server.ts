@@ -4,11 +4,13 @@ import { sitePortfolioQuery } from '$lib/server/sanity/groq-site-portfolio';
 import { mapSanityPrimeProjectsList } from '$lib/server/sanity/map-prime-project';
 import { mapSanitySitePortfolio } from '$lib/server/sanity/map-site-portfolio';
 import { sitePortfolioDefaults } from '$lib/data/site-portfolio-defaults';
+import { getDemoPrimeProjects } from '$lib/data/demo-prime-projects';
 import type { PageServerLoad } from './$types';
+import type { SiteLocale } from '$lib/i18n/site-locale';
 import type { SanityPrimeProject, SanitySitePortfolio } from '$lib/server/sanity/types';
 
 export const load: PageServerLoad = async ({ params }) => {
-  const lang = params.lang as any;
+  const lang = params.lang as SiteLocale;
   const client = getSanityServerClient();
 
   let rawProjects: SanityPrimeProject[] = [];
@@ -27,7 +29,7 @@ export const load: PageServerLoad = async ({ params }) => {
   const siteData = mapSanitySitePortfolio(rawSite, sitePortfolioDefaults);
 
   return {
-    projects,
+    projects: projects.length > 0 ? projects : getDemoPrimeProjects(lang).slice(0, 3),
     siteData
   };
 };

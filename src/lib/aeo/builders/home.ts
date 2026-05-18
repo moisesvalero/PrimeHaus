@@ -1,43 +1,55 @@
 import { siteConfig } from '$lib/site-config';
 import type { SupportedLocale } from '$lib/site-pages';
-import { buildFaqMarkdown, buildHomeSections, createTranslator } from '../shared';
+import { createTranslator } from '../shared';
 
 export function buildHomeMarkdown(locale: SupportedLocale, baseUrl: string): string {
   const t = createTranslator(locale);
-  const home = buildHomeSections(t);
-  const faq = buildFaqMarkdown(t);
+  const url = `${baseUrl}/${locale}`;
 
-  return `# ${home.title}
+  const services = [
+    ['home.services.brokerageTitle', 'home.services.brokerageDesc'],
+    ['home.services.investmentTitle', 'home.services.investmentDesc'],
+    ['home.services.advisoryTitle', 'home.services.advisoryDesc']
+  ].map(([titleKey, descKey]) => ({ title: t(titleKey), desc: t(descKey) }));
 
-> ${home.description}
+  const process = [
+    { title: t('home.about.step1Title'), desc: t('home.about.step1Desc') },
+    { title: t('home.about.step2Title'), desc: t('home.about.step2Desc') }
+  ];
 
-URL: ${baseUrl}/
+  return `# ${t('home.seo.title', siteConfig.name)}
+
+> ${t('home.seo.description', siteConfig.tagline)}
+
+URL: ${url}
 Idioma: ${locale.toUpperCase()}
 
 ---
 
-## ${home.heroTitle}
+## ${t('home.hero.title')}
 
-${home.heroSubtitle}
+${t('home.hero.subtitle')}
 
-### ${home.featuresTitle}
+### ${t('home.services.title')}
 
-${home.features.map((f) => `- **${f.title}** — ${f.desc}`).join('\n')}
+${services.map((item) => `- **${item.title}** - ${item.desc}`).join('\n')}
 
-### ${home.stepsTitle}
+### ${t('home.featured.title')}
 
-${home.steps.map((s, i) => `${i + 1}. **${s.title}** — ${s.desc}`).join('\n')}
+${t('home.featured.empty')}
+
+### ${t('home.about.title')}
+
+${t('home.about.desc')}
+
+${process.map((step, index) => `${index + 1}. **${step.title}** - ${step.desc}`).join('\n')}
 
 ---
 
-## Preguntas frecuentes
+## ${t('home.cta.title')}
 
-${faq}
+${t('home.cta.subtitle')}
 
----
-
-## ${siteConfig.name}
-
-${siteConfig.tagline}
+Contacto directo: ${siteConfig.contact.email} | ${siteConfig.contact.phone}
 `;
 }

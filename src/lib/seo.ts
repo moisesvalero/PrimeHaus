@@ -39,7 +39,9 @@ export type SchemaType =
   | 'HowTo'
   | 'CollectionPage'
   | 'AboutPage'
-  | 'ContactPage';
+  | 'ContactPage'
+  | 'RealEstateAgent'
+  | 'LocalBusiness';
 
 export interface SeoState {
   title: string;

@@ -2,6 +2,7 @@
   import { siteConfig } from '$lib/site-config';
   import { setSeo } from '$lib/seo';
   import { locale, t } from '$lib/i18n';
+  import { reveal } from '$lib/reveal';
   import Button from '$lib/components/ui/button/button.svelte';
 
   const teamMembers = [
@@ -48,16 +49,16 @@
         'inmobiliaria lujo',
         'historia primehaus',
         'filosofía suiza',
-        'curadores inmobiliarios'
+        'asesores inmobiliarios'
       ]
     });
   });
 </script>
 
-<div class="pt-24 md:pt-36">
+<div class="pt-16 md:pt-28 lg:pt-36">
   <!-- HERO -->
   <section class="pb-16 px-6 md:px-20 max-w-[1440px] mx-auto border-b border-outline-variant/30">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end" use:reveal={{ stage: 'title' }}>
       <div class="md:col-span-8">
         <span class="text-primary font-bold tracking-[0.3em] uppercase text-xs block mb-4"
           >{$t('about.hero.eyebrow')}</span
@@ -78,11 +79,12 @@
     </div>
     <div
       class="mt-16 w-full h-[500px] sm:h-[600px] overflow-hidden border border-outline-variant/30 bg-surface-container"
+      use:reveal={{ stage: 'content', delay: 120 }}
     >
       <img
         src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80"
         alt="PrimeHaus Masterpiece Villa"
-        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+        class="premium-image w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
       />
     </div>
   </section>
@@ -92,7 +94,7 @@
     class="py-24 md:py-32 px-6 md:px-20 max-w-[1440px] mx-auto border-b border-outline-variant/30"
   >
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-6 space-y-6 lg:pr-8">
+      <div class="lg:col-span-6 space-y-6 lg:pr-8" use:reveal={{ stage: 'title' }}>
         <span class="text-primary font-bold tracking-[0.25em] uppercase text-xs block mb-2"
           >{$t('about.story.eyebrow')}</span
         >
@@ -110,12 +112,13 @@
         </p>
       </div>
       <div
-        class="lg:col-span-6 relative h-[500px] sm:h-[650px] border border-outline-variant/30 bg-surface-container"
+        class="premium-card lg:col-span-6 relative h-[500px] sm:h-[650px] border border-outline-variant/30 bg-surface-container"
+        use:reveal={{ stage: 'content', delay: 150 }}
       >
         <img
           src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&q=80"
           alt="PrimeHaus Architecture Detail"
-          class="w-full h-full object-cover"
+          class="premium-image w-full h-full object-cover"
         />
         <div
           class="absolute -bottom-8 -left-8 bg-primary p-10 hidden sm:block border border-white/10"
@@ -136,7 +139,7 @@
     <div
       class="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20"
     >
-      <div class="pt-8 md:pt-0 md:pr-12">
+      <div class="premium-card pt-8 md:pt-0 md:pr-12" use:reveal={{ stage: 'content', delay: 90 }}>
         <span class="material-symbols-outlined text-primary text-4xl mb-6 block">architecture</span>
         <h3 class="font-serif text-2xl font-semibold text-on-surface mb-4">
           {$t('about.mission.title')}
@@ -145,7 +148,7 @@
           {$t('about.mission.desc')}
         </p>
       </div>
-      <div class="pt-8 md:pt-0 md:px-12">
+      <div class="premium-card pt-8 md:pt-0 md:px-12" use:reveal={{ stage: 'content', delay: 180 }}>
         <span class="material-symbols-outlined text-primary text-4xl mb-6 block">visibility</span>
         <h3 class="font-serif text-2xl font-semibold text-on-surface mb-4">
           {$t('about.vision.title')}
@@ -154,7 +157,7 @@
           {$t('about.vision.desc')}
         </p>
       </div>
-      <div class="pt-8 md:pt-0 md:pl-12">
+      <div class="premium-card pt-8 md:pt-0 md:pl-12" use:reveal={{ stage: 'content', delay: 270 }}>
         <span class="material-symbols-outlined text-primary text-4xl mb-6 block">diamond</span>
         <h3 class="font-serif text-2xl font-semibold text-on-surface mb-4">
           {$t('about.values.title')}
@@ -223,7 +226,7 @@
         variant="default"
         size="lg"
         href={'/' + $locale + '/proyectos'}
-        class="bg-primary hover:brightness-110 text-white font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs shadow-lg"
+        class="bg-primary text-primary-foreground hover:bg-[var(--accent-hover)] hover:text-white font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs shadow-lg"
       >
         {$t('about.cta.primary')}
       </Button>
@@ -231,7 +234,7 @@
         variant="outline"
         size="lg"
         href={'/' + $locale + '/contacto'}
-        class="border-primary text-primary hover:bg-primary hover:text-white font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs bg-transparent"
+        class="border-primary text-primary hover:bg-primary hover:text-on-primary-fixed font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs bg-transparent"
       >
         {$t('about.cta.secondary')}
       </Button>

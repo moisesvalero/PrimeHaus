@@ -8,6 +8,7 @@ export function normalizePathname(pathname: string): string {
 export function markdownTwinPath(htmlPath: string): string {
   const path = normalizePathname(htmlPath);
   if (path === '/') return '/index.md';
+  if (/^\/(es|en|fr|de)$/.test(path)) return `${path}/index.md`;
   return `${path}.md`;
 }
 
@@ -16,6 +17,7 @@ export function htmlPathFromMdUrl(pathname: string): string | null {
   const path = normalizePathname(pathname);
   if (!path.endsWith('.md')) return null;
   if (path === '/index.md') return '/';
+  if (/^\/(es|en|fr|de)\/index\.md$/.test(path)) return path.slice(0, -'/index.md'.length);
   return path.slice(0, -3) || '/';
 }
 

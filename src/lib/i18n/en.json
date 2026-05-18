@@ -22,7 +22,15 @@
       "toggleMenu": "Toggle menu",
       "closeMenuOverlay": "Close menu overlay",
       "theme": "Theme",
-      "language": "Language"
+      "language": "Language",
+      "call": "Call PrimeHaus"
+    },
+    "whatsapp": {
+      "open": "Open WhatsApp chat",
+      "close": "Close WhatsApp chat",
+      "lead": "Prefer WhatsApp? Message us directly and a senior advisor will reply.",
+      "button": "Start chat",
+      "message": "Hello PrimeHaus, I would like to receive information about your properties."
     },
     "lang": {
       "toSpanish": "🇪🇸 ES",
@@ -437,6 +445,55 @@
     },
     "map": {
       "title": "VISIT OUR ATELIER"
+    }
+  },
+  "blog": {
+    "seo": {
+      "title": "Luxury Real Estate Intelligence | PrimeHaus",
+      "description": "PrimeHaus editorial perspectives on residential architecture, legacy investment, and prime real estate markets."
+    },
+    "hero": {
+      "eyebrow": "PRIMEHAUS OBSERVATORY",
+      "title": "Intelligence for legacy decisions",
+      "subtitle": "Our editorial will gather market analysis, architectural judgment, and discreet signals for high-net-worth buyers, owners, and investors.",
+      "statusLabel": "Coming soon",
+      "statusText": "The first editorial series is being curated. In the meantime, our team shares private opportunities and readings by consultation."
+    },
+    "empty": {
+      "card1Title": "Market notes",
+      "card1Text": "Short readings on Madrid, Marbella, and Palma with a focus on scarcity, liquidity, and architectural value.",
+      "card2Title": "Architectural briefings",
+      "card2Text": "Criteria for evaluating singular residences: materiality, orientation, privacy, landscape, and permanence.",
+      "card3Title": "Private advisory",
+      "card3Text": "Tailored reports for clients who need context before an acquisition or divestment."
+    },
+    "cta": {
+      "title": "Request a private market reading",
+      "subtitle": "We can prepare a tailored briefing by location, budget, and legacy horizon.",
+      "button": "Request briefing"
+    },
+    "faq": {
+      "q1": "Is the blog publishing articles yet?",
+      "a1": "Not yet. PrimeHaus is preparing an editorial series and keeps direct contact available for private analysis.",
+      "q2": "Can I request a report before buying?",
+      "a2": "Yes. The PrimeHaus team can prepare a private market reading and opportunity review based on your criteria."
+    },
+    "post": {
+      "seo": {
+        "title": "Article in Preparation | PrimeHaus",
+        "description": "This PrimeHaus editorial article is in preparation. Request a private briefing for tailored analysis."
+      },
+      "hero": {
+        "eyebrow": "EDITORIAL IN PREPARATION",
+        "title": "This analysis is not published yet",
+        "subtitle": "The route is ready for the future PrimeHaus blog, but editorial content will be published in a later phase."
+      },
+      "placeholder": {
+        "title": "Reserved content",
+        "body": "The editorial team is preparing this piece. If you need an immediate reading on this topic, request a private consultation.",
+        "contact": "Request consultation",
+        "back": "Back to blog"
+      }
     }
   },
   "hero": {

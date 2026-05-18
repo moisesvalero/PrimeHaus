@@ -1,6 +1,10 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
+  import { page } from '$app/state';
   import { siteConfig } from '$lib/site-config';
   import { t } from '$lib/i18n';
+
+  const currentLang = $derived(page.url.pathname.match(/^\/(es|en|fr|de)/)?.[1] || 'es');
 </script>
 
 <!-- stitch_svelte_5_indigo_starter/sveltekit_starter_landing_page/code.html footer -->
@@ -17,19 +21,27 @@
   <div class="flex flex-wrap gap-6">
     <a
       class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
-      href="/proyectos">{$t('layout.footer.projects')}</a
+      href={resolve('/[lang]/proyectos', { lang: currentLang })}>{$t('layout.footer.projects')}</a
     >
     <a
       class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
-      href="/sobre-nosotros">{$t('layout.footer.about')}</a
+      href={resolve('/[lang]/sobre-nosotros', { lang: currentLang })}>{$t('layout.footer.about')}</a
     >
     <a
       class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
-      href="/blog">{$t('layout.footer.blog')}</a
+      href={resolve('/[lang]/blog', { lang: currentLang })}>{$t('layout.footer.blog')}</a
     >
     <a
       class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
-      href="/contacto">{$t('layout.footer.contact')}</a
+      href={resolve('/[lang]/contacto', { lang: currentLang })}>{$t('layout.footer.contact')}</a
+    >
+    <a
+      class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
+      href={`tel:${siteConfig.contact.phone}`}>{siteConfig.contact.phone}</a
+    >
+    <a
+      class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
+      href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a
     >
     <a
       class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"

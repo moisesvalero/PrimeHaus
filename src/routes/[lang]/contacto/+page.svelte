@@ -3,8 +3,13 @@
   import { siteConfig } from '$lib/site-config';
   import { setSeo } from '$lib/seo';
   import { locale, t } from '$lib/i18n';
+  import { reveal } from '$lib/reveal';
   import { toast } from '$lib/stores/toast';
   import Button from '$lib/components/ui/button/button.svelte';
+  import { Input } from '$lib/components/ui/input';
+  import { Label } from '$lib/components/ui/label';
+  import { Textarea } from '$lib/components/ui/textarea';
+  import { untrack } from 'svelte';
 
   let { data } = $props();
   const propiedad = $derived(data.propiedad);
@@ -14,17 +19,11 @@
     name: '',
     email: '',
     phone: '',
-    subject: '',
+    subject: untrack(() => (propiedad ? 'Interés en propiedad: ' + propiedad : '')),
     message: ''
   });
   let submitted = $state(false);
   let submitting = $state(false);
-
-  $effect(() => {
-    if (propiedad) {
-      formValues = { ...formValues, subject: 'Interés en propiedad: ' + propiedad };
-    }
-  });
 
   function handleEnhance() {
     submitting = true;
@@ -38,14 +37,14 @@
         }
       }
       if (result.type === 'failure') {
+        if (result.data?.values) {
+          formValues = { ...formValues, ...(result.data.values as typeof formValues) };
+        }
         if (result.data?.errors) {
           formErrors = result.data.errors as Record<string, string>;
         }
         if (result.data?.error) {
           toast(result.data.error as string, 'error');
-        }
-        if (result.status === 429) {
-          toast('Demasiadas solicitudes. Intente de nuevo en unos minutos.', 'warning');
         }
       }
     };
@@ -71,17 +70,17 @@
         'contacto primehaus',
         'inmobiliaria madrid',
         'inmobiliaria marbella',
-        'atelier inmobiliario',
+        'asesoramiento inmobiliario',
         'cita previa lujo'
       ]
     });
   });
 </script>
 
-<div class="pt-24 md:pt-36">
+<div class="pt-16 md:pt-28 lg:pt-36">
   <!-- HERO -->
   <section class="pb-16 px-6 md:px-20 max-w-[1440px] mx-auto border-b border-outline-variant/30">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end" use:reveal={{ stage: 'title' }}>
       <div class="md:col-span-8">
         <span class="text-primary font-bold tracking-[0.3em] uppercase text-xs block mb-4"
           >{$t('contact.hero.eyebrow')}</span
@@ -102,7 +101,7 @@
   <section class="py-24 md:py-32 px-6 md:px-20 max-w-[1440px] mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       <!-- LEFT: Contact Form -->
-      <div class="lg:col-span-7 lg:pr-8">
+      <div class="lg:col-span-7 lg:pr-8" use:reveal={{ stage: 'content', delay: 110 }}>
         {#if submitted}
           <div class="bg-primary/5 border border-primary p-12 text-center">
             <span class="material-symbols-outlined text-primary text-5xl mb-4 block"
@@ -133,102 +132,106 @@
               <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <div class="space-y-2">
-                <label
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+              <div class="flex flex-col gap-2">
+                <Label
                   for="name"
-                  class="text-[10px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block"
-                  >{$t('contact.form.name')}</label
+                  class="block text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant"
+                  >{$t('contact.form.name')}</Label
                 >
-                <input
+                <Input
                   id="name"
                   name="name"
                   type="text"
                   required
-                  value={formValues.name}
+                  bind:value={formValues.name}
+                  aria-invalid={!!formErrors.name}
                   placeholder={$t('contact.form.namePh')}
-                  class="w-full bg-transparent border-b {formErrors.name
+                  class="h-auto rounded-none border-x-0 border-t-0 bg-transparent px-0 py-3 text-sm font-light text-on-surface placeholder:text-outline focus-visible:ring-0 {formErrors.name
                     ? 'border-destructive'
-                    : 'border-outline-variant'} py-3 focus:outline-none focus:border-primary transition-colors text-on-surface placeholder:text-outline text-sm font-light"
+                    : 'border-outline-variant'}"
                 />
                 {#if formErrors.name}
                   <p class="text-destructive text-[10px]">{formErrors.name}</p>
                 {/if}
               </div>
-              <div class="space-y-2">
-                <label
+              <div class="flex flex-col gap-2">
+                <Label
                   for="email"
-                  class="text-[10px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block"
-                  >{$t('contact.form.email')}</label
+                  class="block text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant"
+                  >{$t('contact.form.email')}</Label
                 >
-                <input
+                <Input
                   id="email"
                   name="email"
                   type="email"
                   required
-                  value={formValues.email}
+                  bind:value={formValues.email}
+                  aria-invalid={!!formErrors.email}
                   placeholder={$t('contact.form.emailPh')}
-                  class="w-full bg-transparent border-b {formErrors.email
+                  class="h-auto rounded-none border-x-0 border-t-0 bg-transparent px-0 py-3 text-sm font-light text-on-surface placeholder:text-outline focus-visible:ring-0 {formErrors.email
                     ? 'border-destructive'
-                    : 'border-outline-variant'} py-3 focus:outline-none focus:border-primary transition-colors text-on-surface placeholder:text-outline text-sm font-light"
+                    : 'border-outline-variant'}"
                 />
                 {#if formErrors.email}
                   <p class="text-destructive text-[10px]">{formErrors.email}</p>
                 {/if}
               </div>
-              <div class="space-y-2">
-                <label
+              <div class="flex flex-col gap-2">
+                <Label
                   for="phone"
-                  class="text-[10px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block"
-                  >{$t('contact.form.phone')}</label
+                  class="block text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant"
+                  >{$t('contact.form.phone')}</Label
                 >
-                <input
+                <Input
                   id="phone"
                   name="phone"
                   type="tel"
-                  value={formValues.phone}
+                  bind:value={formValues.phone}
+                  aria-invalid={!!formErrors.phone}
                   placeholder={$t('contact.form.phonePh')}
-                  class="w-full bg-transparent border-b {formErrors.phone
+                  class="h-auto rounded-none border-x-0 border-t-0 bg-transparent px-0 py-3 text-sm font-light text-on-surface placeholder:text-outline focus-visible:ring-0 {formErrors.phone
                     ? 'border-destructive'
-                    : 'border-outline-variant'} py-3 focus:outline-none focus:border-primary transition-colors text-on-surface placeholder:text-outline text-sm font-light"
+                    : 'border-outline-variant'}"
                 />
                 {#if formErrors.phone}
                   <p class="text-destructive text-[10px]">{formErrors.phone}</p>
                 {/if}
               </div>
-              <div class="space-y-2">
-                <label
+              <div class="flex flex-col gap-2">
+                <Label
                   for="subject"
-                  class="text-[10px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block"
-                  >{$t('contact.form.subject')}</label
+                  class="block text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant"
+                  >{$t('contact.form.subject')}</Label
                 >
-                <input
+                <Input
                   id="subject"
                   name="subject"
                   type="text"
-                  value={formValues.subject}
+                  bind:value={formValues.subject}
                   placeholder={$t('contact.form.subjectPh')}
-                  class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-primary transition-colors text-on-surface placeholder:text-outline text-sm font-light"
+                  class="h-auto rounded-none border-x-0 border-t-0 border-outline-variant bg-transparent px-0 py-3 text-sm font-light text-on-surface placeholder:text-outline focus-visible:ring-0"
                 />
               </div>
             </div>
-            <div class="space-y-2">
-              <label
+            <div class="flex flex-col gap-2">
+              <Label
                 for="message"
-                class="text-[10px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block"
-                >{$t('contact.form.message')}</label
+                class="block text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant"
+                >{$t('contact.form.message')}</Label
               >
-              <textarea
+              <Textarea
                 id="message"
                 name="message"
                 required
-                value={formValues.message}
-                rows="5"
+                bind:value={formValues.message}
+                rows={5}
+                aria-invalid={!!formErrors.message}
                 placeholder={$t('contact.form.messagePh')}
-                class="w-full bg-transparent border-b {formErrors.message
+                class="min-h-32 resize-none rounded-none border-x-0 border-t-0 bg-transparent px-0 py-3 text-sm font-light text-on-surface placeholder:text-outline focus-visible:ring-0 {formErrors.message
                   ? 'border-destructive'
-                  : 'border-outline-variant'} py-3 focus:outline-none focus:border-primary transition-colors text-on-surface placeholder:text-outline text-sm font-light resize-none"
-              ></textarea>
+                  : 'border-outline-variant'}"
+              />
               {#if formErrors.message}
                 <p class="text-destructive text-[10px]">{formErrors.message}</p>
               {/if}
@@ -236,9 +239,10 @@
             <div class="pt-4">
               <Button
                 variant="default"
+                size="lg"
                 type="submit"
                 disabled={submitting}
-                class="w-full bg-primary hover:brightness-110 text-white font-bold tracking-[0.2em] uppercase py-6 text-xs shadow-lg transition-all disabled:opacity-50"
+                class="w-full bg-primary text-primary-foreground hover:bg-[var(--accent-hover)] hover:text-white font-bold tracking-[0.2em] uppercase py-6 text-xs shadow-lg transition-all disabled:opacity-50"
               >
                 {submitting ? $t('contact.form.submitting') : $t('contact.form.submit')}
               </Button>
@@ -249,7 +253,8 @@
 
       <!-- RIGHT: Info Sidebar -->
       <div
-        class="lg:col-span-5 space-y-12 bg-surface-container-low p-8 sm:p-12 border border-outline-variant/30"
+        class="premium-card lg:col-span-5 space-y-12 bg-surface-container-low p-8 sm:p-12 border border-outline-variant/30"
+        use:reveal={{ stage: 'content', delay: 220 }}
       >
         <div class="border-l-2 border-primary pl-6 py-1 space-y-3">
           <h3 class="text-xs font-bold tracking-[0.2em] text-primary uppercase">
@@ -269,13 +274,22 @@
               <dt class="text-[10px] font-bold tracking-[0.15em] text-on-surface-variant uppercase">
                 {$t('contact.sidebar.phone')}
               </dt>
-              <dd class="text-sm font-semibold text-on-surface">{siteConfig.contact.phone}</dd>
+              <dd class="text-sm font-semibold text-on-surface">
+                <a
+                  class="transition-colors hover:text-primary"
+                  href={`tel:${siteConfig.contact.phone}`}
+                >
+                  {siteConfig.contact.phone}
+                </a>
+              </dd>
             </div>
             <div class="flex justify-between items-center pt-3">
               <dt class="text-[10px] font-bold tracking-[0.15em] text-on-surface-variant uppercase">
                 {$t('contact.sidebar.email')}
               </dt>
-              <dd class="text-sm font-semibold text-primary">{siteConfig.contact.email}</dd>
+              <dd class="text-sm font-semibold text-primary">
+                <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+              </dd>
             </div>
           </dl>
         </div>
@@ -318,7 +332,7 @@
   >
     <img
       src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=1600&q=80"
-      alt="Madrid Atelier Location"
+      alt="Ubicación de la oficina PrimeHaus en Madrid"
       class="w-full h-full object-cover opacity-80"
     />
     <div class="absolute inset-0 bg-black/30 backdrop-blur-[1px]"></div>

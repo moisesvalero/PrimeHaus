@@ -34,7 +34,7 @@
       ogDescription:
         project.seoDescription ||
         project.heroDescription ||
-        'Espectacular residencia en ' + project.location + '. Precio: ' + project.price + '.',
+        'Propiedad destacada en ' + project.location + '. Precio: ' + project.price + '.',
       ogImage: project.images.principal,
       twitterCard: 'summary_large_image',
       schemaType: 'WebPage',
@@ -47,7 +47,7 @@
   });
 </script>
 
-<div class="pt-24 md:pt-36">
+<div class="pt-16 md:pt-28 lg:pt-36">
   <!-- HEADER -->
   <section class="pb-16 px-6 md:px-20 max-w-[1440px] mx-auto border-b border-outline-variant/30">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
@@ -62,7 +62,7 @@
         </h1>
         <p class="text-lg sm:text-xl text-on-surface-variant max-w-2xl font-light leading-relaxed">
           {project.heroDescription ||
-            'Una obra maestra arquitectónica concebida para los gustos más exigentes.'}
+            'Una propiedad cuidadosamente seleccionada por su ubicación, arquitectura y calidad de vida.'}
         </p>
       </div>
       <div class="md:col-span-4 flex md:justify-end">
@@ -142,14 +142,14 @@
           <Button
             variant="default"
             href={'/' + $locale + '/contacto?propiedad=' + project.slug}
-            class="w-full bg-primary hover:brightness-110 text-white font-bold tracking-[0.2em] uppercase py-6 text-xs"
+            class="w-full bg-primary text-primary-foreground hover:bg-[var(--accent-hover)] hover:text-white font-bold tracking-[0.2em] uppercase py-6 text-xs"
           >
             {$t('project.specs.ctaPrimary')}
           </Button>
           <Button
             variant="outline"
             href={'tel:' + siteConfig.contact.phone}
-            class="w-full border-primary text-primary hover:bg-primary hover:text-white font-bold tracking-[0.2em] uppercase py-6 text-xs bg-transparent"
+            class="w-full border-primary text-primary hover:bg-primary hover:text-on-primary-fixed font-bold tracking-[0.2em] uppercase py-6 text-xs bg-transparent"
           >
             {$t('project.specs.ctaSecondary')}
           </Button>
@@ -229,7 +229,7 @@
         variant="default"
         size="lg"
         href={'/' + $locale + '/contacto?propiedad=' + project.slug}
-        class="bg-primary hover:brightness-110 text-white font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs shadow-lg"
+        class="bg-primary text-primary-foreground hover:bg-[var(--accent-hover)] hover:text-white font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs shadow-lg"
       >
         {$t('project.cta.primary')}
       </Button>
@@ -237,7 +237,7 @@
         variant="outline"
         size="lg"
         href={'tel:' + siteConfig.contact.phone}
-        class="border-primary text-primary hover:bg-primary hover:text-white font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs bg-transparent"
+        class="border-primary text-primary hover:bg-primary hover:text-on-primary-fixed font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs bg-transparent"
       >
         {$t('project.cta.secondary')}
       </Button>

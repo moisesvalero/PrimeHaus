@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
   import { get } from 'svelte/store';
   import { siteConfig } from '$lib/site-config';
   import { setSeo } from '$lib/seo';
   import { locale, t } from '$lib/i18n';
+  import { reveal } from '$lib/reveal';
   import Button from '$lib/components/ui/button/button.svelte';
   import Container from '$lib/components/ui/Container.svelte';
 
@@ -44,7 +46,10 @@
     </div>
     <div class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-20 py-24">
       <div class="grid grid-cols-12 gap-6">
-        <div class="col-span-12 md:col-span-8 flex flex-col items-start">
+        <div
+          class="col-span-12 md:col-span-8 flex flex-col items-start"
+          use:reveal={{ stage: 'title' }}
+        >
           <span class="text-primary-fixed-dim font-bold tracking-[0.3em] uppercase text-xs mb-6">
             {$t('home.hero.eyebrow')}
           </span>
@@ -61,7 +66,7 @@
               variant="default"
               size="lg"
               href={`/${$locale}/proyectos`}
-              class="bg-primary-container hover:brightness-110 text-white font-bold tracking-[0.2em] uppercase px-10 py-5 text-xs"
+              class="bg-primary-container text-on-primary-fixed hover:bg-[var(--accent-hover)] hover:text-white font-bold tracking-[0.2em] uppercase px-10 py-5 text-xs"
             >
               {$t('home.hero.ctaPrimary')}
             </Button>
@@ -84,7 +89,7 @@
     class="py-28 md:py-32 px-6 md:px-20 max-w-[1440px] mx-auto border-b border-outline-variant/30"
   >
     <div class="grid grid-cols-12 gap-6 mb-16">
-      <div class="col-span-12 md:col-span-6">
+      <div class="col-span-12 md:col-span-6" use:reveal={{ stage: 'title' }}>
         <span class="text-primary font-bold tracking-[0.25em] uppercase text-xs block mb-4">
           {$t('home.services.eyebrow')}
         </span>
@@ -96,7 +101,8 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div
-        class="p-8 border border-outline-variant/50 bg-surface-container-lowest hover:shadow-soft-md transition-all duration-300"
+        class="premium-card p-8 border border-outline-variant/50 bg-surface-container-lowest hover:shadow-soft-md transition-all duration-300"
+        use:reveal={{ stage: 'content', delay: 110 }}
       >
         <span class="material-symbols-outlined text-primary text-5xl mb-8 block"
           >account_balance</span
@@ -109,7 +115,8 @@
         </p>
       </div>
       <div
-        class="p-8 border border-outline-variant/50 bg-surface-container-lowest hover:shadow-soft-md transition-all duration-300"
+        class="premium-card p-8 border border-outline-variant/50 bg-surface-container-lowest hover:shadow-soft-md transition-all duration-300"
+        use:reveal={{ stage: 'content', delay: 210 }}
       >
         <span class="material-symbols-outlined text-primary text-5xl mb-8 block">query_stats</span>
         <h3 class="font-serif text-2xl font-semibold text-on-surface mb-4">
@@ -120,7 +127,8 @@
         </p>
       </div>
       <div
-        class="p-8 border border-outline-variant/50 bg-surface-container-lowest hover:shadow-soft-md transition-all duration-300"
+        class="premium-card p-8 border border-outline-variant/50 bg-surface-container-lowest hover:shadow-soft-md transition-all duration-300"
+        use:reveal={{ stage: 'content', delay: 310 }}
       >
         <span class="material-symbols-outlined text-primary text-5xl mb-8 block">architecture</span>
         <h3 class="font-serif text-2xl font-semibold text-on-surface mb-4">
@@ -135,7 +143,10 @@
 
   <!-- FEATURED PROJECTS -->
   <section class="py-28 md:py-32 px-6 md:px-20 max-w-[1440px] mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+    <div
+      class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6"
+      use:reveal={{ stage: 'title' }}
+    >
       <div>
         <span class="text-primary font-bold tracking-[0.25em] uppercase text-xs block mb-4"
           >{$t('home.featured.eyebrow')}</span
@@ -148,7 +159,7 @@
       <Button
         variant="outline"
         href={`/${$locale}/proyectos`}
-        class="border-primary text-primary hover:bg-primary hover:text-white font-bold tracking-[0.2em] uppercase px-6 py-4 text-xs bg-transparent"
+        class="border-primary text-primary hover:bg-primary hover:text-on-primary-fixed font-bold tracking-[0.2em] uppercase px-6 py-4 text-xs bg-transparent"
       >
         {$t('home.featured.cta')}
       </Button>
@@ -162,14 +173,15 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {#each projects as project (project.slug)}
           <a
-            href={`/${$locale}/proyectos/${project.slug}`}
-            class="group border border-outline-variant/30 bg-surface-container-lowest hover:shadow-soft-md transition-all duration-500 flex flex-col"
+            href={resolve('/[lang]/proyectos/[slug]', { lang: $locale, slug: project.slug })}
+            class="premium-card group border border-outline-variant/30 bg-surface-container-lowest hover:shadow-soft-md transition-all duration-500 flex flex-col"
+            use:reveal={{ stage: 'content', delay: 110 }}
           >
             <div class="relative aspect-[4/3] overflow-hidden bg-surface-container">
               <img
                 src={project.images.principal}
                 alt={project.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                class="premium-image w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               {#if project.heroTag}
                 <span
@@ -179,7 +191,7 @@
                 </span>
               {/if}
               <span
-                class="absolute bottom-4 right-4 bg-primary text-white font-bold px-4 py-2 text-xs tracking-wider"
+                class="absolute bottom-4 right-4 bg-[var(--accent-hover)] text-white font-bold px-4 py-2 text-xs tracking-wider"
               >
                 {project.price}
               </span>
@@ -196,7 +208,7 @@
               <p class="text-sm text-on-surface-variant leading-relaxed line-clamp-2 mb-6">
                 {project.heroDescription ||
                   project.seoDescription ||
-                  'Propiedad exclusiva con acabados de máximo lujo.'}
+                  'Propiedad exclusiva con acabados de alta calidad y una ubicación cuidadosamente seleccionada.'}
               </p>
               <div class="mt-auto grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20">
                 {#each project.specs.slice(0, 4) as spec (spec.label)}
@@ -220,7 +232,7 @@
   <section class="py-28 md:py-32 bg-surface-container-low border-y border-outline-variant/30">
     <Container>
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-        <div class="md:col-span-5 relative z-10">
+        <div class="md:col-span-5 relative z-10" use:reveal={{ stage: 'title' }}>
           <span class="text-primary font-bold tracking-[0.3em] uppercase text-xs block mb-6"
             >{$t('home.about.eyebrow')}</span
           >
@@ -250,7 +262,7 @@
             </div>
           </div>
           <a
-            href={`/${$locale}/sobre-nosotros`}
+            href={resolve('/[lang]/sobre-nosotros', { lang: $locale })}
             class="inline-flex items-center gap-3 font-bold tracking-[0.2em] uppercase text-xs text-primary hover:gap-5 transition-all group"
           >
             {$t('home.about.cta')}
@@ -261,11 +273,14 @@
           </a>
         </div>
         <div class="md:col-start-7 md:col-span-6">
-          <div class="aspect-[4/5] overflow-hidden border border-outline-variant/30">
+          <div
+            class="premium-card aspect-[4/5] overflow-hidden border border-outline-variant/30"
+            use:reveal={{ stage: 'content', delay: 140 }}
+          >
             <img
               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80"
               alt="PrimeHaus Architecture"
-              class="w-full h-full object-cover"
+              class="premium-image w-full h-full object-cover"
             />
           </div>
         </div>
@@ -274,11 +289,13 @@
   </section>
 
   <!-- CTA BANNER -->
-  <section class="relative py-28 md:py-32 overflow-hidden bg-primary text-white text-center px-6">
+  <section
+    class="relative py-28 md:py-32 overflow-hidden bg-[var(--accent-hover)] text-white text-center px-6"
+  >
     <div
       class="absolute inset-0 bg-gradient-to-br from-primary via-primary-container to-on-primary-container/40 opacity-80 z-0"
     ></div>
-    <div class="relative z-10 max-w-4xl mx-auto">
+    <div class="relative z-10 max-w-4xl mx-auto" use:reveal={{ stage: 'title' }}>
       <span class="text-primary-fixed-dim font-bold tracking-[0.3em] uppercase text-xs mb-4 block"
         >{$t('home.cta.eyebrow')}</span
       >

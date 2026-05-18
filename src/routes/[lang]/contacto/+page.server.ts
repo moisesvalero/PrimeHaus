@@ -1,57 +1,108 @@
 import { fail } from '@sveltejs/kit';
+import { z } from 'zod';
+import { env } from '$env/dynamic/private';
 import { siteConfig } from '$lib/site-config';
 import { sendContactEmail } from '$lib/server/email';
 import { checkRateLimit } from '$lib/server/rate-limit';
 import type { Actions } from './$types';
 
-function validateForm(data: Record<string, string>) {
-  const errors: Record<string, string> = {};
+type ContactLang = 'es' | 'en' | 'fr' | 'de';
 
-  const name = data.name?.trim() || '';
-  const email = data.email?.trim() || '';
-  const message = data.message?.trim() || '';
-  const honeypot = data.website?.trim() || '';
-
-  if (honeypot) {
-    errors.honeypot = 'Bot detected';
+const messages: Record<
+  ContactLang,
+  {
+    rateLimit: string;
+    name: string;
+    email: string;
+    phone: string;
+    message: string;
+    emailFail: string;
+    success: string;
   }
-
-  if (!name || name.length < 2) {
-    errors.name = 'El nombre debe tener al menos 2 caracteres.';
+> = {
+  es: {
+    rateLimit: 'Demasiadas solicitudes. Por favor, intente de nuevo en unos minutos.',
+    name: 'El nombre debe tener al menos 2 caracteres.',
+    email: 'Por favor, ingrese un email válido.',
+    phone: 'Número de teléfono inválido.',
+    message: 'El mensaje debe tener al menos 10 caracteres.',
+    emailFail: 'No pudimos enviar su solicitud. Por favor, inténtelo de nuevo en unos minutos.',
+    success:
+      'Gracias por su mensaje. Un asesor senior se pondrá en contacto en un plazo de 4 horas hábiles.'
+  },
+  en: {
+    rateLimit: 'Too many requests. Please try again in a few minutes.',
+    name: 'Name must contain at least 2 characters.',
+    email: 'Please enter a valid email address.',
+    phone: 'Invalid phone number.',
+    message: 'Message must contain at least 10 characters.',
+    emailFail: 'We could not send your enquiry. Please try again in a few minutes.',
+    success:
+      'Thank you for your message. A senior curator will contact you within 4 business hours.'
+  },
+  fr: {
+    rateLimit: 'Trop de demandes. Veuillez réessayer dans quelques minutes.',
+    name: 'Le nom doit contenir au moins 2 caractères.',
+    email: 'Veuillez saisir une adresse email valide.',
+    phone: 'Numéro de téléphone invalide.',
+    message: 'Le message doit contenir au moins 10 caractères.',
+    emailFail:
+      'Nous n’avons pas pu envoyer votre demande. Veuillez réessayer dans quelques minutes.',
+    success:
+      'Merci pour votre message. Un curateur senior vous contactera dans un délai de 4 heures ouvrables.'
+  },
+  de: {
+    rateLimit: 'Zu viele Anfragen. Bitte versuchen Sie es in einigen Minuten erneut.',
+    name: 'Der Name muss mindestens 2 Zeichen enthalten.',
+    email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+    phone: 'Ungültige Telefonnummer.',
+    message: 'Die Nachricht muss mindestens 10 Zeichen enthalten.',
+    emailFail:
+      'Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es in einigen Minuten erneut.',
+    success:
+      'Vielen Dank für Ihre Nachricht. Ein Senior Curator meldet sich innerhalb von 4 Geschäftsstunden.'
   }
+};
 
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errors.email = 'Por favor, ingrese un email valido.';
-  }
+function normalizeLang(lang: string | undefined): ContactLang {
+  return lang === 'en' || lang === 'fr' || lang === 'de' ? lang : 'es';
+}
 
-  if (!message || message.length < 10) {
-    errors.message = 'El mensaje debe tener al menos 10 caracteres.';
-  }
+function schemaFor(lang: ContactLang) {
+  const msg = messages[lang];
 
-  if (data.phone && data.phone.length < 7) {
-    errors.phone = 'Numero de telefono invalido.';
-  }
+  return z.object({
+    name: z.string().trim().min(2, msg.name),
+    email: z.string().trim().email(msg.email),
+    phone: z
+      .string()
+      .trim()
+      .optional()
+      .refine((value) => !value || /^[+\d\s().-]{7,}$/.test(value), msg.phone),
+    subject: z.string().trim().optional(),
+    message: z.string().trim().min(10, msg.message),
+    website: z.string().trim().max(0, 'Bot detected').optional()
+  });
+}
 
-  return {
-    valid: Object.keys(errors).length === 0,
-    errors,
-    values: {
-      name,
-      email,
-      phone: data.phone?.trim() || '',
-      subject: data.subject?.trim() || '',
-      message
-    }
-  };
+function fieldErrors(error: z.ZodError): Record<string, string> {
+  const flattened = error.flatten().fieldErrors as Record<string, string[] | undefined>;
+  return Object.fromEntries(
+    Object.entries(flattened)
+      .map(([key, value]) => [key, value?.[0]])
+      .filter((entry): entry is [string, string] => typeof entry[1] === 'string')
+  );
 }
 
 export const actions = {
-  default: async ({ request }) => {
+  default: async ({ request, params }) => {
+    const lang = normalizeLang(params.lang);
+    const copy = messages[lang];
     const rate = checkRateLimit(request);
     if (!rate.allowed) {
       return fail(429, {
         success: false,
-        error: 'Demasiadas solicitudes. Por favor, intente de nuevo en unos minutos.'
+        error: copy.rateLimit
       });
     }
 
@@ -61,30 +112,43 @@ export const actions = {
       data[key] = typeof value === 'string' ? value : '';
     }
 
-    const { valid, errors, values } = validateForm(data);
-    if (!valid) {
-      return fail(400, { success: false, errors, values });
+    const parsed = schemaFor(lang).safeParse(data);
+    const values = {
+      name: data.name?.trim() || '',
+      email: data.email?.trim() || '',
+      phone: data.phone?.trim() || '',
+      subject: data.subject?.trim() || '',
+      message: data.message?.trim() || ''
+    };
+
+    if (!parsed.success) {
+      return fail(400, { success: false, errors: fieldErrors(parsed.error), values });
     }
 
+    const to = env.CONTACT_TO_EMAIL?.trim() || siteConfig.contact.email;
     const emailResult = await sendContactEmail(
       {
-        name: values.name,
-        email: values.email,
-        phone: values.phone,
-        subject: values.subject,
-        message: values.message
+        name: parsed.data.name,
+        email: parsed.data.email,
+        phone: parsed.data.phone || '',
+        subject: parsed.data.subject || '',
+        message: parsed.data.message
       },
-      siteConfig.contact.email
+      to
     );
 
     if (!emailResult.success) {
       console.error('[contact] Email failed:', emailResult.error);
+      return fail(502, {
+        success: false,
+        error: copy.emailFail,
+        values
+      });
     }
 
     return {
       success: true,
-      message:
-        'Gracias por su mensaje. Un curador senior se pondra en contacto en un plazo de 4 horas habiles.'
+      message: copy.success
     };
   }
 } satisfies Actions;

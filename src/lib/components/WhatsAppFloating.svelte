@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { page } from '$app/state';
+  import { MessageCircle, Send, X } from 'lucide-svelte';
   import { siteConfig } from '$lib/site-config';
   import { t } from '$lib/i18n';
-  import { browser } from '$app/environment';
+  import Button from '$lib/components/ui/button/button.svelte';
 
   let isOpen = $state(false);
 
@@ -10,54 +12,61 @@
   }
 
   const waNumber = $derived(siteConfig.contact.whatsapp?.replace(/^\+/, '') || '');
-  const waUrl = $derived('https://wa.me/' + waNumber);
-  const defaultMessage = $derived('');
+  const defaultMessage = $derived(
+    `${$t('layout.whatsapp.message') || 'Hola PrimeHaus, me gustaria recibir informacion.'} ${siteConfig.url}${page.url.pathname}`
+  );
+  const waUrl = $derived(`https://wa.me/${waNumber}?text=${encodeURIComponent(defaultMessage)}`);
 </script>
 
-{#if browser && waNumber}
-  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+{#if waNumber}
+  <div class="fixed right-4 bottom-4 z-[9998] flex flex-col items-end gap-3 sm:right-6 sm:bottom-6">
     {#if isOpen}
-      <div class="bg-surface-container-lowest border border-outline-variant/40 shadow-lg w-72 p-5">
-        <div class="flex items-center justify-between mb-4 pb-3 border-b border-outline-variant/30">
+      <div
+        class="w-[min(20rem,calc(100vw-2rem))] border border-outline-variant/40 bg-surface-container-lowest p-5 shadow-xl"
+      >
+        <div class="mb-4 flex items-center justify-between border-b border-outline-variant/30 pb-3">
           <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-xl">chat</span>
-            <span class="text-xs font-bold tracking-[0.15em] uppercase text-on-surface"
+            <MessageCircle class="text-primary" data-icon="inline-start" />
+            <span class="text-xs font-bold uppercase tracking-[0.15em] text-on-surface"
               >WhatsApp</span
             >
           </div>
-          <button
+          <Button
+            variant="ghost"
+            size="icon"
             type="button"
             onclick={toggleChat}
-            class="text-on-surface-variant hover:text-primary p-1"
-            aria-label="Cerrar chat"
+            aria-label={$t('layout.whatsapp.close')}
           >
-            <span class="material-symbols-outlined text-lg">close</span>
-          </button>
+            <X />
+          </Button>
         </div>
-        <p class="text-sm text-on-surface-variant leading-relaxed mb-4 font-light">
+        <p class="mb-4 text-sm leading-relaxed font-light text-on-surface-variant">
           {$t('layout.whatsapp.lead') ||
             'Prefiere comunicarse por WhatsApp? Escribanos directamente.'}
         </p>
-        <a
+        <Button
+          variant="default"
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-primary hover:brightness-110 text-white font-bold tracking-[0.15em] uppercase text-xs px-6 py-3 flex items-center justify-center gap-2 w-full transition-all"
+          class="w-full py-5 text-xs font-bold uppercase tracking-[0.15em]"
         >
-          <span class="material-symbols-outlined text-base">send</span>
+          <Send data-icon="inline-start" />
           {$t('layout.whatsapp.button') || 'Iniciar Chat'}
-        </a>
+        </Button>
       </div>
     {/if}
 
-    <button
+    <Button
+      variant="default"
+      size="icon-lg"
       type="button"
       onclick={toggleChat}
-      class="bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg flex items-center justify-center transition-all hover:scale-105 active:scale-95"
-      style="width: 56px; height: 56px;"
-      aria-label="Abrir chat de WhatsApp"
+      class="size-14 rounded-full bg-[#25d366] text-white shadow-xl hover:bg-[#20bd5a] hover:scale-105"
+      aria-label={$t('layout.whatsapp.open')}
     >
-      <span class="material-symbols-outlined text-3xl">chat</span>
-    </button>
+      <MessageCircle />
+    </Button>
   </div>
 {/if}

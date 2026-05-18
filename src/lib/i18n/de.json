@@ -22,7 +22,15 @@
       "toggleMenu": "Menü umschalten",
       "closeMenuOverlay": "Menü schließen",
       "theme": "Hell-/Dunkelmodus",
-      "language": "Sprache"
+      "language": "Sprache",
+      "call": "PrimeHaus anrufen"
+    },
+    "whatsapp": {
+      "open": "WhatsApp-Chat öffnen",
+      "close": "WhatsApp-Chat schließen",
+      "lead": "Bevorzugen Sie WhatsApp? Schreiben Sie uns direkt und ein Senior Advisor antwortet Ihnen.",
+      "button": "Chat starten",
+      "message": "Hallo PrimeHaus, ich möchte Informationen zu Ihren Immobilien erhalten."
     },
     "lang": {
       "toSpanish": "🇪🇸 ES",
@@ -234,6 +242,55 @@
     },
     "map": {
       "title": "BESUCHEN SIE UNSER ATELIER"
+    }
+  },
+  "blog": {
+    "seo": {
+      "title": "Luxury Real Estate Intelligence | PrimeHaus",
+      "description": "PrimeHaus Editorial-Perspektiven zu Wohnarchitektur, Vermögensinvestitionen und Prime-Immobilienmärkten."
+    },
+    "hero": {
+      "eyebrow": "PRIMEHAUS OBSERVATORY",
+      "title": "Intelligence für Vermögensentscheidungen",
+      "subtitle": "Unser Editorial wird Marktanalyse, architektonisches Urteilsvermögen und diskrete Signale für vermögende Käufer, Eigentümer und Investoren bündeln.",
+      "statusLabel": "Demnächst",
+      "statusText": "Die erste Editorial-Serie wird kuratiert. Bis dahin teilt unser Team private Chancen und Einschätzungen auf Anfrage."
+    },
+    "empty": {
+      "card1Title": "Market Notes",
+      "card1Text": "Kurze Einschätzungen zu Madrid, Marbella und Palma mit Fokus auf Knappheit, Liquidität und architektonischen Wert.",
+      "card2Title": "Architectural Briefings",
+      "card2Text": "Kriterien zur Bewertung besonderer Residenzen: Materialität, Ausrichtung, Privatsphäre, Landschaft und Beständigkeit.",
+      "card3Title": "Private Advisory",
+      "card3Text": "Maßgeschneiderte Reports für Kunden, die vor Erwerb oder Veräußerung Kontext benötigen."
+    },
+    "cta": {
+      "title": "Fordern Sie eine private Markteinschätzung an",
+      "subtitle": "Wir können ein individuelles Briefing nach Lage, Budget und Vermögenshorizont vorbereiten.",
+      "button": "Briefing anfragen"
+    },
+    "faq": {
+      "q1": "Veröffentlicht der Blog bereits Artikel?",
+      "a1": "Noch nicht. PrimeHaus bereitet eine Editorial-Serie vor und bietet direkte Kontakte für private Analysen an.",
+      "q2": "Kann ich vor dem Kauf einen Bericht anfordern?",
+      "a2": "Ja. Das PrimeHaus-Team kann eine private Markteinschätzung und Chancenprüfung nach Ihren Kriterien vorbereiten."
+    },
+    "post": {
+      "seo": {
+        "title": "Artikel in Vorbereitung | PrimeHaus",
+        "description": "Dieser PrimeHaus Editorial-Artikel ist in Vorbereitung. Fordern Sie ein privates Briefing für eine individuelle Analyse an."
+      },
+      "hero": {
+        "eyebrow": "EDITORIAL IN VORBEREITUNG",
+        "title": "Diese Analyse ist noch nicht veröffentlicht",
+        "subtitle": "Die Route ist für den zukünftigen PrimeHaus Blog vorbereitet, aber die redaktionellen Inhalte erscheinen in einer späteren Phase."
+      },
+      "placeholder": {
+        "title": "Reservierter Inhalt",
+        "body": "Das Editorial-Team bereitet diesen Beitrag vor. Wenn Sie sofort eine Einschätzung zu diesem Thema benötigen, fragen Sie eine private Beratung an.",
+        "contact": "Beratung anfragen",
+        "back": "Zurück zum Blog"
+      }
     }
   }
 }

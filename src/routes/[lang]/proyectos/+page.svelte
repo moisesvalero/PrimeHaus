@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
   import { siteConfig } from '$lib/site-config';
   import { setSeo } from '$lib/seo';
   import { locale, t } from '$lib/i18n';
+  import { reveal } from '$lib/reveal';
   import Button from '$lib/components/ui/button/button.svelte';
   import Container from '$lib/components/ui/Container.svelte';
 
@@ -35,10 +37,10 @@
   });
 </script>
 
-<div class="pt-24 md:pt-36">
+<div class="pt-16 md:pt-28 lg:pt-36">
   <!-- HERO -->
   <section class="pb-16 px-6 md:px-20 max-w-[1440px] mx-auto border-b border-outline-variant/30">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end" use:reveal={{ stage: 'title' }}>
       <div class="md:col-span-8">
         <span class="text-primary font-bold tracking-[0.3em] uppercase text-xs block mb-4"
           >{$t('projects.hero.eyebrow')}</span
@@ -80,15 +82,18 @@
     {:else}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
         {#each projects as project, i (project.slug)}
-          <div class={`group ${i % 2 !== 0 ? 'md:mt-28' : ''}`}>
+          <div
+            class={`premium-card group ${i % 2 !== 0 ? 'md:mt-28' : ''}`}
+            use:reveal={{ stage: 'content', delay: 90 + (i % 2) * 120, distance: 56 }}
+          >
             <a
-              href={`/${$locale}/proyectos/${project.slug}`}
+              href={resolve('/[lang]/proyectos/[slug]', { lang: $locale, slug: project.slug })}
               class="block overflow-hidden mb-6 bg-surface-container border border-outline-variant/30 relative"
             >
               <img
                 src={project.images.principal}
                 alt={project.title}
-                class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+                class="premium-image w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {#if project.heroTag}
                 <span
@@ -101,7 +106,7 @@
                 class="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[1px]"
               >
                 <span
-                  class="bg-primary text-white font-bold tracking-[0.2em] uppercase px-8 py-4 text-xs"
+                  class="bg-[var(--accent-hover)] text-white font-bold tracking-[0.2em] uppercase px-8 py-4 text-xs"
                 >
                   {$t('projects.card.discover')}
                 </span>
@@ -134,7 +139,7 @@
             <p class="mt-6 text-sm text-on-surface-variant line-clamp-3 leading-relaxed">
               {project.heroDescription ||
                 project.seoDescription ||
-                'Residencia de máximo lujo con diseño arquitectónico de vanguardia y vistas espectaculares.'}
+                'Propiedad de alto nivel con buena arquitectura, privacidad y una ubicación especialmente demandada.'}
             </p>
             <div
               class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-outline-variant/15"
@@ -171,7 +176,7 @@
           variant="default"
           size="lg"
           href={`/${$locale}/contacto`}
-          class="bg-primary hover:brightness-110 text-white font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs shadow-lg"
+          class="bg-primary text-primary-foreground hover:bg-[var(--accent-hover)] hover:text-white font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs shadow-lg"
         >
           {$t('projects.cta.primary')}
         </Button>
@@ -179,7 +184,7 @@
           variant="outline"
           size="lg"
           href={`tel:${siteConfig.contact.phone}`}
-          class="border-primary text-primary hover:bg-primary hover:text-white font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs bg-transparent"
+          class="border-primary text-primary hover:bg-primary hover:text-on-primary-fixed font-bold tracking-[0.2em] uppercase px-12 py-6 text-xs bg-transparent"
         >
           {$t('projects.cta.secondary')}
         </Button>

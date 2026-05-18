@@ -22,7 +22,15 @@
       "toggleMenu": "Ouvrir ou fermer le menu",
       "closeMenuOverlay": "Fermer le menu",
       "theme": "Thème clair ou sombre",
-      "language": "Langue"
+      "language": "Langue",
+      "call": "Appeler PrimeHaus"
+    },
+    "whatsapp": {
+      "open": "Ouvrir le chat WhatsApp",
+      "close": "Fermer le chat WhatsApp",
+      "lead": "Vous préférez WhatsApp ? Écrivez-nous directement et un conseiller senior vous répondra.",
+      "button": "Démarrer le chat",
+      "message": "Bonjour PrimeHaus, je souhaite recevoir des informations sur vos propriétés."
     },
     "lang": {
       "toSpanish": "🇪🇸 ES",
@@ -234,6 +242,55 @@
     },
     "map": {
       "title": "VISITEZ NOTRE ATELIER"
+    }
+  },
+  "blog": {
+    "seo": {
+      "title": "Intelligence immobilière de luxe | PrimeHaus",
+      "description": "Perspectives éditoriales de PrimeHaus sur l’architecture résidentielle, l’investissement patrimonial et les marchés immobiliers prime."
+    },
+    "hero": {
+      "eyebrow": "OBSERVATOIRE PRIMEHAUS",
+      "title": "Intelligence pour décisions patrimoniales",
+      "subtitle": "Notre éditorial réunira analyse de marché, jugement architectural et signaux discrets pour acheteurs, propriétaires et investisseurs fortunés.",
+      "statusLabel": "Bientôt disponible",
+      "statusText": "La première série éditoriale est en cours de curation. Entre-temps, notre équipe partage des opportunités et lectures privées sur consultation."
+    },
+    "empty": {
+      "card1Title": "Notes de marché",
+      "card1Text": "Lectures brèves sur Madrid, Marbella et Palma, centrées sur rareté, liquidité et valeur architecturale.",
+      "card2Title": "Briefings architecturaux",
+      "card2Text": "Critères pour évaluer des résidences singulières : matérialité, orientation, intimité, paysage et permanence.",
+      "card3Title": "Conseil privé",
+      "card3Text": "Rapports sur mesure pour les clients ayant besoin de contexte avant une acquisition ou une cession."
+    },
+    "cta": {
+      "title": "Demandez une lecture privée du marché",
+      "subtitle": "Nous pouvons préparer un briefing personnalisé selon localisation, budget et horizon patrimonial.",
+      "button": "Demander un briefing"
+    },
+    "faq": {
+      "q1": "Le blog publie-t-il déjà des articles ?",
+      "a1": "Pas encore. PrimeHaus prépare une série éditoriale et maintient le contact direct pour les analyses privées.",
+      "q2": "Puis-je demander un rapport avant d’acheter ?",
+      "a2": "Oui. L’équipe PrimeHaus peut préparer une lecture privée du marché et des opportunités selon vos critères."
+    },
+    "post": {
+      "seo": {
+        "title": "Article en préparation | PrimeHaus",
+        "description": "Cet article éditorial PrimeHaus est en préparation. Demandez un briefing privé pour une analyse personnalisée."
+      },
+      "hero": {
+        "eyebrow": "ÉDITORIAL EN PRÉPARATION",
+        "title": "Cette analyse n’est pas encore publiée",
+        "subtitle": "La route est prête pour le futur blog PrimeHaus, mais le contenu éditorial sera publié ultérieurement."
+      },
+      "placeholder": {
+        "title": "Contenu réservé",
+        "body": "L’équipe éditoriale prépare cette pièce. Si vous avez besoin d’une lecture immédiate sur ce sujet, demandez une consultation privée.",
+        "contact": "Demander une consultation",
+        "back": "Retour au blog"
+      }
     }
   }
 }

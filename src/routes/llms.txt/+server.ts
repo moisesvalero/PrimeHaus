@@ -25,7 +25,7 @@ export const GET = () => {
       .map((p) => {
         const title = tFor(defaultLocale, p.titleKey, p.path);
         const desc = tFor(defaultLocale, p.descKey, '');
-        return `- [${title}](${baseUrl}${p.path})${desc ? `: ${desc}` : ''}`;
+        return `- [${title}](${baseUrl}/${defaultLocale}${p.path === '/' ? '' : p.path})${desc ? `: ${desc}` : ''}`;
       })
       .join('\n');
 
@@ -63,6 +63,8 @@ ${renderList(docs)}
 
 - es (por defecto)
 - en
+- fr
+- de
 `;
 
   return new Response(body, {

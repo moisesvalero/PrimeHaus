@@ -18,10 +18,10 @@ export function mapSanityPrimeProject(
 
   return {
     id: raw._id || '',
-    title: getLocalized(raw.title, locale, 'Propiedad sin titulo'),
+    title: getLocalized(raw.title, locale, 'Propiedad sin título'),
     slug: raw.slug?.current || '',
     price: raw.price || 'Consultar precio',
-    location: getLocalized(raw.location, locale, 'Ubicacion no disponible'),
+    location: getLocalized(raw.location, locale, 'Ubicación no disponible'),
     heroTag: getLocalized(raw.heroTag, locale, ''),
     heroDescription: getLocalized(raw.heroDescription, locale, ''),
     specs: (raw.specs || []).map((s) => ({

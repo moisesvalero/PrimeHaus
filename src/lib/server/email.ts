@@ -35,12 +35,12 @@ export async function sendContactEmail(
       console.log('[email dev] No RESEND_API_KEY configured. Email not sent.');
       return { success: true };
     }
-    return { success: true };
+    return { success: false, error: 'RESEND_API_KEY is not configured.' };
   }
 
   try {
     await client.emails.send({
-      from: 'PrimeHaus <contacto@primehaus.vercel.app>',
+      from: env.RESEND_FROM_EMAIL?.trim() || 'PrimeHaus <contacto@primehaus.vercel.app>',
       to,
       subject: data.subject || 'Nueva consulta desde PrimeHaus',
       replyTo: data.email,

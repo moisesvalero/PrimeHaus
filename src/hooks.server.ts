@@ -61,7 +61,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         "img-src 'self' data: https:",
         "font-src 'self' https://fonts.gstatic.com",
         "connect-src 'self' https:",
-        "frame-src 'self' https://*.typebot.io",
+        "frame-src 'self' https://*.typebot.io https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://my.matterport.com https://sketchfab.com",
         "frame-ancestors 'none'",
         "base-uri 'self'",
         "form-action 'self'"
