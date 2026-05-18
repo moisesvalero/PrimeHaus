@@ -1,4 +1,4 @@
-import { getServerSanityClient } from '$lib/server/sanity/get-server-client';
+import { getSanityServerClient } from '$lib/server/sanity/get-server-client';
 import { primeProjectsHomeQuery } from '$lib/server/sanity/groq-prime-project';
 import { sitePortfolioQuery } from '$lib/server/sanity/groq-site-portfolio';
 import { mapSanityPrimeProjectsList } from '$lib/server/sanity/map-prime-project';
@@ -9,16 +9,18 @@ import type { SanityPrimeProject, SanitySitePortfolio } from '$lib/server/sanity
 
 export const load: PageServerLoad = async ({ params }) => {
   const lang = params.lang as any;
-  const client = getServerSanityClient();
+  const client = getSanityServerClient();
 
   let rawProjects: SanityPrimeProject[] = [];
   let rawSite: SanitySitePortfolio | null = null;
 
-  try {
-    rawProjects = await client.fetch(primeProjectsHomeQuery);
-    rawSite = await client.fetch(sitePortfolioQuery);
-  } catch (err) {
-    console.error('Error fetching Sanity data for home:', err);
+  if (client) {
+    try {
+      rawProjects = await client.fetch(primeProjectsHomeQuery);
+      rawSite = await client.fetch(sitePortfolioQuery);
+    } catch (err) {
+      console.error('Error fetching Sanity data for home:', err);
+    }
   }
 
   const projects = mapSanityPrimeProjectsList(rawProjects, lang);

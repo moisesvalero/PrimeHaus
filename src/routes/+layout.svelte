@@ -42,7 +42,7 @@
     setLocale(nextLang);
     if (browser) {
       const clean = page.url.pathname.replace(/^\/(es|en|fr|de)(\/|$)/, '/');
-      window.location.href = `/${nextLang}${clean === '/' ? '' : clean}`;
+      window.location.href = '/' + nextLang + (clean === '/' ? '' : clean);
     }
   }
 
@@ -66,14 +66,23 @@
     }, 3000);
   });
 
+  const currentLang = $derived(
+    page.url.pathname.match(/^\/(es|en|fr|de)/)?.[1] || 'es'
+  );
+
+  function localizeHref(href: string): string {
+    return '/' + currentLang + (href === '/' ? '' : href);
+  }
+
   function navClass(href: string): string {
     const path = page.url.pathname;
+    const cleanPath = path.replace(/^\/(es|en|fr|de)(\/|$)/, '/');
     const active =
-      href === '/' ? path === '/' : path === href || (href !== '/' && path.startsWith(href + '/'));
+      href === '/' ? cleanPath === '/' : cleanPath === href || (href !== '/' && cleanPath.startsWith(href + '/'));
     if (active) {
-      return 'relative border-b-2 border-primary pb-1 font-bold text-primary transition-colors duration-200 hover:text-primary';
+      return 'text-xs font-semibold tracking-[0.15em] uppercase border-b border-primary pb-0.5 text-primary transition-colors duration-200 hover:text-primary';
     }
-    return 'text-on-surface-variant transition-colors duration-200 hover:text-primary';
+    return 'text-xs font-medium tracking-[0.15em] uppercase text-on-surface-variant transition-colors duration-200 hover:text-primary';
   }
 </script>
 
@@ -145,19 +154,19 @@
 <ModeWatcher defaultMode="system" disableHeadScriptInjection />
 
 <div class="flex min-h-0 w-full flex-1 flex-col">
-  <!-- Nav — mismas utilidades que stitch .../code.html (enlaces reales) -->
+  <!-- Nav — Swiss editorial: oversized, airy, sharp, high letter-spacing -->
   <nav
-    class="fixed left-0 right-0 top-0 z-50 mx-auto mt-4 flex max-w-5xl items-center justify-between rounded-full border border-outline-variant bg-surface/80 px-6 py-3 shadow-md backdrop-blur-md"
+    class="fixed left-0 right-0 top-0 z-50 mx-auto mt-4 flex max-w-5xl items-center justify-between border border-outline-variant/40 bg-surface/95 px-8 py-4 backdrop-blur-md"
   >
-    <div class="font-h3 text-h3 font-bold text-primary">
+    <a href={localizeHref('/')} class="font-serif text-xl font-bold tracking-tight text-primary">
       {siteConfig.name}
-    </div>
-    <div class="hidden items-center gap-6 md:flex">
-      <a class={navClass('/')} href="/">{$t('layout.nav.home')}</a>
-      <a class={navClass('/proyectos')} href="/proyectos">{$t('layout.nav.projects')}</a>
-      <a class={navClass('/sobre-nosotros')} href="/sobre-nosotros">{$t('layout.nav.about')}</a>
-      <a class={navClass('/blog')} href="/blog">{$t('layout.nav.blog')}</a>
-      <a class={navClass('/contacto')} href="/contacto">{$t('layout.nav.contact')}</a>
+    </a>
+    <div class="hidden items-center gap-8 md:flex">
+      <a class={navClass('/')} href={localizeHref('/')}>{$t('layout.nav.home')}</a>
+      <a class={navClass('/proyectos')} href={localizeHref('/proyectos')}>{$t('layout.nav.projects')}</a>
+      <a class={navClass('/sobre-nosotros')} href={localizeHref('/sobre-nosotros')}>{$t('layout.nav.about')}</a>
+      <a class={navClass('/blog')} href={localizeHref('/blog')}>{$t('layout.nav.blog')}</a>
+      <a class={navClass('/contacto')} href={localizeHref('/contacto')}>{$t('layout.nav.contact')}</a>
     </div>
     <div class="flex shrink-0 items-center gap-2 sm:gap-4">
       <div class="flex items-center gap-0.5 sm:gap-2">
@@ -179,8 +188,8 @@
         </button>
       </div>
       <a
-        href="/proyectos"
-        class="scale-95 rounded-full bg-primary px-6 py-2 font-bold text-white transition-transform active:scale-90"
+        href={localizeHref('/proyectos')}
+        class="scale-95 bg-primary px-6 py-2 text-xs font-bold tracking-[0.2em] text-white uppercase transition-transform active:scale-90"
       >
         {$t('layout.nav.getStarted')}
       </a>

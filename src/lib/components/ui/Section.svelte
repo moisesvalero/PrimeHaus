@@ -21,9 +21,9 @@
 
   const variantClasses = {
     default: 'bg-background',
-    muted: 'bg-muted/30',
-    soft: 'bg-gradient-to-b from-blue-50/30 to-transparent',
-    surface: 'bg-secondary/20'
+    muted: 'bg-surface-container',
+    soft: 'bg-surface-container-low',
+    surface: 'bg-surface-container-lowest'
   };
 </script>
 
