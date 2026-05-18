@@ -236,66 +236,207 @@
   },
   "home": {
     "seo": {
-      "title": "My SvelteKit Starter — Svelte 5 + Kit 2 template ready to ship",
-      "description": "All in one repo: shadcn-style UI you own, Tailwind v4, TypeScript, ES/EN copy, dark mode, technical SEO and demo pages. For vibe coders who skip reinventing the stack."
+      "title": "PrimeHaus — Exclusive Properties & Prestige Architecture",
+      "description": "Discover our curated selection of luxury villas, exclusive penthouses and architectural residences in Madrid, Marbella and Palma. Discreet brokerage for collectors of the extraordinary."
     },
     "hero": {
-      "title": "The SvelteKit starter for people who just want to build",
-      "subtitle": "Runes, routes, forms, toasts, light/dark theme and a component gallery living in your repo—not an opaque package. Fork, tweak, deploy.",
-      "ctaPrimary": "Browse components",
-      "ctaSecondary": "Documentation"
+      "eyebrow": "EXCELLENCE SINCE 2004",
+      "title": "Defining the Architecture of Living",
+      "subtitle": "A rigorous selection of prestige properties for the most discerning clients. Explore our exclusive residences in Madrid, Marbella and Palma.",
+      "ctaPrimary": "Explore Projects",
+      "ctaSecondary": "Contact Atelier"
     },
-    "features": {
-      "eyebrow": "Included",
-      "title": "What’s included in this starter",
-      "performance": {
-        "title": "Lean JS in the browser",
-        "desc": "Svelte compiles components to small output — great for landings and apps where payload matters."
-      },
-      "types": {
-        "title": "TypeScript that survives CI",
-        "desc": "Structured for `npm run check`: typed routes and UI so failures happen in the pipeline, not on users."
-      },
-      "dx": {
-        "title": "shadcn-style UI in your repo",
-        "desc": "Buttons, cards, forms live under `src/lib/components/ui/` — edit the source, no black-box dependency."
-      },
-      "deploy": {
-        "title": "SEO & production baseline",
-        "desc": "Meta tags, JSON-LD, `/sitemap.xml`, `/robots.txt`, dynamic OG — wire the repo to Vercel or Netlify when your domain is ready."
-      },
-      "cms": {
-        "title": "Sanity CMS (optional)",
-        "desc": "Studio + schema under `sanity/`, server client + GROQ helpers under `src/lib/server/sanity/`. Enable with `SANITY_PROJECT_ID` and `SANITY_DATASET` in `.env`."
-      },
-      "product": {
-        "title": "Product-ready UX",
-        "desc": "ES/EN strings via `$t()`, light/dark theme (mode-watcher), cookie banner and JSON-LD — a usable landing, not an isolated mock."
-      }
+    "services": {
+      "eyebrow": "OUR EXPERTISE",
+      "title": "Real Estate Curation Services",
+      "brokerageTitle": "Exclusive Brokerage",
+      "brokerageDesc": "Discreet acquisition and management of the most significant and sought-after residential assets in the international market.",
+      "investmentTitle": "Strategic Investment",
+      "investmentDesc": "Data analysis and market intelligence to maximise returns and expand high-value portfolios.",
+      "advisoryTitle": "Architectural Advisory",
+      "advisoryDesc": "Comprehensive consultancy spanning structural feasibility to elite interior design and landscape architecture."
     },
-    "steps": {
-      "title": "Run this starter locally (4 steps)",
-      "step1": {
-        "title": "Get the code",
-        "desc": "Clone the repo (`git clone …`) or download the ZIP from GitHub. This template already includes SvelteKit, Tailwind v4, TypeScript and the UI setup."
-      },
-      "step2": {
-        "title": "Install dependencies",
-        "desc": "From the project folder run `npm install`. Requires Node.js 22+ (see `package.json`)."
-      },
-      "step3": {
-        "title": "Start the dev server",
-        "desc": "Run `npm run dev` and open the URL printed in the terminal (usually http://localhost:5173)."
-      },
-      "step4": {
-        "title": "Customize & deploy",
-        "desc": "Update name and links in project config, adjust copy and theme colors, run `npm run build`, then ship to Vercel, Netlify or your host."
-      }
+    "featured": {
+      "eyebrow": "CURATED COLLECTION",
+      "title": "Featured Properties",
+      "cta": "View All Properties",
+      "empty": "No featured properties available at this time.",
+      "discover": "Discover Residence"
+    },
+    "about": {
+      "eyebrow": "SWISS PHILOSOPHY",
+      "title": "Founded on the Principles of Swiss Precision",
+      "desc": "Architectural integrity is not merely a standard; it is our code. We conceive each property as a habitable work of art, ensuring that the structure's legacy resonates with the sophistication of its owner.",
+      "step1Title": "Curatorial Selection",
+      "step1Desc": "We meticulously evaluate each property against architectural, historical and locational criteria before including it in our portfolio.",
+      "step2Title": "Discreet Management",
+      "step2Desc": "We coordinate every transaction with the utmost confidentiality, from initial valuation to notarial signing.",
+      "cta": "Discover Our Story"
     },
     "cta": {
-      "title": "What’s next?",
-      "subtitle": "Explore the gallery, steal UI patterns and swap in your brand—this template is the launchpad, not the ceiling.",
-      "button": "Browse components"
+      "eyebrow": "BEGIN YOUR JOURNEY",
+      "title": "Ready to Discover Your Architectural Masterpiece?",
+      "subtitle": "Schedule a private consultation with one of our senior curators and gain access to properties that never reach the public market.",
+      "button": "Request Private Consultation"
+    }
+  },
+  "projects": {
+    "seo": {
+      "title": "Portfolio of Exclusive Properties | PrimeHaus",
+      "description": "Explore our curated collection of ultra-luxury villas, exclusive penthouses and architectural residences in the most prestigious locations across Madrid, Marbella and Palma."
+    },
+    "hero": {
+      "eyebrow": "PRIMEHAUS COLLECTION",
+      "title": "Portfolio of Residences",
+      "subtitle": "Curating the world's most significant residences. Explore our latest acquisitions and architectural masterpieces in the most exclusive destinations on the planet.",
+      "catalog": "Select Catalogue",
+      "available": "Properties Available"
+    },
+    "empty": {
+      "title": "Catalogue Updating",
+      "desc": "Our curatorial team is preparing a new selection of exclusive properties for this catalogue."
+    },
+    "card": {
+      "discover": "Discover Residence",
+      "value": "ESTIMATED VALUE"
+    },
+    "cta": {
+      "eyebrow": "BEGIN YOUR JOURNEY",
+      "title": "Ready to find your architectural masterpiece?",
+      "primary": "Schedule Private Consultation",
+      "secondary": "Call an Advisor"
+    }
+  },
+  "project": {
+    "hero": {
+      "defaultTag": "EXCLUSIVE RESIDENCE",
+      "valueLabel": "ACQUISITION VALUE"
+    },
+    "image": {
+      "locationLabel": "PRIVILEGED LOCATION"
+    },
+    "specs": {
+      "eyebrow": "TECHNICAL SPECIFICATIONS",
+      "heading": "Property Summary",
+      "location": "LOCATION",
+      "price": "PRICE",
+      "ctaPrimary": "Request Private Dossier",
+      "ctaSecondary": "Call an Advisor"
+    },
+    "description": {
+      "eyebrow": "DESCRIPTIVE REPORT",
+      "heading": "Architecture & Lifestyle",
+      "fallback1": "This majestic residence redefines the standards of contemporary luxury. Conceived by internationally renowned architects, the property integrates harmoniously with its natural surroundings, offering uninterrupted panoramic views and absolute privacy.",
+      "fallback2": "The interior spaces have been meticulously designed using the finest noble materials, including imported marbles, hand-treated exotic woods and cutting-edge home automation systems. The expansive living areas flow naturally towards the extensive outdoor terraces and infinity pool, creating the perfect setting for both private relaxation and exclusive entertaining."
+    },
+    "video": {
+      "eyebrow": "CINEMATIC TOUR",
+      "heading": "Private Virtual Tour"
+    },
+    "gallery": {
+      "eyebrow": "IMAGE GALLERY",
+      "title": "Architectural Details"
+    },
+    "cta": {
+      "eyebrow": "BEGIN YOUR JOURNEY",
+      "title": "Would you like to arrange a private viewing of",
+      "primary": "Book Private Appointment",
+      "secondary": "Call an Advisor"
+    }
+  },
+  "about": {
+    "seo": {
+      "title": "About Us | Swiss Philosophy | PrimeHaus",
+      "description": "Discover the history, mission and values of PrimeHaus. Leaders in high-end real estate curation and architectural advisory since 2004."
+    },
+    "hero": {
+      "eyebrow": "OUR LEGACY",
+      "title": "The Art of Selection",
+      "quote": "A definitive vision of luxury, curated through twenty years of architectural excellence and an unwavering heritage."
+    },
+    "story": {
+      "eyebrow": "ORIGINS & EVOLUTION",
+      "title": "Two Decades of Mastery",
+      "p1": "Founded in 2004, PrimeHaus was born from a singular obsession: the intersection between structural integrity and emotional resonance. Our journey began as a boutique consulting firm for architectural restoration, evolving into Europe's most exclusive luxury real estate house.",
+      "p2": "Twenty years of experience have refined our palate for the exceptional. We do not merely list properties; we curate living environments that stand as monuments to their owners' achievements. Our portfolio represents a rigorous selection of the planet's most unique coastal estates and urban sanctuaries.",
+      "p3": "Today, our vision remains unchanged. We provide an architectural lens through which the global elite can discover and manage their most significant assets. Every transaction is treated as a masterpiece, handled with the discretion and precision that has become our trademark.",
+      "years": "Years of Excellence"
+    },
+    "mission": {
+      "title": "The Mission",
+      "desc": "To serve as the definitive architectural bridge between visionary properties and those individuals who appreciate the nuances of high-level design and structural art."
+    },
+    "vision": {
+      "title": "The Vision",
+      "desc": "To define the global standard for luxury real estate through an unwavering commitment to architectural integrity and the Swiss philosophy of objective excellence."
+    },
+    "values": {
+      "title": "The Values",
+      "desc": "Mathematical precision, absolute discretion and an unwavering dedication to the aesthetics of permanence in an ever-changing world."
+    },
+    "team": {
+      "eyebrow": "EXECUTIVE LEADERSHIP",
+      "title": "The Custodians",
+      "subtitle": "PRIMEHAUS BOARD OF DIRECTORS",
+      "members": [
+        { "name": "Julian Vance", "role": "Founder & CEO" },
+        { "name": "Elena Rossetti", "role": "Principal Architect" },
+        { "name": "Marcus Thorne", "role": "Head of Estates" },
+        { "name": "Sophia Chen", "role": "Client Director" }
+      ]
+    },
+    "cta": {
+      "eyebrow": "BEGIN YOUR JOURNEY",
+      "title": "Would you like to be part of our exclusive portfolio?",
+      "primary": "Explore Portfolio",
+      "secondary": "Schedule Consultation"
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "Contact & Private Atelier | PrimeHaus",
+      "description": "Get in touch with PrimeHaus to arrange a private consultation or request information about our portfolio of exclusive properties."
+    },
+    "hero": {
+      "eyebrow": "PRIVATE ATELIER",
+      "title": "Let's Converse",
+      "subtitle": "Whether you seek to acquire a legacy residence or require high-level architectural advisory, our doors are open for a private consultation."
+    },
+    "form": {
+      "title": "PRIVATE CONTACT FORM",
+      "name": "Full Name",
+      "namePh": "Your full name",
+      "email": "Email Address",
+      "emailPh": "example@domain.com",
+      "phone": "Contact Phone",
+      "phonePh": "+34 600 000 000",
+      "subject": "Subject / Property",
+      "subjectPh": "Nature of your enquiry",
+      "message": "Message / Requirements",
+      "messagePh": "How can we assist with your property search or management?",
+      "submit": "Send Private Enquiry",
+      "submitting": "Sending..."
+    },
+    "success": {
+      "title": "Enquiry Received",
+      "message": "Thank you for contacting PrimeHaus. A senior curator will review your enquiry and contact you within a maximum of 4 business hours."
+    },
+    "sidebar": {
+      "atelier": "Our Atelier",
+      "address": "Calle de Serrano 45, 2nd Floor, 28001 Madrid",
+      "channels": "Direct Channels",
+      "phone": "TELEPHONE",
+      "email": "EMAIL",
+      "hours": "Operating Hours",
+      "monFri": "MONDAY — FRIDAY",
+      "monFriVal": "09:00 — 19:00",
+      "sat": "SATURDAYS",
+      "satVal": "By Exclusive Appointment",
+      "sun": "SUNDAYS",
+      "sunVal": "Closed"
+    },
+    "map": {
+      "title": "VISIT OUR ATELIER"
     }
   },
   "hero": {

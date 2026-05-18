@@ -33,14 +33,207 @@
   },
   "home": {
     "seo": {
-      "title": "PrimeHaus — Propriétés exclusives et architecture de prestige",
-      "description": "Découvrez notre sélection de biens immobiliers de luxe et de projets architecturaux d'exception dans les emplacements les plus prisés."
+      "title": "PrimeHaus — Propriétés Exclusives et Architecture de Prestige",
+      "description": "Découvrez notre sélection de biens immobiliers de luxe et de projets architecturaux d'exception dans les emplacements les plus prisés de Madrid, Marbella et Palma."
     },
     "hero": {
-      "title": "L'excellence architecturale dans des lieux d'exception",
-      "subtitle": "Une sélection rigoureuse de propriétés de prestige pour les clients les plus exigeants. Explorez nos projets exclusifs à Madrid, Marbella et Palma.",
-      "ctaPrimary": "Explorer les projets",
-      "ctaSecondary": "Contact"
+      "eyebrow": "EXCELLENCE DEPUIS 2004",
+      "title": "Définir l'Architecture de l'Habitat",
+      "subtitle": "Une sélection rigoureuse de propriétés de prestige pour les clients les plus exigeants. Explorez nos résidences exclusives à Madrid, Marbella et Palma.",
+      "ctaPrimary": "Explorer les Projets",
+      "ctaSecondary": "Contacter l'Atelier"
+    },
+    "services": {
+      "eyebrow": "NOTRE EXPERTISE",
+      "title": "Services de Curation Immobilière",
+      "brokerageTitle": "Courtage Exclusif",
+      "brokerageDesc": "Acquisition et gestion discrète des actifs résidentiels les plus significatifs et convoités du marché international.",
+      "investmentTitle": "Investissement Stratégique",
+      "investmentDesc": "Analyse de données et intelligence de marché pour maximiser le rendement et l'expansion de portefeuilles de grande valeur.",
+      "advisoryTitle": "Conseil Architectural",
+      "advisoryDesc": "Consultance intégrale couvrant la faisabilité structurelle jusqu'au design d'intérieur et à l'architecture paysagère d'élite."
+    },
+    "featured": {
+      "eyebrow": "COLLECTION CURÉE",
+      "title": "Propriétés en Vedette",
+      "cta": "Voir Toutes les Propriétés",
+      "empty": "Aucune propriété en vedette disponible pour le moment.",
+      "discover": "Découvrir la Résidence"
+    },
+    "about": {
+      "eyebrow": "PHILOSOPHIE SUISSE",
+      "title": "Fondée sur les Principes de la Précision Suisse",
+      "desc": "L'intégrité architecturale n'est pas une simple norme ; c'est notre code. Nous concevons chaque propriété comme une œuvre d'art habitable, garantissant que l'héritage de la structure résonne avec la sophistication de son propriétaire.",
+      "step1Title": "Sélection Curatoriale",
+      "step1Desc": "Nous évaluons méticuleusement chaque propriété selon des critères architecturaux, historiques et de localisation avant de l'inclure dans notre portefeuille.",
+      "step2Title": "Gestion Discrète",
+      "step2Desc": "Nous coordonnons chaque transaction avec la plus grande confidentialité, de l'évaluation initiale à la signature notariale.",
+      "cta": "Découvrir Notre Histoire"
+    },
+    "cta": {
+      "eyebrow": "COMMENCEZ VOTRE VOYAGE",
+      "title": "Prêt à Découvrir Votre Chef-d'Œuvre Architectural ?",
+      "subtitle": "Planifiez une consultation privée avec l'un de nos curateurs seniors et accédez à des propriétés qui n'atteignent jamais le marché public.",
+      "button": "Demander une Consultation Privée"
+    }
+  },
+  "projects": {
+    "seo": {
+      "title": "Portfolio de Propriétés Exclusives | PrimeHaus",
+      "description": "Explorez notre collection soigneusement sélectionnée de villas de luxe, penthouses exclusifs et résidences architecturales dans les emplacements les plus prestigieux."
+    },
+    "hero": {
+      "eyebrow": "COLLECTION PRIMEHAUS",
+      "title": "Portfolio de Résidences",
+      "subtitle": "Curatant les résidences les plus significatives du monde. Explorez nos dernières acquisitions et chefs-d'œuvre architecturaux dans les destinations les plus exclusives de la planète.",
+      "catalog": "Catalogue Sélect",
+      "available": "Propriétés Disponibles"
+    },
+    "empty": {
+      "title": "Catalogue en Mise à Jour",
+      "desc": "Notre équipe de curateurs prépare une nouvelle sélection de propriétés exclusives pour ce catalogue."
+    },
+    "card": {
+      "discover": "Découvrir la Résidence",
+      "value": "VALEUR ESTIMÉE"
+    },
+    "cta": {
+      "eyebrow": "COMMENCEZ VOTRE VOYAGE",
+      "title": "Prêt à trouver votre chef-d'œuvre architectural ?",
+      "primary": "Planifier une Consultation Privée",
+      "secondary": "Appeler un Conseiller"
+    }
+  },
+  "project": {
+    "hero": {
+      "defaultTag": "RÉSIDENCE EXCLUSIVE",
+      "valueLabel": "VALEUR D'ACQUISITION"
+    },
+    "image": {
+      "locationLabel": "EMPLACEMENT PRIVILÉGIÉ"
+    },
+    "specs": {
+      "eyebrow": "SPÉCIFICATIONS TECHNIQUES",
+      "heading": "Résumé du Bien",
+      "location": "LOCALISATION",
+      "price": "PRIX",
+      "ctaPrimary": "Demander un Dossier Privé",
+      "ctaSecondary": "Appeler un Conseiller"
+    },
+    "description": {
+      "eyebrow": "MÉMOIRE DESCRIPTIVE",
+      "heading": "Architecture et Style de Vie",
+      "fallback1": "Cette majestueuse résidence redéfinit les standards du luxe contemporain. Conçue par des architectes de renommée internationale, la propriété s'intègre harmonieusement dans son environnement naturel, offrant des vues panoramiques ininterrompues et une intimité absolue.",
+      "fallback2": "Les espaces intérieurs ont été méticuleusement conçus avec des matériaux nobles de la plus haute qualité, incluant des marbres importés, des bois exotiques traités à la main et des systèmes domotiques de dernière génération. Les vastes espaces de vie s'ouvrent naturellement vers les terrasses extérieures et la piscine à débordement."
+    },
+    "video": {
+      "eyebrow": "VISITE CINÉMATOGRAPHIQUE",
+      "heading": "Visite Virtuelle Privée"
+    },
+    "gallery": {
+      "eyebrow": "GALERIE D'IMAGES",
+      "title": "Détails Architecturaux"
+    },
+    "cta": {
+      "eyebrow": "COMMENCEZ VOTRE VOYAGE",
+      "title": "Souhaitez-vous organiser une visite privée de",
+      "primary": "Prendre Rendez-vous Privé",
+      "secondary": "Appeler un Conseiller"
+    }
+  },
+  "about": {
+    "seo": {
+      "title": "À Propos | Philosophie Suisse | PrimeHaus",
+      "description": "Découvrez l'histoire, la mission et les valeurs de PrimeHaus. Leaders en curation immobilière de haut standing et conseil architectural depuis 2004."
+    },
+    "hero": {
+      "eyebrow": "NOTRE HÉRITAGE",
+      "title": "L'Art de la Sélection",
+      "quote": "Une vision définitive du luxe, curatée à travers vingt ans d'excellence architecturale et un patrimoine inébranlable."
+    },
+    "story": {
+      "eyebrow": "ORIGINES ET ÉVOLUTION",
+      "title": "Deux Décennies de Maîtrise",
+      "p1": "Fondée en 2004, PrimeHaus est née d'une obsession singulière : l'intersection entre l'intégrité structurelle et la résonance émotionnelle. Notre parcours a commencé comme cabinet de conseil boutique pour la restauration architecturale, évoluant pour devenir la maison de biens immobiliers de luxe la plus exclusive d'Europe.",
+      "p2": "Vingt ans d'expérience ont affiné notre palais pour l'exceptionnel. Nous ne nous contentons pas de lister des propriétés ; nous curatons des environnements de vie qui se dressent comme des monuments aux accomplissements de leurs propriétaires.",
+      "p3": "Aujourd'hui, notre vision reste inchangée. Nous offrons un prisme architectural à travers lequel l'élite mondiale peut découvrir et gérer ses actifs les plus significatifs. Chaque transaction est traitée comme un chef-d'œuvre, gérée avec la discrétion et la précision qui sont devenues notre signature.",
+      "years": "Ans d'Excellence"
+    },
+    "mission": {
+      "title": "La Mission",
+      "desc": "Servir de pont architectural définitif entre les propriétés visionnaires et ceux qui apprécient les nuances du design de haut niveau et de l'art structurel."
+    },
+    "vision": {
+      "title": "La Vision",
+      "desc": "Définir le standard mondial pour l'immobilier de luxe à travers un engagement indéfectible envers l'intégrité architecturale et la philosophie suisse d'excellence objective."
+    },
+    "values": {
+      "title": "Les Valeurs",
+      "desc": "Précision mathématique, discrétion absolue et un dévouement inébranlable à l'esthétique de la permanence dans un monde en perpétuel changement."
+    },
+    "team": {
+      "eyebrow": "DIRECTION EXÉCUTIVE",
+      "title": "Les Gardiens",
+      "subtitle": "CONSEIL D'ADMINISTRATION PRIMEHAUS",
+      "members": [
+        { "name": "Julian Vance", "role": "Founder & CEO" },
+        { "name": "Elena Rossetti", "role": "Architecte Principal" },
+        { "name": "Marcus Thorne", "role": "Directeur des Domaines" },
+        { "name": "Sophia Chen", "role": "Directrice Clientèle" }
+      ]
+    },
+    "cta": {
+      "eyebrow": "COMMENCEZ VOTRE VOYAGE",
+      "title": "Souhaitez-vous faire partie de notre portefeuille exclusif ?",
+      "primary": "Explorer le Portefeuille",
+      "secondary": "Planifier une Consultation"
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "Contact & Atelier Privé | PrimeHaus",
+      "description": "Contactez PrimeHaus pour organiser une consultation privée ou demander des informations sur notre portefeuille de propriétés exclusives."
+    },
+    "hero": {
+      "eyebrow": "ATELIER PRIVÉ",
+      "title": "Engageons la Conversation",
+      "subtitle": "Que vous cherchiez à acquérir une résidence de prestige ou nécessitiez un conseil architectural de haut niveau, nos portes sont ouvertes pour une consultation privée."
+    },
+    "form": {
+      "title": "FORMULAIRE DE CONTACT PRIVÉ",
+      "name": "Nom Complet",
+      "namePh": "Votre nom et prénom",
+      "email": "Adresse Email",
+      "emailPh": "exemple@domaine.com",
+      "phone": "Téléphone",
+      "phonePh": "+33 600 000 000",
+      "subject": "Sujet / Propriété",
+      "subjectPh": "Nature de votre demande",
+      "message": "Message / Exigences",
+      "messagePh": "Comment pouvons-nous vous assister dans votre recherche immobilière ?",
+      "submit": "Envoyer la Demande Privée",
+      "submitting": "Envoi en cours..."
+    },
+    "success": {
+      "title": "Demande Reçue",
+      "message": "Merci d'avoir contacté PrimeHaus. Un curateur senior examinera votre demande et vous contactera dans un délai maximum de 4 heures ouvrables."
+    },
+    "sidebar": {
+      "atelier": "Notre Atelier",
+      "address": "Calle de Serrano 45, 2ème Étage, 28001 Madrid",
+      "channels": "Canaux Directs",
+      "phone": "TÉLÉPHONE",
+      "email": "EMAIL",
+      "hours": "Heures d'Ouverture",
+      "monFri": "LUNDI — VENDREDI",
+      "monFriVal": "09:00 — 19:00",
+      "sat": "SAMEDIS",
+      "satVal": "Sur Rendez-vous Exclusif",
+      "sun": "DIMANCHES",
+      "sunVal": "Fermé"
+    },
+    "map": {
+      "title": "VISITEZ NOTRE ATELIER"
     }
   }
 }

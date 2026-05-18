@@ -20,7 +20,10 @@ export interface ContactEmailData {
   message: string;
 }
 
-export async function sendContactEmail(data: ContactEmailData, to: string): Promise<{ success: boolean; error?: string }> {
+export async function sendContactEmail(
+  data: ContactEmailData,
+  to: string
+): Promise<{ success: boolean; error?: string }> {
   const client = getResend();
 
   if (dev) {

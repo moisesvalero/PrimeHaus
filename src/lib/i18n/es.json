@@ -236,66 +236,207 @@
   },
   "home": {
     "seo": {
-      "title": "My SvelteKit Starter — Plantilla Svelte 5 + Kit 2 lista para shippear",
-      "description": "Todo en un repo: UI estilo shadcn en tu código, Tailwind v4, TypeScript, textos ES/EN, modo oscuro, SEO técnico y páginas de ejemplo. Para quien quiere vibe coding sin reinventar la base."
+      "title": "PrimeHaus — Propiedades Exclusivas y Arquitectura de Prestigio",
+      "description": "Descubra nuestra selección curada de villas de lujo, áticos exclusivos y residencias arquitectónicas en Madrid, Marbella y Palma. Brokerage discreto para coleccionistas de lo extraordinario."
     },
     "hero": {
-      "title": "La plantilla SvelteKit para quien solo quiere construir",
-      "subtitle": "Runes, rutas, formularios, toasts, tema claro/oscuro y una galería de componentes que ya están en tu proyecto —no en un npm opaco. Fork, personaliza y despliega.",
-      "ctaPrimary": "Ver componentes",
-      "ctaSecondary": "Documentación"
+      "eyebrow": "EXCELENCIA DESDE 2004",
+      "title": "Definiendo la Arquitectura del Habitar",
+      "subtitle": "Una selección rigurosa de propiedades de prestigio para los clientes más exigentes. Explore nuestras residencias exclusivas en Madrid, Marbella y Palma.",
+      "ctaPrimary": "Explorar Proyectos",
+      "ctaSecondary": "Contactar Atelier"
     },
-    "features": {
-      "eyebrow": "Incluido",
-      "title": "Qué incluye esta plantilla",
-      "performance": {
-        "title": "Menos JS en el navegador",
-        "desc": "Svelte compila a JS pequeño y predecible: ideal para landings y apps donde cada kilobyte cuenta."
-      },
-      "types": {
-        "title": "TypeScript que aguanta CI",
-        "desc": "Proyecto preparado para `npm run check`: tipos en rutas y componentes para fallar en la pipeline, no en producción."
-      },
-      "dx": {
-        "title": "UI estilo shadcn en tu carpeta",
-        "desc": "Button, Card, formularios y más viven en `src/lib/components/ui/`: los cambias tú, sin depender de un paquete opaco."
-      },
-      "deploy": {
-        "title": "SEO y salida a producción",
-        "desc": "Meta tags, JSON-LD, `/sitemap.xml`, `/robots.txt` y OG dinámico incluidos; conectas repo a Vercel o Netlify cuando tengas dominio."
-      },
-      "cms": {
-        "title": "Sanity CMS (opcional)",
-        "desc": "Schema y Studio en `sanity/`, cliente y GROQ en `src/lib/server/sanity/`. Actívalo con `SANITY_PROJECT_ID` y `SANITY_DATASET` en `.env`."
-      },
-      "product": {
-        "title": "Experiencia de producto",
-        "desc": "i18n ES/EN con `$t()`, modo claro/oscuro (mode-watcher), banner de cookies y JSON-LD: una landing usable, no un mock suelto."
-      }
+    "services": {
+      "eyebrow": "NUESTRO EXPERTISE",
+      "title": "Servicios de Curaduría Inmobiliaria",
+      "brokerageTitle": "Brokerage Exclusivo",
+      "brokerageDesc": "Adquisición y gestión discreta de los activos residenciales más significativos y codiciados del mercado internacional.",
+      "investmentTitle": "Inversión Estratégica",
+      "investmentDesc": "Análisis de datos e inteligencia de mercado para maximizar el rendimiento y la expansión de portafolios de alto valor.",
+      "advisoryTitle": "Asesoría Arquitectónica",
+      "advisoryDesc": "Consultoría integral que abarca desde la viabilidad estructural hasta el diseño de interiores y paisajismo de élite."
     },
-    "steps": {
-      "title": "Poner este starter en marcha (4 pasos)",
-      "step1": {
-        "title": "Obtén el código",
-        "desc": "Clona el repositorio (`git clone …`) o descarga el ZIP desde GitHub. Aquí ya viene SvelteKit, Tailwind v4, TypeScript y la UI configurada."
-      },
-      "step2": {
-        "title": "Instala dependencias",
-        "desc": "En la carpeta del proyecto ejecuta `npm install`. Requisito: Node.js 22 o superior (ver `package.json`)."
-      },
-      "step3": {
-        "title": "Arranca en local",
-        "desc": "Ejecuta `npm run dev` y abre la URL que muestra la terminal (por defecto http://localhost:5173)."
-      },
-      "step4": {
-        "title": "Personaliza y despliega",
-        "desc": "Cambia nombre y enlaces en la config del proyecto, ajusta textos y colores del tema, ejecuta `npm run build` y sube a Vercel, Netlify o el hosting que uses."
-      }
+    "featured": {
+      "eyebrow": "COLECCIÓN CURADA",
+      "title": "Propiedades Destacadas",
+      "cta": "Ver Todas las Propiedades",
+      "empty": "No hay propiedades destacadas disponibles en este momento.",
+      "discover": "Descubrir Residencia"
+    },
+    "about": {
+      "eyebrow": "FILOSOFÍA SUIZA",
+      "title": "Fundada en los Principios de la Precisión Suiza",
+      "desc": "La integridad arquitectónica no es una simple norma; es nuestro código. Concebimos cada propiedad como una obra de arte habitable, garantizando que el legado de la estructura resuene con la sofisticación de su propietario.",
+      "step1Title": "Selección Curatorial",
+      "step1Desc": "Evaluamos meticulosamente cada propiedad según criterios arquitectónicos, históricos y de ubicación antes de incluirla en nuestro portafolio.",
+      "step2Title": "Gestión Discreta",
+      "step2Desc": "Coordinamos cada transacción con la máxima confidencialidad, desde la valoración inicial hasta la firma notarial.",
+      "cta": "Conocer Nuestra Historia"
     },
     "cta": {
-      "title": "¿Siguiente paso?",
-      "subtitle": "Explora la galería, copia patrones de UI y sustituye la marca por la tuya: esta plantilla es el punto de partida, no el techo.",
-      "button": "Ver componentes"
+      "eyebrow": "INICIE SU VIAJE",
+      "title": "¿Preparado para Descubrir su Obra Maestra Arquitectónica?",
+      "subtitle": "Agende una consulta privada con uno de nuestros curadores senior y acceda a propiedades que nunca llegan al mercado público.",
+      "button": "Solicitar Consulta Privada"
+    }
+  },
+  "projects": {
+    "seo": {
+      "title": "Portafolio de Propiedades Exclusivas | PrimeHaus",
+      "description": "Explore nuestra colección curada de villas de máximo lujo, áticos exclusivos y residencias arquitectónicas en las ubicaciones más prestigiosas de Madrid, Marbella y Palma."
+    },
+    "hero": {
+      "eyebrow": "COLECCIÓN PRIMEHAUS",
+      "title": "Portafolio de Residencias",
+      "subtitle": "Curando las residencias más significativas del mundo. Explore nuestras últimas adquisiciones y obras maestras arquitectónicas en los destinos más exclusivos del planeta.",
+      "catalog": "Catálogo Selecto",
+      "available": "Propiedades Disponibles"
+    },
+    "empty": {
+      "title": "Catálogo en Actualización",
+      "desc": "Nuestro equipo de curadores está preparando una nueva selección de propiedades exclusivas para este catálogo."
+    },
+    "card": {
+      "discover": "Descubrir Residencia",
+      "value": "VALOR ESTIMADO"
+    },
+    "cta": {
+      "eyebrow": "INICIE SU VIAJE",
+      "title": "¿Listo para encontrar su obra maestra arquitectónica?",
+      "primary": "Programar Consulta Privada",
+      "secondary": "Llamar a un Asesor"
+    }
+  },
+  "project": {
+    "hero": {
+      "defaultTag": "RESIDENCIA EXCLUSIVA",
+      "valueLabel": "VALOR DE ADQUISICIÓN"
+    },
+    "image": {
+      "locationLabel": "UBICACIÓN PRIVILEGIADA"
+    },
+    "specs": {
+      "eyebrow": "ESPECIFICACIONES TÉCNICAS",
+      "heading": "Resumen del Inmueble",
+      "location": "LOCALIZACIÓN",
+      "price": "PRECIO",
+      "ctaPrimary": "Solicitar Dossier Privado",
+      "ctaSecondary": "Llamar a un Asesor"
+    },
+    "description": {
+      "eyebrow": "MEMORIA DESCRIPTIVA",
+      "heading": "Arquitectura y Estilo de Vida",
+      "fallback1": "Esta majestuosa residencia redefine los estándares del lujo contemporáneo. Concebida por reconocidos arquitectos internacionales, la propiedad se integra armoniosamente en su entorno natural, ofreciendo vistas panorámicas ininterrumpidas y una privacidad absoluta.",
+      "fallback2": "Los espacios interiores han sido meticulosamente diseñados utilizando materiales nobles de la más alta calidad, incluyendo mármoles importados, maderas exóticas tratadas a mano y sistemas domóticos de última generación. Las amplias zonas de estar fluyen de manera natural hacia las extensas terrazas exteriores y la piscina infinita, creando el ambiente perfecto tanto para la relajación privada como para la celebración de eventos exclusivos."
+    },
+    "video": {
+      "eyebrow": "RECORRIDO CINEMATOGRÁFICO",
+      "heading": "Tour Virtual Privado"
+    },
+    "gallery": {
+      "eyebrow": "GALERÍA DE IMÁGENES",
+      "title": "Detalles Arquitectónicos"
+    },
+    "cta": {
+      "eyebrow": "INICIE SU VIAJE",
+      "title": "¿Desea organizar una visita privada a",
+      "primary": "Concertar Cita Privada",
+      "secondary": "Llamar a un Asesor"
+    }
+  },
+  "about": {
+    "seo": {
+      "title": "Sobre Nosotros | Filosofía Suiza | PrimeHaus",
+      "description": "Conozca la historia, misión y valores de PrimeHaus. Líderes en curaduría inmobiliaria de alto standing y asesoría arquitectónica desde 2004."
+    },
+    "hero": {
+      "eyebrow": "NUESTRO LEGADO",
+      "title": "El Arte de la Selección",
+      "quote": "Una visión definitiva del lujo, curada a través de veinte años de excelencia arquitectónica y un patrimonio inquebrantable."
+    },
+    "story": {
+      "eyebrow": "ORÍGENES Y EVOLUCIÓN",
+      "title": "Dos Décadas de Maestría",
+      "p1": "Fundada en 2004, PrimeHaus nació de una obsesión singular: la intersección entre la integridad estructural y la resonancia emocional. Nuestro viaje comenzó como una firma boutique de consultoría para la restauración arquitectónica, evolucionando hasta convertirse en la casa de bienes raíces de lujo más exclusiva de Europa.",
+      "p2": "Veinte años de experiencia han refinado nuestro paladar para lo excepcional. No nos limitamos a listar propiedades; curamos entornos habitables que se erigen como monumentos a los logros de sus propietarios. Nuestro portafolio representa una selección rigurosa de las fincas costeras y santuarios urbanos más singulares del planeta.",
+      "p3": "Hoy en día, nuestra visión permanece inalterada. Proporcionamos una lente arquitectónica a través de la cual la élite global puede descubrir y gestionar sus activos más significativos. Cada transacción es tratada como una obra maestra, manejada con la discreción y precisión que se ha convertido en nuestra firma de marca.",
+      "years": "Años de Excelencia"
+    },
+    "mission": {
+      "title": "La Misión",
+      "desc": "Servir como el puente arquitectónico definitivo entre propiedades visionarias y aquellos individuos que aprecian los matices del diseño de alto nivel y el arte estructural."
+    },
+    "vision": {
+      "title": "La Visión",
+      "desc": "Definir el estándar global para el sector inmobiliario de lujo a través de un compromiso implacable con la integridad arquitectónica y la filosofía suiza de excelencia objetiva."
+    },
+    "values": {
+      "title": "Los Valores",
+      "desc": "Precisión matemática, discreción absoluta y una dedicación inquebrantable a la estética de la permanencia en un mundo en constante cambio."
+    },
+    "team": {
+      "eyebrow": "LIDERAZGO EJECUTIVO",
+      "title": "Los Custodios",
+      "subtitle": "JUNTA DIRECTIVA PRIMEHAUS",
+      "members": [
+        { "name": "Julián Vance", "role": "Founder & CEO" },
+        { "name": "Elena Rossetti", "role": "Principal Architect" },
+        { "name": "Marcus Thorne", "role": "Head of Estates" },
+        { "name": "Sophia Chen", "role": "Client Director" }
+      ]
+    },
+    "cta": {
+      "eyebrow": "INICIE SU VIAJE",
+      "title": "¿Desea formar parte de nuestro exclusivo portafolio?",
+      "primary": "Explorar Portafolio",
+      "secondary": "Programar Consulta"
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "Contacto & Atelier Privado | PrimeHaus",
+      "description": "Póngase en contacto con PrimeHaus para organizar una consulta privada o solicitar información sobre nuestro portafolio de propiedades exclusivas."
+    },
+    "hero": {
+      "eyebrow": "ATELIER PRIVADO",
+      "title": "Inicie la Conversación",
+      "subtitle": "Tanto si busca adquirir una residencia de legado como si requiere asesoría arquitectónica de alto nivel, nuestras puertas están abiertas para una consulta privada."
+    },
+    "form": {
+      "title": "FORMULARIO DE CONTACTO PRIVADO",
+      "name": "Nombre Completo",
+      "namePh": "Su nombre y apellidos",
+      "email": "Correo Electrónico",
+      "emailPh": "ejemplo@dominio.com",
+      "phone": "Teléfono de Contacto",
+      "phonePh": "+34 600 000 000",
+      "subject": "Asunto / Propiedad",
+      "subjectPh": "Naturaleza de su consulta",
+      "message": "Mensaje / Requerimientos",
+      "messagePh": "¿Cómo podemos asistirle en su búsqueda o gestión inmobiliaria?",
+      "submit": "Enviar Solicitud Privada",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "Inscripción Recibida",
+      "message": "Gracias por ponerse en contacto con PrimeHaus. Un curador senior revisará su solicitud y se pondrá en contacto con usted en un plazo máximo de 4 horas hábiles."
+    },
+    "sidebar": {
+      "atelier": "Nuestro Atelier",
+      "address": "Calle de Serrano 45, 2ª Planta, 28001 Madrid",
+      "channels": "Canales Directos",
+      "phone": "TELÉFONO",
+      "email": "EMAIL",
+      "hours": "Horario de Atención",
+      "monFri": "LUNES — VIERNES",
+      "monFriVal": "09:00 — 19:00",
+      "sat": "SÁBADOS",
+      "satVal": "Cita Previa Exclusiva",
+      "sun": "DOMINGOS",
+      "sunVal": "Cerrado"
+    },
+    "map": {
+      "title": "VISITE NUESTRO ATELIER"
     }
   },
   "hero": {

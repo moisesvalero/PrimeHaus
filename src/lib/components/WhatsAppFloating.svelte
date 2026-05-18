@@ -21,7 +21,9 @@
         <div class="flex items-center justify-between mb-4 pb-3 border-b border-outline-variant/30">
           <div class="flex items-center gap-2">
             <span class="material-symbols-outlined text-primary text-xl">chat</span>
-            <span class="text-xs font-bold tracking-[0.15em] uppercase text-on-surface">WhatsApp</span>
+            <span class="text-xs font-bold tracking-[0.15em] uppercase text-on-surface"
+              >WhatsApp</span
+            >
           </div>
           <button
             type="button"
@@ -33,7 +35,8 @@
           </button>
         </div>
         <p class="text-sm text-on-surface-variant leading-relaxed mb-4 font-light">
-          {$t('layout.whatsapp.lead') || 'Prefiere comunicarse por WhatsApp? Escribanos directamente.'}
+          {$t('layout.whatsapp.lead') ||
+            'Prefiere comunicarse por WhatsApp? Escribanos directamente.'}
         </p>
         <a
           href={waUrl}

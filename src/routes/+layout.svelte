@@ -66,9 +66,7 @@
     }, 3000);
   });
 
-  const currentLang = $derived(
-    page.url.pathname.match(/^\/(es|en|fr|de)/)?.[1] || 'es'
-  );
+  const currentLang = $derived(page.url.pathname.match(/^\/(es|en|fr|de)/)?.[1] || 'es');
 
   function localizeHref(href: string): string {
     return '/' + currentLang + (href === '/' ? '' : href);
@@ -78,7 +76,9 @@
     const path = page.url.pathname;
     const cleanPath = path.replace(/^\/(es|en|fr|de)(\/|$)/, '/');
     const active =
-      href === '/' ? cleanPath === '/' : cleanPath === href || (href !== '/' && cleanPath.startsWith(href + '/'));
+      href === '/'
+        ? cleanPath === '/'
+        : cleanPath === href || (href !== '/' && cleanPath.startsWith(href + '/'));
     if (active) {
       return 'text-xs font-semibold tracking-[0.15em] uppercase border-b border-primary pb-0.5 text-primary transition-colors duration-200 hover:text-primary';
     }
@@ -163,10 +163,16 @@
     </a>
     <div class="hidden items-center gap-8 md:flex">
       <a class={navClass('/')} href={localizeHref('/')}>{$t('layout.nav.home')}</a>
-      <a class={navClass('/proyectos')} href={localizeHref('/proyectos')}>{$t('layout.nav.projects')}</a>
-      <a class={navClass('/sobre-nosotros')} href={localizeHref('/sobre-nosotros')}>{$t('layout.nav.about')}</a>
+      <a class={navClass('/proyectos')} href={localizeHref('/proyectos')}
+        >{$t('layout.nav.projects')}</a
+      >
+      <a class={navClass('/sobre-nosotros')} href={localizeHref('/sobre-nosotros')}
+        >{$t('layout.nav.about')}</a
+      >
       <a class={navClass('/blog')} href={localizeHref('/blog')}>{$t('layout.nav.blog')}</a>
-      <a class={navClass('/contacto')} href={localizeHref('/contacto')}>{$t('layout.nav.contact')}</a>
+      <a class={navClass('/contacto')} href={localizeHref('/contacto')}
+        >{$t('layout.nav.contact')}</a
+      >
     </div>
     <div class="flex shrink-0 items-center gap-2 sm:gap-4">
       <div class="flex items-center gap-0.5 sm:gap-2">

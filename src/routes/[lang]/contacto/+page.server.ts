@@ -83,7 +83,8 @@ export const actions = {
 
     return {
       success: true,
-      message: 'Gracias por su mensaje. Un curador senior se pondra en contacto en un plazo de 4 horas habiles.'
+      message:
+        'Gracias por su mensaje. Un curador senior se pondra en contacto en un plazo de 4 horas habiles.'
     };
   }
 } satisfies Actions;
