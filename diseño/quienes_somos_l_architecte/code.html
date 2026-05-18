@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#d2e4f9",
+                    "on-primary-fixed": "#281900",
+                    "on-surface-variant": "#4e463b",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1e1b17",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#b5c7e9",
+                    "surface": "#fff8f3",
+                    "secondary-fixed-dim": "#b6c8dc",
+                    "on-background": "#1e1b17",
+                    "surface-variant": "#e9e1db",
+                    "primary-container": "#bc9c6a",
+                    "secondary-container": "#d2e4f9",
+                    "inverse-on-surface": "#f7efe9",
+                    "primary": "#745a2e",
+                    "surface-container": "#f4ede6",
+                    "tertiary-fixed": "#d5e3ff",
+                    "outline": "#7f7669",
+                    "on-error": "#ffffff",
+                    "tertiary": "#4d5f7c",
+                    "on-tertiary-fixed-variant": "#364763",
+                    "primary-fixed-dim": "#e4c18c",
+                    "surface-container-highest": "#e9e1db",
+                    "on-tertiary-fixed": "#071c35",
+                    "on-tertiary-container": "#263853",
+                    "surface-container-high": "#eee7e0",
+                    "surface-container-low": "#faf2ec",
+                    "primary-fixed": "#ffdeac",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#49340b",
+                    "outline-variant": "#d1c5b6",
+                    "surface-tint": "#745a2e",
+                    "on-secondary-container": "#556678",
+                    "tertiary-container": "#90a2c2",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#fff8f3",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#33302c",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#0b1d2c",
+                    "surface-dim": "#e0d9d2",
+                    "on-secondary-fixed-variant": "#374859",
+                    "inverse-primary": "#e4c18c",
+                    "surface-bright": "#fff8f3",
+                    "error-container": "#ffdad6",
+                    "secondary": "#4f6071",
+                    "on-primary-fixed-variant": "#5a4319"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "24px",
+                    "stack-xl": "120px",
+                    "margin-desktop": "80px",
+                    "stack-md": "32px",
+                    "stack-lg": "64px",
+                    "stack-sm": "16px",
+                    "margin-tablet": "40px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-md": ["Work Sans"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-md": ["Work Sans"],
+                    "body-lg": ["Work Sans"],
+                    "display-lg": ["Playfair Display"],
+                    "label-caps": ["Work Sans"],
+                    "headline-xl": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-xl": ["60px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fff8f3;
+            color: #1e1b17;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
+<span class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface">L'ARCHITECTE</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300" href="#">Home</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-label-caps tracking-widest transition-colors duration-300" href="#">Quienes Somos</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300" href="#">Proyectos</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300" href="#">Blog</a>
+</nav>
+<button class="bg-primary text-white px-6 py-3 font-label-caps tracking-widest active:scale-95 transition-transform duration-200">
+                REQUEST CALLBACK
+            </button>
+</div>
+</header>
+<main class="pt-[120px]">
+<!-- Hero Section -->
+<section class="px-margin-desktop max-w-[1440px] mx-auto mt-stack-lg">
+<div class="grid grid-cols-12 gap-gutter items-end">
+<div class="col-span-12 md:col-span-8">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.3em] uppercase block mb-4">OUR LEGACY</span>
+<h1 class="font-display-lg text-display-lg leading-none">THE ART OF SELECTION</h1>
+</div>
+<div class="col-span-12 md:col-span-4 pb-4">
+<p class="font-body-lg text-body-lg text-on-surface-variant italic border-l border-primary pl-6">
+                        A definitive vision of luxury, curated through twenty years of architectural excellence and uncompromising heritage.
+                    </p>
+</div>
+</div>
+<div class="mt-stack-md w-full h-[600px] overflow-hidden">
+<img alt="Modern Architectural Masterpiece" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A high-contrast, black and white architectural photograph of a minimalist luxury villa in the hills of Marbella. The building features clean horizontal lines, expansive floor-to-ceiling glass walls, and a cantilevered concrete roof. The lighting is bright and ethereal, casting long, sharp shadows that emphasize the Swiss design influence. The overall mood is one of quiet power and sophisticated permanence in a light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC1tIsWqIG0S1tBplPhL-4T812ATYnf-jCV20D8DtyvLjcbm8nzmPcBQ0eOSy_RFGDYtooXXDoDGPOG4FGABlwhOCVWfb2ZlG5SCPEYGcdt9seuAVyS_3KmRgxPGbCr5yqLGg-WWxx5TxbsZ3qJflQS458L6PqZt-RMsZK5DCYd7YtpYGkOJ4cLhAIJU_QIaaSmvjxA6-t2SHNE1EIosz0pAkYGQ63vzwa5oRTI9lYp_AYsG61FzF36uMHjdymBdPA3I9FRhqpUIM"/>
+</div>
+</section>
+<!-- Story Section -->
+<section class="px-margin-desktop max-w-[1440px] mx-auto my-stack-xl">
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-5 flex flex-col justify-center">
+<div class="space-y-stack-sm pr-12">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                            Founded in 2004, L'ARCHITECTE was born from a singular obsession: the intersection of structural integrity and emotional resonance. Our journey began as a boutique consultancy for architectural restoration, evolving into the Mediterranean's most exclusive luxury real estate house.
+                        </p>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                            Two decades of experience have refined our palate for the exceptional. We do not merely list properties; we curate living environments that stand as monuments to their inhabitants' achievements. Our portfolio represents a rigorous selection of the rarest coastal estates and urban sanctuaries.
+                        </p>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                            Today, our vision remains unchanged. We provide an architectural lens through which the global elite can discover their most significant assets. Each transaction is treated as a masterwork, handled with the discretion and precision that has become our trademark signature.
+                        </p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-7 relative h-[700px]">
+<img alt="Architectural Detail" class="w-full h-full object-cover" data-alt="A detailed, close-up architectural shot of a modern skyscraper's glass and steel facade, reflecting a clear blue sky. The composition is asymmetrically balanced following Swiss Design principles, highlighting the grid-like structure of the building. Soft, natural morning light creates a clean, professional atmosphere with subtle gold tones reflecting off the metallic surfaces. The image communicates stability, growth, and high-end urban real estate excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj07JTqBh3QpLxCP0dH8R2nIJaOnkqXZFsYil2-xbKLSjhnRrnQY-P0eM5JD9eJE3YPg-mNzYollA-KGyve272sMaMMcx8LgRynjBMYNpLaBqJCjeUcJ6Zxz5KxQvXeMeOAqSph7j6qjvb8YZ7e8d4wnTs4-hQkh-8IOK0SZJ0mdqHZ_oP5EbseSpGfEjt6C7uwhvZE097SfDeFCjm46R1ZQJSOSQ8klXLt7mf6Gvc8XEhKWwb3e-IYscj01R30Jty1POzCO-3gq8"/>
+<div class="absolute -bottom-8 -left-8 bg-primary-container p-12 hidden md:block">
+<h3 class="font-headline-xl text-headline-xl text-on-primary-container">20</h3>
+<p class="font-label-caps text-label-caps text-on-primary-container tracking-widest">YEARS OF EXCELLENCE</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission/Vision/Values Section -->
+<section class="bg-surface-container-low py-stack-xl border-y border-outline-variant">
+<div class="px-margin-desktop max-w-[1440px] mx-auto">
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-4 border-r border-outline-variant md:pr-12 last:border-r-0">
+<span class="material-symbols-outlined text-primary mb-6" data-icon="architecture">architecture</span>
+<h4 class="font-headline-sm text-headline-sm mb-4">THE MISSION</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">To serve as the architectural bridge between visionary properties and the individuals who appreciate the nuances of high-level design and structural artistry.</p>
+</div>
+<div class="col-span-12 md:col-span-4 border-r border-outline-variant md:px-12 last:border-r-0">
+<span class="material-symbols-outlined text-primary mb-6" data-icon="visibility">visibility</span>
+<h4 class="font-headline-sm text-headline-sm mb-4">THE VISION</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Defining the global standard for luxury real estate through a relentless commitment to architectural integrity and the Swiss philosophy of objective excellence.</p>
+</div>
+<div class="col-span-12 md:col-span-4 md:pl-12">
+<span class="material-symbols-outlined text-primary mb-6" data-icon="diamond">diamond</span>
+<h4 class="font-headline-sm text-headline-sm mb-4">THE VALUES</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Mathematical precision, absolute discretion, and an unyielding dedication to the aesthetic of permanence in an ever-changing world.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="px-margin-desktop max-w-[1440px] mx-auto my-stack-xl">
+<div class="flex justify-between items-baseline mb-stack-lg border-b border-outline-variant pb-8">
+<h2 class="font-headline-lg text-headline-lg">THE CUSTODIANS</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant">EXECUTIVE LEADERSHIP</span>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Member 1 -->
+<div class="col-span-12 sm:col-span-6 lg:col-span-3">
+<div class="aspect-[3/4] mb-stack-sm overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Founder" class="w-full h-full object-cover" data-alt="A professional studio portrait of a mature man with a refined, authoritative presence, wearing a tailored charcoal suit against a minimalist light grey background. The lighting is soft and cinematic, highlighting his sophisticated and trustworthy expression. The image is framed as a high-end editorial headshot, emphasizing luxury and corporate leadership in the real estate sector." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBStEgnbeViwFaevFXjXPjq-VzLo8HYXWpIqjh-Wd46CtlG2TA6eUhLPRy3ZyV8VXZ8FKyBYCntVBGZK-icpHnqsd2zKMYSW2fG6ITCQw5DvV2ukXIhWn8TduzblDSIopsHR9OfpxOzFwfIn1aGaXHJ-GyhomO-NQlRGDeOfwA6ulwJT7WHQJh9-RTPDkNpGojJ5lJ9Ri_8-j1ZL14F-ukZEMip0ETYGBvcZXP_HPZP4J2MsR5j0ygroLjugfEcc9nnQZjegXvphU0"/>
+</div>
+<p class="font-label-caps text-label-caps text-primary mb-2">FOUNDER</p>
+<h5 class="font-headline-sm text-headline-sm">Julian Vance</h5>
+<div class="h-px w-12 bg-outline-variant my-4"></div>
+</div>
+<!-- Member 2 -->
+<div class="col-span-12 sm:col-span-6 lg:col-span-3">
+<div class="aspect-[3/4] mb-stack-sm overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Principal Architect" class="w-full h-full object-cover" data-alt="An editorial portrait of a woman in her 40s with an intelligent and creative gaze, dressed in a sleek, architectural black dress. She is positioned in a sun-drenched, minimalist office space with concrete walls and drafting tables. The mood is one of creative mastery and professional confidence, presented in a clean, modern aesthetic with high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzsjgB2Q8npiZJNQiQfo1_GozZUhoAXp0CJN0QuxUKXedKnnm9o38d4HbAfIMkv6HFrdDuIv0Hg6-v3OQ6a2J4dOfMvznKi4xPPbI8DSzO3a9Cu_fNVSF_Of0uZVX2ftGsiRIYxXYiMdx_NJVGRATDa4cetVtrcn2BIG2bpSCqdy0jxi6_DiXXETXxZ-fpTlnBkASc7htBaBL7ovvc2KvuJWKRBwv5RVK_Gd9cOQ8TNhcMSw-C4Q2QR2OTfbpSPKHV9Hacncgy85Q"/>
+</div>
+<p class="font-label-caps text-label-caps text-primary mb-2">PRINCIPAL ARCHITECT</p>
+<h5 class="font-headline-sm text-headline-sm">Elena Rossetti</h5>
+<div class="h-px w-12 bg-outline-variant my-4"></div>
+</div>
+<!-- Member 3 -->
+<div class="col-span-12 sm:col-span-6 lg:col-span-3">
+<div class="aspect-[3/4] mb-stack-sm overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Head of Estates" class="w-full h-full object-cover" data-alt="A portrait of a sharp-dressed man in a light navy suit standing on a luxury penthouse terrace at dusk. The city skyline is softly blurred in the background, with warm amber lights contrasting the cool twilight. He projects an image of market expertise and exclusive access, captured with a professional, high-end editorial photography style that feels both modern and timeless." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOte94lv-9dmpjoeirdGXu7eoiMHOixs96r5Ww5xTMNjDC2hzIHW6SxdUhrEwF2Qy4qZyuucjvyjBbNDLPMIfC_R6z6CrpmFytb20zeioFA6YC4gJHsn1qj2w3RDc4Y73dmdD7AE8G04Sy_JFB_nRMc4hhPiGWNrLxIM0SA7RQxUA6guVi53mgnS4pqJSc9XvdFMYO4qRe213eBsYL4TD8OAnG1eU_KJvOPfbYxCANyekJDNqV9Bvet_STqm9HPSLMK9otnIgJpUs"/>
+</div>
+<p class="font-label-caps text-label-caps text-primary mb-2">HEAD OF ESTATES</p>
+<h5 class="font-headline-sm text-headline-sm">Marcus Thorne</h5>
+<div class="h-px w-12 bg-outline-variant my-4"></div>
+</div>
+<!-- Member 4 -->
+<div class="col-span-12 sm:col-span-6 lg:col-span-3">
+<div class="aspect-[3/4] mb-stack-sm overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Client Director" class="w-full h-full object-cover" data-alt="A close-up portrait of a sophisticated woman with a warm, welcoming smile, wearing a cream silk blouse and gold jewelry. She is photographed in a high-end interior setting with warm wood panels and soft, diffused light. The image radiates exclusivity, personalized service, and elite client relations, maintaining a pristine, light-mode palette that feels airy and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAb-S2LA-QLPXwEL48dMBuuf8QB_fg5Z4KX35m8AMbVSrxb2wtjGvqA4IuR3pPA6p5sL39jUY_AzGh6pe22QLq0AbZAk2BIjjDWbeF0fzYex0mwXsC0zZ-yVhcFWMUdLsCTetPah-fNGNqpgUKKElgyibSzdHa6Xvf4w7e-GCxFFE4CX9QyiMDtUWBZcx9tcqNx3O_ynvKSVisr0yvtiO3CSIfV1Bwgwf9fVsG4_OshatoVG5L-6Pp6t0hjtoHYXcBNHLjRCXw2TI"/>
+</div>
+<p class="font-label-caps text-label-caps text-primary mb-2">CLIENT DIRECTOR</p>
+<h5 class="font-headline-sm text-headline-sm">Sophia Chen</h5>
+<div class="h-px w-12 bg-outline-variant my-4"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant mt-stack-xl">
+<div class="grid grid-cols-12 gap-gutter px-margin-desktop py-stack-lg max-w-[1440px] mx-auto">
+<div class="col-span-12 md:col-span-4">
+<span class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface block mb-8">L'ARCHITECTE</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    Curating the world's most significant architectural residences since 2004.
+                </p>
+</div>
+<div class="col-span-12 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-primary mb-2">NAVIGATION</span>
+<a class="text-on-surface-variant uppercase tracking-widest hover:text-primary hover:underline underline-offset-4 transition-opacity duration-300" href="#">Home</a>
+<a class="text-primary font-bold uppercase tracking-widest" href="#">Quienes Somos</a>
+<a class="text-on-surface-variant uppercase tracking-widest hover:text-primary hover:underline underline-offset-4 transition-opacity duration-300" href="#">Proyectos</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-primary mb-2">RESOURCES</span>
+<a class="text-on-surface-variant uppercase tracking-widest hover:text-primary hover:underline underline-offset-4 transition-opacity duration-300" href="#">Blog</a>
+<a class="text-on-surface-variant uppercase tracking-widest hover:text-primary hover:underline underline-offset-4 transition-opacity duration-300" href="#">Contacto</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-primary mb-2">LEGAL</span>
+<a class="text-on-surface-variant uppercase tracking-widest hover:text-primary hover:underline underline-offset-4 transition-opacity duration-300" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant uppercase tracking-widest hover:text-primary hover:underline underline-offset-4 transition-opacity duration-300" href="#">Imprint</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-primary mb-2">OFFICE</span>
+<p class="font-body-md text-body-md text-on-surface-variant uppercase">MARBELLA<br/>MADRID<br/>LONDON</p>
+</div>
+</div>
+<div class="col-span-12 border-t border-outline-variant pt-8 mt-8">
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-90">
+                    © 2024 L'ARCHITECTE LUXURY REAL ESTATE. ALL RIGHTS RESERVED.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>
