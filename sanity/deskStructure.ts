@@ -19,5 +19,6 @@ export const deskStructure: StructureResolver = (S) =>
             .title('🏠 Web principal')
         ),
       S.divider(),
-      S.documentTypeListItem('caseStudy').title('🧱 Proyectos')
+      S.documentTypeListItem('primeProject').title('🏰 Propiedades PrimeHaus'),
+      S.documentTypeListItem('caseStudy').title('🧱 Proyectos (Legacy)')
     ]);

@@ -2,11 +2,13 @@ import { defineType } from 'sanity';
 
 export const localeString = defineType({
   name: 'localeString',
-  title: 'Texto (ES / EN)',
+  title: 'Texto (ES / EN / FR / DE)',
   type: 'object',
   fields: [
     { name: 'es', type: 'string', title: 'Espanol' },
-    { name: 'en', type: 'string', title: 'English' }
+    { name: 'en', type: 'string', title: 'English' },
+    { name: 'fr', type: 'string', title: 'Francais' },
+    { name: 'de', type: 'string', title: 'Deutsch' }
   ],
   preview: {
     select: { es: 'es', en: 'en' },
@@ -18,11 +20,13 @@ export const localeString = defineType({
 
 export const localeText = defineType({
   name: 'localeText',
-  title: 'Texto largo (ES / EN)',
+  title: 'Texto largo (ES / EN / FR / DE)',
   type: 'object',
   fields: [
     { name: 'es', type: 'text', title: 'Espanol', rows: 5 },
-    { name: 'en', type: 'text', title: 'English', rows: 5 }
+    { name: 'en', type: 'text', title: 'English', rows: 5 },
+    { name: 'fr', type: 'text', title: 'Francais', rows: 5 },
+    { name: 'de', type: 'text', title: 'Deutsch', rows: 5 }
   ],
   preview: {
     select: { es: 'es', en: 'en' },

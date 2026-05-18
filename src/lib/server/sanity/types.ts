@@ -46,3 +46,60 @@ export type SanitySitePortfolioContext = {
   baseUrl: string;
   locale: SiteLocale;
 };
+
+export type SanityLocaleString = {
+  es?: string;
+  en?: string;
+  fr?: string;
+  de?: string;
+};
+
+export type SanityLocaleText = {
+  es?: string;
+  en?: string;
+  fr?: string;
+  de?: string;
+};
+
+export type SanityPrimeProject = {
+  _id: string;
+  showOnHome?: boolean;
+  homeSortOrder?: number;
+  title?: SanityLocaleString;
+  slug?: { current?: string };
+  price?: string;
+  location?: SanityLocaleString;
+  heroTag?: SanityLocaleString;
+  heroDescription?: SanityLocaleText;
+  specs?: Array<{
+    label?: SanityLocaleString;
+    value?: string;
+  }>;
+  images?: {
+    principal?: string;
+    secondary1?: string;
+    secondary2?: string;
+  };
+  videoUrl?: string;
+  body?: SanityLocaleText;
+  seoDescription?: SanityLocaleText;
+};
+
+export type MappedPrimeProject = {
+  id: string;
+  title: string;
+  slug: string;
+  price: string;
+  location: string;
+  heroTag: string;
+  heroDescription: string;
+  specs: Array<{ label: string; value: string }>;
+  images: {
+    principal: string;
+    secondary1: string;
+    secondary2: string;
+  };
+  videoUrl: string;
+  body: string;
+  seoDescription: string;
+};
