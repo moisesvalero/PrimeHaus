@@ -1,302 +1,493 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>L'ARCHITECTE | Blog</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>L'ARCHITECTE | Blog</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
       tailwind.config = {
-        darkMode: "class",
+        darkMode: 'class',
         theme: {
           extend: {
-            "colors": {
-                    "secondary-fixed": "#d2e4f9",
-                    "on-primary-fixed": "#281900",
-                    "on-surface-variant": "#4e463b",
-                    "error": "#ba1a1a",
-                    "on-surface": "#1e1b17",
-                    "on-primary": "#ffffff",
-                    "tertiary-fixed-dim": "#b5c7e9",
-                    "surface": "#fff8f3",
-                    "secondary-fixed-dim": "#b6c8dc",
-                    "on-background": "#1e1b17",
-                    "surface-variant": "#e9e1db",
-                    "primary-container": "#bc9c6a",
-                    "secondary-container": "#d2e4f9",
-                    "inverse-on-surface": "#f7efe9",
-                    "primary": "#745a2e",
-                    "surface-container": "#f4ede6",
-                    "tertiary-fixed": "#d5e3ff",
-                    "outline": "#7f7669",
-                    "on-error": "#ffffff",
-                    "tertiary": "#4d5f7c",
-                    "on-tertiary-fixed-variant": "#364763",
-                    "primary-fixed-dim": "#e4c18c",
-                    "surface-container-highest": "#e9e1db",
-                    "on-tertiary-fixed": "#071c35",
-                    "on-tertiary-container": "#263853",
-                    "surface-container-high": "#eee7e0",
-                    "surface-container-low": "#faf2ec",
-                    "primary-fixed": "#ffdeac",
-                    "on-tertiary": "#ffffff",
-                    "on-primary-container": "#49340b",
-                    "outline-variant": "#d1c5b6",
-                    "surface-tint": "#745a2e",
-                    "on-secondary-container": "#556678",
-                    "tertiary-container": "#90a2c2",
-                    "surface-container-lowest": "#ffffff",
-                    "background": "#fff8f3",
-                    "on-secondary": "#ffffff",
-                    "inverse-surface": "#33302c",
-                    "on-error-container": "#93000a",
-                    "on-secondary-fixed": "#0b1d2c",
-                    "surface-dim": "#e0d9d2",
-                    "on-secondary-fixed-variant": "#374859",
-                    "inverse-primary": "#e4c18c",
-                    "surface-bright": "#fff8f3",
-                    "error-container": "#ffdad6",
-                    "secondary": "#4f6071",
-                    "on-primary-fixed-variant": "#5a4319"
+            colors: {
+              'secondary-fixed': '#d2e4f9',
+              'on-primary-fixed': '#281900',
+              'on-surface-variant': '#4e463b',
+              error: '#ba1a1a',
+              'on-surface': '#1e1b17',
+              'on-primary': '#ffffff',
+              'tertiary-fixed-dim': '#b5c7e9',
+              surface: '#fff8f3',
+              'secondary-fixed-dim': '#b6c8dc',
+              'on-background': '#1e1b17',
+              'surface-variant': '#e9e1db',
+              'primary-container': '#bc9c6a',
+              'secondary-container': '#d2e4f9',
+              'inverse-on-surface': '#f7efe9',
+              primary: '#745a2e',
+              'surface-container': '#f4ede6',
+              'tertiary-fixed': '#d5e3ff',
+              outline: '#7f7669',
+              'on-error': '#ffffff',
+              tertiary: '#4d5f7c',
+              'on-tertiary-fixed-variant': '#364763',
+              'primary-fixed-dim': '#e4c18c',
+              'surface-container-highest': '#e9e1db',
+              'on-tertiary-fixed': '#071c35',
+              'on-tertiary-container': '#263853',
+              'surface-container-high': '#eee7e0',
+              'surface-container-low': '#faf2ec',
+              'primary-fixed': '#ffdeac',
+              'on-tertiary': '#ffffff',
+              'on-primary-container': '#49340b',
+              'outline-variant': '#d1c5b6',
+              'surface-tint': '#745a2e',
+              'on-secondary-container': '#556678',
+              'tertiary-container': '#90a2c2',
+              'surface-container-lowest': '#ffffff',
+              background: '#fff8f3',
+              'on-secondary': '#ffffff',
+              'inverse-surface': '#33302c',
+              'on-error-container': '#93000a',
+              'on-secondary-fixed': '#0b1d2c',
+              'surface-dim': '#e0d9d2',
+              'on-secondary-fixed-variant': '#374859',
+              'inverse-primary': '#e4c18c',
+              'surface-bright': '#fff8f3',
+              'error-container': '#ffdad6',
+              secondary: '#4f6071',
+              'on-primary-fixed-variant': '#5a4319'
             },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px'
             },
-            "spacing": {
-                    "margin-mobile": "24px",
-                    "stack-xl": "120px",
-                    "margin-desktop": "80px",
-                    "stack-md": "32px",
-                    "stack-lg": "64px",
-                    "stack-sm": "16px",
-                    "margin-tablet": "40px",
-                    "gutter": "24px"
+            spacing: {
+              'margin-mobile': '24px',
+              'stack-xl': '120px',
+              'margin-desktop': '80px',
+              'stack-md': '32px',
+              'stack-lg': '64px',
+              'stack-sm': '16px',
+              'margin-tablet': '40px',
+              gutter: '24px'
             },
-            "fontFamily": {
-                    "label-md": ["Work Sans"],
-                    "display-lg-mobile": ["Playfair Display"],
-                    "headline-sm": ["Playfair Display"],
-                    "headline-lg": ["Playfair Display"],
-                    "body-md": ["Work Sans"],
-                    "body-lg": ["Work Sans"],
-                    "display-lg": ["Playfair Display"],
-                    "label-caps": ["Work Sans"],
-                    "headline-xl": ["Playfair Display"]
+            fontFamily: {
+              'label-md': ['Work Sans'],
+              'display-lg-mobile': ['Playfair Display'],
+              'headline-sm': ['Playfair Display'],
+              'headline-lg': ['Playfair Display'],
+              'body-md': ['Work Sans'],
+              'body-lg': ['Work Sans'],
+              'display-lg': ['Playfair Display'],
+              'label-caps': ['Work Sans'],
+              'headline-xl': ['Playfair Display']
             },
-            "fontSize": {
-                    "label-md": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
-                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
-                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                    "headline-xl": ["60px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            fontSize: {
+              'label-md': ['14px', { lineHeight: '1.4', fontWeight: '500' }],
+              'display-lg-mobile': ['48px', { lineHeight: '1.1', fontWeight: '700' }],
+              'headline-sm': ['24px', { lineHeight: '1.3', fontWeight: '600' }],
+              'headline-lg': ['40px', { lineHeight: '1.2', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+              'body-lg': ['20px', { lineHeight: '1.6', fontWeight: '400' }],
+              'display-lg': [
+                '84px',
+                { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }
+              ],
+              'label-caps': [
+                '12px',
+                { lineHeight: '1.0', letterSpacing: '0.1em', fontWeight: '600' }
+              ],
+              'headline-xl': ['60px', { lineHeight: '1.2', fontWeight: '600' }]
             }
-          },
-        },
-      }
+          }
+        }
+      };
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body {
-            background-color: #fff8f3;
-            color: #1e1b17;
-            font-family: 'Work Sans', sans-serif;
-        }
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+      body {
+        background-color: #fff8f3;
+        color: #1e1b17;
+        font-family: 'Work Sans', sans-serif;
+      }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
   </head>
-<body class="bg-background text-on-background">
-<!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant">
-<div class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
-<span class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface">L'ARCHITECTE</span>
-</div>
-<nav class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300" href="#">Home</a>
-<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300" href="#">Quienes Somos</a>
-<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300" href="#">Proyectos</a>
-<a class="text-primary border-b-2 border-primary pb-1 font-label-caps tracking-widest" href="#">Blog</a>
-<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300" href="#">Contacto</a>
-</nav>
-<button class="bg-primary text-white px-6 py-3 font-label-caps hover:bg-primary-container transition-colors active:scale-95 duration-200">
-                REQUEST CALLBACK
+  <body class="bg-background text-on-background">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant">
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto"
+      >
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+          <span class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface"
+            >L'ARCHITECTE</span
+          >
+        </div>
+        <nav class="hidden md:flex gap-8 items-center">
+          <a
+            class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300"
+            href="#"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300"
+            href="#"
+            >Quienes Somos</a
+          >
+          <a
+            class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300"
+            href="#"
+            >Proyectos</a
+          >
+          <a
+            class="text-primary border-b-2 border-primary pb-1 font-label-caps tracking-widest"
+            href="#"
+            >Blog</a
+          >
+          <a
+            class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-colors duration-300"
+            href="#"
+            >Contacto</a
+          >
+        </nav>
+        <button
+          class="bg-primary text-white px-6 py-3 font-label-caps hover:bg-primary-container transition-colors active:scale-95 duration-200"
+        >
+          REQUEST CALLBACK
+        </button>
+      </div>
+    </header>
+    <main class="pt-[160px] pb-stack-xl max-w-[1440px] mx-auto px-margin-desktop">
+      <!-- Page Header -->
+      <section class="grid grid-cols-12 gap-gutter mb-stack-lg">
+        <div class="col-span-12 md:col-span-6">
+          <h1 class="font-display-lg text-display-lg mb-stack-sm">The Journal</h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+            Refined perspectives on global architecture, luxury living, and the evolving landscape
+            of high-end real estate.
+          </p>
+        </div>
+      </section>
+      <!-- Sticky Filter Bar -->
+      <div
+        class="sticky top-[104px] z-40 bg-surface/90 backdrop-blur-md py-6 border-b border-outline-variant mb-stack-md"
+      >
+        <div class="flex flex-wrap gap-12 items-center">
+          <span class="font-label-caps text-label-caps text-outline">FILTER BY:</span>
+          <div class="flex gap-8">
+            <button class="font-label-caps text-label-caps text-primary border-b border-primary">
+              All Articles
             </button>
-</div>
-</header>
-<main class="pt-[160px] pb-stack-xl max-w-[1440px] mx-auto px-margin-desktop">
-<!-- Page Header -->
-<section class="grid grid-cols-12 gap-gutter mb-stack-lg">
-<div class="col-span-12 md:col-span-6">
-<h1 class="font-display-lg text-display-lg mb-stack-sm">The Journal</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Refined perspectives on global architecture, luxury living, and the evolving landscape of high-end real estate.</p>
-</div>
-</section>
-<!-- Sticky Filter Bar -->
-<div class="sticky top-[104px] z-40 bg-surface/90 backdrop-blur-md py-6 border-b border-outline-variant mb-stack-md">
-<div class="flex flex-wrap gap-12 items-center">
-<span class="font-label-caps text-label-caps text-outline">FILTER BY:</span>
-<div class="flex gap-8">
-<button class="font-label-caps text-label-caps text-primary border-b border-primary">All Articles</button>
-<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors">Market Insights</button>
-<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors">Design</button>
-<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors">Lifestyle</button>
-</div>
-</div>
-</div>
-<!-- Articles Grid (Asymmetric Swiss Style) -->
-<section class="grid grid-cols-12 gap-x-gutter gap-y-stack-lg">
-<!-- Article 1: Large Featured -->
-<article class="col-span-12 md:col-span-8 group cursor-pointer">
-<div class="aspect-[16/9] overflow-hidden bg-surface-container mb-stack-sm">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sweeping wide-angle shot of a minimalist contemporary mansion at dusk, featuring floor-to-ceiling glass walls that glow with warm interior lighting. The surrounding landscape is a manicured desert garden under a deep twilight sky, echoing a luxurious and serene architectural mood. The lighting is soft yet dramatic, emphasizing the clean structural lines and premium stone textures in a high-end editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMxDynQS5US64usbTwXbXN2s7NTl3tb6oGA7M9MvkQkdazwEVNCKzhQUAP7as2YEJQIq0MxVkrAMrdvLG0y5wF-8DT6pFNZkFo8U2TnYSNgHvIa007cRvgXZgjFyizhbDiz8r7oQ6Xo0IUBJECDr1E3p4_ysMKaHXMIb35uwg7mi3bp5r271idxaQnZLY0yf4KnjK8Cxql4Q9J99jVIf1IP6Xl3mt-Uy1FmW8y5Ejw1BL3QA0iyJIzH8quGlITr5jLyjBmkrsgB7k"/>
-</div>
-<div class="grid grid-cols-8 gap-gutter">
-<div class="col-span-8 md:col-span-6">
-<div class="flex items-center gap-4 mb-4">
-<span class="font-label-caps text-label-caps text-primary">Design</span>
-<span class="w-[40px] h-[1px] bg-outline-variant"></span>
-<span class="font-label-caps text-label-caps text-outline">Oct 12, 2024</span>
-</div>
-<h2 class="font-headline-xl text-headline-xl mb-4 group-hover:text-primary transition-colors">The Rise of Biophilic Architecture</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Exploring how the integration of natural elements within structural design is redefining luxury living in metropolitan hubs. From vertical gardens to natural light optimization, nature is no longer an amenity—it's the foundation.</p>
-</div>
-</div>
-</article>
-<!-- Article 2: Vertical Small -->
-<article class="col-span-12 md:col-span-4 group cursor-pointer mt-0 md:mt-stack-lg">
-<div class="aspect-[4/5] overflow-hidden bg-surface-container mb-stack-sm">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An ultra-modern commercial office space with minimalist white desks and ergonomic furniture, framed by expansive windows overlooking a futuristic cityscape. The lighting is crisp and cool, creating a bright, high-key Swiss aesthetic that emphasizes clarity and professional elegance. Subtle reflections on polished concrete floors add depth to the serene, architectural composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMsg55TlZk8dGR52pBNZQ6B2NNDm2ttYiC_4KYq8DA22nT3o0AXCoSDWjp3BD6q9iVW_pahkTTv8unPzlxxPYyRY4d84e4Uv4Scj12f6iPi9rcCJ2m7pPEDDX2thWTJG0VqeLBjdTaK1rP_an5YkYsYJShIBA9Fy_xcPHmT6hCw65yc45wFqhNQ90sT2aVosIzPVuYr8YF3Oi-sn7f62ONPsNNk3CSDY3g5_pMl8K4t5P0Kd57LAMQ_1A2JzsdiaSs44U9CIb5p5I"/>
-</div>
-<div class="flex items-center gap-4 mb-4">
-<span class="font-label-caps text-label-caps text-primary">Market Insights</span>
-<span class="font-label-caps text-label-caps text-outline">Oct 08, 2024</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-3 group-hover:text-primary transition-colors">European Luxury Real Estate Forecast</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">A comprehensive analysis of the shifting investment patterns in the Mediterranean high-end market for Q4.</p>
-</article>
-<!-- Article 3 -->
-<article class="col-span-12 md:col-span-4 group cursor-pointer">
-<div class="aspect-[4/5] overflow-hidden bg-surface-container mb-stack-sm">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up detail of a brutalist concrete staircase winding through a light-filled atrium. The interplay of shadow and sharp sunlight creates a striking geometric pattern on the raw textures. The palette is dominated by neutral greys and brilliant whites, maintaining an architectural focus on form and materiality in a sophisticated, minimalist manner." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2dGO6LXbKMNufbc_7V8UPC-c6PEMjrT5tK6HX9G8KcB3a0xS60uChASNXEfDFO8Ng1AR3PHgv3y77hplgfJEjwa2xjt5OvLjylm8CZs1EcAaLoGnzikMKUnuxiISpQXSCP-LwoSvhgogYkLu_ehFORRIRFQZj1QU8ozW4YKGECw-cVnaOxXw7_-O3n4FV1rThHRHB1OYvJ4QqbQlxw723yrkxMX0O_x948o1tQHksoOu3lRqdfOnUOTHZF1ns9i5dt-XjH7uPk98"/>
-</div>
-<div class="flex items-center gap-4 mb-4">
-<span class="font-label-caps text-label-caps text-primary">Design</span>
-<span class="font-label-caps text-label-caps text-outline">Sep 29, 2024</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-3 group-hover:text-primary transition-colors">The New Brutalism: Softening the Edge</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">How raw materials like exposed concrete are being paired with warm textiles to create inviting luxury spaces.</p>
-</article>
-<!-- Article 4 -->
-<article class="col-span-12 md:col-span-4 group cursor-pointer">
-<div class="aspect-[4/5] overflow-hidden bg-surface-container mb-stack-sm">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A gourmet kitchen featuring a massive marble island with dark grey veining, set against matte black cabinetry. High-end brass fixtures provide elegant accents. The scene is illuminated by soft, diffused daylight, highlighting the premium finishes and clean, modern aesthetic. The atmosphere is one of exclusive, refined living and culinary sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtawYt2OVLTu751IVqV7SAvEIr8Y8Bf7Ph1nxijeEiiKEiYqiZEOjSPFxo8wGXwgJqDuFlUd5g7doBHsJpZjrd3Io_YCdNmau5SyeVvUDRKmG0Tsf7rf0JchlUO8lTU-0cowkBxrPOb0bfXLd22FX-x_SyP0inKxJxpW8Gg_xiDdiCMfeUXwIM5w2xeypx-kKpMocCu7RlDHHx17W-_-1kuhOzubHucntm6A9So41J1Q_jkDl--DDGPrmwNpKhQtrIqJMGPa_7qWY"/>
-</div>
-<div class="flex items-center gap-4 mb-4">
-<span class="font-label-caps text-label-caps text-primary">Lifestyle</span>
-<span class="font-label-caps text-label-caps text-outline">Sep 24, 2024</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-3 group-hover:text-primary transition-colors">Curating Your Private Gallery</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Advice from top curators on integrating world-class art collections into residential architectural designs.</p>
-</article>
-<!-- Article 5 -->
-<article class="col-span-12 md:col-span-4 group cursor-pointer">
-<div class="aspect-[4/5] overflow-hidden bg-surface-container mb-stack-sm">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxurious coastal villa infinity pool merging seamlessly with the deep blue horizon of the ocean. The poolside is paved with light travertine stone, and sleek white lounge chairs are arranged in a perfect row. The lighting is bright and airy, capturing a high-noon Mediterranean vibe that is both refreshing and impeccably modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOirnnDN0NBVGge8phJ70mjn8tMpOS8gtHpOy2t-9ASP1REUe44CrIownCWz9-p3Dfq6V6sQ_hV6hVMC6yzF2s1SVa-yYvOXo4jnP9OclSGVa3Hiz9vCdY3QmoYbYPu96i33-5ZU8dFbxGkNWABEWJbtdczGoliTTzxPAMSjGXObnPVTsS2AiodTBJXSKe_XcbtcLbqd8n4KudKLJHgrqa_EUrylH6R8OOa6Xx64F_B5p2eDxVNf8wRStcK6IK9u3kwol3IDmidSE"/>
-</div>
-<div class="flex items-center gap-4 mb-4">
-<span class="font-label-caps text-label-caps text-primary">Market Insights</span>
-<span class="font-label-caps text-label-caps text-outline">Sep 15, 2024</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-3 group-hover:text-primary transition-colors">Emerging Luxury Hubs in 2025</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Identifying the next generation of global hotspots for ultra-high-net-worth real estate investment.</p>
-</article>
-<!-- Article 6 -->
-<article class="col-span-12 md:col-span-12 group cursor-pointer">
-<div class="grid grid-cols-12 gap-gutter items-center">
-<div class="col-span-12 md:col-span-7 bg-surface-container overflow-hidden aspect-video">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="The grand entrance of a luxury boutique hotel, featuring a towering mahogany door and architectural lighting that casts long, elegant shadows across a stone-paved driveway. The scene is set at night, with a sophisticated and mysterious mood. The warm interior light spilling out creates a welcoming yet highly exclusive and private atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdTko75aNsufSoMjaTqRftFIvGSDUIDv_e2n6QTztjRVcuEABfg1jcZnGP2O_szU3kNXAul1iLO4lT4eJTC9aywgyERkOHdxuhbJMHvsM3a-Z8Wg8DJdg6OGLCMTpMwPVVXMQM3NAxwf87jNahd87CiH_SFD3_L5F9yx-YbhLVC3EC9esopx0ar3Dblf7LL0HtJAq2L9s0Ah0fMYJnuC5NkjlNixY7LKvlsWiimXJn8bufWyel50nTHjzSCKB87pRDYHYaaFDcfqs"/>
-</div>
-<div class="col-span-12 md:col-span-5 px-0 md:px-stack-md">
-<div class="flex items-center gap-4 mb-4">
-<span class="font-label-caps text-label-caps text-primary">Lifestyle</span>
-<span class="font-label-caps text-label-caps text-outline">Sep 01, 2024</span>
-</div>
-<h3 class="font-headline-lg text-headline-lg mb-4 group-hover:text-primary transition-colors">The Art of Discretion</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">In an era of hyper-visibility, we explore the growing demand for 'invisible luxury' and high-security architectural sanctuaries.</p>
-<button class="font-label-caps text-label-caps border-b border-on-background pb-1 hover:text-primary hover:border-primary transition-all">READ FULL STORY</button>
-</div>
-</div>
-</article>
-</section>
-<!-- Pagination -->
-<nav class="mt-stack-xl flex justify-between items-center border-t border-outline-variant pt-stack-md">
-<div class="flex items-center gap-2">
-<span class="font-headline-sm text-headline-sm">01</span>
-<span class="text-outline">/</span>
-<span class="font-label-caps text-label-caps text-outline">05</span>
-</div>
-<a class="flex items-center gap-4 group" href="#">
-<span class="font-label-caps text-label-caps tracking-widest group-hover:text-primary transition-colors">NEXT PAGE</span>
-<span class="material-symbols-outlined text-on-surface group-hover:text-primary group-hover:translate-x-2 transition-all" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</nav>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-outline-variant mt-stack-xl">
-<div class="grid grid-cols-12 gap-gutter px-margin-desktop py-stack-lg max-w-[1440px] mx-auto">
-<div class="col-span-12 md:col-span-4 mb-stack-md md:mb-0">
-<span class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface">L'ARCHITECTE</span>
-<p class="mt-stack-sm font-body-md text-body-md text-on-surface-variant max-w-xs">
-                    Curating exceptional properties for those who understand that architecture is a form of art.
-                </p>
-</div>
-<div class="col-span-12 md:col-span-2">
-<h4 class="font-label-caps text-label-caps text-primary mb-6">SITEMAP</h4>
-<ul class="space-y-4">
-<li><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all" href="#">Home</a></li>
-<li><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all" href="#">Quienes Somos</a></li>
-<li><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all" href="#">Proyectos</a></li>
-<li><a class="font-label-caps text-label-caps text-primary font-bold" href="#">Blog</a></li>
-</ul>
-</div>
-<div class="col-span-12 md:col-span-2">
-<h4 class="font-label-caps text-label-caps text-primary mb-6">LEGAL</h4>
-<ul class="space-y-4">
-<li><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all" href="#">Privacy Policy</a></li>
-<li><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all" href="#">Imprint</a></li>
-</ul>
-</div>
-<div class="col-span-12 md:col-span-4 flex flex-col items-start md:items-end">
-<h4 class="font-label-caps text-label-caps text-primary mb-6">NEWSLETTER</h4>
-<div class="w-full max-w-sm">
-<div class="flex border-b border-outline-variant pb-2">
-<input class="bg-transparent border-none focus:ring-0 w-full font-label-caps text-label-caps" placeholder="Your email address" type="email"/>
-<button class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</button>
-</div>
-</div>
-</div>
-<div class="col-span-12 border-t border-outline-variant mt-stack-lg pt-stack-sm">
-<p class="font-label-caps text-label-caps text-outline text-center md:text-left">
-                    © 2024 L'ARCHITECTE LUXURY REAL ESTATE. ALL RIGHTS RESERVED.
-                </p>
-</div>
-</div>
-</footer>
-</body></html>
+            <button
+              class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors"
+            >
+              Market Insights
+            </button>
+            <button
+              class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors"
+            >
+              Design
+            </button>
+            <button
+              class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors"
+            >
+              Lifestyle
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Articles Grid (Asymmetric Swiss Style) -->
+      <section class="grid grid-cols-12 gap-x-gutter gap-y-stack-lg">
+        <!-- Article 1: Large Featured -->
+        <article class="col-span-12 md:col-span-8 group cursor-pointer">
+          <div class="aspect-[16/9] overflow-hidden bg-surface-container mb-stack-sm">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              data-alt="A sweeping wide-angle shot of a minimalist contemporary mansion at dusk, featuring floor-to-ceiling glass walls that glow with warm interior lighting. The surrounding landscape is a manicured desert garden under a deep twilight sky, echoing a luxurious and serene architectural mood. The lighting is soft yet dramatic, emphasizing the clean structural lines and premium stone textures in a high-end editorial style."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMxDynQS5US64usbTwXbXN2s7NTl3tb6oGA7M9MvkQkdazwEVNCKzhQUAP7as2YEJQIq0MxVkrAMrdvLG0y5wF-8DT6pFNZkFo8U2TnYSNgHvIa007cRvgXZgjFyizhbDiz8r7oQ6Xo0IUBJECDr1E3p4_ysMKaHXMIb35uwg7mi3bp5r271idxaQnZLY0yf4KnjK8Cxql4Q9J99jVIf1IP6Xl3mt-Uy1FmW8y5Ejw1BL3QA0iyJIzH8quGlITr5jLyjBmkrsgB7k"
+            />
+          </div>
+          <div class="grid grid-cols-8 gap-gutter">
+            <div class="col-span-8 md:col-span-6">
+              <div class="flex items-center gap-4 mb-4">
+                <span class="font-label-caps text-label-caps text-primary">Design</span>
+                <span class="w-[40px] h-[1px] bg-outline-variant"></span>
+                <span class="font-label-caps text-label-caps text-outline">Oct 12, 2024</span>
+              </div>
+              <h2
+                class="font-headline-xl text-headline-xl mb-4 group-hover:text-primary transition-colors"
+              >
+                The Rise of Biophilic Architecture
+              </h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Exploring how the integration of natural elements within structural design is
+                redefining luxury living in metropolitan hubs. From vertical gardens to natural
+                light optimization, nature is no longer an amenity—it's the foundation.
+              </p>
+            </div>
+          </div>
+        </article>
+        <!-- Article 2: Vertical Small -->
+        <article class="col-span-12 md:col-span-4 group cursor-pointer mt-0 md:mt-stack-lg">
+          <div class="aspect-[4/5] overflow-hidden bg-surface-container mb-stack-sm">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              data-alt="An ultra-modern commercial office space with minimalist white desks and ergonomic furniture, framed by expansive windows overlooking a futuristic cityscape. The lighting is crisp and cool, creating a bright, high-key Swiss aesthetic that emphasizes clarity and professional elegance. Subtle reflections on polished concrete floors add depth to the serene, architectural composition."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMsg55TlZk8dGR52pBNZQ6B2NNDm2ttYiC_4KYq8DA22nT3o0AXCoSDWjp3BD6q9iVW_pahkTTv8unPzlxxPYyRY4d84e4Uv4Scj12f6iPi9rcCJ2m7pPEDDX2thWTJG0VqeLBjdTaK1rP_an5YkYsYJShIBA9Fy_xcPHmT6hCw65yc45wFqhNQ90sT2aVosIzPVuYr8YF3Oi-sn7f62ONPsNNk3CSDY3g5_pMl8K4t5P0Kd57LAMQ_1A2JzsdiaSs44U9CIb5p5I"
+            />
+          </div>
+          <div class="flex items-center gap-4 mb-4">
+            <span class="font-label-caps text-label-caps text-primary">Market Insights</span>
+            <span class="font-label-caps text-label-caps text-outline">Oct 08, 2024</span>
+          </div>
+          <h3
+            class="font-headline-sm text-headline-sm mb-3 group-hover:text-primary transition-colors"
+          >
+            European Luxury Real Estate Forecast
+          </h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            A comprehensive analysis of the shifting investment patterns in the Mediterranean
+            high-end market for Q4.
+          </p>
+        </article>
+        <!-- Article 3 -->
+        <article class="col-span-12 md:col-span-4 group cursor-pointer">
+          <div class="aspect-[4/5] overflow-hidden bg-surface-container mb-stack-sm">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              data-alt="Close-up detail of a brutalist concrete staircase winding through a light-filled atrium. The interplay of shadow and sharp sunlight creates a striking geometric pattern on the raw textures. The palette is dominated by neutral greys and brilliant whites, maintaining an architectural focus on form and materiality in a sophisticated, minimalist manner."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2dGO6LXbKMNufbc_7V8UPC-c6PEMjrT5tK6HX9G8KcB3a0xS60uChASNXEfDFO8Ng1AR3PHgv3y77hplgfJEjwa2xjt5OvLjylm8CZs1EcAaLoGnzikMKUnuxiISpQXSCP-LwoSvhgogYkLu_ehFORRIRFQZj1QU8ozW4YKGECw-cVnaOxXw7_-O3n4FV1rThHRHB1OYvJ4QqbQlxw723yrkxMX0O_x948o1tQHksoOu3lRqdfOnUOTHZF1ns9i5dt-XjH7uPk98"
+            />
+          </div>
+          <div class="flex items-center gap-4 mb-4">
+            <span class="font-label-caps text-label-caps text-primary">Design</span>
+            <span class="font-label-caps text-label-caps text-outline">Sep 29, 2024</span>
+          </div>
+          <h3
+            class="font-headline-sm text-headline-sm mb-3 group-hover:text-primary transition-colors"
+          >
+            The New Brutalism: Softening the Edge
+          </h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            How raw materials like exposed concrete are being paired with warm textiles to create
+            inviting luxury spaces.
+          </p>
+        </article>
+        <!-- Article 4 -->
+        <article class="col-span-12 md:col-span-4 group cursor-pointer">
+          <div class="aspect-[4/5] overflow-hidden bg-surface-container mb-stack-sm">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              data-alt="A gourmet kitchen featuring a massive marble island with dark grey veining, set against matte black cabinetry. High-end brass fixtures provide elegant accents. The scene is illuminated by soft, diffused daylight, highlighting the premium finishes and clean, modern aesthetic. The atmosphere is one of exclusive, refined living and culinary sophistication."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtawYt2OVLTu751IVqV7SAvEIr8Y8Bf7Ph1nxijeEiiKEiYqiZEOjSPFxo8wGXwgJqDuFlUd5g7doBHsJpZjrd3Io_YCdNmau5SyeVvUDRKmG0Tsf7rf0JchlUO8lTU-0cowkBxrPOb0bfXLd22FX-x_SyP0inKxJxpW8Gg_xiDdiCMfeUXwIM5w2xeypx-kKpMocCu7RlDHHx17W-_-1kuhOzubHucntm6A9So41J1Q_jkDl--DDGPrmwNpKhQtrIqJMGPa_7qWY"
+            />
+          </div>
+          <div class="flex items-center gap-4 mb-4">
+            <span class="font-label-caps text-label-caps text-primary">Lifestyle</span>
+            <span class="font-label-caps text-label-caps text-outline">Sep 24, 2024</span>
+          </div>
+          <h3
+            class="font-headline-sm text-headline-sm mb-3 group-hover:text-primary transition-colors"
+          >
+            Curating Your Private Gallery
+          </h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Advice from top curators on integrating world-class art collections into residential
+            architectural designs.
+          </p>
+        </article>
+        <!-- Article 5 -->
+        <article class="col-span-12 md:col-span-4 group cursor-pointer">
+          <div class="aspect-[4/5] overflow-hidden bg-surface-container mb-stack-sm">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              data-alt="A luxurious coastal villa infinity pool merging seamlessly with the deep blue horizon of the ocean. The poolside is paved with light travertine stone, and sleek white lounge chairs are arranged in a perfect row. The lighting is bright and airy, capturing a high-noon Mediterranean vibe that is both refreshing and impeccably modern."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOirnnDN0NBVGge8phJ70mjn8tMpOS8gtHpOy2t-9ASP1REUe44CrIownCWz9-p3Dfq6V6sQ_hV6hVMC6yzF2s1SVa-yYvOXo4jnP9OclSGVa3Hiz9vCdY3QmoYbYPu96i33-5ZU8dFbxGkNWABEWJbtdczGoliTTzxPAMSjGXObnPVTsS2AiodTBJXSKe_XcbtcLbqd8n4KudKLJHgrqa_EUrylH6R8OOa6Xx64F_B5p2eDxVNf8wRStcK6IK9u3kwol3IDmidSE"
+            />
+          </div>
+          <div class="flex items-center gap-4 mb-4">
+            <span class="font-label-caps text-label-caps text-primary">Market Insights</span>
+            <span class="font-label-caps text-label-caps text-outline">Sep 15, 2024</span>
+          </div>
+          <h3
+            class="font-headline-sm text-headline-sm mb-3 group-hover:text-primary transition-colors"
+          >
+            Emerging Luxury Hubs in 2025
+          </h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Identifying the next generation of global hotspots for ultra-high-net-worth real estate
+            investment.
+          </p>
+        </article>
+        <!-- Article 6 -->
+        <article class="col-span-12 md:col-span-12 group cursor-pointer">
+          <div class="grid grid-cols-12 gap-gutter items-center">
+            <div
+              class="col-span-12 md:col-span-7 bg-surface-container overflow-hidden aspect-video"
+            >
+              <img
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                data-alt="The grand entrance of a luxury boutique hotel, featuring a towering mahogany door and architectural lighting that casts long, elegant shadows across a stone-paved driveway. The scene is set at night, with a sophisticated and mysterious mood. The warm interior light spilling out creates a welcoming yet highly exclusive and private atmosphere."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdTko75aNsufSoMjaTqRftFIvGSDUIDv_e2n6QTztjRVcuEABfg1jcZnGP2O_szU3kNXAul1iLO4lT4eJTC9aywgyERkOHdxuhbJMHvsM3a-Z8Wg8DJdg6OGLCMTpMwPVVXMQM3NAxwf87jNahd87CiH_SFD3_L5F9yx-YbhLVC3EC9esopx0ar3Dblf7LL0HtJAq2L9s0Ah0fMYJnuC5NkjlNixY7LKvlsWiimXJn8bufWyel50nTHjzSCKB87pRDYHYaaFDcfqs"
+              />
+            </div>
+            <div class="col-span-12 md:col-span-5 px-0 md:px-stack-md">
+              <div class="flex items-center gap-4 mb-4">
+                <span class="font-label-caps text-label-caps text-primary">Lifestyle</span>
+                <span class="font-label-caps text-label-caps text-outline">Sep 01, 2024</span>
+              </div>
+              <h3
+                class="font-headline-lg text-headline-lg mb-4 group-hover:text-primary transition-colors"
+              >
+                The Art of Discretion
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                In an era of hyper-visibility, we explore the growing demand for 'invisible luxury'
+                and high-security architectural sanctuaries.
+              </p>
+              <button
+                class="font-label-caps text-label-caps border-b border-on-background pb-1 hover:text-primary hover:border-primary transition-all"
+              >
+                READ FULL STORY
+              </button>
+            </div>
+          </div>
+        </article>
+      </section>
+      <!-- Pagination -->
+      <nav
+        class="mt-stack-xl flex justify-between items-center border-t border-outline-variant pt-stack-md"
+      >
+        <div class="flex items-center gap-2">
+          <span class="font-headline-sm text-headline-sm">01</span>
+          <span class="text-outline">/</span>
+          <span class="font-label-caps text-label-caps text-outline">05</span>
+        </div>
+        <a class="flex items-center gap-4 group" href="#">
+          <span
+            class="font-label-caps text-label-caps tracking-widest group-hover:text-primary transition-colors"
+            >NEXT PAGE</span
+          >
+          <span
+            class="material-symbols-outlined text-on-surface group-hover:text-primary group-hover:translate-x-2 transition-all"
+            data-icon="arrow_forward"
+            >arrow_forward</span
+          >
+        </a>
+      </nav>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest border-t border-outline-variant mt-stack-xl">
+      <div
+        class="grid grid-cols-12 gap-gutter px-margin-desktop py-stack-lg max-w-[1440px] mx-auto"
+      >
+        <div class="col-span-12 md:col-span-4 mb-stack-md md:mb-0">
+          <span class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface"
+            >L'ARCHITECTE</span
+          >
+          <p class="mt-stack-sm font-body-md text-body-md text-on-surface-variant max-w-xs">
+            Curating exceptional properties for those who understand that architecture is a form of
+            art.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-2">
+          <h4 class="font-label-caps text-label-caps text-primary mb-6">SITEMAP</h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all"
+                href="#"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all"
+                href="#"
+                >Quienes Somos</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all"
+                href="#"
+                >Proyectos</a
+              >
+            </li>
+            <li>
+              <a class="font-label-caps text-label-caps text-primary font-bold" href="#">Blog</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-span-12 md:col-span-2">
+          <h4 class="font-label-caps text-label-caps text-primary mb-6">LEGAL</h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all"
+                href="#"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all"
+                href="#"
+                >Imprint</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-span-12 md:col-span-4 flex flex-col items-start md:items-end">
+          <h4 class="font-label-caps text-label-caps text-primary mb-6">NEWSLETTER</h4>
+          <div class="w-full max-w-sm">
+            <div class="flex border-b border-outline-variant pb-2">
+              <input
+                class="bg-transparent border-none focus:ring-0 w-full font-label-caps text-label-caps"
+                placeholder="Your email address"
+                type="email"
+              />
+              <button class="material-symbols-outlined text-outline" data-icon="chevron_right">
+                chevron_right
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-12 border-t border-outline-variant mt-stack-lg pt-stack-sm">
+          <p class="font-label-caps text-label-caps text-outline text-center md:text-left">
+            © 2024 L'ARCHITECTE LUXURY REAL ESTATE. ALL RIGHTS RESERVED.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

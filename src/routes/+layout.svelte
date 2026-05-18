@@ -123,7 +123,10 @@
     </div>
     <div class="hidden items-center gap-6 md:flex">
       <a class={navClass('/')} href="/">{$t('layout.nav.home')}</a>
-      <a class={navClass('/components')} href="/components">{$t('layout.nav.components')}</a>
+      <a class={navClass('/proyectos')} href="/proyectos">{$t('layout.nav.projects')}</a>
+      <a class={navClass('/sobre-nosotros')} href="/sobre-nosotros">{$t('layout.nav.about')}</a>
+      <a class={navClass('/blog')} href="/blog">{$t('layout.nav.blog')}</a>
+      <a class={navClass('/contacto')} href="/contacto">{$t('layout.nav.contact')}</a>
     </div>
     <div class="flex shrink-0 items-center gap-2 sm:gap-4">
       <div class="flex items-center gap-0.5 sm:gap-2">
@@ -145,7 +148,7 @@
         </button>
       </div>
       <a
-        href="/components"
+        href="/proyectos"
         class="scale-95 rounded-full bg-primary px-6 py-2 font-bold text-white transition-transform active:scale-90"
       >
         {$t('layout.nav.getStarted')}

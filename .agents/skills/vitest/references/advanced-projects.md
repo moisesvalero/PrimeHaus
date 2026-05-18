@@ -16,25 +16,25 @@ defineConfig({
     projects: [
       // Glob patterns for config files
       'packages/*',
-      
+
       // Inline config
       {
         test: {
           name: 'unit',
           include: ['tests/unit/**/*.test.ts'],
-          environment: 'node',
-        },
+          environment: 'node'
+        }
       },
       {
         test: {
           name: 'integration',
           include: ['tests/integration/**/*.test.ts'],
-          environment: 'jsdom',
-        },
-      },
-    ],
-  },
-})
+          environment: 'jsdom'
+        }
+      }
+    ]
+  }
+});
 ```
 
 ## Monorepo Pattern
@@ -46,25 +46,25 @@ defineConfig({
       // Each package has its own vitest.config.ts
       'packages/core',
       'packages/cli',
-      'packages/utils',
-    ],
-  },
-})
+      'packages/utils'
+    ]
+  }
+});
 ```
 
 Package config:
 
 ```ts
 // packages/core/vitest.config.ts
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
     name: 'core',
     include: ['src/**/*.test.ts'],
-    environment: 'node',
-  },
-})
+    environment: 'node'
+  }
+});
 ```
 
 ## Different Environments
@@ -80,20 +80,20 @@ defineConfig({
           name: 'happy-dom',
           root: './shared-tests',
           environment: 'happy-dom',
-          setupFiles: ['./setup.happy-dom.ts'],
-        },
+          setupFiles: ['./setup.happy-dom.ts']
+        }
       },
       {
         test: {
           name: 'node',
           root: './shared-tests',
           environment: 'node',
-          setupFiles: ['./setup.node.ts'],
-        },
-      },
-    ],
-  },
-})
+          setupFiles: ['./setup.node.ts']
+        }
+      }
+    ]
+  }
+});
 ```
 
 ## Browser + Node Projects
@@ -106,8 +106,8 @@ defineConfig({
         test: {
           name: 'unit',
           include: ['tests/unit/**/*.test.ts'],
-          environment: 'node',
-        },
+          environment: 'node'
+        }
       },
       {
         test: {
@@ -116,13 +116,13 @@ defineConfig({
           browser: {
             enabled: true,
             name: 'chromium',
-            provider: 'playwright',
-          },
-        },
-      },
-    ],
-  },
-})
+            provider: 'playwright'
+          }
+        }
+      }
+    ]
+  }
+});
 ```
 
 ## Shared Configuration
@@ -131,11 +131,11 @@ defineConfig({
 // vitest.shared.ts
 export const sharedConfig = {
   testTimeout: 10000,
-  setupFiles: ['./tests/setup.ts'],
-}
+  setupFiles: ['./tests/setup.ts']
+};
 
 // vitest.config.ts
-import { sharedConfig } from './vitest.shared'
+import { sharedConfig } from './vitest.shared';
 
 defineConfig({
   test: {
@@ -144,19 +144,19 @@ defineConfig({
         test: {
           ...sharedConfig,
           name: 'unit',
-          include: ['tests/unit/**/*.test.ts'],
-        },
+          include: ['tests/unit/**/*.test.ts']
+        }
       },
       {
         test: {
           ...sharedConfig,
           name: 'e2e',
-          include: ['tests/e2e/**/*.test.ts'],
-        },
-      },
-    ],
-  },
-})
+          include: ['tests/e2e/**/*.test.ts']
+        }
+      }
+    ]
+  }
+});
 ```
 
 ## Project-Specific Dependencies
@@ -172,14 +172,14 @@ defineConfig({
           name: 'project-a',
           server: {
             deps: {
-              inline: ['package-a'],
-            },
-          },
-        },
-      },
-    ],
-  },
-})
+              inline: ['package-a']
+            }
+          }
+        }
+      }
+    ]
+  }
+});
 ```
 
 ## Running Specific Projects
@@ -210,42 +210,42 @@ defineConfig({
           name: 'staging',
           provide: {
             apiUrl: 'https://staging.api.com',
-            debug: true,
-          },
-        },
+            debug: true
+          }
+        }
       },
       {
         test: {
           name: 'production',
           provide: {
             apiUrl: 'https://api.com',
-            debug: false,
-          },
-        },
-      },
-    ],
-  },
-})
+            debug: false
+          }
+        }
+      }
+    ]
+  }
+});
 
 // In tests, use inject
-import { inject } from 'vitest'
+import { inject } from 'vitest';
 
 test('uses correct api', () => {
-  const url = inject('apiUrl')
-  expect(url).toContain('api.com')
-})
+  const url = inject('apiUrl');
+  expect(url).toContain('api.com');
+});
 ```
 
 ## With Fixtures
 
 ```ts
 const test = base.extend({
-  apiUrl: ['/default', { injected: true }],
-})
+  apiUrl: ['/default', { injected: true }]
+});
 
 test('uses injected url', ({ apiUrl }) => {
   // apiUrl comes from project's provide config
-})
+});
 ```
 
 ## Project Isolation
@@ -260,12 +260,12 @@ defineConfig({
         test: {
           name: 'isolated',
           isolate: true, // Full isolation
-          pool: 'forks',
-        },
-      },
-    ],
-  },
-})
+          pool: 'forks'
+        }
+      }
+    ]
+  }
+});
 ```
 
 ## Global Setup per Project
@@ -277,12 +277,12 @@ defineConfig({
       {
         test: {
           name: 'with-db',
-          globalSetup: ['./tests/db-setup.ts'],
-        },
-      },
-    ],
-  },
-})
+          globalSetup: ['./tests/db-setup.ts']
+        }
+      }
+    ]
+  }
+});
 ```
 
 ## Key Points
@@ -294,7 +294,7 @@ defineConfig({
 - Use `provide` to inject config values into tests
 - Projects inherit from root config unless overridden
 
-<!-- 
+<!--
 Source references:
 - https://vitest.dev/guide/projects.html
 -->

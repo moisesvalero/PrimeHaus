@@ -31,34 +31,34 @@ check this list. If a component does the job, **use it**.
 
 ### shadcn-svelte component catalog
 
-| Component | Import | Key props |
-|-----------|--------|-----------|
-| **Button** | `$lib/components/ui/button` | `variant="default\|secondary\|outline\|ghost\|destructive\|link" size="default\|sm\|lg\|icon" href disabled` |
-| **Card** | `$lib/components/ui/card` | `Card`, `CardContent`, `CardHeader`, `CardTitle`, `CardFooter`, `CardDescription`, `CardAction` |
-| **Dialog** | `$lib/components/ui/dialog` | `open title onclose` |
-| **Input** | `$lib/components/ui/input` | `type placeholder bind:value` |
-| **Textarea** | `$lib/components/ui/textarea` | `rows placeholder bind:value` |
-| **Label** | `$lib/components/ui/label` | `for` |
-| **Skeleton** | `$lib/components/ui/skeleton` | `width height class` |
-| **Spinner** | `$lib/components/ui/spinner` | `class="size-{n}"` |
+| Component    | Import                        | Key props                                                                                                    |
+| ------------ | ----------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Button**   | `$lib/components/ui/button`   | `variant="default\|secondary\|outline\|ghost\|destructive\|link" size="default\|sm\|lg\|icon" href disabled` |
+| **Card**     | `$lib/components/ui/card`     | `Card`, `CardContent`, `CardHeader`, `CardTitle`, `CardFooter`, `CardDescription`, `CardAction`              |
+| **Dialog**   | `$lib/components/ui/dialog`   | `open title onclose`                                                                                         |
+| **Input**    | `$lib/components/ui/input`    | `type placeholder bind:value`                                                                                |
+| **Textarea** | `$lib/components/ui/textarea` | `rows placeholder bind:value`                                                                                |
+| **Label**    | `$lib/components/ui/label`    | `for`                                                                                                        |
+| **Skeleton** | `$lib/components/ui/skeleton` | `width height class`                                                                                         |
+| **Spinner**  | `$lib/components/ui/spinner`  | `class="size-{n}"`                                                                                           |
 
 ### Project-specific components
 
-| Component | Import | Key props |
-|-----------|--------|-----------|
-| **Container** | `$lib/components/ui/Container.svelte` | `as="div\|section"` |
-| **Section** | `$lib/components/ui/Section.svelte` | `variant="default\|muted\|soft\|surface" id` |
-| **Heading** | `$lib/components/ui/Heading.svelte` | `level={1\|2\|3\|4} eyebrow kicker align` |
-| **Text** | `$lib/components/ui/Text.svelte` | `variant="body\|muted\|small\|label" align` |
-| **Grid** | `$lib/components/ui/Grid.svelte` | `columns={n} gap className` |
-| **HeroSection** | `$lib/components/ui/HeroSection.svelte` | `eyebrow title subtitle primaryLabel primaryHref secondaryLabel secondaryHref align` |
-| **FeaturesSection** | `$lib/components/ui/FeaturesSection.svelte` | `eyebrow title subtitle items=[{icon,title,description}] id` |
-| **Sonner (Toast)** | `$lib/components/ui/sonner` | `<Toaster />` in +layout.svelte |
-| **CopyButton** | `$lib/components/CopyButton.svelte` | `text label` |
-| **Newsletter** | `$lib/components/Newsletter.svelte` | `title subtitle action buttonLabel` |
-| **AiPrompt** | `$lib/components/AiPrompt.svelte` | `placeholder message maxLength` |
-| **JsonLd** | `$lib/components/JsonLd.svelte` | `type headline datePublished dateModified description author image faq[] howto[] softwareName softwareCategory` |
-| **Footer** | `$lib/components/Footer.svelte` | Links; translatable copy (`layout.footer.*`) |
+| Component           | Import                                      | Key props                                                                                                       |
+| ------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Container**       | `$lib/components/ui/Container.svelte`       | `as="div\|section"`                                                                                             |
+| **Section**         | `$lib/components/ui/Section.svelte`         | `variant="default\|muted\|soft\|surface" id`                                                                    |
+| **Heading**         | `$lib/components/ui/Heading.svelte`         | `level={1\|2\|3\|4} eyebrow kicker align`                                                                       |
+| **Text**            | `$lib/components/ui/Text.svelte`            | `variant="body\|muted\|small\|label" align`                                                                     |
+| **Grid**            | `$lib/components/ui/Grid.svelte`            | `columns={n} gap className`                                                                                     |
+| **HeroSection**     | `$lib/components/ui/HeroSection.svelte`     | `eyebrow title subtitle primaryLabel primaryHref secondaryLabel secondaryHref align`                            |
+| **FeaturesSection** | `$lib/components/ui/FeaturesSection.svelte` | `eyebrow title subtitle items=[{icon,title,description}] id`                                                    |
+| **Sonner (Toast)**  | `$lib/components/ui/sonner`                 | `<Toaster />` in +layout.svelte                                                                                 |
+| **CopyButton**      | `$lib/components/CopyButton.svelte`         | `text label`                                                                                                    |
+| **Newsletter**      | `$lib/components/Newsletter.svelte`         | `title subtitle action buttonLabel`                                                                             |
+| **AiPrompt**        | `$lib/components/AiPrompt.svelte`           | `placeholder message maxLength`                                                                                 |
+| **JsonLd**          | `$lib/components/JsonLd.svelte`             | `type headline datePublished dateModified description author image faq[] howto[] softwareName softwareCategory` |
+| **Footer**          | `$lib/components/Footer.svelte`             | Links; translatable copy (`layout.footer.*`)                                                                    |
 
 The **home** (`src/routes/+page.svelte`) loads copy from **i18n** (`home.*` in `es.json` / `en.json`). SEO is updated with `setSeo` inside `$effect` when the locale changes. Stitch/M3 styles: utilities in `src/lib/styles/stitch-m3.css`.
 
@@ -93,6 +93,7 @@ import { cn } from '$lib/utils';
 ### If the component you need does NOT exist
 
 Then create it. But:
+
 1. Put it in `src/lib/components/ui/` if it is generic
 2. Use `<script lang="ts">` with `$props()`
 3. Use Tailwind for styles
@@ -110,16 +111,16 @@ ALWAYS translate visible strings with `$t('key')` **if the page uses i18n**.
 
 ## Key structure
 
-| Folder | Purpose |
-|--------|---------|
-| `src/routes/` | Pages (filesystem routing) |
-| `src/lib/components/ui/` | shadcn-svelte + shared UI |
-| `src/lib/components/` | Project components |
-| `src/lib/i18n/` | ES/EN translations |
-| `src/lib/server/` | Server-only code |
-| `src/app.css` | Global CSS, Tailwind v4, shadcn theme variables |
-| `src/lib/styles/stitch-m3.css` | Stitch-style M3 tokens (`text-h1`, etc.) |
-| `static/` | Static assets |
+| Folder                         | Purpose                                         |
+| ------------------------------ | ----------------------------------------------- |
+| `src/routes/`                  | Pages (filesystem routing)                      |
+| `src/lib/components/ui/`       | shadcn-svelte + shared UI                       |
+| `src/lib/components/`          | Project components                              |
+| `src/lib/i18n/`                | ES/EN translations                              |
+| `src/lib/server/`              | Server-only code                                |
+| `src/app.css`                  | Global CSS, Tailwind v4, shadcn theme variables |
+| `src/lib/styles/stitch-m3.css` | Stitch-style M3 tokens (`text-h1`, etc.)        |
+| `static/`                      | Static assets                                   |
 
 ---
 
@@ -186,7 +187,7 @@ import { setSeo } from '$lib/seo';
 setSeo({
   title: '...',
   description: '...',
-  schemaType: 'WebPage',          // WebPage | Article | FAQPage | HowTo | CollectionPage | …
+  schemaType: 'WebPage', // WebPage | Article | FAQPage | HowTo | CollectionPage | …
   keywords: ['svelte', 'starter'],
   dateModified: new Date().toISOString(),
   author: 'Tu nombre',
@@ -225,25 +226,25 @@ setSeo({
 
 ### Endpoints GEO (todos dinámicos)
 
-| Endpoint | Propósito | Genera contenido desde |
-|----------|-----------|------------------------|
-| `/sitemap.xml` | Índice con hreflang ES/EN | `src/lib/site-pages.ts` |
-| `/robots.txt` | Permisos para crawlers IA (GPTBot, Claude, Perplexity, Gemini, CCBot…) | `src/routes/robots.txt/+server.ts` |
-| `/llms.txt` | Índice Markdown estándar [llmstxt.org](https://llmstxt.org) | `site-pages.ts` + i18n |
-| `/llms-full.txt` | Contenido completo del sitio en Markdown para ingesta directa por LLMs | i18n |
-| `/index.md`, `/ruta.md` | Twins Markdown AEO por página (también vía `Accept: text/markdown`) | `src/lib/aeo/builders/` + i18n |
-| `/api/og?title=…` | Open Graph SVG dinámico | parámetro `title` |
+| Endpoint                | Propósito                                                              | Genera contenido desde             |
+| ----------------------- | ---------------------------------------------------------------------- | ---------------------------------- |
+| `/sitemap.xml`          | Índice con hreflang ES/EN                                              | `src/lib/site-pages.ts`            |
+| `/robots.txt`           | Permisos para crawlers IA (GPTBot, Claude, Perplexity, Gemini, CCBot…) | `src/routes/robots.txt/+server.ts` |
+| `/llms.txt`             | Índice Markdown estándar [llmstxt.org](https://llmstxt.org)            | `site-pages.ts` + i18n             |
+| `/llms-full.txt`        | Contenido completo del sitio en Markdown para ingesta directa por LLMs | i18n                               |
+| `/index.md`, `/ruta.md` | Twins Markdown AEO por página (también vía `Accept: text/markdown`)    | `src/lib/aeo/builders/` + i18n     |
+| `/api/og?title=…`       | Open Graph SVG dinámico                                                | parámetro `title`                  |
 
 ### AEO (Markdown twins + content negotiation)
 
 Cada ruta indexable tiene un **twin Markdown** para agentes IA (spec [Dualmark](https://dualmark.dev/docs/spec/overview) / [acceptmarkdown](https://acceptmarkdown.com/)):
 
-| Capa | Qué hace |
-|------|----------|
-| `hooks.server.ts` | Si `Accept: text/markdown`, URL `*.md` o User-Agent de crawler IA, responde twin con headers AEO |
-| `+layout.svelte` | `<link rel="alternate" type="text/markdown" href="…">` |
-| `src/lib/aeo/` | Parser `Accept`, headers, builders desde i18n, registry |
-| `src/routes/*.md/+server.ts` | URLs hermanas (`/index.md`, `/components.md`) |
+| Capa                         | Qué hace                                                                                         |
+| ---------------------------- | ------------------------------------------------------------------------------------------------ |
+| `hooks.server.ts`            | Si `Accept: text/markdown`, URL `*.md` o User-Agent de crawler IA, responde twin con headers AEO |
+| `+layout.svelte`             | `<link rel="alternate" type="text/markdown" href="…">`                                           |
+| `src/lib/aeo/`               | Parser `Accept`, headers, builders desde i18n, registry                                          |
+| `src/routes/*.md/+server.ts` | URLs hermanas (`/index.md`, `/components.md`)                                                    |
 
 Headers en respuestas **twin** (no en HTML): `Content-Type: text/markdown`, `Vary: Accept`, `X-AEO-Version: 1.0`, `X-Markdown-Tokens`, `X-Robots-Tag: noindex`.
 
@@ -262,7 +263,7 @@ Con eso entra en `/sitemap.xml` (HTML + `.md`), `/llms.txt`, `/llms-full.txt` y 
 ## i18n
 
 ```svelte
-import { t } from '$lib/i18n/index';
+import {t} from '$lib/i18n/index';
 {$t('key.from.json')}
 ```
 
@@ -271,11 +272,14 @@ import { t } from '$lib/i18n/index';
 ## Dark mode
 
 ```svelte
-import { mode, toggleMode } from 'mode-watcher';
-import { Moon, Sun } from 'lucide-svelte';
+import {(mode, toggleMode)} from 'mode-watcher'; import {(Moon, Sun)} from 'lucide-svelte';
 
 <Button variant="ghost" size="icon" onclick={toggleMode}>
-  {#if mode.current === 'dark'} <Moon /> {:else} <Sun /> {/if}
+  {#if mode.current === 'dark'}
+    <Moon />
+  {:else}
+    <Sun />
+  {/if}
 </Button>
 ```
 

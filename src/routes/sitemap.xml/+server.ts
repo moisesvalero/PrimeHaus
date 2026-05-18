@@ -3,7 +3,7 @@ import { markdownTwinPath, pagesWithTwins, publicPages, supportedLocales } from 
 
 const DEFAULT_SITE_URL = 'http://localhost:5173';
 
-const normalizeBaseUrl = (url: string): string => {
+const normalizeBaseUrl = (url: string | undefined): string => {
   try {
     const parsed = new URL(url || DEFAULT_SITE_URL);
     return parsed.toString().replace(/\/$/, '');

@@ -31,6 +31,7 @@ Requirements: **Node.js 22+** (see `package.json` → `engines`).
 ## What’s included
 
 ### Pre-built pages
+
 - `/` — Landing (hero, sample terminal, features, steps, CTAs; copy in `src/lib/i18n/*.json` under `home.*`)
 - `/components` — UI gallery **and** template demos (about, pricing, faq, SSR with `load()`, blog, form). Content in `src/lib/components/demos/*.svelte`; SSR data in `src/routes/components/+page.ts`.
 - **Shortcuts (307 redirects to anchors on `/components`)** — legacy links or bookmarks: `/about`, `/pricing`, `/faq`, `/blog`, `/blog/primer-post`, `/ssr-demo`, `/contacto` (form action in `src/routes/components/+page.server.ts`).
@@ -42,6 +43,7 @@ Requirements: **Node.js 22+** (see `package.json` → `engines`).
 **Project** (`src/lib/components/`): Footer, Heading, Container, Section, Grid, CopyButton, Newsletter, AiPrompt, JsonLd, CookieConsent, BlogLayout, LoadingBlock, demos under `demos/`, etc. (optional marketing blocks like Hero are not all wired on the current home).
 
 ### Infrastructure
+
 - **SEO + GEO + AEO (automated)**: dynamic `/sitemap.xml` (with hreflang ES/EN), `/robots.txt` (AI crawlers: GPTBot, Claude, Perplexity, Google-Extended, CCBot…), `/llms.txt` + `/llms-full.txt` ([llmstxt.org](https://llmstxt.org) standard), **Markdown twins** per page (`/index.md`, `/ruta.md`) with HTTP content negotiation (`Accept: text/markdown`), complete Open Graph + Twitter Cards, canonical URL auto-derived, dynamic `<html lang>` via SSR cookie, and JSON-LD that ships **Organization + WebSite (SearchAction) + BreadcrumbList + FAQPage + HowTo + SoftwareApplication** out of the box. Just call `setSeo({...})` in your `+page.svelte`.
 - **i18n**: ES/EN translations with store + localStorage + server cookie (SSR-aware)
 - **Dark mode**: Toggle with mode-watcher, respects system preference
@@ -54,6 +56,7 @@ Requirements: **Node.js 22+** (see `package.json` → `engines`).
 - **Security + AEO headers**: CSP + X-Frame-Options in `hooks.server.ts`; markdown twins get `Vary: Accept`, `X-AEO-Version`, `X-Markdown-Tokens`, `X-Robots-Tag: noindex`
 
 ### Optional integrations (ready when you add keys)
+
 - **Sanity CMS** — see [Sanity (optional)](#sanity-cms-optional)
 - **Supabase** — auth + database
 - **Sentry** — error tracking
@@ -71,6 +74,7 @@ Requirements: **Node.js 22+** (see `package.json` → `engines`).
 **Run Studio:** `npm run studio` (Sanity CLI; different port from Vite). Create or link a project at [sanity.io](https://www.sanity.io) and align `projectId` and dataset with your environment.
 
 ### For AI assistants
+
 - **`AGENTS.md`** — How ChatGPT, Claude, Copilot should work in this repo
 - **`PROMPTS.md`** — Copy-paste snippets for AI prompts
 - **`DESIGN_TO_CURSOR.md`** — Stitch / Lovable → this template (tokens, checklist, base prompt)
@@ -87,17 +91,17 @@ See `INSTRUCTIONS.txt` (section “Using AI to help you”). Spanish step-by-ste
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Development server |
-| `npm run build` | Production build |
-| `npm run preview` | Preview production build |
-| `npm run check` | Type-check + svelte-check (0 errors, 0 warnings) |
-| `npm run lint` | ESLint + Prettier |
-| `npm run format` | Format everything |
-| `npm run test` | Tests |
-| `npm run new:page name` | Scaffold a page |
-| `npm run studio` | Sanity Studio (optional CMS in dev) |
+| Command                 | Description                                      |
+| ----------------------- | ------------------------------------------------ |
+| `npm run dev`           | Development server                               |
+| `npm run build`         | Production build                                 |
+| `npm run preview`       | Preview production build                         |
+| `npm run check`         | Type-check + svelte-check (0 errors, 0 warnings) |
+| `npm run lint`          | ESLint + Prettier                                |
+| `npm run format`        | Format everything                                |
+| `npm run test`          | Tests                                            |
+| `npm run new:page name` | Scaffold a page                                  |
+| `npm run studio`        | Sanity Studio (optional CMS in dev)              |
 
 ---
 
@@ -169,14 +173,14 @@ setSeo({
 
 That single call updates:
 
-| Output | What it does |
-|--------|--------------|
-| `<title>`, `description`, `keywords`, `author`, `canonical` | Standard SEO tags |
-| Open Graph + Twitter Cards | Social previews |
-| `hreflang` ES/EN/`x-default` | International SEO |
+| Output                                                                      | What it does                                                        |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `<title>`, `description`, `keywords`, `author`, `canonical`                 | Standard SEO tags                                                   |
+| Open Graph + Twitter Cards                                                  | Social previews                                                     |
+| `hreflang` ES/EN/`x-default`                                                | International SEO                                                   |
 | JSON-LD `WebPage` / `Article` / `FAQPage` / `HowTo` / `SoftwareApplication` | Rich results in Google + citations in ChatGPT / Perplexity / Gemini |
-| `BreadcrumbList` | Auto-derived from URL |
-| `Organization` + `WebSite` with `SearchAction` | Sitewide schema |
+| `BreadcrumbList`                                                            | Auto-derived from URL                                               |
+| `Organization` + `WebSite` with `SearchAction`                              | Sitewide schema                                                     |
 
 And from `src/lib/site-pages.ts` the template auto-generates:
 
@@ -195,15 +199,15 @@ Besides GEO (`llms.txt`, structured data), each indexable route gets a **Markdow
 
 ### What runs automatically
 
-| Mechanism | Behavior |
-|-----------|----------|
-| **Content negotiation** | `GET /` with `Accept: text/markdown` → same URL, markdown body |
-| **AI bot User-Agents** | GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc. → markdown twin on the canonical URL |
-| **Sibling URLs** | `/index.md` (home), `/components.md`, … |
-| **HTML discovery** | `<link rel="alternate" type="text/markdown" href="…">` in layout + `Link` HTTP header |
-| **Twin headers** | `Content-Type: text/markdown`, `Vary: Accept`, `X-AEO-Version: 1.0`, `X-Markdown-Tokens`, `X-Robots-Tag: noindex` |
-| **Source of truth** | i18n (`src/lib/i18n/*.json`) via builders in `src/lib/aeo/builders/` — no duplicate hand-written `.md` files per locale |
-| **Sitemap** | HTML URLs + `.md` twins in `/sitemap.xml` |
+| Mechanism               | Behavior                                                                                                                |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Content negotiation** | `GET /` with `Accept: text/markdown` → same URL, markdown body                                                          |
+| **AI bot User-Agents**  | GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc. → markdown twin on the canonical URL                            |
+| **Sibling URLs**        | `/index.md` (home), `/components.md`, …                                                                                 |
+| **HTML discovery**      | `<link rel="alternate" type="text/markdown" href="…">` in layout + `Link` HTTP header                                   |
+| **Twin headers**        | `Content-Type: text/markdown`, `Vary: Accept`, `X-AEO-Version: 1.0`, `X-Markdown-Tokens`, `X-Robots-Tag: noindex`       |
+| **Source of truth**     | i18n (`src/lib/i18n/*.json`) via builders in `src/lib/aeo/builders/` — no duplicate hand-written `.md` files per locale |
+| **Sitemap**             | HTML URLs + `.md` twins in `/sitemap.xml`                                                                               |
 
 ### Add a new page to AEO
 
@@ -212,7 +216,7 @@ Besides GEO (`llms.txt`, structured data), each indexable route gets a **Markdow
 3. Add `buildYourPageMarkdown(locale, baseUrl)` in `src/lib/aeo/builders/` and register it in `src/lib/aeo/registry.ts`.
 4. Add `src/routes/your-slug.md/+server.ts` that calls `serveMarkdownTwin` (home uses `index.md`).
 
-Full checklist for Cursor/agents: **`AGENTS.md`** → section *SEO + GEO + AEO*.
+Full checklist for Cursor/agents: **`AGENTS.md`** → section _SEO + GEO + AEO_.
 
 ### Quick check (local)
 
@@ -228,21 +232,28 @@ You should see `content-type: text/markdown` and the `x-aeo-*` headers. Tools li
 ## Customization
 
 ### `src/lib/site-config.ts`
+
 Site name, URL, social links, author defaults used by `src/lib/seo.ts`.
 
 ### `src/lib/i18n/es.json` and `en.json`
+
 Landing copy (`home.*`), navigation (`layout.nav.*`), footer, and other keys. The document title comes from the **`seo`** store (`<title>{$seo.title}</title>` in the layout); each route can call `setSeo({ title, description, ... })`.
 
 ### `src/app.css` and `src/lib/styles/stitch-m3.css`
+
 Theme tokens (`--primary`, `--background`, …) and Stitch typography utilities. Legacy variables (`--text-main`, `--bg-soft`) are aligned with `--foreground` / `--muted`.
 
 ### Dark mode (preconfigured)
+
 ```svelte
-import { mode, toggleMode } from 'mode-watcher';
-import { Moon, Sun } from 'lucide-svelte';
+import {(mode, toggleMode)} from 'mode-watcher'; import {(Moon, Sun)} from 'lucide-svelte';
 
 <Button variant="ghost" size="icon" onclick={toggleMode}>
-  {#if mode.current === 'dark'} <Moon /> {:else} <Sun /> {/if}
+  {#if mode.current === 'dark'}
+    <Moon />
+  {:else}
+    <Sun />
+  {/if}
 </Button>
 ```
 

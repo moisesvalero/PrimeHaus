@@ -1,14 +1,22 @@
 {
   "layout": {
-    "title": "My SvelteKit Starter",
+    "title": "PrimeHaus",
     "nav": {
       "home": "Home",
+      "projects": "Projects",
+      "about": "About us",
+      "blog": "Blog",
+      "contact": "Contact",
       "components": "Components",
-      "getStarted": "Get Started"
+      "getStarted": "Explore properties"
     },
     "footer": {
       "documentation": "Documentation",
-      "builtWith": "Built with precision."
+      "projects": "Projects",
+      "about": "About us",
+      "blog": "Blog",
+      "contact": "Contact",
+      "builtWith": "Uncompromising architecture and exclusivity."
     },
     "aria": {
       "toggleMenu": "Toggle menu",
@@ -52,7 +60,13 @@
       "skeleton": { "desc": "Pulsing placeholder" },
       "copy": { "desc": "Copy to clipboard" },
       "newsletter": { "desc": "Email subscription", "button": "Subscribe" },
-      "toast": { "desc": "success · error · info · warning", "done": "Done!", "err": "Error!", "warn": "Heads up", "info": "Info" },
+      "toast": {
+        "desc": "success · error · info · warning",
+        "done": "Done!",
+        "err": "Error!",
+        "warn": "Heads up",
+        "info": "Info"
+      },
       "aiprompt": { "desc": "AI prompt area", "placeholder": "Ask anything…" },
       "aboutDemo": {
         "title": "About us",

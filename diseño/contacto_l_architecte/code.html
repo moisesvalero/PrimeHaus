@@ -1,286 +1,453 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
       tailwind.config = {
-        darkMode: "class",
+        darkMode: 'class',
         theme: {
           extend: {
-            "colors": {
-                    "secondary-fixed": "#d2e4f9",
-                    "on-primary-fixed": "#281900",
-                    "on-surface-variant": "#4e463b",
-                    "error": "#ba1a1a",
-                    "on-surface": "#1e1b17",
-                    "on-primary": "#ffffff",
-                    "tertiary-fixed-dim": "#b5c7e9",
-                    "surface": "#fff8f3",
-                    "secondary-fixed-dim": "#b6c8dc",
-                    "on-background": "#1e1b17",
-                    "surface-variant": "#e9e1db",
-                    "primary-container": "#bc9c6a",
-                    "secondary-container": "#d2e4f9",
-                    "inverse-on-surface": "#f7efe9",
-                    "primary": "#745a2e",
-                    "surface-container": "#f4ede6",
-                    "tertiary-fixed": "#d5e3ff",
-                    "outline": "#7f7669",
-                    "on-error": "#ffffff",
-                    "tertiary": "#4d5f7c",
-                    "on-tertiary-fixed-variant": "#364763",
-                    "primary-fixed-dim": "#e4c18c",
-                    "surface-container-highest": "#e9e1db",
-                    "on-tertiary-fixed": "#071c35",
-                    "on-tertiary-container": "#263853",
-                    "surface-container-high": "#eee7e0",
-                    "surface-container-low": "#faf2ec",
-                    "primary-fixed": "#ffdeac",
-                    "on-tertiary": "#ffffff",
-                    "on-primary-container": "#49340b",
-                    "outline-variant": "#d1c5b6",
-                    "surface-tint": "#745a2e",
-                    "on-secondary-container": "#556678",
-                    "tertiary-container": "#90a2c2",
-                    "surface-container-lowest": "#ffffff",
-                    "background": "#fff8f3",
-                    "on-secondary": "#ffffff",
-                    "inverse-surface": "#33302c",
-                    "on-error-container": "#93000a",
-                    "on-secondary-fixed": "#0b1d2c",
-                    "surface-dim": "#e0d9d2",
-                    "on-secondary-fixed-variant": "#374859",
-                    "inverse-primary": "#e4c18c",
-                    "surface-bright": "#fff8f3",
-                    "error-container": "#ffdad6",
-                    "secondary": "#4f6071",
-                    "on-primary-fixed-variant": "#5a4319"
+            colors: {
+              'secondary-fixed': '#d2e4f9',
+              'on-primary-fixed': '#281900',
+              'on-surface-variant': '#4e463b',
+              error: '#ba1a1a',
+              'on-surface': '#1e1b17',
+              'on-primary': '#ffffff',
+              'tertiary-fixed-dim': '#b5c7e9',
+              surface: '#fff8f3',
+              'secondary-fixed-dim': '#b6c8dc',
+              'on-background': '#1e1b17',
+              'surface-variant': '#e9e1db',
+              'primary-container': '#bc9c6a',
+              'secondary-container': '#d2e4f9',
+              'inverse-on-surface': '#f7efe9',
+              primary: '#745a2e',
+              'surface-container': '#f4ede6',
+              'tertiary-fixed': '#d5e3ff',
+              outline: '#7f7669',
+              'on-error': '#ffffff',
+              tertiary: '#4d5f7c',
+              'on-tertiary-fixed-variant': '#364763',
+              'primary-fixed-dim': '#e4c18c',
+              'surface-container-highest': '#e9e1db',
+              'on-tertiary-fixed': '#071c35',
+              'on-tertiary-container': '#263853',
+              'surface-container-high': '#eee7e0',
+              'surface-container-low': '#faf2ec',
+              'primary-fixed': '#ffdeac',
+              'on-tertiary': '#ffffff',
+              'on-primary-container': '#49340b',
+              'outline-variant': '#d1c5b6',
+              'surface-tint': '#745a2e',
+              'on-secondary-container': '#556678',
+              'tertiary-container': '#90a2c2',
+              'surface-container-lowest': '#ffffff',
+              background: '#fff8f3',
+              'on-secondary': '#ffffff',
+              'inverse-surface': '#33302c',
+              'on-error-container': '#93000a',
+              'on-secondary-fixed': '#0b1d2c',
+              'surface-dim': '#e0d9d2',
+              'on-secondary-fixed-variant': '#374859',
+              'inverse-primary': '#e4c18c',
+              'surface-bright': '#fff8f3',
+              'error-container': '#ffdad6',
+              secondary: '#4f6071',
+              'on-primary-fixed-variant': '#5a4319'
             },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px'
             },
-            "spacing": {
-                    "margin-mobile": "24px",
-                    "stack-xl": "120px",
-                    "margin-desktop": "80px",
-                    "stack-md": "32px",
-                    "stack-lg": "64px",
-                    "stack-sm": "16px",
-                    "margin-tablet": "40px",
-                    "gutter": "24px"
+            spacing: {
+              'margin-mobile': '24px',
+              'stack-xl': '120px',
+              'margin-desktop': '80px',
+              'stack-md': '32px',
+              'stack-lg': '64px',
+              'stack-sm': '16px',
+              'margin-tablet': '40px',
+              gutter: '24px'
             },
-            "fontFamily": {
-                    "label-md": ["Work Sans"],
-                    "display-lg-mobile": ["Playfair Display"],
-                    "headline-sm": ["Playfair Display"],
-                    "headline-lg": ["Playfair Display"],
-                    "body-md": ["Work Sans"],
-                    "body-lg": ["Work Sans"],
-                    "display-lg": ["Playfair Display"],
-                    "label-caps": ["Work Sans"],
-                    "headline-xl": ["Playfair Display"]
+            fontFamily: {
+              'label-md': ['Work Sans'],
+              'display-lg-mobile': ['Playfair Display'],
+              'headline-sm': ['Playfair Display'],
+              'headline-lg': ['Playfair Display'],
+              'body-md': ['Work Sans'],
+              'body-lg': ['Work Sans'],
+              'display-lg': ['Playfair Display'],
+              'label-caps': ['Work Sans'],
+              'headline-xl': ['Playfair Display']
             },
-            "fontSize": {
-                    "label-md": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
-                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
-                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                    "headline-xl": ["60px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            fontSize: {
+              'label-md': ['14px', { lineHeight: '1.4', fontWeight: '500' }],
+              'display-lg-mobile': ['48px', { lineHeight: '1.1', fontWeight: '700' }],
+              'headline-sm': ['24px', { lineHeight: '1.3', fontWeight: '600' }],
+              'headline-lg': ['40px', { lineHeight: '1.2', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+              'body-lg': ['20px', { lineHeight: '1.6', fontWeight: '400' }],
+              'display-lg': [
+                '84px',
+                { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }
+              ],
+              'label-caps': [
+                '12px',
+                { lineHeight: '1.0', letterSpacing: '0.1em', fontWeight: '600' }
+              ],
+              'headline-xl': ['60px', { lineHeight: '1.2', fontWeight: '600' }]
             }
-          },
-        },
-      }
+          }
+        }
+      };
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        body {
-            background-color: #fff8f3;
-            color: #1e1b17;
-            -webkit-font-smoothing: antialiased;
-        }
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 300,
+          'GRAD' 0,
+          'opsz' 24;
+        vertical-align: middle;
+      }
+      body {
+        background-color: #fff8f3;
+        color: #1e1b17;
+        -webkit-font-smoothing: antialiased;
+      }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
   </head>
-<body class="font-body-md text-body-md overflow-x-hidden">
-<!-- TopAppBar -->
-<nav class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
-<div class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim cursor-pointer" data-icon="menu">menu</span>
-<span class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright">L'ARCHITECTE</span>
-</div>
-<div class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">HOME</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">PROYECTOS</a>
-<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-caps tracking-widest" href="#">CONTACTO</a>
-</div>
-<button class="bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps active:scale-95 transition-transform duration-200">
-                REQUEST CALLBACK
+  <body class="font-body-md text-body-md overflow-x-hidden">
+    <!-- TopAppBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline"
+    >
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto"
+      >
+        <div class="flex items-center gap-4">
+          <span
+            class="material-symbols-outlined text-primary dark:text-primary-fixed-dim cursor-pointer"
+            data-icon="menu"
+            >menu</span
+          >
+          <span
+            class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright"
+            >L'ARCHITECTE</span
+          >
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+          <a
+            class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+            href="#"
+            >HOME</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+            href="#"
+            >PROYECTOS</a
+          >
+          <a
+            class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-caps tracking-widest"
+            href="#"
+            >CONTACTO</a
+          >
+        </div>
+        <button
+          class="bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps active:scale-95 transition-transform duration-200"
+        >
+          REQUEST CALLBACK
+        </button>
+      </div>
+    </nav>
+    <main class="pt-[140px]">
+      <!-- Hero Section -->
+      <header class="px-margin-desktop max-w-[1440px] mx-auto mt-stack-lg mb-stack-xl">
+        <div class="grid grid-cols-12 gap-gutter">
+          <div class="col-span-12 md:col-span-8 lg:col-span-6">
+            <span
+              class="font-label-caps text-label-caps text-primary tracking-[0.3em] uppercase block mb-4"
+              >Inquire Within</span
+            >
+            <h1 class="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">
+              LET'S CONVERSE
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+              Whether you are seeking a legacy estate or architectural counsel, our doors are open
+              for a private consultation.
+            </p>
+          </div>
+        </div>
+      </header>
+      <!-- Main Content: Form & Info Sidebar -->
+      <section class="px-margin-desktop max-w-[1440px] mx-auto mb-stack-xl">
+        <div class="grid grid-cols-12 gap-gutter">
+          <!-- Contact Form (Asymmetric layout: columns 1-7) -->
+          <div class="col-span-12 lg:col-span-7 pr-0 lg:pr-12">
+            <form class="space-y-12">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-12">
+                <div class="relative">
+                  <label
+                    class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase"
+                    >Name</label
+                  >
+                  <input
+                    class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline-variant font-body-md"
+                    placeholder="Your full name"
+                    type="text"
+                  />
+                </div>
+                <div class="relative">
+                  <label
+                    class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase"
+                    >Email Address</label
+                  >
+                  <input
+                    class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline-variant font-body-md"
+                    placeholder="example@architecte.com"
+                    type="email"
+                  />
+                </div>
+                <div class="relative">
+                  <label
+                    class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase"
+                    >Phone Number</label
+                  >
+                  <input
+                    class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline-variant font-body-md"
+                    placeholder="+34 000 000 000"
+                    type="tel"
+                  />
+                </div>
+                <div class="relative">
+                  <label
+                    class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase"
+                    >Subject</label
+                  >
+                  <input
+                    class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline-variant font-body-md"
+                    placeholder="Nature of inquiry"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div class="relative">
+                <label
+                  class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase"
+                  >Message</label
+                >
+                <textarea
+                  class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline-variant font-body-md resize-none"
+                  placeholder="How may we assist you in your architectural journey?"
+                  rows="4"
+                ></textarea>
+              </div>
+              <div class="pt-6">
+                <button
+                  class="bg-primary text-on-primary px-12 py-5 font-label-caps text-label-caps tracking-widest hover:bg-on-primary-container transition-colors duration-300"
+                >
+                  SUBMIT INQUIRY
+                </button>
+              </div>
+            </form>
+          </div>
+          <!-- Info Sidebar (Asymmetric layout: columns 9-12) -->
+          <div class="col-span-12 lg:col-start-9 lg:col-span-4 mt-stack-lg lg:mt-0 space-y-12">
+            <div class="border-l border-outline-variant pl-8 py-2">
+              <h3
+                class="font-label-caps text-label-caps text-primary mb-6 tracking-widest uppercase"
+              >
+                Our Atelier
+              </h3>
+              <p class="font-body-md text-on-surface leading-relaxed">
+                Calle de Serrano 45, 2nd Floor<br />
+                28001 Madrid, Spain
+              </p>
+            </div>
+            <div class="border-l border-outline-variant pl-8 py-2">
+              <h3
+                class="font-label-caps text-label-caps text-primary mb-6 tracking-widest uppercase"
+              >
+                Direct Channels
+              </h3>
+              <div class="space-y-2">
+                <div class="flex justify-between items-center border-b border-outline-variant pb-2">
+                  <span class="font-label-caps text-label-caps text-on-surface-variant">TEL</span>
+                  <span class="font-body-md font-semibold">+34 91 555 44 33</span>
+                </div>
+                <div class="flex justify-between items-center border-b border-outline-variant pb-2">
+                  <span class="font-label-caps text-label-caps text-on-surface-variant">EMAIL</span>
+                  <span class="font-body-md font-semibold">contact@larchitecte.es</span>
+                </div>
+              </div>
+            </div>
+            <div class="border-l border-outline-variant pl-8 py-2">
+              <h3
+                class="font-label-caps text-label-caps text-primary mb-6 tracking-widest uppercase"
+              >
+                Operating Hours
+              </h3>
+              <div class="space-y-2">
+                <div class="flex justify-between items-center border-b border-outline-variant pb-2">
+                  <span class="font-label-caps text-label-caps text-on-surface-variant"
+                    >MON — FRI</span
+                  >
+                  <span class="font-body-md">09:00 — 19:00</span>
+                </div>
+                <div class="flex justify-between items-center border-b border-outline-variant pb-2">
+                  <span class="font-label-caps text-label-caps text-on-surface-variant"
+                    >SATURDAY</span
+                  >
+                  <span class="font-body-md">By Appointment</span>
+                </div>
+                <div class="flex justify-between items-center border-b border-outline-variant pb-2">
+                  <span class="font-label-caps text-label-caps text-on-surface-variant"
+                    >SUNDAY</span
+                  >
+                  <span class="font-body-md">Closed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Map Section -->
+      <section class="w-full h-[600px] bg-surface-container overflow-hidden grayscale">
+        <div class="w-full h-full relative">
+          <img
+            class="w-full h-full object-cover"
+            data-alt="A sophisticated grayscale architectural map rendering of central Madrid with minimalist linework and subtle topographic details. The aesthetic is clean and professional, using high-key lighting to emphasize the structural layout of the city streets. The map highlights the prestigious Serrano district with a subtle obsidian marker, perfectly aligned with a luxury real estate aesthetic and neutral palette."
+            data-location="Madrid"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHP9iRNbyWOSzRz9jg5j3dKiQ286e-NMKl58sBZz1N5ug9gDflrO-OBZsFKdrbKWqCXUeatceJZSecOsXpGFAsJCtbidbOXSbhV19HQHk-QiYBtU-hv43lW4k99weRP5bBrw39exHvs6nYCGdln-J1wJ2rMAXNAB8gJzKwbuuZfTpeThfaxM39GQin7B1A-hKZUw77KPXvTxZ_LLcCNTad6utJNa2sZWZcuy3nGBx__oFjmq7fkDO6sf66eQUfjdKLiRbsy_jUlrc"
+          />
+          <!-- Overlay architectural lines -->
+          <div class="absolute inset-0 pointer-events-none border-[40px] border-surface"></div>
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-5xl"
+              style="font-variation-settings: 'FILL' 1"
+              >location_on</span
+            >
+            <div class="bg-surface px-6 py-2 mt-4 shadow-sm">
+              <span class="font-label-caps text-label-caps tracking-widest">VISIT THE ATELIER</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline mt-stack-xl"
+    >
+      <div
+        class="grid grid-cols-12 gap-gutter px-margin-desktop py-stack-lg max-w-[1440px] mx-auto"
+      >
+        <div class="col-span-12 lg:col-span-4 mb-stack-md lg:mb-0">
+          <span
+            class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright block mb-6"
+            >L'ARCHITECTE</span
+          >
+          <p class="font-body-md text-on-surface-variant max-w-xs leading-relaxed">
+            Defining the architectural landscape of luxury living through a lens of Swiss precision
+            and editorial elegance.
+          </p>
+        </div>
+        <div class="col-span-6 lg:col-span-2">
+          <h4 class="font-label-caps text-label-caps text-primary mb-6">EXPLORE</h4>
+          <nav class="flex flex-col gap-4">
+            <a
+              class="text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors"
+              href="#"
+              >Home</a
+            >
+            <a
+              class="text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors"
+              href="#"
+              >Quienes Somos</a
+            >
+            <a
+              class="text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors"
+              href="#"
+              >Proyectos</a
+            >
+          </nav>
+        </div>
+        <div class="col-span-6 lg:col-span-2">
+          <h4 class="font-label-caps text-label-caps text-primary mb-6">JOURNAL</h4>
+          <nav class="flex flex-col gap-4">
+            <a
+              class="text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors"
+              href="#"
+              >Blog</a
+            >
+            <a
+              class="text-primary font-bold uppercase tracking-widest hover:text-primary transition-colors"
+              href="#"
+              >Contacto</a
+            >
+          </nav>
+        </div>
+        <div class="col-span-12 lg:col-span-4 mt-stack-md lg:mt-0 lg:text-right">
+          <h4 class="font-label-caps text-label-caps text-primary mb-6">NEWSLETTER</h4>
+          <div class="flex border-b border-outline-variant pb-2">
+            <input
+              class="bg-transparent border-none w-full focus:ring-0 placeholder:text-outline-variant font-body-md"
+              placeholder="Your email address"
+              type="email"
+            />
+            <button
+              class="font-label-caps text-label-caps uppercase tracking-widest text-primary hover:text-on-surface transition-colors"
+            >
+              Join
             </button>
-</div>
-</nav>
-<main class="pt-[140px]">
-<!-- Hero Section -->
-<header class="px-margin-desktop max-w-[1440px] mx-auto mt-stack-lg mb-stack-xl">
-<div class="grid grid-cols-12 gap-gutter">
-<div class="col-span-12 md:col-span-8 lg:col-span-6">
-<span class="font-label-caps text-label-caps text-primary tracking-[0.3em] uppercase block mb-4">Inquire Within</span>
-<h1 class="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">LET'S CONVERSE</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
-                        Whether you are seeking a legacy estate or architectural counsel, our doors are open for a private consultation.
-                    </p>
-</div>
-</div>
-</header>
-<!-- Main Content: Form & Info Sidebar -->
-<section class="px-margin-desktop max-w-[1440px] mx-auto mb-stack-xl">
-<div class="grid grid-cols-12 gap-gutter">
-<!-- Contact Form (Asymmetric layout: columns 1-7) -->
-<div class="col-span-12 lg:col-span-7 pr-0 lg:pr-12">
-<form class="space-y-12">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-12">
-<div class="relative">
-<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase">Name</label>
-<input class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline-variant font-body-md" placeholder="Your full name" type="text"/>
-</div>
-<div class="relative">
-<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase">Email Address</label>
-<input class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline-variant font-body-md" placeholder="example@architecte.com" type="email"/>
-</div>
-<div class="relative">
-<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase">Phone Number</label>
-<input class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline-variant font-body-md" placeholder="+34 000 000 000" type="tel"/>
-</div>
-<div class="relative">
-<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase">Subject</label>
-<input class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline-variant font-body-md" placeholder="Nature of inquiry" type="text"/>
-</div>
-</div>
-<div class="relative">
-<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase">Message</label>
-<textarea class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline-variant font-body-md resize-none" placeholder="How may we assist you in your architectural journey?" rows="4"></textarea>
-</div>
-<div class="pt-6">
-<button class="bg-primary text-on-primary px-12 py-5 font-label-caps text-label-caps tracking-widest hover:bg-on-primary-container transition-colors duration-300">
-                                SUBMIT INQUIRY
-                            </button>
-</div>
-</form>
-</div>
-<!-- Info Sidebar (Asymmetric layout: columns 9-12) -->
-<div class="col-span-12 lg:col-start-9 lg:col-span-4 mt-stack-lg lg:mt-0 space-y-12">
-<div class="border-l border-outline-variant pl-8 py-2">
-<h3 class="font-label-caps text-label-caps text-primary mb-6 tracking-widest uppercase">Our Atelier</h3>
-<p class="font-body-md text-on-surface leading-relaxed">
-                            Calle de Serrano 45, 2nd Floor<br/>
-                            28001 Madrid, Spain
-                        </p>
-</div>
-<div class="border-l border-outline-variant pl-8 py-2">
-<h3 class="font-label-caps text-label-caps text-primary mb-6 tracking-widest uppercase">Direct Channels</h3>
-<div class="space-y-2">
-<div class="flex justify-between items-center border-b border-outline-variant pb-2">
-<span class="font-label-caps text-label-caps text-on-surface-variant">TEL</span>
-<span class="font-body-md font-semibold">+34 91 555 44 33</span>
-</div>
-<div class="flex justify-between items-center border-b border-outline-variant pb-2">
-<span class="font-label-caps text-label-caps text-on-surface-variant">EMAIL</span>
-<span class="font-body-md font-semibold">contact@larchitecte.es</span>
-</div>
-</div>
-</div>
-<div class="border-l border-outline-variant pl-8 py-2">
-<h3 class="font-label-caps text-label-caps text-primary mb-6 tracking-widest uppercase">Operating Hours</h3>
-<div class="space-y-2">
-<div class="flex justify-between items-center border-b border-outline-variant pb-2">
-<span class="font-label-caps text-label-caps text-on-surface-variant">MON — FRI</span>
-<span class="font-body-md">09:00 — 19:00</span>
-</div>
-<div class="flex justify-between items-center border-b border-outline-variant pb-2">
-<span class="font-label-caps text-label-caps text-on-surface-variant">SATURDAY</span>
-<span class="font-body-md">By Appointment</span>
-</div>
-<div class="flex justify-between items-center border-b border-outline-variant pb-2">
-<span class="font-label-caps text-label-caps text-on-surface-variant">SUNDAY</span>
-<span class="font-body-md">Closed</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Map Section -->
-<section class="w-full h-[600px] bg-surface-container overflow-hidden grayscale">
-<div class="w-full h-full relative">
-<img class="w-full h-full object-cover" data-alt="A sophisticated grayscale architectural map rendering of central Madrid with minimalist linework and subtle topographic details. The aesthetic is clean and professional, using high-key lighting to emphasize the structural layout of the city streets. The map highlights the prestigious Serrano district with a subtle obsidian marker, perfectly aligned with a luxury real estate aesthetic and neutral palette." data-location="Madrid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHP9iRNbyWOSzRz9jg5j3dKiQ286e-NMKl58sBZz1N5ug9gDflrO-OBZsFKdrbKWqCXUeatceJZSecOsXpGFAsJCtbidbOXSbhV19HQHk-QiYBtU-hv43lW4k99weRP5bBrw39exHvs6nYCGdln-J1wJ2rMAXNAB8gJzKwbuuZfTpeThfaxM39GQin7B1A-hKZUw77KPXvTxZ_LLcCNTad6utJNa2sZWZcuy3nGBx__oFjmq7fkDO6sf66eQUfjdKLiRbsy_jUlrc"/>
-<!-- Overlay architectural lines -->
-<div class="absolute inset-0 pointer-events-none border-[40px] border-surface"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
-<div class="bg-surface px-6 py-2 mt-4 shadow-sm">
-<span class="font-label-caps text-label-caps tracking-widest">VISIT THE ATELIER</span>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline mt-stack-xl">
-<div class="grid grid-cols-12 gap-gutter px-margin-desktop py-stack-lg max-w-[1440px] mx-auto">
-<div class="col-span-12 lg:col-span-4 mb-stack-md lg:mb-0">
-<span class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright block mb-6">L'ARCHITECTE</span>
-<p class="font-body-md text-on-surface-variant max-w-xs leading-relaxed">
-                    Defining the architectural landscape of luxury living through a lens of Swiss precision and editorial elegance.
-                </p>
-</div>
-<div class="col-span-6 lg:col-span-2">
-<h4 class="font-label-caps text-label-caps text-primary mb-6">EXPLORE</h4>
-<nav class="flex flex-col gap-4">
-<a class="text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors" href="#">Home</a>
-<a class="text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors" href="#">Quienes Somos</a>
-<a class="text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors" href="#">Proyectos</a>
-</nav>
-</div>
-<div class="col-span-6 lg:col-span-2">
-<h4 class="font-label-caps text-label-caps text-primary mb-6">JOURNAL</h4>
-<nav class="flex flex-col gap-4">
-<a class="text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors" href="#">Blog</a>
-<a class="text-primary font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#">Contacto</a>
-</nav>
-</div>
-<div class="col-span-12 lg:col-span-4 mt-stack-md lg:mt-0 lg:text-right">
-<h4 class="font-label-caps text-label-caps text-primary mb-6">NEWSLETTER</h4>
-<div class="flex border-b border-outline-variant pb-2">
-<input class="bg-transparent border-none w-full focus:ring-0 placeholder:text-outline-variant font-body-md" placeholder="Your email address" type="email"/>
-<button class="font-label-caps text-label-caps uppercase tracking-widest text-primary hover:text-on-surface transition-colors">Join</button>
-</div>
-</div>
-<div class="col-span-12 pt-stack-md border-t border-outline-variant mt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">© 2024 L'ARCHITECTE LUXURY REAL ESTATE. ALL RIGHTS RESERVED.</span>
-<div class="flex gap-8">
-<a class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest hover:underline underline-offset-4" href="#">Privacy Policy</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest hover:underline underline-offset-4" href="#">Imprint</a>
-</div>
-</div>
-</div>
-</footer>
-</body></html>
+          </div>
+        </div>
+        <div
+          class="col-span-12 pt-stack-md border-t border-outline-variant mt-12 flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <span
+            class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest"
+            >© 2024 L'ARCHITECTE LUXURY REAL ESTATE. ALL RIGHTS RESERVED.</span
+          >
+          <div class="flex gap-8">
+            <a
+              class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest hover:underline underline-offset-4"
+              href="#"
+              >Privacy Policy</a
+            >
+            <a
+              class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest hover:underline underline-offset-4"
+              href="#"
+              >Imprint</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

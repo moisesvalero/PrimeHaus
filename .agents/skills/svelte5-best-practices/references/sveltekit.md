@@ -1,6 +1,7 @@
 # SvelteKit Patterns Reference
 
 ## Table of Contents
+
 - [Load Function Types](#load-function-types)
 - [Page Props Typing](#page-props-typing)
 - [Form Actions Error Handling](#form-actions-error-handling)
@@ -14,34 +15,36 @@ SvelteKit has two load function types: universal (`+page.js`) and server-only (`
 
 ### When to Use Each
 
-| Use +page.server.ts | Use +page.js |
-|---------------------|--------------|
-| Accessing secrets/credentials | Public APIs only |
-| Database connections | Non-serializable data (functions, classes) |
-| Server-only APIs | Client-side caching benefits |
-| Sensitive business logic | |
+| Use +page.server.ts           | Use +page.js                               |
+| ----------------------------- | ------------------------------------------ |
+| Accessing secrets/credentials | Public APIs only                           |
+| Database connections          | Non-serializable data (functions, classes) |
+| Server-only APIs              | Client-side caching benefits               |
+| Sensitive business logic      |                                            |
 
 ### Security: Secrets in Server Load
 
 **WRONG (secrets exposed):**
+
 ```ts
 // +page.js - DANGEROUS: runs in browser!
 export const load = async ({ fetch }) => {
   const response = await fetch('https://api.stripe.com/charges', {
-    headers: { 'Authorization': `Bearer ${STRIPE_SECRET_KEY}` } // EXPOSED!
+    headers: { Authorization: `Bearer ${STRIPE_SECRET_KEY}` } // EXPOSED!
   });
   return { charges: await response.json() };
 };
 ```
 
 **CORRECT:**
+
 ```ts
 // +page.server.ts - only runs on server
 import { STRIPE_SECRET_KEY } from '$env/static/private';
 
 export const load = async ({ fetch }) => {
   const response = await fetch('https://api.stripe.com/charges', {
-    headers: { 'Authorization': `Bearer ${STRIPE_SECRET_KEY}` }
+    headers: { Authorization: `Bearer ${STRIPE_SECRET_KEY}` }
   });
   return { charges: await response.json() };
 };
@@ -50,6 +53,7 @@ export const load = async ({ fetch }) => {
 ### Serialization: Non-serializable in Universal Load
 
 **WRONG (server load can't serialize functions):**
+
 ```ts
 // +page.server.ts
 export const load = async () => {
@@ -61,6 +65,7 @@ export const load = async () => {
 ```
 
 **CORRECT:**
+
 ```ts
 // +page.js
 export const load = async () => {
@@ -187,6 +192,7 @@ SvelteKit distinguishes between validation errors (`fail()`) and unexpected erro
 ### Use fail() for Validation Errors
 
 **WRONG:**
+
 ```ts
 import { error } from '@sveltejs/kit';
 
@@ -200,6 +206,7 @@ export const actions = {
 ```
 
 **CORRECT:**
+
 ```ts
 import { fail } from '@sveltejs/kit';
 
@@ -294,13 +301,13 @@ export const actions = {
 
 ### Error Response Summary
 
-| Situation | Function | Result |
-|-----------|----------|--------|
-| Missing field | `fail(400, {...})` | Form state preserved |
-| Invalid format | `fail(400, {...})` | Form state preserved |
-| Not found | `throw error(404, ...)` | Error page |
-| Server crash | `throw error(500, ...)` | Error page |
-| Auth required | `throw redirect(303, ...)` | Redirect |
+| Situation      | Function                   | Result               |
+| -------------- | -------------------------- | -------------------- |
+| Missing field  | `fail(400, {...})`         | Form state preserved |
+| Invalid format | `fail(400, {...})`         | Form state preserved |
+| Not found      | `throw error(404, ...)`    | Error page           |
+| Server crash   | `throw error(500, ...)`    | Error page           |
+| Auth required  | `throw redirect(303, ...)` | Redirect             |
 
 ---
 
@@ -311,6 +318,7 @@ Shared server state persists across requests, potentially leaking data between u
 ### Dangerous: Module-Level State
 
 **WRONG:**
+
 ```ts
 // +page.server.ts
 let currentUser = null; // SHARED ACROSS ALL REQUESTS!
@@ -322,6 +330,7 @@ export const load = async ({ locals }) => {
 ```
 
 **CORRECT:**
+
 ```ts
 export const load = async ({ locals }) => {
   return { user: locals.user }; // Each request gets its own locals
@@ -331,12 +340,14 @@ export const load = async ({ locals }) => {
 ### Dangerous: Global Stores
 
 **WRONG:**
+
 ```ts
 // stores.svelte.ts
 export const user = $state<User | null>(null); // Server-side singleton!
 ```
 
 **CORRECT: Use locals and return data from load**
+
 ```ts
 // +layout.server.ts
 export const load = async ({ locals }) => {
@@ -347,6 +358,7 @@ export const load = async ({ locals }) => {
 ### Safe Patterns
 
 **Pattern 1: Use locals**
+
 ```ts
 // hooks.server.ts
 export const handle = async ({ event, resolve }) => {
@@ -362,6 +374,7 @@ export const load = async ({ locals }) => {
 ```
 
 **Pattern 2: Context for Component Trees**
+
 ```svelte
 <!-- +layout.svelte -->
 <script lang="ts">
@@ -371,7 +384,9 @@ export const load = async ({ locals }) => {
   let { data, children }: LayoutProps = $props();
 
   setContext('user', {
-    get current() { return data.user; }
+    get current() {
+      return data.user;
+    }
   });
 </script>
 
@@ -379,6 +394,7 @@ export const load = async ({ locals }) => {
 ```
 
 **Pattern 3: Client-Only State**
+
 ```ts
 // stores.svelte.ts
 import { browser } from '$app/environment';

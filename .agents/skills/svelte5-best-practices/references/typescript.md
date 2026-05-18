@@ -1,6 +1,7 @@
 # Svelte 5 TypeScript Reference
 
 ## Table of Contents
+
 - [Props Typing](#props-typing)
 - [Generic Components](#generic-components)
 
@@ -13,6 +14,7 @@
 ### Basic Props Typing
 
 **Inline typing:**
+
 ```svelte
 <script lang="ts">
   let { name, count = 0 }: { name: string; count?: number } = $props();
@@ -20,6 +22,7 @@
 ```
 
 **Interface typing (recommended):**
+
 ```svelte
 <script lang="ts">
   interface Props {
@@ -39,13 +42,16 @@
   import type { Snippet } from 'svelte';
 
   interface Props {
-    children: Snippet;                    // Required children
-    header?: Snippet;                     // Optional snippet
-    row: Snippet<[data: RowData]>;       // Snippet with parameter
-    cell?: Snippet<[value: string, index: number]>;  // Multiple params
+    children: Snippet; // Required children
+    header?: Snippet; // Optional snippet
+    row: Snippet<[data: RowData]>; // Snippet with parameter
+    cell?: Snippet<[value: string, index: number]>; // Multiple params
   }
 
-  interface RowData { id: number; name: string; }
+  interface RowData {
+    id: number;
+    name: string;
+  }
 
   let { children, header, row, cell }: Props = $props();
 </script>
@@ -214,10 +220,7 @@ Svelte 5 uses the `generics` attribute for type-safe reusable components.
 </script>
 
 {#each items as item}
-  <div
-    class:selected={selected?.id === item.id}
-    onclick={() => onselect?.(item)}
-  >
+  <div class:selected={selected?.id === item.id} onclick={() => onselect?.(item)}>
     {@render children(item, selected?.id === item.id)}
   </div>
 {/each}
@@ -260,7 +263,7 @@ Svelte 5 uses the `generics` attribute for type-safe reusable components.
 
   function handleChange(e: Event) {
     const selectedValue = (e.target as HTMLSelectElement).value;
-    const selected = options.find(o => getValue(o) === selectedValue);
+    const selected = options.find((o) => getValue(o) === selectedValue);
     value = selected;
     onchange?.(selected);
   }
@@ -269,10 +272,7 @@ Svelte 5 uses the `generics` attribute for type-safe reusable components.
 <select onchange={handleChange}>
   <option value="">{placeholder}</option>
   {#each options as option}
-    <option
-      value={getValue(option)}
-      selected={value && getValue(value) === getValue(option)}
-    >
+    <option value={getValue(option)} selected={value && getValue(value) === getValue(option)}>
       {getLabel(option)}
     </option>
   {/each}

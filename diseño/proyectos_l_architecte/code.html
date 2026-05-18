@@ -1,331 +1,525 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
       tailwind.config = {
-        darkMode: "class",
+        darkMode: 'class',
         theme: {
           extend: {
-            "colors": {
-                    "secondary-fixed": "#d2e4f9",
-                    "on-primary-fixed": "#281900",
-                    "on-surface-variant": "#4e463b",
-                    "error": "#ba1a1a",
-                    "on-surface": "#1e1b17",
-                    "on-primary": "#ffffff",
-                    "tertiary-fixed-dim": "#b5c7e9",
-                    "surface": "#fff8f3",
-                    "secondary-fixed-dim": "#b6c8dc",
-                    "on-background": "#1e1b17",
-                    "surface-variant": "#e9e1db",
-                    "primary-container": "#bc9c6a",
-                    "secondary-container": "#d2e4f9",
-                    "inverse-on-surface": "#f7efe9",
-                    "primary": "#745a2e",
-                    "surface-container": "#f4ede6",
-                    "tertiary-fixed": "#d5e3ff",
-                    "outline": "#7f7669",
-                    "on-error": "#ffffff",
-                    "tertiary": "#4d5f7c",
-                    "on-tertiary-fixed-variant": "#364763",
-                    "primary-fixed-dim": "#e4c18c",
-                    "surface-container-highest": "#e9e1db",
-                    "on-tertiary-fixed": "#071c35",
-                    "on-tertiary-container": "#263853",
-                    "surface-container-high": "#eee7e0",
-                    "surface-container-low": "#faf2ec",
-                    "primary-fixed": "#ffdeac",
-                    "on-tertiary": "#ffffff",
-                    "on-primary-container": "#49340b",
-                    "outline-variant": "#d1c5b6",
-                    "surface-tint": "#745a2e",
-                    "on-secondary-container": "#556678",
-                    "tertiary-container": "#90a2c2",
-                    "surface-container-lowest": "#ffffff",
-                    "background": "#fff8f3",
-                    "on-secondary": "#ffffff",
-                    "inverse-surface": "#33302c",
-                    "on-error-container": "#93000a",
-                    "on-secondary-fixed": "#0b1d2c",
-                    "surface-dim": "#e0d9d2",
-                    "on-secondary-fixed-variant": "#374859",
-                    "inverse-primary": "#e4c18c",
-                    "surface-bright": "#fff8f3",
-                    "error-container": "#ffdad6",
-                    "secondary": "#4f6071",
-                    "on-primary-fixed-variant": "#5a4319"
+            colors: {
+              'secondary-fixed': '#d2e4f9',
+              'on-primary-fixed': '#281900',
+              'on-surface-variant': '#4e463b',
+              error: '#ba1a1a',
+              'on-surface': '#1e1b17',
+              'on-primary': '#ffffff',
+              'tertiary-fixed-dim': '#b5c7e9',
+              surface: '#fff8f3',
+              'secondary-fixed-dim': '#b6c8dc',
+              'on-background': '#1e1b17',
+              'surface-variant': '#e9e1db',
+              'primary-container': '#bc9c6a',
+              'secondary-container': '#d2e4f9',
+              'inverse-on-surface': '#f7efe9',
+              primary: '#745a2e',
+              'surface-container': '#f4ede6',
+              'tertiary-fixed': '#d5e3ff',
+              outline: '#7f7669',
+              'on-error': '#ffffff',
+              tertiary: '#4d5f7c',
+              'on-tertiary-fixed-variant': '#364763',
+              'primary-fixed-dim': '#e4c18c',
+              'surface-container-highest': '#e9e1db',
+              'on-tertiary-fixed': '#071c35',
+              'on-tertiary-container': '#263853',
+              'surface-container-high': '#eee7e0',
+              'surface-container-low': '#faf2ec',
+              'primary-fixed': '#ffdeac',
+              'on-tertiary': '#ffffff',
+              'on-primary-container': '#49340b',
+              'outline-variant': '#d1c5b6',
+              'surface-tint': '#745a2e',
+              'on-secondary-container': '#556678',
+              'tertiary-container': '#90a2c2',
+              'surface-container-lowest': '#ffffff',
+              background: '#fff8f3',
+              'on-secondary': '#ffffff',
+              'inverse-surface': '#33302c',
+              'on-error-container': '#93000a',
+              'on-secondary-fixed': '#0b1d2c',
+              'surface-dim': '#e0d9d2',
+              'on-secondary-fixed-variant': '#374859',
+              'inverse-primary': '#e4c18c',
+              'surface-bright': '#fff8f3',
+              'error-container': '#ffdad6',
+              secondary: '#4f6071',
+              'on-primary-fixed-variant': '#5a4319'
             },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px'
             },
-            "spacing": {
-                    "margin-mobile": "24px",
-                    "stack-xl": "120px",
-                    "margin-desktop": "80px",
-                    "stack-md": "32px",
-                    "stack-lg": "64px",
-                    "stack-sm": "16px",
-                    "margin-tablet": "40px",
-                    "gutter": "24px"
+            spacing: {
+              'margin-mobile': '24px',
+              'stack-xl': '120px',
+              'margin-desktop': '80px',
+              'stack-md': '32px',
+              'stack-lg': '64px',
+              'stack-sm': '16px',
+              'margin-tablet': '40px',
+              gutter: '24px'
             },
-            "fontFamily": {
-                    "label-md": ["Work Sans"],
-                    "display-lg-mobile": ["Playfair Display"],
-                    "headline-sm": ["Playfair Display"],
-                    "headline-lg": ["Playfair Display"],
-                    "body-md": ["Work Sans"],
-                    "body-lg": ["Work Sans"],
-                    "display-lg": ["Playfair Display"],
-                    "label-caps": ["Work Sans"],
-                    "headline-xl": ["Playfair Display"]
+            fontFamily: {
+              'label-md': ['Work Sans'],
+              'display-lg-mobile': ['Playfair Display'],
+              'headline-sm': ['Playfair Display'],
+              'headline-lg': ['Playfair Display'],
+              'body-md': ['Work Sans'],
+              'body-lg': ['Work Sans'],
+              'display-lg': ['Playfair Display'],
+              'label-caps': ['Work Sans'],
+              'headline-xl': ['Playfair Display']
             },
-            "fontSize": {
-                    "label-md": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
-                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
-                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                    "headline-xl": ["60px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            fontSize: {
+              'label-md': ['14px', { lineHeight: '1.4', fontWeight: '500' }],
+              'display-lg-mobile': ['48px', { lineHeight: '1.1', fontWeight: '700' }],
+              'headline-sm': ['24px', { lineHeight: '1.3', fontWeight: '600' }],
+              'headline-lg': ['40px', { lineHeight: '1.2', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+              'body-lg': ['20px', { lineHeight: '1.6', fontWeight: '400' }],
+              'display-lg': [
+                '84px',
+                { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }
+              ],
+              'label-caps': [
+                '12px',
+                { lineHeight: '1.0', letterSpacing: '0.1em', fontWeight: '600' }
+              ],
+              'headline-xl': ['60px', { lineHeight: '1.2', fontWeight: '600' }]
             }
-          },
-        },
-      }
+          }
+        }
+      };
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .asymmetric-item:nth-child(even) {
-            margin-top: 80px;
-        }
-        .border-left-accent {
-            border-left: 1px solid #d1c5b6;
-        }
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+      .asymmetric-item:nth-child(even) {
+        margin-top: 80px;
+      }
+      .border-left-accent {
+        border-left: 1px solid #d1c5b6;
+      }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
   </head>
-<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-container">
-<!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
-<div class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto">
-<div class="flex items-center gap-8">
-<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
-<nav class="hidden md:flex gap-8">
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Home</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Quienes Somos</a>
-<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-caps tracking-widest" href="#">Proyectos</a>
-</nav>
-</div>
-<span class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright">L'ARCHITECTE</span>
-<div class="flex items-center gap-8">
-<nav class="hidden md:flex gap-8">
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Blog</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Contacto</a>
-</nav>
-<button class="bg-primary text-white px-6 py-3 font-label-caps tracking-widest text-label-caps hover:bg-primary/90 transition-all active:scale-95 duration-200">REQUEST CALLBACK</button>
-</div>
-</div>
-</header>
-<main class="pt-[160px]">
-<!-- Hero Section -->
-<section class="px-margin-desktop max-w-[1440px] mx-auto mb-stack-xl">
-<div class="grid grid-cols-12 gap-gutter">
-<div class="col-span-12 md:col-span-7">
-<h1 class="font-display-lg text-display-lg mb-stack-sm">PORTAFOLIO DE PROYECTOS</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Curating the world's most architectural residences. Explore our latest acquisitions and masterworks across the globe's most exclusive destinations.</p>
-</div>
-<div class="col-span-12 md:col-span-5 flex items-end justify-end">
-<div class="flex gap-4 border-b border-outline-variant pb-2 w-full md:w-auto">
-<span class="font-label-caps text-label-caps text-primary">01</span>
-<span class="font-label-caps text-label-caps text-on-surface-variant">/ 04 FEATURED PROJECTS</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Projects Grid (Asymmetric) -->
-<section class="px-margin-desktop max-w-[1440px] mx-auto mb-stack-xl">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-20">
-<!-- Project 1: The Monolith -->
-<div class="flex flex-col group cursor-pointer">
-<div class="overflow-hidden mb-stack-sm bg-surface-container">
-<img class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A striking modern architectural villa named The Monolith, featuring heavy concrete slabs and floor-to-ceiling glass windows set against a rugged Zurich mountain landscape at dusk. The building glows with warm internal amber lighting, contrasted by the cool, misty blues of the alpine surroundings. The visual style is highly refined, minimalist, and editorial, emphasizing the sharp structural lines and premium textures of the materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEmwvC-odf0BmPRcuaUrhf_KhzorrLGOCv4fGS-NeMZ88EWVwszp3zOIA82sr7f56XRHBJDtfQi41yF2LYgvQlPf4X_vCGCVZUoYqL6EcjIamK_Wcrwm4abHN3KMyGTemm0EA5xsQuGq3wczZCmaaeXPw8A8ewBvhXquCj9CXpPlaUgSJI-5153V7-JtmMPzQMOf3bXBpABAdab706xdlP2HodJAIIytmlUBr3kJ3N3EZMC6_ZmT6eLOEFRvk5UXdqLwJVtOOx29Y"/>
-</div>
-<div class="grid grid-cols-2 border-t border-outline-variant pt-6">
-<div>
-<span class="font-label-caps text-label-caps text-primary block mb-2">ZURICH, SWITZERLAND</span>
-<h2 class="font-headline-lg text-headline-lg">THE MONOLITH</h2>
-</div>
-<div class="flex flex-col items-end justify-center">
-<span class="font-label-caps text-label-caps text-on-surface-variant">ESTIMATED VALUE</span>
-<span class="font-headline-sm text-headline-sm">€12.5M</span>
-</div>
-</div>
-</div>
-<!-- Project 2: Villa Lumina -->
-<div class="flex flex-col group cursor-pointer md:mt-32">
-<div class="overflow-hidden mb-stack-sm bg-surface-container">
-<img class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An ethereal white minimalist villa called Villa Lumina located on a cliffside in Marbella. The architecture features floating terraces and thin horizontal planes that seem to defy gravity. Bright midday sun creates sharp shadows and highlights the Mediterranean coastal aesthetic, with a crystal clear infinity pool reflecting the deep blue sky. The atmosphere is luxurious, serene, and incredibly bright." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDij_o8Nw8UvqbNLwJJvi_T0IP-980wHe5L5sOaocjnIAmz3I5m2E256-sgGHrKcVIeWJlrGHvB71fkzgfhhM0Swexzz78-dIFwDiC8jr01dZqtS740hPInwFX_uQX1Cgef0K44qRUDUVUNGaemf8OH3kI1bzizcYUEHc_Q136qsxPdPyyd4CvcsYqSueCOxGW6MVnsD81A50xDgw0Jbu0fxvk5PywCDk_2cYBpi9BREkwW3kpmqfnFerjq2Xusk-8nfFmFbEibqFs"/>
-</div>
-<div class="grid grid-cols-2 border-t border-outline-variant pt-6">
-<div>
-<span class="font-label-caps text-label-caps text-primary block mb-2">MARBELLA, SPAIN</span>
-<h2 class="font-headline-lg text-headline-lg">VILLA LUMINA</h2>
-</div>
-<div class="flex flex-col items-end justify-center">
-<span class="font-label-caps text-label-caps text-on-surface-variant">ESTIMATED VALUE</span>
-<span class="font-headline-sm text-headline-sm">€8.9M</span>
-</div>
-</div>
-</div>
-<!-- Project 3: Azure Heights -->
-<div class="flex flex-col group cursor-pointer">
-<div class="overflow-hidden mb-stack-sm bg-surface-container">
-<img class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Azure Heights, a futuristic vertical residence in Dubai featuring sleek metallic finishes and curved glass facades. The image is captured during the golden hour, with the setting sun reflecting off the building's glass surfaces in shades of copper and gold. The surrounding cityscape is blurred to focus on the intricate architectural details of the penthouse. The mood is opulent, modern, and high-status." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZBPKfKBJlaS171n_ypAhhm5wMtFT3KmlOY3Arwaw_By-BbC2VQsbV2L917jYxfBrEwAAzvgzWdh312i1Q5Y2AbrbyynuWDo8HhnTY0RBZt7uHEwKPylNP4D2QHsIRqGQhm-FnI22tqjGleRDbxF9uNqZAsvBvOGFOcsViwnvSN6QfK7dI0ug8jDs0qaqXzuACEsQ1MVzxVwMPaVLKJBEwe1hsLIDlN_U33KdXFPGpUV4x9_T7mRaH9P3Nal_ln1qzTw5hj2rDX-U"/>
-</div>
-<div class="grid grid-cols-2 border-t border-outline-variant pt-6">
-<div>
-<span class="font-label-caps text-label-caps text-primary block mb-2">DUBAI, UAE</span>
-<h2 class="font-headline-lg text-headline-lg">AZURE HEIGHTS</h2>
-</div>
-<div class="flex flex-col items-end justify-center">
-<span class="font-label-caps text-label-caps text-on-surface-variant">ESTIMATED VALUE</span>
-<span class="font-headline-sm text-headline-sm">€18.2M</span>
-</div>
-</div>
-</div>
-<!-- Project 4: The Courtyard -->
-<div class="flex flex-col group cursor-pointer md:mt-32">
-<div class="overflow-hidden mb-stack-sm bg-surface-container">
-<img class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="The Courtyard residence in Tuscany, a contemporary reinterpretation of a classic estate. The building utilizes local warm-toned stone combined with modern black steel frames and expansive glass. A central courtyard features a single ancient olive tree as a focal point, illuminated by soft ground lighting. The scene is peaceful, timeless, and sophisticated, shot with a cinematic shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLiCeDOoolK-LYzefZK03SanzgSvmbFHx-NmuQjWe930MNVIK9TPrYIsN540pny9cbpDuqDQrQoXj1fakioHHmJCEUPfF5fnO-8ULq3YbpzCg_3g-p2_SIBlUG8pTj53utSj8VOQNgfjBotJCq0-_bd_Vq9E0OMV2To3mFApjXROd7XQymge5HavXReVr88-VsulUtUFVElk2uVFhtOQramWodYtb63JZ6e02SGveWQ1PJhgwy6nHsHdxO-idTKyYf0JjeJospSKU"/>
-</div>
-<div class="grid grid-cols-2 border-t border-outline-variant pt-6">
-<div>
-<span class="font-label-caps text-label-caps text-primary block mb-2">TUSCANY, ITALY</span>
-<h2 class="font-headline-lg text-headline-lg">THE COURTYARD</h2>
-</div>
-<div class="flex flex-col items-end justify-center">
-<span class="font-label-caps text-label-caps text-on-surface-variant">ESTIMATED VALUE</span>
-<span class="font-headline-sm text-headline-sm">€6.4M</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Individual Detail Focus: THE MONOLITH -->
-<section class="bg-surface-container-low py-stack-xl border-t border-b border-outline-variant">
-<div class="px-margin-desktop max-w-[1440px] mx-auto">
-<div class="grid grid-cols-12 gap-gutter mb-stack-lg">
-<div class="col-span-12 lg:col-span-4">
-<span class="font-label-caps text-label-caps text-primary block mb-4">DETALLE DEL PROYECTO</span>
-<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-stack-sm">THE MONOLITH</h2>
-<div class="space-y-6 pt-6 border-t border-outline-variant">
-<div class="flex justify-between items-center">
-<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">LOCATION</span>
-<span class="font-body-md text-body-md font-bold">ZURICH, SWITZERLAND</span>
-</div>
-<div class="flex justify-between items-center">
-<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">PRICE</span>
-<span class="font-body-md text-body-md font-bold">€12.500.000</span>
-</div>
-<div class="flex justify-between items-center">
-<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">SPECS</span>
-<span class="font-body-md text-body-md font-bold">6 BEDS | 8 BATHS | 1,200 SQM</span>
-</div>
-</div>
-<p class="font-body-lg text-body-lg text-on-surface-variant mt-stack-md leading-relaxed">
-                            A brutalist masterpiece carved into the hillside. The Monolith represents the pinnacle of Alpine living, where raw concrete meets the warmth of hand-treated timber and expansive glass vistas.
-                        </p>
-<button class="mt-stack-md w-full bg-primary text-white py-5 font-label-caps tracking-widest text-label-caps hover:bg-primary/90 transition-all">ENQUIRE NOW</button>
-</div>
-<!-- Large 3D Render Video Placeholder -->
-<div class="col-span-12 lg:col-span-8 relative aspect-video bg-inverse-surface group cursor-pointer overflow-hidden">
-<img class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500" data-alt="A cinematic 3D architectural visualization of The Monolith's interior living room. High ceilings with exposed concrete beams, a massive floor-to-ceiling window framing the Swiss Alps, and a central minimalist fireplace. The room is furnished with designer leather furniture in neutral tones. Soft evening light filters through the space, creating a mood of absolute quietude and luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANgIkojRyYXxbLPDD1r4EZfQfYmFhh3uYuvBTXrp2d2tt59dKJ1aiTIBQtx1LDNBSCX69NM6ZZQ3H-oSrne8xmAQldThPthww2VmFq8qOJBIbuzxC8q9WYZafkJDo126wK-lIolt3EFIbHUTNenlYMb_Zo-5RCNsh6g9JdYUi5gwYF0wyHR-oYnNYYzeq2Wb4Jf-AYGNr8kOI8-LGhg8AfF9qYEiWr5Z4tTeIqa-posaDSMHztaLx7WisbeHWYT3M26gjZEoVTDDo"/>
-<div class="absolute inset-0 flex items-center justify-center">
-<div class="w-24 h-24 rounded-full border border-white flex items-center justify-center text-white backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
-<span class="material-symbols-outlined text-4xl">play_arrow</span>
-</div>
-</div>
-<div class="absolute bottom-8 left-8">
-<span class="text-white font-label-caps tracking-widest text-label-caps">3D ARCHITECTURAL FILM / 2:45 MIN</span>
-</div>
-</div>
-</div>
-<!-- Gallery Grid -->
-<div class="grid grid-cols-12 gap-gutter">
-<div class="col-span-12 md:col-span-4 aspect-square">
-<img class="w-full h-full object-cover" data-alt="Interior detail of The Monolith's kitchen, featuring a monolithic black marble island and invisible cabinetry. The lighting is focused and dramatic, highlighting the natural veins of the stone against dark wood textures. The aesthetic is extremely clean, functional, and luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAujGJoI0mSQAW7SYbW3iQOb45j89D2dyJV6AsVxh2CbNyc358QHbWHQIoigtMTMcnXAXDH01omtAoYg2otKtGckrb-hmL5-nWMhoAn0gBkhNxSIGqLZ3ddoP562hFWMDs3sCYGbjhmREBWKYsLQYhQ_FjJdJw9duc5KqXQ5ybxS5IFZ6PGWbJwRiU-n6b2MFlcyRIxTYrBpuNu6sCZeQ2UfgEcvHBy6d5AL5pvF2pif6UvL2jKhyeq_H0XGhGyodpTRlhokUspJCg"/>
-</div>
-<div class="col-span-12 md:col-span-4 aspect-square">
-<img class="w-full h-full object-cover" data-alt="The master bedroom of The Monolith with a view of the forest at dawn. Minimalist bedding in grey linens, a low-profile bed frame, and wide plank oak floors. The room is flooded with soft morning light, creating a serene and private sanctuary atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3M5BZatyyR2GOYqXft_5S_x-_lxyMyLlSAQ6qPfFpA5NPZ0Klum85BOEKrlbM79DWeR2tO4wzSobffHHdsqjm9OdnIbgm3ef-cjIcyZFLPyH49oMrudqe8cwHT1Tfjavr8oSONdHW1_71pRkKmUpC4ruuGdn2i3YXTTSlecGc5V4SxTIEKkGR8TywVdvx5Tge3Owkdq9fXjMNZx8eu6oWkHvEbzRR4X_O9xUBWMm4TbrROuEDwBlQ3SXK9O-LutW18rF4Iwis3NU"/>
-</div>
-<div class="col-span-12 md:col-span-4 aspect-square">
-<img class="w-full h-full object-cover" data-alt="A private spa and indoor pool area within The Monolith. Dark slate tiles, steam rising from the water, and subtle recessed LED lighting. The space feels like a carved-out cavern, quiet and intimate, representing the ultimate in home wellness design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX7z8pZuQSY2JI4dclnYQAOtB74CpP7Bhj3K6MwzOpKObj9bsP2dtFwssFy0RWUPPlvtLCUC1bjHFHg8CRy7qDnqOwBs0rJfhgiqv0pbffkc806CkrfKT2wzQfgrxcUE3K7KP54RmGeSaOsM-kAm6d6WBgjAZW6Ic3b6i_lGDmKSd1wAnbgpL4AA2HvmtOc2eE0r9jUk0dJzbKbLWS18L2LV6FSrMYJpKROPlM2PNH4j14FJ8W8ppMUdXWv0TeEachbEJ05nSLc6k"/>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="py-stack-xl bg-surface">
-<div class="px-margin-desktop max-w-[1440px] mx-auto text-center">
-<span class="font-label-caps text-label-caps text-primary tracking-[0.3em] mb-stack-sm block">START YOUR JOURNEY</span>
-<h2 class="font-display-lg text-display-lg mb-stack-md">READY TO FIND YOUR MASTERPIECE?</h2>
-<div class="flex flex-col md:flex-row gap-6 justify-center">
-<button class="bg-secondary text-white px-12 py-5 font-label-caps tracking-widest text-label-caps hover:bg-secondary/90 transition-all">VIEW ALL PROJECTS</button>
-<button class="border border-on-surface text-on-surface px-12 py-5 font-label-caps tracking-widest text-label-caps hover:bg-on-surface hover:text-surface transition-all">SCHEDULE CONSULTATION</button>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline mt-stack-xl">
-<div class="grid grid-cols-12 gap-gutter px-margin-desktop py-stack-lg max-w-[1440px] mx-auto">
-<div class="col-span-12 md:col-span-4">
-<span class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright block mb-6">L'ARCHITECTE</span>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-xs">Establishing new standards in luxury living through architectural precision and unparalleled service.</p>
-</div>
-<div class="col-span-12 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
-<div class="flex flex-col gap-4">
-<span class="font-label-caps text-label-caps text-primary mb-2">EXPLORE</span>
-<a class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim hover:underline underline-offset-4" href="#">Home</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim hover:underline underline-offset-4" href="#">Quienes Somos</a>
-<a class="text-primary dark:text-primary-fixed-dim font-bold uppercase tracking-widest font-label-caps text-[10px]" href="#">Proyectos</a>
-</div>
-<div class="flex flex-col gap-4">
-<span class="font-label-caps text-label-caps text-primary mb-2">OFFICES</span>
-<span class="text-on-surface-variant font-label-caps text-[10px] tracking-widest">MADRID</span>
-<span class="text-on-surface-variant font-label-caps text-[10px] tracking-widest">ZURICH</span>
-<span class="text-on-surface-variant font-label-caps text-[10px] tracking-widest">DUBAI</span>
-</div>
-<div class="flex flex-col gap-4">
-<span class="font-label-caps text-label-caps text-primary mb-2">LEGAL</span>
-<a class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim hover:underline underline-offset-4" href="#">Privacy Policy</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim hover:underline underline-offset-4" href="#">Imprint</a>
-</div>
-<div class="flex flex-col gap-4">
-<span class="font-label-caps text-label-caps text-primary mb-2">FOLLOW</span>
-<a class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim" href="#">INSTAGRAM</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim" href="#">LINKEDIN</a>
-</div>
-</div>
-<div class="col-span-12 pt-stack-lg border-t border-outline-variant mt-stack-lg">
-<span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest">© 2024 L'ARCHITECTE LUXURY REAL ESTATE. ALL RIGHTS RESERVED.</span>
-</div>
-</div>
-</footer>
-</body></html>
+  <body
+    class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-container"
+  >
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline"
+    >
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto"
+      >
+        <div class="flex items-center gap-8">
+          <span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+          <nav class="hidden md:flex gap-8">
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+              href="#"
+              >Home</a
+            >
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+              href="#"
+              >Quienes Somos</a
+            >
+            <a
+              class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-caps tracking-widest"
+              href="#"
+              >Proyectos</a
+            >
+          </nav>
+        </div>
+        <span
+          class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright"
+          >L'ARCHITECTE</span
+        >
+        <div class="flex items-center gap-8">
+          <nav class="hidden md:flex gap-8">
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+              href="#"
+              >Blog</a
+            >
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant font-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+              href="#"
+              >Contacto</a
+            >
+          </nav>
+          <button
+            class="bg-primary text-white px-6 py-3 font-label-caps tracking-widest text-label-caps hover:bg-primary/90 transition-all active:scale-95 duration-200"
+          >
+            REQUEST CALLBACK
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="pt-[160px]">
+      <!-- Hero Section -->
+      <section class="px-margin-desktop max-w-[1440px] mx-auto mb-stack-xl">
+        <div class="grid grid-cols-12 gap-gutter">
+          <div class="col-span-12 md:col-span-7">
+            <h1 class="font-display-lg text-display-lg mb-stack-sm">PORTAFOLIO DE PROYECTOS</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+              Curating the world's most architectural residences. Explore our latest acquisitions
+              and masterworks across the globe's most exclusive destinations.
+            </p>
+          </div>
+          <div class="col-span-12 md:col-span-5 flex items-end justify-end">
+            <div class="flex gap-4 border-b border-outline-variant pb-2 w-full md:w-auto">
+              <span class="font-label-caps text-label-caps text-primary">01</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant"
+                >/ 04 FEATURED PROJECTS</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Projects Grid (Asymmetric) -->
+      <section class="px-margin-desktop max-w-[1440px] mx-auto mb-stack-xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-20">
+          <!-- Project 1: The Monolith -->
+          <div class="flex flex-col group cursor-pointer">
+            <div class="overflow-hidden mb-stack-sm bg-surface-container">
+              <img
+                class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+                data-alt="A striking modern architectural villa named The Monolith, featuring heavy concrete slabs and floor-to-ceiling glass windows set against a rugged Zurich mountain landscape at dusk. The building glows with warm internal amber lighting, contrasted by the cool, misty blues of the alpine surroundings. The visual style is highly refined, minimalist, and editorial, emphasizing the sharp structural lines and premium textures of the materials."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEmwvC-odf0BmPRcuaUrhf_KhzorrLGOCv4fGS-NeMZ88EWVwszp3zOIA82sr7f56XRHBJDtfQi41yF2LYgvQlPf4X_vCGCVZUoYqL6EcjIamK_Wcrwm4abHN3KMyGTemm0EA5xsQuGq3wczZCmaaeXPw8A8ewBvhXquCj9CXpPlaUgSJI-5153V7-JtmMPzQMOf3bXBpABAdab706xdlP2HodJAIIytmlUBr3kJ3N3EZMC6_ZmT6eLOEFRvk5UXdqLwJVtOOx29Y"
+              />
+            </div>
+            <div class="grid grid-cols-2 border-t border-outline-variant pt-6">
+              <div>
+                <span class="font-label-caps text-label-caps text-primary block mb-2"
+                  >ZURICH, SWITZERLAND</span
+                >
+                <h2 class="font-headline-lg text-headline-lg">THE MONOLITH</h2>
+              </div>
+              <div class="flex flex-col items-end justify-center">
+                <span class="font-label-caps text-label-caps text-on-surface-variant"
+                  >ESTIMATED VALUE</span
+                >
+                <span class="font-headline-sm text-headline-sm">€12.5M</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2: Villa Lumina -->
+          <div class="flex flex-col group cursor-pointer md:mt-32">
+            <div class="overflow-hidden mb-stack-sm bg-surface-container">
+              <img
+                class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+                data-alt="An ethereal white minimalist villa called Villa Lumina located on a cliffside in Marbella. The architecture features floating terraces and thin horizontal planes that seem to defy gravity. Bright midday sun creates sharp shadows and highlights the Mediterranean coastal aesthetic, with a crystal clear infinity pool reflecting the deep blue sky. The atmosphere is luxurious, serene, and incredibly bright."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDij_o8Nw8UvqbNLwJJvi_T0IP-980wHe5L5sOaocjnIAmz3I5m2E256-sgGHrKcVIeWJlrGHvB71fkzgfhhM0Swexzz78-dIFwDiC8jr01dZqtS740hPInwFX_uQX1Cgef0K44qRUDUVUNGaemf8OH3kI1bzizcYUEHc_Q136qsxPdPyyd4CvcsYqSueCOxGW6MVnsD81A50xDgw0Jbu0fxvk5PywCDk_2cYBpi9BREkwW3kpmqfnFerjq2Xusk-8nfFmFbEibqFs"
+              />
+            </div>
+            <div class="grid grid-cols-2 border-t border-outline-variant pt-6">
+              <div>
+                <span class="font-label-caps text-label-caps text-primary block mb-2"
+                  >MARBELLA, SPAIN</span
+                >
+                <h2 class="font-headline-lg text-headline-lg">VILLA LUMINA</h2>
+              </div>
+              <div class="flex flex-col items-end justify-center">
+                <span class="font-label-caps text-label-caps text-on-surface-variant"
+                  >ESTIMATED VALUE</span
+                >
+                <span class="font-headline-sm text-headline-sm">€8.9M</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3: Azure Heights -->
+          <div class="flex flex-col group cursor-pointer">
+            <div class="overflow-hidden mb-stack-sm bg-surface-container">
+              <img
+                class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+                data-alt="Azure Heights, a futuristic vertical residence in Dubai featuring sleek metallic finishes and curved glass facades. The image is captured during the golden hour, with the setting sun reflecting off the building's glass surfaces in shades of copper and gold. The surrounding cityscape is blurred to focus on the intricate architectural details of the penthouse. The mood is opulent, modern, and high-status."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZBPKfKBJlaS171n_ypAhhm5wMtFT3KmlOY3Arwaw_By-BbC2VQsbV2L917jYxfBrEwAAzvgzWdh312i1Q5Y2AbrbyynuWDo8HhnTY0RBZt7uHEwKPylNP4D2QHsIRqGQhm-FnI22tqjGleRDbxF9uNqZAsvBvOGFOcsViwnvSN6QfK7dI0ug8jDs0qaqXzuACEsQ1MVzxVwMPaVLKJBEwe1hsLIDlN_U33KdXFPGpUV4x9_T7mRaH9P3Nal_ln1qzTw5hj2rDX-U"
+              />
+            </div>
+            <div class="grid grid-cols-2 border-t border-outline-variant pt-6">
+              <div>
+                <span class="font-label-caps text-label-caps text-primary block mb-2"
+                  >DUBAI, UAE</span
+                >
+                <h2 class="font-headline-lg text-headline-lg">AZURE HEIGHTS</h2>
+              </div>
+              <div class="flex flex-col items-end justify-center">
+                <span class="font-label-caps text-label-caps text-on-surface-variant"
+                  >ESTIMATED VALUE</span
+                >
+                <span class="font-headline-sm text-headline-sm">€18.2M</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project 4: The Courtyard -->
+          <div class="flex flex-col group cursor-pointer md:mt-32">
+            <div class="overflow-hidden mb-stack-sm bg-surface-container">
+              <img
+                class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+                data-alt="The Courtyard residence in Tuscany, a contemporary reinterpretation of a classic estate. The building utilizes local warm-toned stone combined with modern black steel frames and expansive glass. A central courtyard features a single ancient olive tree as a focal point, illuminated by soft ground lighting. The scene is peaceful, timeless, and sophisticated, shot with a cinematic shallow depth of field."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLiCeDOoolK-LYzefZK03SanzgSvmbFHx-NmuQjWe930MNVIK9TPrYIsN540pny9cbpDuqDQrQoXj1fakioHHmJCEUPfF5fnO-8ULq3YbpzCg_3g-p2_SIBlUG8pTj53utSj8VOQNgfjBotJCq0-_bd_Vq9E0OMV2To3mFApjXROd7XQymge5HavXReVr88-VsulUtUFVElk2uVFhtOQramWodYtb63JZ6e02SGveWQ1PJhgwy6nHsHdxO-idTKyYf0JjeJospSKU"
+              />
+            </div>
+            <div class="grid grid-cols-2 border-t border-outline-variant pt-6">
+              <div>
+                <span class="font-label-caps text-label-caps text-primary block mb-2"
+                  >TUSCANY, ITALY</span
+                >
+                <h2 class="font-headline-lg text-headline-lg">THE COURTYARD</h2>
+              </div>
+              <div class="flex flex-col items-end justify-center">
+                <span class="font-label-caps text-label-caps text-on-surface-variant"
+                  >ESTIMATED VALUE</span
+                >
+                <span class="font-headline-sm text-headline-sm">€6.4M</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Individual Detail Focus: THE MONOLITH -->
+      <section
+        class="bg-surface-container-low py-stack-xl border-t border-b border-outline-variant"
+      >
+        <div class="px-margin-desktop max-w-[1440px] mx-auto">
+          <div class="grid grid-cols-12 gap-gutter mb-stack-lg">
+            <div class="col-span-12 lg:col-span-4">
+              <span class="font-label-caps text-label-caps text-primary block mb-4"
+                >DETALLE DEL PROYECTO</span
+              >
+              <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-stack-sm">
+                THE MONOLITH
+              </h2>
+              <div class="space-y-6 pt-6 border-t border-outline-variant">
+                <div class="flex justify-between items-center">
+                  <span class="font-label-caps text-label-caps text-on-surface-variant uppercase"
+                    >LOCATION</span
+                  >
+                  <span class="font-body-md text-body-md font-bold">ZURICH, SWITZERLAND</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="font-label-caps text-label-caps text-on-surface-variant uppercase"
+                    >PRICE</span
+                  >
+                  <span class="font-body-md text-body-md font-bold">€12.500.000</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="font-label-caps text-label-caps text-on-surface-variant uppercase"
+                    >SPECS</span
+                  >
+                  <span class="font-body-md text-body-md font-bold"
+                    >6 BEDS | 8 BATHS | 1,200 SQM</span
+                  >
+                </div>
+              </div>
+              <p
+                class="font-body-lg text-body-lg text-on-surface-variant mt-stack-md leading-relaxed"
+              >
+                A brutalist masterpiece carved into the hillside. The Monolith represents the
+                pinnacle of Alpine living, where raw concrete meets the warmth of hand-treated
+                timber and expansive glass vistas.
+              </p>
+              <button
+                class="mt-stack-md w-full bg-primary text-white py-5 font-label-caps tracking-widest text-label-caps hover:bg-primary/90 transition-all"
+              >
+                ENQUIRE NOW
+              </button>
+            </div>
+            <!-- Large 3D Render Video Placeholder -->
+            <div
+              class="col-span-12 lg:col-span-8 relative aspect-video bg-inverse-surface group cursor-pointer overflow-hidden"
+            >
+              <img
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
+                data-alt="A cinematic 3D architectural visualization of The Monolith's interior living room. High ceilings with exposed concrete beams, a massive floor-to-ceiling window framing the Swiss Alps, and a central minimalist fireplace. The room is furnished with designer leather furniture in neutral tones. Soft evening light filters through the space, creating a mood of absolute quietude and luxury."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuANgIkojRyYXxbLPDD1r4EZfQfYmFhh3uYuvBTXrp2d2tt59dKJ1aiTIBQtx1LDNBSCX69NM6ZZQ3H-oSrne8xmAQldThPthww2VmFq8qOJBIbuzxC8q9WYZafkJDo126wK-lIolt3EFIbHUTNenlYMb_Zo-5RCNsh6g9JdYUi5gwYF0wyHR-oYnNYYzeq2Wb4Jf-AYGNr8kOI8-LGhg8AfF9qYEiWr5Z4tTeIqa-posaDSMHztaLx7WisbeHWYT3M26gjZEoVTDDo"
+              />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-24 h-24 rounded-full border border-white flex items-center justify-center text-white backdrop-blur-sm group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="material-symbols-outlined text-4xl">play_arrow</span>
+                </div>
+              </div>
+              <div class="absolute bottom-8 left-8">
+                <span class="text-white font-label-caps tracking-widest text-label-caps"
+                  >3D ARCHITECTURAL FILM / 2:45 MIN</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Gallery Grid -->
+          <div class="grid grid-cols-12 gap-gutter">
+            <div class="col-span-12 md:col-span-4 aspect-square">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Interior detail of The Monolith's kitchen, featuring a monolithic black marble island and invisible cabinetry. The lighting is focused and dramatic, highlighting the natural veins of the stone against dark wood textures. The aesthetic is extremely clean, functional, and luxurious."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAujGJoI0mSQAW7SYbW3iQOb45j89D2dyJV6AsVxh2CbNyc358QHbWHQIoigtMTMcnXAXDH01omtAoYg2otKtGckrb-hmL5-nWMhoAn0gBkhNxSIGqLZ3ddoP562hFWMDs3sCYGbjhmREBWKYsLQYhQ_FjJdJw9duc5KqXQ5ybxS5IFZ6PGWbJwRiU-n6b2MFlcyRIxTYrBpuNu6sCZeQ2UfgEcvHBy6d5AL5pvF2pif6UvL2jKhyeq_H0XGhGyodpTRlhokUspJCg"
+              />
+            </div>
+            <div class="col-span-12 md:col-span-4 aspect-square">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="The master bedroom of The Monolith with a view of the forest at dawn. Minimalist bedding in grey linens, a low-profile bed frame, and wide plank oak floors. The room is flooded with soft morning light, creating a serene and private sanctuary atmosphere."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3M5BZatyyR2GOYqXft_5S_x-_lxyMyLlSAQ6qPfFpA5NPZ0Klum85BOEKrlbM79DWeR2tO4wzSobffHHdsqjm9OdnIbgm3ef-cjIcyZFLPyH49oMrudqe8cwHT1Tfjavr8oSONdHW1_71pRkKmUpC4ruuGdn2i3YXTTSlecGc5V4SxTIEKkGR8TywVdvx5Tge3Owkdq9fXjMNZx8eu6oWkHvEbzRR4X_O9xUBWMm4TbrROuEDwBlQ3SXK9O-LutW18rF4Iwis3NU"
+              />
+            </div>
+            <div class="col-span-12 md:col-span-4 aspect-square">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="A private spa and indoor pool area within The Monolith. Dark slate tiles, steam rising from the water, and subtle recessed LED lighting. The space feels like a carved-out cavern, quiet and intimate, representing the ultimate in home wellness design."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX7z8pZuQSY2JI4dclnYQAOtB74CpP7Bhj3K6MwzOpKObj9bsP2dtFwssFy0RWUPPlvtLCUC1bjHFHg8CRy7qDnqOwBs0rJfhgiqv0pbffkc806CkrfKT2wzQfgrxcUE3K7KP54RmGeSaOsM-kAm6d6WBgjAZW6Ic3b6i_lGDmKSd1wAnbgpL4AA2HvmtOc2eE0r9jUk0dJzbKbLWS18L2LV6FSrMYJpKROPlM2PNH4j14FJ8W8ppMUdXWv0TeEachbEJ05nSLc6k"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CTA Section -->
+      <section class="py-stack-xl bg-surface">
+        <div class="px-margin-desktop max-w-[1440px] mx-auto text-center">
+          <span
+            class="font-label-caps text-label-caps text-primary tracking-[0.3em] mb-stack-sm block"
+            >START YOUR JOURNEY</span
+          >
+          <h2 class="font-display-lg text-display-lg mb-stack-md">
+            READY TO FIND YOUR MASTERPIECE?
+          </h2>
+          <div class="flex flex-col md:flex-row gap-6 justify-center">
+            <button
+              class="bg-secondary text-white px-12 py-5 font-label-caps tracking-widest text-label-caps hover:bg-secondary/90 transition-all"
+            >
+              VIEW ALL PROJECTS
+            </button>
+            <button
+              class="border border-on-surface text-on-surface px-12 py-5 font-label-caps tracking-widest text-label-caps hover:bg-on-surface hover:text-surface transition-all"
+            >
+              SCHEDULE CONSULTATION
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline mt-stack-xl"
+    >
+      <div
+        class="grid grid-cols-12 gap-gutter px-margin-desktop py-stack-lg max-w-[1440px] mx-auto"
+      >
+        <div class="col-span-12 md:col-span-4">
+          <span
+            class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright block mb-6"
+            >L'ARCHITECTE</span
+          >
+          <p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-xs">
+            Establishing new standards in luxury living through architectural precision and
+            unparalleled service.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="flex flex-col gap-4">
+            <span class="font-label-caps text-label-caps text-primary mb-2">EXPLORE</span>
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim hover:underline underline-offset-4"
+              href="#"
+              >Home</a
+            >
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim hover:underline underline-offset-4"
+              href="#"
+              >Quienes Somos</a
+            >
+            <a
+              class="text-primary dark:text-primary-fixed-dim font-bold uppercase tracking-widest font-label-caps text-[10px]"
+              href="#"
+              >Proyectos</a
+            >
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="font-label-caps text-label-caps text-primary mb-2">OFFICES</span>
+            <span class="text-on-surface-variant font-label-caps text-[10px] tracking-widest"
+              >MADRID</span
+            >
+            <span class="text-on-surface-variant font-label-caps text-[10px] tracking-widest"
+              >ZURICH</span
+            >
+            <span class="text-on-surface-variant font-label-caps text-[10px] tracking-widest"
+              >DUBAI</span
+            >
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="font-label-caps text-label-caps text-primary mb-2">LEGAL</span>
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim hover:underline underline-offset-4"
+              href="#"
+              >Privacy Policy</a
+            >
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim hover:underline underline-offset-4"
+              href="#"
+              >Imprint</a
+            >
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="font-label-caps text-label-caps text-primary mb-2">FOLLOW</span>
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim"
+              href="#"
+              >INSTAGRAM</a
+            >
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant uppercase tracking-widest font-label-caps text-[10px] hover:text-primary dark:hover:text-primary-fixed-dim"
+              href="#"
+              >LINKEDIN</a
+            >
+          </div>
+        </div>
+        <div class="col-span-12 pt-stack-lg border-t border-outline-variant mt-stack-lg">
+          <span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest"
+            >© 2024 L'ARCHITECTE LUXURY REAL ESTATE. ALL RIGHTS RESERVED.</span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

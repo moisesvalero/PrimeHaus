@@ -121,7 +121,7 @@ The background uses a warm off-white to prevent the "digital coldness" of pure w
 
 ## Typography
 
-The typography strategy relies on the tension between a high-contrast Serif and a functional Grotesque. **Playfair Display** handles all display and headline roles, emphasizing the "Luxury" aspect through its elegant, thin hairlines and bold strokes. 
+The typography strategy relies on the tension between a high-contrast Serif and a functional Grotesque. **Playfair Display** handles all display and headline roles, emphasizing the "Luxury" aspect through its elegant, thin hairlines and bold strokes.
 
 **Work Sans** provides the "Swiss" foundation—it is used for body copy, data, and navigational labels to ensure maximum legibility and a modern, utilitarian feel. Use `label-caps` for section headers and small metadata to create an architectural blueprint feel. Large display sizes should utilize negative letter-spacing to feel tight and art-directed.
 
@@ -133,7 +133,7 @@ Vertical rhythm is crucial. Use large increments of spacing (`stack-xl`) between
 
 ## Elevation & Depth
 
-In this design system, depth is achieved through layering and subtle tonal shifts rather than dramatic shadows. 
+In this design system, depth is achieved through layering and subtle tonal shifts rather than dramatic shadows.
 
 1.  **Structural Flatness:** Most elements sit flat on the grid. Separation is defined by 1px borders in `#E5E5E1`.
 2.  **Subtle Lift:** The only permitted shadow is the `0 4px 20px rgba(0,0,0,0.03)` effect, applied exclusively to interactive cards or hovering menus to provide a "floated paper" feel.
@@ -146,20 +146,26 @@ The shape language is strictly **Sharp (0px)**. All containers, buttons, input f
 ## Components
 
 ### Buttons
+
 Buttons are strictly rectangular.
+
 - **Primary:** Solid `#BC9C6A` with white text. No border.
 - **Secondary:** Solid `#2D3E4E` with white text.
 - **Ghost/Tertiary:** 1px border of `#1A1A1A` with obsidian text.
 - **Label:** Use `label-caps` for all button text to maintain a professional, blueprint-style aesthetic.
 
 ### Input Fields
+
 Inputs consist of a single 1px bottom border (`#E5E5E1`). On focus, the border transitions to obsidian (`#1A1A1A`). The label sits above the line in `label-caps`.
 
 ### Cards
+
 Property cards are "frameless." The image occupies the top portion, followed by a generous whitespace area for the property title (Serif) and metadata (Sans). Use thin vertical separators between metadata points (e.g., SQ FT | BEDS | BATHS).
 
 ### Lists & Data
+
 Real estate specifications should be presented in a clean, vertical list. Each row is separated by a 1px horizontal line. The "Label" (e.g., Price) is on the left in `label-caps`, and the "Value" (e.g., $4,250,000) is on the right in `body-md` bold.
 
 ### Navigation
+
 The header should be oversized and airy. Use a "Breadcrumb" style or a simple "List" style with high letter-spacing. Avoid complex dropdowns; prefer full-screen "Mega-Menus" that utilize the 12-column grid for navigation categories.

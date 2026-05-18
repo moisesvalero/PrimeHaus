@@ -1,6 +1,7 @@
 # Svelte 5 Runes Reference
 
 ## Table of Contents
+
 - [$state - Reactive State](#state---reactive-state)
 - [$derived - Computed Values](#derived---computed-values)
 - [$effect - Side Effects](#effect---side-effects)
@@ -46,7 +47,9 @@ Objects and arrays are deeply reactive by default:
 <script>
   class Counter {
     count = $state(0);
-    increment() { this.count++; }
+    increment() {
+      this.count++;
+    }
   }
   const counter = new Counter();
 </script>
@@ -92,8 +95,8 @@ Replaces `$:` reactive statements for computed values.
   let filter = $state('even');
 
   let filteredItems = $derived.by(() => {
-    if (filter === 'even') return items.filter(n => n % 2 === 0);
-    return items.filter(n => n % 2 !== 0);
+    if (filter === 'even') return items.filter((n) => n % 2 === 0);
+    return items.filter((n) => n % 2 !== 0);
   });
 </script>
 ```
@@ -188,7 +191,9 @@ Runs code when component mounts and when dependencies change. Requires cleanup f
     if (div) {
       const shouldScroll = div.scrollTop + div.clientHeight >= div.scrollHeight - 20;
       if (shouldScroll) {
-        tick().then(() => { div.scrollTop = div.scrollHeight; });
+        tick().then(() => {
+          div.scrollTop = div.scrollHeight;
+        });
       }
     }
   });
@@ -206,7 +211,10 @@ Runs code when component mounts and when dependencies change. Requires cleanup f
 
   $effect(() => {
     // Only runs when count changes, not logCount
-    console.log(count, untrack(() => logCount));
+    console.log(
+      count,
+      untrack(() => logCount)
+    );
   });
 </script>
 ```
@@ -242,8 +250,8 @@ Replaces `export let` for declaring component props.
 ```svelte
 <script>
   let {
-    class: className,  // 'class' is reserved
-    for: htmlFor,      // 'for' is reserved
+    class: className, // 'class' is reserved
+    for: htmlFor, // 'for' is reserved
     ...rest
   } = $props();
 </script>
@@ -322,11 +330,7 @@ Props must be explicitly marked with `$bindable()` to support `bind:`.
 
 ```svelte
 <script>
-  let {
-    value = $bindable(''),
-    checked = $bindable(false),
-    selected = $bindable(null)
-  } = $props();
+  let { value = $bindable(''), checked = $bindable(false), selected = $bindable(null) } = $props();
 </script>
 ```
 

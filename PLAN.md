@@ -43,17 +43,17 @@ Alternativa solo cookie: válida para MVP interno; **no** recomendada para Prime
 
 Nuevo tipo (p. ej. `primeProject`) o refactor fuerte de `caseStudy`:
 
-| Campo | Tipo propuesto |
-|--------|----------------|
-| Nombre | `localeString` (4 idiomas) |
-| Zona | `localeString` |
-| Descripción | `localeText` o Portable Text localizado |
-| Precio | `number` + string opcional moneda / “desde” |
-| Vídeo embed 3D / recorrido | `url` + opcional proveedor; `<iframe>` o componente dedicado |
-| Galería | `array` de `image` (Sanity CDN + `src/lib/server/sanity/image-builder.ts`) |
-| CTAs | `array`: `label` (localeString), `href` o `tel:` / `mailto:` |
-| Slug | `slug` único (compartido entre idiomas) |
-| SEO por proyecto | `localeText` meta description opcional |
+| Campo                      | Tipo propuesto                                                             |
+| -------------------------- | -------------------------------------------------------------------------- |
+| Nombre                     | `localeString` (4 idiomas)                                                 |
+| Zona                       | `localeString`                                                             |
+| Descripción                | `localeText` o Portable Text localizado                                    |
+| Precio                     | `number` + string opcional moneda / “desde”                                |
+| Vídeo embed 3D / recorrido | `url` + opcional proveedor; `<iframe>` o componente dedicado               |
+| Galería                    | `array` de `image` (Sanity CDN + `src/lib/server/sanity/image-builder.ts`) |
+| CTAs                       | `array`: `label` (localeString), `href` o `tel:` / `mailto:`               |
+| Slug                       | `slug` único (compartido entre idiomas)                                    |
+| SEO por proyecto           | `localeText` meta description opcional                                     |
 
 Desk: orden por zona/fecha; previews con imagen principal.
 
@@ -61,15 +61,15 @@ Desk: orden por zona/fecha; previews con imagen principal.
 
 ## Páginas y rutas (sin buscador ni filtros)
 
-| Ruta (bajo `[lang]`) | Rol |
-|----------------------|-----|
-| `/{lang}/` | Home: hero, destacados (GROQ), CTAs |
-| `/{lang}/proyectos` | Listado tarjetas (leads) |
-| `/{lang}/proyectos/[slug]` | Ficha: galería, vídeo, precio, zona, CTAs |
-| `/{lang}/sobre-nosotros` | i18n ± opcional Sanity `siteSettings` |
-| `/{lang}/contacto` | Formulario + click-to-call |
-| `/{lang}/blog` | Listado vacío / próximamente + `setSeo` |
-| `/{lang}/blog/[slug]` | Preparado; 404 o vacío hasta posts Sanity (fase 2) |
+| Ruta (bajo `[lang]`)       | Rol                                                |
+| -------------------------- | -------------------------------------------------- |
+| `/{lang}/`                 | Home: hero, destacados (GROQ), CTAs                |
+| `/{lang}/proyectos`        | Listado tarjetas (leads)                           |
+| `/{lang}/proyectos/[slug]` | Ficha: galería, vídeo, precio, zona, CTAs          |
+| `/{lang}/sobre-nosotros`   | i18n ± opcional Sanity `siteSettings`              |
+| `/{lang}/contacto`         | Formulario + click-to-call                         |
+| `/{lang}/blog`             | Listado vacío / próximamente + `setSeo`            |
+| `/{lang}/blog/[slug]`      | Preparado; 404 o vacío hasta posts Sanity (fase 2) |
 
 Redirecciones desde rutas demo (`/components`, etc.) según producto.
 

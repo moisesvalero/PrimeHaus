@@ -85,7 +85,14 @@ export const defaultSeo: SeoState = {
   datePublished: '',
   dateModified: '',
   author: siteConfig.author.name,
-  keywords: [],
+  keywords: [
+    'inmobiliaria',
+    'primehaus',
+    'propiedades de lujo',
+    'arquitectura',
+    'marbella',
+    'madrid'
+  ],
   locale: 'es',
   faq: [],
   howto: [],

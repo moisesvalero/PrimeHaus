@@ -1,286 +1,459 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Work+Sans:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Work+Sans:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
       tailwind.config = {
-        darkMode: "class",
+        darkMode: 'class',
         theme: {
           extend: {
-            "colors": {
-                    "secondary-fixed": "#d2e4f9",
-                    "on-primary-fixed": "#281900",
-                    "on-surface-variant": "#4e463b",
-                    "error": "#ba1a1a",
-                    "on-surface": "#1e1b17",
-                    "on-primary": "#ffffff",
-                    "tertiary-fixed-dim": "#b5c7e9",
-                    "surface": "#fff8f3",
-                    "secondary-fixed-dim": "#b6c8dc",
-                    "on-background": "#1e1b17",
-                    "surface-variant": "#e9e1db",
-                    "primary-container": "#bc9c6a",
-                    "secondary-container": "#d2e4f9",
-                    "inverse-on-surface": "#f7efe9",
-                    "primary": "#745a2e",
-                    "surface-container": "#f4ede6",
-                    "tertiary-fixed": "#d5e3ff",
-                    "outline": "#7f7669",
-                    "on-error": "#ffffff",
-                    "tertiary": "#4d5f7c",
-                    "on-tertiary-fixed-variant": "#364763",
-                    "primary-fixed-dim": "#e4c18c",
-                    "surface-container-highest": "#e9e1db",
-                    "on-tertiary-fixed": "#071c35",
-                    "on-tertiary-container": "#263853",
-                    "surface-container-high": "#eee7e0",
-                    "surface-container-low": "#faf2ec",
-                    "primary-fixed": "#ffdeac",
-                    "on-tertiary": "#ffffff",
-                    "on-primary-container": "#49340b",
-                    "outline-variant": "#d1c5b6",
-                    "surface-tint": "#745a2e",
-                    "on-secondary-container": "#556678",
-                    "tertiary-container": "#90a2c2",
-                    "surface-container-lowest": "#ffffff",
-                    "background": "#fff8f3",
-                    "on-secondary": "#ffffff",
-                    "inverse-surface": "#33302c",
-                    "on-error-container": "#93000a",
-                    "on-secondary-fixed": "#0b1d2c",
-                    "surface-dim": "#e0d9d2",
-                    "on-secondary-fixed-variant": "#374859",
-                    "inverse-primary": "#e4c18c",
-                    "surface-bright": "#fff8f3",
-                    "error-container": "#ffdad6",
-                    "secondary": "#4f6071",
-                    "on-primary-fixed-variant": "#5a4319"
+            colors: {
+              'secondary-fixed': '#d2e4f9',
+              'on-primary-fixed': '#281900',
+              'on-surface-variant': '#4e463b',
+              error: '#ba1a1a',
+              'on-surface': '#1e1b17',
+              'on-primary': '#ffffff',
+              'tertiary-fixed-dim': '#b5c7e9',
+              surface: '#fff8f3',
+              'secondary-fixed-dim': '#b6c8dc',
+              'on-background': '#1e1b17',
+              'surface-variant': '#e9e1db',
+              'primary-container': '#bc9c6a',
+              'secondary-container': '#d2e4f9',
+              'inverse-on-surface': '#f7efe9',
+              primary: '#745a2e',
+              'surface-container': '#f4ede6',
+              'tertiary-fixed': '#d5e3ff',
+              outline: '#7f7669',
+              'on-error': '#ffffff',
+              tertiary: '#4d5f7c',
+              'on-tertiary-fixed-variant': '#364763',
+              'primary-fixed-dim': '#e4c18c',
+              'surface-container-highest': '#e9e1db',
+              'on-tertiary-fixed': '#071c35',
+              'on-tertiary-container': '#263853',
+              'surface-container-high': '#eee7e0',
+              'surface-container-low': '#faf2ec',
+              'primary-fixed': '#ffdeac',
+              'on-tertiary': '#ffffff',
+              'on-primary-container': '#49340b',
+              'outline-variant': '#d1c5b6',
+              'surface-tint': '#745a2e',
+              'on-secondary-container': '#556678',
+              'tertiary-container': '#90a2c2',
+              'surface-container-lowest': '#ffffff',
+              background: '#fff8f3',
+              'on-secondary': '#ffffff',
+              'inverse-surface': '#33302c',
+              'on-error-container': '#93000a',
+              'on-secondary-fixed': '#0b1d2c',
+              'surface-dim': '#e0d9d2',
+              'on-secondary-fixed-variant': '#374859',
+              'inverse-primary': '#e4c18c',
+              'surface-bright': '#fff8f3',
+              'error-container': '#ffdad6',
+              secondary: '#4f6071',
+              'on-primary-fixed-variant': '#5a4319'
             },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px'
             },
-            "spacing": {
-                    "margin-mobile": "24px",
-                    "stack-xl": "120px",
-                    "margin-desktop": "80px",
-                    "stack-md": "32px",
-                    "stack-lg": "64px",
-                    "stack-sm": "16px",
-                    "margin-tablet": "40px",
-                    "gutter": "24px"
+            spacing: {
+              'margin-mobile': '24px',
+              'stack-xl': '120px',
+              'margin-desktop': '80px',
+              'stack-md': '32px',
+              'stack-lg': '64px',
+              'stack-sm': '16px',
+              'margin-tablet': '40px',
+              gutter: '24px'
             },
-            "fontFamily": {
-                    "label-md": ["Work Sans"],
-                    "display-lg-mobile": ["Playfair Display"],
-                    "headline-sm": ["Playfair Display"],
-                    "headline-lg": ["Playfair Display"],
-                    "body-md": ["Work Sans"],
-                    "body-lg": ["Work Sans"],
-                    "display-lg": ["Playfair Display"],
-                    "label-caps": ["Work Sans"],
-                    "headline-xl": ["Playfair Display"]
+            fontFamily: {
+              'label-md': ['Work Sans'],
+              'display-lg-mobile': ['Playfair Display'],
+              'headline-sm': ['Playfair Display'],
+              'headline-lg': ['Playfair Display'],
+              'body-md': ['Work Sans'],
+              'body-lg': ['Work Sans'],
+              'display-lg': ['Playfair Display'],
+              'label-caps': ['Work Sans'],
+              'headline-xl': ['Playfair Display']
             },
-            "fontSize": {
-                    "label-md": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
-                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
-                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                    "headline-xl": ["60px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            fontSize: {
+              'label-md': ['14px', { lineHeight: '1.4', fontWeight: '500' }],
+              'display-lg-mobile': ['48px', { lineHeight: '1.1', fontWeight: '700' }],
+              'headline-sm': ['24px', { lineHeight: '1.3', fontWeight: '600' }],
+              'headline-lg': ['40px', { lineHeight: '1.2', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+              'body-lg': ['20px', { lineHeight: '1.6', fontWeight: '400' }],
+              'display-lg': [
+                '84px',
+                { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }
+              ],
+              'label-caps': [
+                '12px',
+                { lineHeight: '1.0', letterSpacing: '0.1em', fontWeight: '600' }
+              ],
+              'headline-xl': ['60px', { lineHeight: '1.2', fontWeight: '600' }]
             }
-          },
-        },
-      }
+          }
+        }
+      };
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-        .hero-gradient {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.1));
-        }
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 300,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+      .hero-gradient {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+      }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
   </head>
-<body class="bg-background text-on-background antialiased overflow-x-hidden">
-<!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
-<div class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto">
-<div class="flex items-center gap-8">
-<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim cursor-pointer">menu</span>
-<nav class="hidden md:flex gap-12">
-<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-caps text-label-caps tracking-widest transition-colors duration-300" href="#">Home</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Proyectos</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Blog</a>
-</nav>
-</div>
-<h1 class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright absolute left-1/2 -translate-x-1/2">L'ARCHITECTE</h1>
-<button class="font-label-caps text-label-caps tracking-widest text-primary dark:text-primary-fixed-dim border border-primary dark:border-primary-fixed-dim px-6 py-3 hover:bg-primary hover:text-white transition-all active:scale-95 duration-200">
-                REQUEST CALLBACK
+  <body class="bg-background text-on-background antialiased overflow-x-hidden">
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline"
+    >
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto"
+      >
+        <div class="flex items-center gap-8">
+          <span
+            class="material-symbols-outlined text-primary dark:text-primary-fixed-dim cursor-pointer"
+            >menu</span
+          >
+          <nav class="hidden md:flex gap-12">
+            <a
+              class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-caps text-label-caps tracking-widest transition-colors duration-300"
+              href="#"
+              >Home</a
+            >
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+              href="#"
+              >Proyectos</a
+            >
+            <a
+              class="text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps tracking-widest hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+              href="#"
+              >Blog</a
+            >
+          </nav>
+        </div>
+        <h1
+          class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright absolute left-1/2 -translate-x-1/2"
+        >
+          L'ARCHITECTE
+        </h1>
+        <button
+          class="font-label-caps text-label-caps tracking-widest text-primary dark:text-primary-fixed-dim border border-primary dark:border-primary-fixed-dim px-6 py-3 hover:bg-primary hover:text-white transition-all active:scale-95 duration-200"
+        >
+          REQUEST CALLBACK
+        </button>
+      </div>
+    </header>
+    <main class="mt-0">
+      <!-- Hero Section -->
+      <section class="relative h-[795px] min-h-[700px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img
+            class="w-full h-full object-cover"
+            data-alt="A grand minimalist architectural masterpiece villa overlooking a serene Mediterranean coastline at dusk. The building features clean horizontal lines, vast glass floor-to-ceiling windows, and warm interior lighting. The overall mood is hyper-luxurious, exclusive, and peaceful, with a color palette of warm sand, deep blue ocean, and soft golden light reflecting off white concrete surfaces."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmoaFlbhuE1PWsghdBdPqBIO0Xo3lsu_FMx9XKNxKLSaZhuWMwNIQlxSZ8FjRcteki-lmjLhXAZTcsOPmNISRxwrpEuzk2wL6eHLvbe20q7t66I60i9T0vUFf3Z2B6GSlm6s_aBrSBGTFcD-iz943gaO5F_i4WIFH-xAZivOLbGmuEJM3IpKhWySJuwvojZ8et2r48GD2d1yqYR-MUzGMNOfiXM3vSIzB8b0O2n2Rq6bODgL0kAnovgYwV_nOO_m-y-6zCB9veFEw"
+          />
+          <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        <div
+          class="relative z-10 px-margin-desktop max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-gutter"
+        >
+          <div class="col-span-12 md:col-span-8 flex flex-col items-start">
+            <span class="text-white font-label-caps text-label-caps tracking-[0.3em] mb-6"
+              >ESTABLISHED 1994</span
+            >
+            <h2 class="text-white font-display-lg text-display-lg leading-tight mb-8">
+              DEFINING THE ARCHITECTURE OF LIVING
+            </h2>
+            <p class="text-white/90 font-body-lg text-body-lg max-w-xl mb-12">
+              Exclusive estates curated for the discerning collector. Where structural integrity
+              meets emotional resonance.
+            </p>
+            <button
+              class="bg-primary-container text-white px-10 py-5 font-label-caps text-label-caps tracking-widest hover:brightness-110 active:scale-95 transition-all"
+            >
+              VIEW PORTFOLIO
             </button>
-</div>
-</header>
-<main class="mt-0">
-<!-- Hero Section -->
-<section class="relative h-[795px] min-h-[700px] flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover" data-alt="A grand minimalist architectural masterpiece villa overlooking a serene Mediterranean coastline at dusk. The building features clean horizontal lines, vast glass floor-to-ceiling windows, and warm interior lighting. The overall mood is hyper-luxurious, exclusive, and peaceful, with a color palette of warm sand, deep blue ocean, and soft golden light reflecting off white concrete surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmoaFlbhuE1PWsghdBdPqBIO0Xo3lsu_FMx9XKNxKLSaZhuWMwNIQlxSZ8FjRcteki-lmjLhXAZTcsOPmNISRxwrpEuzk2wL6eHLvbe20q7t66I60i9T0vUFf3Z2B6GSlm6s_aBrSBGTFcD-iz943gaO5F_i4WIFH-xAZivOLbGmuEJM3IpKhWySJuwvojZ8et2r48GD2d1yqYR-MUzGMNOfiXM3vSIzB8b0O2n2Rq6bODgL0kAnovgYwV_nOO_m-y-6zCB9veFEw"/>
-<div class="absolute inset-0 hero-gradient"></div>
-</div>
-<div class="relative z-10 px-margin-desktop max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-gutter">
-<div class="col-span-12 md:col-span-8 flex flex-col items-start">
-<span class="text-white font-label-caps text-label-caps tracking-[0.3em] mb-6">ESTABLISHED 1994</span>
-<h2 class="text-white font-display-lg text-display-lg leading-tight mb-8">DEFINING THE ARCHITECTURE OF LIVING</h2>
-<p class="text-white/90 font-body-lg text-body-lg max-w-xl mb-12">Exclusive estates curated for the discerning collector. Where structural integrity meets emotional resonance.</p>
-<button class="bg-primary-container text-white px-10 py-5 font-label-caps text-label-caps tracking-widest hover:brightness-110 active:scale-95 transition-all">
-                        VIEW PORTFOLIO
-                    </button>
-</div>
-</div>
-</section>
-<!-- Services Section -->
-<section class="py-stack-xl px-margin-desktop max-w-[1440px] mx-auto">
-<div class="grid grid-cols-12 gap-gutter mb-stack-lg">
-<div class="col-span-12 md:col-span-6">
-<h3 class="font-headline-lg text-headline-lg mb-4">OUR EXPERTISE</h3>
-<div class="w-20 h-0.5 bg-primary mb-8"></div>
-</div>
-</div>
-<div class="grid grid-cols-12 gap-gutter">
-<!-- Brokerage -->
-<div class="col-span-12 md:col-span-4 p-8 border border-outline-variant hover:shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300">
-<span class="material-symbols-outlined text-primary text-5xl mb-8">account_balance</span>
-<h4 class="font-headline-sm text-headline-sm mb-4">Brokerage</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Strategic acquisition and disposition of the world's most significant residential assets with absolute discretion.</p>
-</div>
-<!-- Investment -->
-<div class="col-span-12 md:col-span-4 p-8 border border-outline-variant hover:shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300">
-<span class="material-symbols-outlined text-primary text-5xl mb-8">query_stats</span>
-<h4 class="font-headline-sm text-headline-sm mb-4">Investment</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Data-driven insights into luxury market trends, facilitating high-yield portfolio expansion for international investors.</p>
-</div>
-<!-- Consulting -->
-<div class="col-span-12 md:col-span-4 p-8 border border-outline-variant hover:shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300">
-<span class="material-symbols-outlined text-primary text-5xl mb-8">architecture</span>
-<h4 class="font-headline-sm text-headline-sm mb-4">Consulting</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Full-spectrum advisory services covering architectural feasibility, interior curation, and lifestyle integration.</p>
-</div>
-</div>
-</section>
-<!-- About Teaser (Asymmetric Layout) -->
-<section class="bg-surface-container-low py-stack-xl">
-<div class="px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-12 gap-gutter items-center">
-<div class="col-span-12 md:col-span-5 relative z-10 mb-stack-md md:mb-0">
-<h3 class="font-headline-xl text-headline-xl mb-8 leading-tight">FOUNDED ON THE PRINCIPLES OF SWISS PRECISION</h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Architectural integrity is not merely a standard; it is our ethos. We treat every property as a living gallery, ensuring that the legacy of the structure aligns with the sophistication of its inhabitant.</p>
-<a class="inline-flex items-center gap-4 font-label-caps text-label-caps tracking-widest text-primary hover:gap-6 transition-all group" href="#">
-                        LEARN MORE ABOUT OUR ETHOS
-                        <span class="material-symbols-outlined">arrow_right_alt</span>
-</a>
-</div>
-<div class="col-span-12 md:col-start-7 md:col-span-6">
-<div class="aspect-[4/5] overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="A minimalist close-up of a high-end modern building façade featuring brutalist concrete textures and sharp geometric glass angles. The lighting is harsh afternoon sun creating dramatic high-contrast shadows that emphasize the Swiss architectural precision. The composition is clean, airy, and professional, following the principles of the International Typographic Style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw6o5ul0ErxOcDmJDuB73DYzVkLAQBwhAEGbKyWRKP68jVMWsXonQtacQ7Vz0DEn5yt6VPiZz4I5EQy4-TouofiZBa6CT6E1DGGKwjzvsc6hXKp-DnCYzJhHanT_6jr-78sW5AnxztmTdx_giATKX1-3cWLL1bnaz_AaTLQ6Up-9w_kRbG8uaVI8_b8359nh6NIMRs8ndS4SxdQwsLpTj4CzQjNNJBYGuRQK83Yx9kZP8TMcHfJi8amXDOou9y6Zhj4cWkJ3mhJlE"/>
-</div>
-</div>
-</div>
-</section>
-<!-- Clients Section -->
-<section class="py-stack-lg px-margin-desktop max-w-[1440px] mx-auto border-y border-outline-variant">
-<div class="flex flex-wrap justify-between items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
-<div class="font-label-caps text-label-caps tracking-widest font-bold">VOGUE ESTATES</div>
-<div class="font-label-caps text-label-caps tracking-widest font-bold">ZURICH ARCH</div>
-<div class="font-label-caps text-label-caps tracking-widest font-bold">MODERN LUXE</div>
-<div class="font-label-caps text-label-caps tracking-widest font-bold">GLOBAL RESIDENCE</div>
-<div class="font-label-caps text-label-caps tracking-widest font-bold">PRISTINE REALTY</div>
-<div class="font-label-caps text-label-caps tracking-widest font-bold">ELITE LIVING</div>
-</div>
-</section>
-<!-- Testimonials -->
-<section class="py-stack-xl px-margin-desktop max-w-[1440px] mx-auto">
-<div class="grid grid-cols-12 gap-gutter">
-<div class="col-span-12 md:col-span-6 md:pr-12 border-r border-outline-variant">
-<span class="material-symbols-outlined text-primary-container text-4xl mb-6" style="font-variation-settings: 'FILL' 1;">format_quote</span>
-<blockquote class="font-headline-sm text-headline-sm italic mb-8 leading-relaxed text-on-surface">"L'Architecte doesn't just sell real estate; they curate a lifestyle. The level of precision in their valuation and the discretion in their approach is unmatched in the global market."</blockquote>
-<div>
-<p class="font-label-caps text-label-caps tracking-widest font-bold">MARCUS VON BERG</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Villa Solara, Marbella</p>
-</div>
-</div>
-<div class="col-span-12 md:col-span-6 md:pl-12 mt-12 md:mt-0">
-<span class="material-symbols-outlined text-primary-container text-4xl mb-6" style="font-variation-settings: 'FILL' 1;">format_quote</span>
-<blockquote class="font-headline-sm text-headline-sm italic mb-8 leading-relaxed text-on-surface">"An architectural monograph in the form of a real estate agency. Their understanding of structural integrity and aesthetic value transformed our investment strategy."</blockquote>
-<div>
-<p class="font-label-caps text-label-caps tracking-widest font-bold">ELENA KOVAC</p>
-<p class="font-body-md text-body-md text-on-surface-variant">The Glass Pavilion, Geneva</p>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Banner -->
-<section class="relative py-stack-xl overflow-hidden">
-<div class="absolute inset-0 bg-primary z-0"></div>
-<div class="relative z-10 px-margin-desktop max-w-[1440px] mx-auto text-center">
-<h3 class="text-white font-display-lg text-display-lg-mobile md:text-display-lg mb-12">START YOUR JOURNEY</h3>
-<div class="flex justify-center gap-6">
-<button class="bg-white text-primary px-12 py-5 font-label-caps text-label-caps tracking-widest hover:bg-surface-container-lowest transition-all">
-                        SCHEDULE CONSULTATION
-                    </button>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline mt-stack-xl">
-<div class="grid grid-cols-12 gap-gutter px-margin-desktop py-stack-lg max-w-[1440px] mx-auto">
-<div class="col-span-12 md:col-span-4 mb-stack-md md:mb-0">
-<h2 class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright mb-8">L'ARCHITECTE</h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Global leaders in luxury real estate curation and architectural advisory since 1994.</p>
-</div>
-<div class="col-span-6 md:col-span-2">
-<h5 class="font-label-caps text-label-caps tracking-widest text-primary mb-6">EXPLORE</h5>
-<ul class="flex flex-col gap-4">
-<li><a class="text-on-surface-variant uppercase tracking-widest text-label-caps hover:text-primary hover:underline underline-offset-4 transition-all" href="#">Home</a></li>
-<li><a class="text-on-surface-variant uppercase tracking-widest text-label-caps hover:text-primary hover:underline underline-offset-4 transition-all" href="#">Quienes Somos</a></li>
-<li><a class="text-on-surface-variant uppercase tracking-widest text-label-caps hover:text-primary hover:underline underline-offset-4 transition-all" href="#">Proyectos</a></li>
-</ul>
-</div>
-<div class="col-span-6 md:col-span-2">
-<h5 class="font-label-caps text-label-caps tracking-widest text-primary mb-6">OFFICES</h5>
-<ul class="flex flex-col gap-4">
-<li><p class="text-on-surface-variant text-label-caps tracking-widest">Geneva</p></li>
-<li><p class="text-on-surface-variant text-label-caps tracking-widest">London</p></li>
-<li><p class="text-on-surface-variant text-label-caps tracking-widest">Madrid</p></li>
-</ul>
-</div>
-<div class="col-span-12 md:col-span-4 mt-stack-md md:mt-0">
-<h5 class="font-label-caps text-label-caps tracking-widest text-primary mb-6">NEWSLETTER</h5>
-<div class="flex border-b border-outline py-2">
-<input class="bg-transparent border-none focus:ring-0 font-label-caps text-label-caps w-full uppercase tracking-widest" placeholder="YOUR EMAIL ADDRESS" type="email"/>
-<button class="material-symbols-outlined text-primary">arrow_forward</button>
-</div>
-</div>
-<div class="col-span-12 mt-stack-lg flex flex-col md:flex-row justify-between items-center gap-6 border-t border-outline-variant pt-8">
-<p class="font-label-caps text-label-caps text-on-surface-variant">© 2024 L'ARCHITECTE LUXURY REAL ESTATE. ALL RIGHTS RESERVED.</p>
-<div class="flex gap-8">
-<a class="text-on-surface-variant uppercase tracking-widest text-label-caps hover:text-primary transition-all" href="#">Privacy Policy</a>
-<a class="text-on-surface-variant uppercase tracking-widest text-label-caps hover:text-primary transition-all" href="#">Imprint</a>
-</div>
-</div>
-</div>
-</footer>
-</body></html>
+          </div>
+        </div>
+      </section>
+      <!-- Services Section -->
+      <section class="py-stack-xl px-margin-desktop max-w-[1440px] mx-auto">
+        <div class="grid grid-cols-12 gap-gutter mb-stack-lg">
+          <div class="col-span-12 md:col-span-6">
+            <h3 class="font-headline-lg text-headline-lg mb-4">OUR EXPERTISE</h3>
+            <div class="w-20 h-0.5 bg-primary mb-8"></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-12 gap-gutter">
+          <!-- Brokerage -->
+          <div
+            class="col-span-12 md:col-span-4 p-8 border border-outline-variant hover:shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300"
+          >
+            <span class="material-symbols-outlined text-primary text-5xl mb-8"
+              >account_balance</span
+            >
+            <h4 class="font-headline-sm text-headline-sm mb-4">Brokerage</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Strategic acquisition and disposition of the world's most significant residential
+              assets with absolute discretion.
+            </p>
+          </div>
+          <!-- Investment -->
+          <div
+            class="col-span-12 md:col-span-4 p-8 border border-outline-variant hover:shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300"
+          >
+            <span class="material-symbols-outlined text-primary text-5xl mb-8">query_stats</span>
+            <h4 class="font-headline-sm text-headline-sm mb-4">Investment</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Data-driven insights into luxury market trends, facilitating high-yield portfolio
+              expansion for international investors.
+            </p>
+          </div>
+          <!-- Consulting -->
+          <div
+            class="col-span-12 md:col-span-4 p-8 border border-outline-variant hover:shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300"
+          >
+            <span class="material-symbols-outlined text-primary text-5xl mb-8">architecture</span>
+            <h4 class="font-headline-sm text-headline-sm mb-4">Consulting</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Full-spectrum advisory services covering architectural feasibility, interior curation,
+              and lifestyle integration.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- About Teaser (Asymmetric Layout) -->
+      <section class="bg-surface-container-low py-stack-xl">
+        <div
+          class="px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-12 gap-gutter items-center"
+        >
+          <div class="col-span-12 md:col-span-5 relative z-10 mb-stack-md md:mb-0">
+            <h3 class="font-headline-xl text-headline-xl mb-8 leading-tight">
+              FOUNDED ON THE PRINCIPLES OF SWISS PRECISION
+            </h3>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+              Architectural integrity is not merely a standard; it is our ethos. We treat every
+              property as a living gallery, ensuring that the legacy of the structure aligns with
+              the sophistication of its inhabitant.
+            </p>
+            <a
+              class="inline-flex items-center gap-4 font-label-caps text-label-caps tracking-widest text-primary hover:gap-6 transition-all group"
+              href="#"
+            >
+              LEARN MORE ABOUT OUR ETHOS
+              <span class="material-symbols-outlined">arrow_right_alt</span>
+            </a>
+          </div>
+          <div class="col-span-12 md:col-start-7 md:col-span-6">
+            <div class="aspect-[4/5] overflow-hidden">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="A minimalist close-up of a high-end modern building façade featuring brutalist concrete textures and sharp geometric glass angles. The lighting is harsh afternoon sun creating dramatic high-contrast shadows that emphasize the Swiss architectural precision. The composition is clean, airy, and professional, following the principles of the International Typographic Style."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw6o5ul0ErxOcDmJDuB73DYzVkLAQBwhAEGbKyWRKP68jVMWsXonQtacQ7Vz0DEn5yt6VPiZz4I5EQy4-TouofiZBa6CT6E1DGGKwjzvsc6hXKp-DnCYzJhHanT_6jr-78sW5AnxztmTdx_giATKX1-3cWLL1bnaz_AaTLQ6Up-9w_kRbG8uaVI8_b8359nh6NIMRs8ndS4SxdQwsLpTj4CzQjNNJBYGuRQK83Yx9kZP8TMcHfJi8amXDOou9y6Zhj4cWkJ3mhJlE"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Clients Section -->
+      <section
+        class="py-stack-lg px-margin-desktop max-w-[1440px] mx-auto border-y border-outline-variant"
+      >
+        <div
+          class="flex flex-wrap justify-between items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all"
+        >
+          <div class="font-label-caps text-label-caps tracking-widest font-bold">VOGUE ESTATES</div>
+          <div class="font-label-caps text-label-caps tracking-widest font-bold">ZURICH ARCH</div>
+          <div class="font-label-caps text-label-caps tracking-widest font-bold">MODERN LUXE</div>
+          <div class="font-label-caps text-label-caps tracking-widest font-bold">
+            GLOBAL RESIDENCE
+          </div>
+          <div class="font-label-caps text-label-caps tracking-widest font-bold">
+            PRISTINE REALTY
+          </div>
+          <div class="font-label-caps text-label-caps tracking-widest font-bold">ELITE LIVING</div>
+        </div>
+      </section>
+      <!-- Testimonials -->
+      <section class="py-stack-xl px-margin-desktop max-w-[1440px] mx-auto">
+        <div class="grid grid-cols-12 gap-gutter">
+          <div class="col-span-12 md:col-span-6 md:pr-12 border-r border-outline-variant">
+            <span
+              class="material-symbols-outlined text-primary-container text-4xl mb-6"
+              style="font-variation-settings: 'FILL' 1"
+              >format_quote</span
+            >
+            <blockquote
+              class="font-headline-sm text-headline-sm italic mb-8 leading-relaxed text-on-surface"
+            >
+              "L'Architecte doesn't just sell real estate; they curate a lifestyle. The level of
+              precision in their valuation and the discretion in their approach is unmatched in the
+              global market."
+            </blockquote>
+            <div>
+              <p class="font-label-caps text-label-caps tracking-widest font-bold">
+                MARCUS VON BERG
+              </p>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Villa Solara, Marbella
+              </p>
+            </div>
+          </div>
+          <div class="col-span-12 md:col-span-6 md:pl-12 mt-12 md:mt-0">
+            <span
+              class="material-symbols-outlined text-primary-container text-4xl mb-6"
+              style="font-variation-settings: 'FILL' 1"
+              >format_quote</span
+            >
+            <blockquote
+              class="font-headline-sm text-headline-sm italic mb-8 leading-relaxed text-on-surface"
+            >
+              "An architectural monograph in the form of a real estate agency. Their understanding
+              of structural integrity and aesthetic value transformed our investment strategy."
+            </blockquote>
+            <div>
+              <p class="font-label-caps text-label-caps tracking-widest font-bold">ELENA KOVAC</p>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                The Glass Pavilion, Geneva
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CTA Banner -->
+      <section class="relative py-stack-xl overflow-hidden">
+        <div class="absolute inset-0 bg-primary z-0"></div>
+        <div class="relative z-10 px-margin-desktop max-w-[1440px] mx-auto text-center">
+          <h3 class="text-white font-display-lg text-display-lg-mobile md:text-display-lg mb-12">
+            START YOUR JOURNEY
+          </h3>
+          <div class="flex justify-center gap-6">
+            <button
+              class="bg-white text-primary px-12 py-5 font-label-caps text-label-caps tracking-widest hover:bg-surface-container-lowest transition-all"
+            >
+              SCHEDULE CONSULTATION
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline mt-stack-xl"
+    >
+      <div
+        class="grid grid-cols-12 gap-gutter px-margin-desktop py-stack-lg max-w-[1440px] mx-auto"
+      >
+        <div class="col-span-12 md:col-span-4 mb-stack-md md:mb-0">
+          <h2
+            class="font-headline-sm text-headline-sm uppercase tracking-[0.2em] text-on-surface dark:text-surface-bright mb-8"
+          >
+            L'ARCHITECTE
+          </h2>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+            Global leaders in luxury real estate curation and architectural advisory since 1994.
+          </p>
+        </div>
+        <div class="col-span-6 md:col-span-2">
+          <h5 class="font-label-caps text-label-caps tracking-widest text-primary mb-6">EXPLORE</h5>
+          <ul class="flex flex-col gap-4">
+            <li>
+              <a
+                class="text-on-surface-variant uppercase tracking-widest text-label-caps hover:text-primary hover:underline underline-offset-4 transition-all"
+                href="#"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant uppercase tracking-widest text-label-caps hover:text-primary hover:underline underline-offset-4 transition-all"
+                href="#"
+                >Quienes Somos</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant uppercase tracking-widest text-label-caps hover:text-primary hover:underline underline-offset-4 transition-all"
+                href="#"
+                >Proyectos</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-span-6 md:col-span-2">
+          <h5 class="font-label-caps text-label-caps tracking-widest text-primary mb-6">OFFICES</h5>
+          <ul class="flex flex-col gap-4">
+            <li><p class="text-on-surface-variant text-label-caps tracking-widest">Geneva</p></li>
+            <li><p class="text-on-surface-variant text-label-caps tracking-widest">London</p></li>
+            <li><p class="text-on-surface-variant text-label-caps tracking-widest">Madrid</p></li>
+          </ul>
+        </div>
+        <div class="col-span-12 md:col-span-4 mt-stack-md md:mt-0">
+          <h5 class="font-label-caps text-label-caps tracking-widest text-primary mb-6">
+            NEWSLETTER
+          </h5>
+          <div class="flex border-b border-outline py-2">
+            <input
+              class="bg-transparent border-none focus:ring-0 font-label-caps text-label-caps w-full uppercase tracking-widest"
+              placeholder="YOUR EMAIL ADDRESS"
+              type="email"
+            />
+            <button class="material-symbols-outlined text-primary">arrow_forward</button>
+          </div>
+        </div>
+        <div
+          class="col-span-12 mt-stack-lg flex flex-col md:flex-row justify-between items-center gap-6 border-t border-outline-variant pt-8"
+        >
+          <p class="font-label-caps text-label-caps text-on-surface-variant">
+            © 2024 L'ARCHITECTE LUXURY REAL ESTATE. ALL RIGHTS RESERVED.
+          </p>
+          <div class="flex gap-8">
+            <a
+              class="text-on-surface-variant uppercase tracking-widest text-label-caps hover:text-primary transition-all"
+              href="#"
+              >Privacy Policy</a
+            >
+            <a
+              class="text-on-surface-variant uppercase tracking-widest text-label-caps hover:text-primary transition-all"
+              href="#"
+              >Imprint</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

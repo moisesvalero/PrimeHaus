@@ -14,16 +14,34 @@
       {siteConfig.name}. {$t('layout.footer.builtWith')}
     </p>
   </div>
-  <div class="flex gap-8">
+  <div class="flex flex-wrap gap-6">
     <a
       class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
-      href="/components">{$t('layout.footer.documentation')}</a
+      href="/proyectos">{$t('layout.footer.projects')}</a
     >
     <a
       class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
-      href={siteConfig.social.github}
+      href="/sobre-nosotros">{$t('layout.footer.about')}</a
+    >
+    <a
+      class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
+      href="/blog">{$t('layout.footer.blog')}</a
+    >
+    <a
+      class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
+      href="/contacto">{$t('layout.footer.contact')}</a
+    >
+    <a
+      class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
+      href={siteConfig.social.instagram}
       target="_blank"
-      rel="noopener noreferrer">GitHub</a
+      rel="noopener noreferrer">Instagram</a
+    >
+    <a
+      class="font-body-sm text-body-sm text-outline-variant opacity-80 transition-colors hover:text-surface hover:opacity-100 dark:text-on-surface-variant dark:hover:text-primary"
+      href={siteConfig.social.linkedin}
+      target="_blank"
+      rel="noopener noreferrer">LinkedIn</a
     >
   </div>
 </footer>
