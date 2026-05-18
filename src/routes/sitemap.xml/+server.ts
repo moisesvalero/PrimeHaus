@@ -25,25 +25,33 @@ export const GET = () => {
   const renderAlternates = (path: string) =>
     [
       ...supportedLocales.map(
-        (l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${baseUrl}${path}" />`
+        (l) =>
+          `    <xhtml:link rel="alternate" hreflang="${l}" href="${baseUrl}/${l}${path === '/' ? '' : path}" />`
       ),
-      `    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${path}" />`
+      `    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/es${path === '/' ? '' : path}" />`
     ].join('\n');
 
-  const renderUrl = (path: string, priority: number, changefreq: string) => `  <url>
-    <loc>${baseUrl}${path}</loc>
+  const renderUrl = (locale: string, path: string, priority: number, changefreq: string) => {
+    const locPath = `${baseUrl}/${locale}${path === '/' ? '' : path}`;
+    return `  <url>
+    <loc>${locPath}</loc>
     <lastmod>${now}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority.toFixed(1)}</priority>
 ${renderAlternates(path)}
   </url>`;
+  };
 
-  const htmlUrls = pages.map((p) => renderUrl(p.path, p.priority, p.changefreq)).join('\n');
+  const htmlUrls = pages
+    .flatMap((p) => supportedLocales.map((l) => renderUrl(l, p.path, p.priority, p.changefreq)))
+    .join('\n');
 
   const mdUrls = twins
-    .map((p) => {
+    .flatMap((p) => {
       const mdPath = markdownTwinPath(p.path);
-      return renderUrl(mdPath, Math.max(0.1, p.priority - 0.1), p.changefreq);
+      return supportedLocales.map((l) =>
+        renderUrl(l, mdPath, Math.max(0.1, p.priority - 0.1), p.changefreq)
+      );
     })
     .join('\n');
 

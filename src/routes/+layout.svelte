@@ -26,6 +26,7 @@
    * URL canónica derivada de la ruta actual. Si una página no llama a `setSeo({ canonical })`
    * explícitamente, se usa esta. Evita que todo el sitio comparta el canonical de la home.
    */
+  const cleanPath = $derived(page.url.pathname.replace(/^\/(es|en|fr|de)(\/|$)/, '/'));
   const canonicalUrl = $derived(`${PUBLIC_BASE_URL}${page.url.pathname}`);
 
   const markdownAlternateHref = $derived(
@@ -34,7 +35,15 @@
 
   /** Svelte 5: `$store` dentro de funciones inline puede no reaccionar; usamos `get(locale)`. */
   function handleToggleLocale() {
-    setLocale(get(locale) === 'en' ? 'es' : 'en');
+    const locs = ['es', 'en', 'fr', 'de'];
+    const current = get(locale);
+    const nextIdx = (locs.indexOf(current) + 1) % locs.length;
+    const nextLang = locs[nextIdx];
+    setLocale(nextLang);
+    if (browser) {
+      const clean = page.url.pathname.replace(/^\/(es|en|fr|de)(\/|$)/, '/');
+      window.location.href = `/${nextLang}${clean === '/' ? '' : clean}`;
+    }
   }
 
   function handleToggleTheme() {
@@ -45,7 +54,7 @@
     const saved = localStorage.getItem('lang');
     const hasManual = localStorage.getItem('lang_manual') === '1';
     if (hasManual && saved) {
-      setLocale(saved as 'en' | 'es');
+      setLocale(saved as 'en' | 'es' | 'fr' | 'de');
     } else {
       const nav = navigator.language || 'es';
       setLocale(nav.toLowerCase().startsWith('en') ? 'en' : 'es');
@@ -98,10 +107,32 @@
     <meta name="twitter:creator" content={$seo.twitterCreator} />
   {/if}
 
-  <!-- hreflang (mismo URL, contenido cambia por cookie portfolio_locale) -->
-  <link rel="alternate" hreflang="es" href={canonicalUrl} />
-  <link rel="alternate" hreflang="en" href={canonicalUrl} />
-  <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+  <!-- hreflang por URL localizada -->
+  <link
+    rel="alternate"
+    hreflang="es"
+    href={`${PUBLIC_BASE_URL}/es${cleanPath === '/' ? '' : cleanPath}`}
+  />
+  <link
+    rel="alternate"
+    hreflang="en"
+    href={`${PUBLIC_BASE_URL}/en${cleanPath === '/' ? '' : cleanPath}`}
+  />
+  <link
+    rel="alternate"
+    hreflang="fr"
+    href={`${PUBLIC_BASE_URL}/fr${cleanPath === '/' ? '' : cleanPath}`}
+  />
+  <link
+    rel="alternate"
+    hreflang="de"
+    href={`${PUBLIC_BASE_URL}/de${cleanPath === '/' ? '' : cleanPath}`}
+  />
+  <link
+    rel="alternate"
+    hreflang="x-default"
+    href={`${PUBLIC_BASE_URL}/es${cleanPath === '/' ? '' : cleanPath}`}
+  />
 
   <!-- GEO: índice para LLMs -->
   <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />

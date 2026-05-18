@@ -18,6 +18,8 @@
 
 import en from './i18n/en.json';
 import es from './i18n/es.json';
+import fr from './i18n/fr.json';
+import de from './i18n/de.json';
 
 export type SitePageGroup = 'primary' | 'demo' | 'docs';
 
@@ -65,11 +67,11 @@ export const sitePages: SitePage[] = [
 ];
 
 /** Locales soportados por el sitio (alineado con `src/lib/i18n`). */
-export const supportedLocales = ['es', 'en'] as const;
+export const supportedLocales = ['es', 'en', 'fr', 'de'] as const;
 export type SupportedLocale = (typeof supportedLocales)[number];
 export const defaultLocale: SupportedLocale = 'es';
 
-const dictionaries: Record<SupportedLocale, typeof en> = { es, en };
+const dictionaries: Record<SupportedLocale, Record<string, unknown>> = { es, en, fr, de };
 
 /** Resuelve una clave dotted en un JSON sin lanzar; devuelve `fallback` si no existe. */
 export function tFor(locale: SupportedLocale, key: string, fallback = ''): string {

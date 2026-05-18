@@ -1,0 +1,46 @@
+{
+  "layout": {
+    "title": "PrimeHaus",
+    "nav": {
+      "home": "Accueil",
+      "projects": "Projets",
+      "about": "À propos",
+      "blog": "Blog",
+      "contact": "Contact",
+      "components": "Composants",
+      "getStarted": "Explorer les propriétés"
+    },
+    "footer": {
+      "documentation": "Documentation",
+      "projects": "Projets",
+      "about": "À propos",
+      "blog": "Blog",
+      "contact": "Contact",
+      "builtWith": "Architecture et exclusivité sans compromis."
+    },
+    "aria": {
+      "toggleMenu": "Ouvrir ou fermer le menu",
+      "closeMenuOverlay": "Fermer le menu",
+      "theme": "Thème clair ou sombre",
+      "language": "Langue"
+    },
+    "lang": {
+      "toSpanish": "🇪🇸 ES",
+      "toEnglish": "🇬🇧 EN",
+      "toFrench": "🇫🇷 FR",
+      "toGerman": "🇩🇪 DE"
+    }
+  },
+  "home": {
+    "seo": {
+      "title": "PrimeHaus — Propriétés exclusives et architecture de prestige",
+      "description": "Découvrez notre sélection de biens immobiliers de luxe et de projets architecturaux d'exception dans les emplacements les plus prisés."
+    },
+    "hero": {
+      "title": "L'excellence architecturale dans des lieux d'exception",
+      "subtitle": "Une sélection rigoureuse de propriétés de prestige pour les clients les plus exigeants. Explorez nos projets exclusifs à Madrid, Marbella et Palma.",
+      "ctaPrimary": "Explorer les projets",
+      "ctaSecondary": "Contact"
+    }
+  }
+}

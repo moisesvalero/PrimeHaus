@@ -1,15 +1,20 @@
 import en from './en.json';
 import es from './es.json';
+import fr from './fr.json';
+import de from './de.json';
 
-export type AppLocale = 'en' | 'es';
+export type AppLocale = 'en' | 'es' | 'fr' | 'de';
 
-const translations: Record<AppLocale, typeof en> = { en, es };
+const translations: Record<AppLocale, Record<string, unknown>> = { en, es, fr, de };
 
 function normalizeLocale(lang: string | null | undefined): AppLocale {
-  if (!lang) return 'en';
+  if (!lang) return 'es';
   const lower = lang.toLowerCase();
   if (lower.startsWith('es')) return 'es';
-  return 'en';
+  if (lower.startsWith('fr')) return 'fr';
+  if (lower.startsWith('de')) return 'de';
+  if (lower.startsWith('en')) return 'en';
+  return 'es';
 }
 
 let currentLocale = $state<AppLocale>('es');
