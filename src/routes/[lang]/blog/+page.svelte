@@ -95,9 +95,9 @@
                 <ResponsiveImage
                   src={post.image}
                   alt={post.title}
-                  width={800}
-                  height={600}
-                  sizes="(min-width: 768px) 50vw, 100vw"
+                  preset="card"
+                  width={640}
+                  height={480}
                   class="premium-image h-full w-full object-cover"
                 />
               </div>

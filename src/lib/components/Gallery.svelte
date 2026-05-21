@@ -28,9 +28,9 @@
           <ResponsiveImage
             src={image.src}
             alt={image.alt}
+            preset="gallery"
             width={640}
             height={800}
-            sizes="(min-width: 768px) 33vw, 100vw"
             class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <figcaption class="sr-only">{image.alt}</figcaption>

@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { setLocale } from '$lib/i18n';
+import { bootstrapI18n, type AppLocale } from '$lib/i18n';
 import type { LayoutLoad } from './$types';
 
 export const load: LayoutLoad = async ({ params }) => {
@@ -7,6 +7,13 @@ export const load: LayoutLoad = async ({ params }) => {
   if (!['es', 'en', 'fr', 'de'].includes(lang)) {
     error(404, 'Idioma no soportado');
   }
-  setLocale(lang);
-  return { lang };
+
+  const locale = lang as AppLocale;
+  const messages = (await import(`../../lib/i18n/${locale}.json`)).default as Record<
+    string,
+    unknown
+  >;
+  bootstrapI18n(locale, messages);
+
+  return { lang: locale };
 };

@@ -88,9 +88,9 @@
       <ResponsiveImage
         src={project.images.principal}
         alt={'Vista principal de ' + project.title}
+        preset="banner"
         width={1280}
         height={720}
-        sizes="(min-width: 1024px) 90vw, 100vw"
         priority
         class="h-full w-full object-cover"
       />

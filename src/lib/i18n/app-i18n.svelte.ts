@@ -1,11 +1,10 @@
-import en from './en.json';
-import es from './es.json';
-import fr from './fr.json';
-import de from './de.json';
-
 export type AppLocale = 'en' | 'es' | 'fr' | 'de';
 
-const translations: Record<AppLocale, Record<string, unknown>> = { en, es, fr, de };
+type Messages = Record<string, unknown>;
+
+const translations: Partial<Record<AppLocale, Messages>> = {};
+
+let currentLocale = $state<AppLocale>('es');
 
 function normalizeLocale(lang: string | null | undefined): AppLocale {
   if (!lang) return 'es';
@@ -17,10 +16,13 @@ function normalizeLocale(lang: string | null | undefined): AppLocale {
   return 'es';
 }
 
-let currentLocale = $state<AppLocale>('es');
-
-if (typeof document !== 'undefined') {
-  document.documentElement.lang = currentLocale;
+/** Inyecta solo el idioma activo (evita cargar 4 JSON en el bundle inicial). */
+export function initI18n(locale: AppLocale, messages: Messages): void {
+  translations[locale] = messages;
+  currentLocale = locale;
+  if (typeof document !== 'undefined') {
+    document.documentElement.lang = locale;
+  }
 }
 
 /** Lectura reactiva del locale (Svelte 5 / runes). */
@@ -38,10 +40,6 @@ export function applyLocale(lang: string): void {
   if (typeof document !== 'undefined') {
     document.documentElement.lang = normalized;
   }
-  /**
-   * Propaga el cambio al servidor para que SSR/sitemap/llms.txt vean el idioma correcto
-   * en la próxima navegación. Fire-and-forget; si la red falla el cliente sigue OK.
-   */
   if (typeof fetch !== 'undefined' && typeof window !== 'undefined') {
     void fetch('/api/locale', {
       method: 'POST',

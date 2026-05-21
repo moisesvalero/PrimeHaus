@@ -34,6 +34,14 @@ function applyAssemblyVars(node: HTMLElement, options: ReturnType<typeof normali
   node.style.setProperty('--assembly-distance', `${options.distance}px`);
 }
 
+function scheduleReveal(node: HTMLElement) {
+  if (typeof requestAnimationFrame !== 'undefined') {
+    requestAnimationFrame(() => node.classList.add('is-visible'));
+  } else {
+    node.classList.add('is-visible');
+  }
+}
+
 /**
  * Svelte action para reveal global con efecto de ensamblaje magnético.
  * Añade clases + variables CSS, y dispara la visibilidad al entrar en viewport.
@@ -41,8 +49,8 @@ function applyAssemblyVars(node: HTMLElement, options: ReturnType<typeof normali
 export function reveal(node: HTMLElement, options?: RevealOptions) {
   let config = normalizeOptions(options);
   applyAssemblyVars(node, config);
-  let rafA = 0;
-  let rafB = 0;
+  let observer: IntersectionObserver | null = null;
+  let idleId: number | null = null;
 
   if (config.immediate) {
     node.classList.add('is-visible');
@@ -56,27 +64,26 @@ export function reveal(node: HTMLElement, options?: RevealOptions) {
     };
   }
 
-  const revealWithFrameGap = () => {
-    rafA = requestAnimationFrame(() => {
-      rafB = requestAnimationFrame(() => {
-        node.classList.add('is-visible');
-      });
-    });
+  const startObserver = () => {
+    observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        scheduleReveal(node);
+        observer?.unobserve(node);
+      },
+      {
+        threshold: config.threshold,
+        rootMargin: config.rootMargin
+      }
+    );
+    observer.observe(node);
   };
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry.isIntersecting) return;
-      revealWithFrameGap();
-      observer.unobserve(node);
-    },
-    {
-      threshold: config.threshold,
-      rootMargin: config.rootMargin
-    }
-  );
-
-  observer.observe(node);
+  if (typeof requestIdleCallback !== 'undefined') {
+    idleId = requestIdleCallback(startObserver, { timeout: 400 });
+  } else {
+    startObserver();
+  }
 
   return {
     update(nextOptions?: RevealOptions) {
@@ -84,9 +91,10 @@ export function reveal(node: HTMLElement, options?: RevealOptions) {
       applyAssemblyVars(node, config);
     },
     destroy() {
-      cancelAnimationFrame(rafA);
-      cancelAnimationFrame(rafB);
-      observer.disconnect();
+      if (idleId !== null && typeof cancelIdleCallback !== 'undefined') {
+        cancelIdleCallback(idleId);
+      }
+      observer?.disconnect();
     }
   };
 }

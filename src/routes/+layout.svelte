@@ -6,24 +6,23 @@
   import { browser } from '$app/environment';
   import { page } from '$app/state';
   import JsonLd from '$lib/components/JsonLd.svelte';
-  import ToastContainer from '$lib/components/ToastContainer.svelte';
-  import { Toaster } from '$lib/components/ui/sonner';
-  import CookieConsent from '$lib/components/CookieConsent.svelte';
   import Footer from '$lib/components/Footer.svelte';
-  import WhatsAppFloating from '$lib/components/WhatsAppFloating.svelte';
   import Button from '$lib/components/ui/button/button.svelte';
   import { clickOutside } from '$lib/actions/clickOutside';
   import { hasMarkdownTwin, markdownTwinPath } from '$lib/aeo';
   import { defaultSeo, seo, PUBLIC_BASE_URL, type SeoState } from '$lib/seo';
   import { onMount } from 'svelte';
-  import type { Snippet } from 'svelte';
+  import type { Component, Snippet } from 'svelte';
   import { ModeWatcher } from 'mode-watcher';
   import { mode, toggleMode } from 'mode-watcher';
-  import { Check, ChevronDown, Globe2, Menu, Phone, X } from 'lucide-svelte';
 
   let { children }: { children: Snippet } = $props();
   let languageOpen = $state(false);
   let mobileOpen = $state(false);
+  let Toaster = $state<Component | null>(null);
+  let ToastContainer = $state<Component | null>(null);
+  let CookieConsent = $state<Component | null>(null);
+  let WhatsAppFloating = $state<Component | null>(null);
 
   const languageOptions = [
     { code: 'es', short: 'ES', label: 'Español' },
@@ -61,14 +60,32 @@
   }
 
   onMount(() => {
-    const saved = localStorage.getItem('lang');
-    const hasManual = localStorage.getItem('lang_manual') === '1';
-    if (hasManual && saved) {
-      setLocale(saved as 'en' | 'es' | 'fr' | 'de');
-    } else {
-      const nav = navigator.language || 'es';
-      setLocale(nav.toLowerCase().startsWith('en') ? 'en' : 'es');
+    const pathLang = page.url.pathname.match(/^\/(es|en|fr|de)/)?.[1];
+    if (!pathLang) {
+      const saved = localStorage.getItem('lang');
+      const hasManual = localStorage.getItem('lang_manual') === '1';
+      if (hasManual && saved) {
+        setLocale(saved as 'en' | 'es' | 'fr' | 'de');
+      }
     }
+
+    const defer =
+      typeof requestIdleCallback !== 'undefined'
+        ? requestIdleCallback
+        : (cb: () => void) => window.setTimeout(cb, 1);
+
+    defer(async () => {
+      const [sonner, toast, cookie, whatsapp] = await Promise.all([
+        import('$lib/components/ui/sonner'),
+        import('$lib/components/ToastContainer.svelte'),
+        import('$lib/components/CookieConsent.svelte'),
+        import('$lib/components/WhatsAppFloating.svelte')
+      ]);
+      Toaster = sonner.Toaster;
+      ToastContainer = toast.default;
+      CookieConsent = cookie.default;
+      WhatsAppFloating = whatsapp.default;
+    });
   });
 
   const currentLang = $derived(page.url.pathname.match(/^\/(es|en|fr|de)/)?.[1] || 'es');
@@ -368,9 +385,13 @@
             aria-label={$t('layout.aria.language')}
             aria-expanded={languageOpen}
           >
-            <Globe2 class="size-3.5" />
+            <span class="material-symbols-outlined text-[18px]">language</span>
             {currentLanguage.short}
-            <ChevronDown class="size-3.5 transition-transform {languageOpen ? 'rotate-180' : ''}" />
+            <span
+              class="material-symbols-outlined text-[18px] transition-transform {languageOpen
+                ? 'rotate-180'
+                : ''}">expand_more</span
+            >
           </Button>
           {#if languageOpen}
             <div
@@ -386,7 +407,7 @@
                   <span class="flex items-center gap-2 text-[10px] text-primary">
                     {option.short}
                     {#if option.code === currentLang}
-                      <Check class="size-3.5" />
+                      <span class="material-symbols-outlined text-[16px]">check</span>
                     {/if}
                   </span>
                 </button>
@@ -402,7 +423,7 @@
           class="hidden text-on-surface-variant hover:text-primary md:inline-flex"
           aria-label={$t('layout.aria.call')}
         >
-          <Phone />
+          <span class="material-symbols-outlined text-[22px]">call</span>
         </Button>
         <Button
           href={resolve('/[lang]/proyectos', { lang: currentLang })}
@@ -419,9 +440,9 @@
           aria-expanded={mobileOpen}
         >
           {#if mobileOpen}
-            <X />
+            <span class="material-symbols-outlined text-[22px]">close</span>
           {:else}
-            <Menu />
+            <span class="material-symbols-outlined text-[22px]">menu</span>
           {/if}
         </Button>
       </div>
@@ -506,10 +527,18 @@
   <Footer />
 </div>
 
-<Toaster />
-<ToastContainer />
-<CookieConsent />
-<WhatsAppFloating />
+{#if Toaster}
+  <Toaster />
+{/if}
+{#if ToastContainer}
+  <ToastContainer />
+{/if}
+{#if CookieConsent}
+  <CookieConsent />
+{/if}
+{#if WhatsAppFloating}
+  <WhatsAppFloating />
+{/if}
 <JsonLd
   type={effectiveSeo.schemaType}
   headline={effectiveSeo.headline}

@@ -1,8 +1,33 @@
 const UNSPLASH_HOST = 'images.unsplash.com';
 
-export const IMAGE_WIDTHS = [400, 640, 800, 1080, 1280, 1600] as const;
+export type ImagePreset = 'hero' | 'card' | 'gallery' | 'banner';
 
-export type ImageWidth = (typeof IMAGE_WIDTHS)[number];
+export const IMAGE_PRESETS = {
+  hero: {
+    widths: [400, 640, 750, 1080, 1280] as const,
+    defaultWidth: 750,
+    quality: 70,
+    sizes: '100vw'
+  },
+  card: {
+    widths: [320, 400, 480, 640] as const,
+    defaultWidth: 480,
+    quality: 62,
+    sizes: '(min-width: 1024px) 30vw, (min-width: 768px) 33vw, 88vw'
+  },
+  gallery: {
+    widths: [320, 400, 480, 640, 800] as const,
+    defaultWidth: 480,
+    quality: 62,
+    sizes: '(min-width: 1024px) 28vw, (min-width: 768px) 50vw, 88vw'
+  },
+  banner: {
+    widths: [400, 640, 800, 1080, 1280] as const,
+    defaultWidth: 800,
+    quality: 68,
+    sizes: '100vw'
+  }
+} as const;
 
 function parseUrl(src: string): URL | null {
   try {
@@ -52,10 +77,23 @@ export function buildImageSrc(src: string, width = 800, quality = 75): string {
 
 export function buildImageSrcset(
   src: string,
-  widths: readonly number[] = IMAGE_WIDTHS,
+  widths: readonly number[],
   quality = 75
 ): string {
   if (!isOptimizableImageUrl(src)) return '';
 
   return widths.map((w) => `${buildImageSrc(src, w, quality)} ${w}w`).join(', ');
+}
+
+export function resolveImageOptions(
+  preset: ImagePreset | undefined,
+  overrides: { width?: number; quality?: number; sizes?: string } = {}
+) {
+  const base = preset ? IMAGE_PRESETS[preset] : null;
+  return {
+    widths: base?.widths ?? ([400, 640, 800, 1080, 1280] as const),
+    defaultWidth: overrides.width ?? base?.defaultWidth ?? 800,
+    quality: overrides.quality ?? base?.quality ?? 75,
+    sizes: overrides.sizes ?? base?.sizes ?? '100vw'
+  };
 }

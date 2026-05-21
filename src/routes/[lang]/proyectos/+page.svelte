@@ -324,9 +324,9 @@
                 <ResponsiveImage
                   src={project.images.principal}
                   alt={project.title}
-                  width={800}
-                  height={1000}
-                  sizes="(min-width: 768px) 50vw, 100vw"
+                  preset="card"
+                  width={640}
+                  height={800}
                   class="premium-image aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {#if project.heroTag}

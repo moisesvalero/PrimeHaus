@@ -14,7 +14,7 @@
     'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80';
   const ABOUT_IMAGE =
     'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80';
-  const heroPreloadSrc = buildImageSrc(HERO_IMAGE, 1080, 75);
+  const heroPreloadSrc = buildImageSrc(HERO_IMAGE, 750, 70);
 
   let { data } = $props();
   const projects = $derived(data.projects || []);
@@ -52,9 +52,9 @@
       <ResponsiveImage
         src={HERO_IMAGE}
         alt="PrimeHaus Luxury Villa"
+        preset="hero"
         width={1600}
         height={900}
-        sizes="100vw"
         priority
         class="h-full w-full object-cover"
       />
@@ -197,9 +197,9 @@
               <ResponsiveImage
                 src={project.images.principal}
                 alt={project.title}
-                width={800}
-                height={600}
-                sizes="(min-width: 768px) 33vw, 100vw"
+                preset="card"
+                width={640}
+                height={480}
                 class="premium-image h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {#if project.heroTag}
@@ -299,9 +299,9 @@
             <ResponsiveImage
               src={ABOUT_IMAGE}
               alt="PrimeHaus Architecture"
-              width={800}
-              height={1000}
-              sizes="(min-width: 768px) 45vw, 100vw"
+              preset="gallery"
+              width={640}
+              height={800}
               class="premium-image h-full w-full object-cover"
             />
           </div>

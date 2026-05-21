@@ -70,9 +70,9 @@
         <ResponsiveImage
           src={post.image}
           alt={post.title}
+          preset="banner"
           width={1280}
           height={720}
-          sizes="(min-width: 1024px) 80vw, 100vw"
           priority
           class="premium-image h-full w-full object-cover"
         />

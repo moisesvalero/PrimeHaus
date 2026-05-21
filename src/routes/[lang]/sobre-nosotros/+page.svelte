@@ -85,9 +85,9 @@
       <ResponsiveImage
         src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80"
         alt="PrimeHaus Masterpiece Villa"
+        preset="hero"
         width={1600}
         height={900}
-        sizes="100vw"
         priority
         class="premium-image h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
       />
@@ -123,9 +123,9 @@
         <ResponsiveImage
           src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&q=80"
           alt="PrimeHaus Architecture Detail"
-          width={800}
-          height={1000}
-          sizes="(min-width: 1024px) 50vw, 100vw"
+          preset="gallery"
+          width={640}
+          height={800}
           class="premium-image h-full w-full object-cover"
         />
         <div
@@ -204,9 +204,9 @@
             <ResponsiveImage
               src={member.img}
               alt={member.name + ' - ' + member.role}
-              width={480}
-              height={640}
-              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+              preset="card"
+              width={400}
+              height={533}
               class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
             />
           </div>
