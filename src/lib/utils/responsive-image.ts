@@ -1,6 +1,6 @@
 const UNSPLASH_HOST = 'images.unsplash.com';
 
-export type ImagePreset = 'hero' | 'card' | 'gallery' | 'banner';
+export type ImagePreset = 'hero' | 'card' | 'gallery' | 'banner' | 'proyectos';
 
 export const IMAGE_PRESETS = {
   hero: {
@@ -9,12 +9,19 @@ export const IMAGE_PRESETS = {
     quality: 90,
     sizes: '100vw'
   },
-  /** Tarjetas + hover 1.055: srcset hasta 1920px, q90 (Vercel → AVIF) */
+  /** Tarjetas pequeñas (home/blog) — Vercel con srcset */
   card: {
     widths: [640, 828, 1000, 1200, 1600, 1920] as const,
     defaultWidth: 1200,
     quality: 90,
     sizes: '(min-width: 1024px) 32vw, (min-width: 768px) 50vw, 92vw'
+  },
+  /** Grid /proyectos: sin 640w — el navegador no puede pedir miniaturas */
+  proyectos: {
+    widths: [1200, 1400, 1600, 1920, 2560] as const,
+    defaultWidth: 1920,
+    quality: 92,
+    sizes: '(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 96vw'
   },
   gallery: {
     widths: [640, 828, 1000, 1200, 1600, 1920] as const,

@@ -324,7 +324,7 @@
                 <ResponsiveImage
                   src={project.images.principal}
                   alt={project.title}
-                  preset="card"
+                  fullResolution
                   width={800}
                   height={1000}
                   class="premium-image aspect-[4/5] w-full object-cover"

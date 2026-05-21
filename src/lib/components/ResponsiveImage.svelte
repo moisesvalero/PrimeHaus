@@ -23,6 +23,8 @@
     priority = false,
     quality,
     srcWidth,
+    /** Solo listado /proyectos: master 2560px directo, sin srcset 640w de Vercel */
+    fullResolution = false,
     class: className = ''
   }: {
     src: string;
@@ -34,33 +36,37 @@
     priority?: boolean;
     quality?: number;
     srcWidth?: number;
+    fullResolution?: boolean;
     class?: string;
   } = $props();
 
-  /** Portfolio local: archivo WebP 2560px tal cual — sin /_vercel/image ni srcset 640w */
-  const isPortfolioMaster = $derived(src.startsWith('/imagenes/'));
+  const isLocal = $derived(src.startsWith('/imagenes/'));
   const useVercel = $derived(
-    useVercelImageOptimizer() && !isPortfolioMaster && isOptimizableImageUrl(src)
+    !fullResolution && useVercelImageOptimizer() && (isLocal || isOptimizableImageUrl(src))
   );
   const resolved = $derived(resolveImageOptions(preset, { srcWidth, quality, sizes }));
 
   const optimizedSrc = $derived(
-    isPortfolioMaster
+    fullResolution && isLocal
       ? src
       : useVercel
         ? vercelImageUrl(src, { width: resolved.defaultWidth, quality: resolved.quality })
-        : buildImageSrc(src, resolved.defaultWidth, resolved.quality)
+        : isLocal
+          ? src
+          : buildImageSrc(src, resolved.defaultWidth, resolved.quality)
   );
 
   const srcset = $derived(
-    isPortfolioMaster
+    fullResolution && isLocal
       ? undefined
       : useVercel
         ? vercelImageSrcset(src, resolved.widths, resolved.quality)
-        : buildImageSrcset(src, resolved.widths, resolved.quality) || undefined
+        : isLocal
+          ? undefined
+          : buildImageSrcset(src, resolved.widths, resolved.quality) || undefined
   );
 
-  const resolvedSizes = $derived(isPortfolioMaster ? undefined : resolved.sizes);
+  const resolvedSizes = $derived(fullResolution && isLocal ? undefined : resolved.sizes);
 </script>
 
 <img

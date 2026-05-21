@@ -1,8 +1,8 @@
 import { building, dev } from '$app/environment';
 
 /**
- * /_vercel/image solo para URLs remotas (Sanity/Unsplash).
- * /imagenes/portfolio/* NUNCA pasa por aquí — se sirve el master 2560px directo.
+ * /_vercel/image para assets locales y remotos.
+ * Excepción: ResponsiveImage con fullResolution (solo /proyectos listing).
  */
 export function useVercelImageOptimizer(): boolean {
   return !dev && !building;
