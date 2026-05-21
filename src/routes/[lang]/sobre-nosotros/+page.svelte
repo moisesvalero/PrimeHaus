@@ -108,7 +108,7 @@
         <ResponsiveImage
           src={portfolioImages.livingRoom}
           alt="PrimeHaus Architecture Detail"
-          fullResolution
+          preset="gallery"
           width={800}
           height={1000}
           class="premium-image h-full w-full object-cover"

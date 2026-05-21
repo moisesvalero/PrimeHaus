@@ -5,7 +5,7 @@ export type ImagePreset = 'hero' | 'card' | 'featured' | 'gallery' | 'banner' | 
 export const IMAGE_PRESETS = {
   hero: {
     widths: [640, 828, 1080, 1280, 1600, 1920] as const,
-    defaultWidth: 1280,
+    defaultWidth: 1080,
     quality: 85,
     sizes: '(max-width: 768px) 100vw, 1600px'
   },
@@ -25,9 +25,9 @@ export const IMAGE_PRESETS = {
   },
   /** Grid /proyectos: sin 640w — el navegador no puede pedir miniaturas */
   proyectos: {
-    widths: [1200, 1400, 1600, 1920, 2560] as const,
-    defaultWidth: 1920,
-    quality: 92,
+    widths: [960, 1080, 1200, 1400, 1600, 1920] as const,
+    defaultWidth: 1400,
+    quality: 90,
     sizes: '(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 96vw'
   },
   /** Bloques grandes (about home, story sobre-nosotros): sin 640w */

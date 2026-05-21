@@ -324,7 +324,7 @@
                 <ResponsiveImage
                   src={project.images.principal}
                   alt={project.title}
-                  fullResolution
+                  preset="proyectos"
                   width={800}
                   height={1000}
                   class="premium-image aspect-[4/5] w-full object-cover"

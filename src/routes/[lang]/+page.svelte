@@ -9,10 +9,14 @@
   import Container from '$lib/components/ui/Container.svelte';
   import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
   import { portfolioImages } from '$lib/data/portfolio-images';
+  import { useVercelImageOptimizer, vercelImageUrl } from '$lib/utils/vercel-image';
 
   const HERO_IMAGE = portfolioImages.heroVilla;
   const ABOUT_IMAGE = portfolioImages.architectureInterior;
-  const heroPreloadSrc = HERO_IMAGE;
+  /** LCP: preload AVIF ~1080px, no el master de 2,5 MB */
+  const heroPreloadSrc = useVercelImageOptimizer()
+    ? vercelImageUrl(HERO_IMAGE, { width: 1080, quality: 85 })
+    : HERO_IMAGE;
 
   let { data } = $props();
   const projects = $derived(data.projects || []);
@@ -297,7 +301,7 @@
             <ResponsiveImage
               src={ABOUT_IMAGE}
               alt="PrimeHaus Architecture"
-              fullResolution
+              preset="gallery"
               width={800}
               height={1000}
               class="premium-image h-full w-full object-cover"
