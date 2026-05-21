@@ -8,13 +8,11 @@
   import Button from '$lib/components/ui/button/button.svelte';
   import Container from '$lib/components/ui/Container.svelte';
   import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
-  import { buildImageSrc } from '$lib/utils/responsive-image';
+  import { portfolioImages } from '$lib/data/portfolio-images';
 
-  const HERO_IMAGE =
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80';
-  const ABOUT_IMAGE =
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80';
-  const heroPreloadSrc = buildImageSrc(HERO_IMAGE, 1080, 75);
+  const HERO_IMAGE = portfolioImages.heroVilla;
+  const ABOUT_IMAGE = portfolioImages.architectureInterior;
+  const heroPreloadSrc = HERO_IMAGE;
 
   let { data } = $props();
   const projects = $derived(data.projects || []);

@@ -1,4 +1,5 @@
 import type { SiteLocale } from '$lib/i18n/site-locale';
+import { portfolioImages } from '$lib/data/portfolio-images';
 import type { MappedPrimeProject } from '$lib/server/sanity/types';
 
 type ProjectCopy = {
@@ -252,36 +253,12 @@ const slugs = [
 ];
 
 const images = [
-  [
-    'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=75&auto=format&fit=crop'
-  ],
-  [
-    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200&q=75&auto=format&fit=crop'
-  ],
-  [
-    'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=75&auto=format&fit=crop'
-  ],
-  [
-    'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=75&auto=format&fit=crop'
-  ],
-  [
-    'https://images.unsplash.com/photo-1600607688960-e095ff83135c?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=75&auto=format&fit=crop'
-  ],
-  [
-    'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=75&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=75&auto=format&fit=crop'
-  ]
+  [portfolioImages.villaContemporary, portfolioImages.villaExterior, portfolioImages.livingRoom],
+  [portfolioImages.poolVilla, portfolioImages.modernKitchen, portfolioImages.bedroomSuite],
+  [portfolioImages.fincaGarden, portfolioImages.terraceView, portfolioImages.sunsetPatio],
+  [portfolioImages.urbanPenthouse, portfolioImages.marbleBath, portfolioImages.wineCellar],
+  [portfolioImages.coastalDeck, portfolioImages.bedroomSuite, portfolioImages.livingRoom],
+  [portfolioImages.hillsideEstate, portfolioImages.terraceView, portfolioImages.villaExterior]
 ];
 
 export function getDemoPrimeProjects(locale: SiteLocale): MappedPrimeProject[] {

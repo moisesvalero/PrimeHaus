@@ -1,5 +1,11 @@
+import { portfolioImages, resolvePortfolioImage } from '$lib/data/portfolio-images';
 import type { SiteLocale } from '$lib/i18n/site-locale';
 import type { SanityPrimeProject, MappedPrimeProject } from './types';
+
+function mapImage(url: string | undefined, fallback: string): string {
+  if (!url) return fallback;
+  return resolvePortfolioImage(url);
+}
 
 function getLocalized(
   obj: { es?: string; en?: string; fr?: string; de?: string } | null | undefined,
@@ -29,11 +35,9 @@ export function mapSanityPrimeProject(
       value: s.value || ''
     })),
     images: {
-      principal:
-        raw.images?.principal ||
-        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=75&auto=format&fit=crop',
-      secondary1: raw.images?.secondary1 || '',
-      secondary2: raw.images?.secondary2 || ''
+      principal: mapImage(raw.images?.principal, portfolioImages.heroVilla),
+      secondary1: mapImage(raw.images?.secondary1, ''),
+      secondary2: mapImage(raw.images?.secondary2, '')
     },
     videoUrl: raw.videoUrl || '',
     body: getLocalized(raw.body, locale, ''),

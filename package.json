@@ -19,6 +19,7 @@
     "test:watch": "vitest",
     "new:page": "node scripts/new-page.js",
     "clean": "node scripts/clean.js",
+    "images:download": "node scripts/download-portfolio-images.mjs",
     "studio": "sanity dev"
   },
   "lint-staged": {

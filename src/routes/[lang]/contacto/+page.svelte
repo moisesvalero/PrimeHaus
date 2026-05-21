@@ -332,7 +332,7 @@
     class="w-full h-[500px] bg-surface-container overflow-hidden grayscale relative border-t border-b border-outline-variant/30"
   >
     <ResponsiveImage
-      src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=1600&q=80"
+      src="/imagenes/portfolio/1539650116574-8efeb43e2750.webp"
       alt="Ubicación de la oficina PrimeHaus en Madrid"
       preset="banner"
       width={1280}

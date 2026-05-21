@@ -5,28 +5,13 @@
   import { reveal } from '$lib/reveal';
   import Button from '$lib/components/ui/button/button.svelte';
   import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
+  import { portfolioImages } from '$lib/data/portfolio-images';
 
   const teamMembers = [
-    {
-      name: 'Julián Vance',
-      role: 'Founder & CEO',
-      img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'
-    },
-    {
-      name: 'Elena Rossetti',
-      role: 'Principal Architect',
-      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80'
-    },
-    {
-      name: 'Marcus Thorne',
-      role: 'Head of Estates',
-      img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80'
-    },
-    {
-      name: 'Sophia Chen',
-      role: 'Client Director',
-      img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&q=80'
-    }
+    { name: 'Julián Vance', role: 'Founder & CEO', img: portfolioImages.teamJulian },
+    { name: 'Elena Rossetti', role: 'Principal Architect', img: portfolioImages.teamElena },
+    { name: 'Marcus Thorne', role: 'Head of Estates', img: portfolioImages.teamMarcus },
+    { name: 'Sophia Chen', role: 'Client Director', img: portfolioImages.teamSophia }
   ];
 
   const buildDate = new Date().toISOString();
@@ -83,7 +68,7 @@
       use:reveal={{ stage: 'content', delay: 120 }}
     >
       <ResponsiveImage
-        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80"
+        src={portfolioImages.villaExterior}
         alt="PrimeHaus Masterpiece Villa"
         preset="hero"
         width={1600}
@@ -121,7 +106,7 @@
         use:reveal={{ stage: 'content', delay: 150 }}
       >
         <ResponsiveImage
-          src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&q=80"
+          src={portfolioImages.livingRoom}
           alt="PrimeHaus Architecture Detail"
           preset="gallery"
           width={640}

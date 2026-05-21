@@ -21,27 +21,30 @@
   }: {
     src: string;
     alt: string;
-    /** Solo reserva espacio (CLS); no limita la resolución descargada */
     width?: number;
     height?: number;
     sizes?: string;
     preset?: ImagePreset;
     priority?: boolean;
     quality?: number;
-    /** Ancho de descarga explícito (opcional) */
     srcWidth?: number;
     class?: string;
   } = $props();
 
+  const isLocal = $derived(src.startsWith('/imagenes/'));
   const resolved = $derived(resolveImageOptions(preset, { srcWidth, quality, sizes }));
-  const optimizedSrc = $derived(buildImageSrc(src, resolved.defaultWidth, resolved.quality));
-  const srcset = $derived(buildImageSrcset(src, resolved.widths, resolved.quality));
-  const resolvedSizes = $derived(resolved.sizes);
+  const optimizedSrc = $derived(
+    isLocal ? src : buildImageSrc(src, resolved.defaultWidth, resolved.quality)
+  );
+  const srcset = $derived(
+    isLocal ? undefined : buildImageSrcset(src, resolved.widths, resolved.quality) || undefined
+  );
+  const resolvedSizes = $derived(isLocal ? undefined : resolved.sizes);
 </script>
 
 <img
   src={optimizedSrc}
-  srcset={srcset || undefined}
+  srcset={srcset}
   sizes={resolvedSizes}
   {alt}
   {width}
