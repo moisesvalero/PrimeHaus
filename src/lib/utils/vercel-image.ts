@@ -1,8 +1,8 @@
 import { building, dev } from '$app/environment';
 
 /**
- * En producción (Vercel) usa /_vercel/image → AVIF/WebP según el navegador.
- * En `npm run dev` sirve el archivo estático tal cual (máxima calidad local).
+ * /_vercel/image solo para URLs remotas (Sanity/Unsplash).
+ * /imagenes/portfolio/* NUNCA pasa por aquí — se sirve el master 2560px directo.
  */
 export function useVercelImageOptimizer(): boolean {
   return !dev && !building;

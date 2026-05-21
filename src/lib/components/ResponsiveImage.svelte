@@ -37,27 +37,30 @@
     class?: string;
   } = $props();
 
-  const isLocal = $derived(src.startsWith('/imagenes/'));
-  const useVercel = $derived(useVercelImageOptimizer() && (isLocal || isOptimizableImageUrl(src)));
+  /** Portfolio local: archivo WebP 2560px tal cual — sin /_vercel/image ni srcset 640w */
+  const isPortfolioMaster = $derived(src.startsWith('/imagenes/'));
+  const useVercel = $derived(
+    useVercelImageOptimizer() && !isPortfolioMaster && isOptimizableImageUrl(src)
+  );
   const resolved = $derived(resolveImageOptions(preset, { srcWidth, quality, sizes }));
 
   const optimizedSrc = $derived(
-    useVercel
-      ? vercelImageUrl(src, { width: resolved.defaultWidth, quality: resolved.quality })
-      : isLocal
-        ? src
+    isPortfolioMaster
+      ? src
+      : useVercel
+        ? vercelImageUrl(src, { width: resolved.defaultWidth, quality: resolved.quality })
         : buildImageSrc(src, resolved.defaultWidth, resolved.quality)
   );
 
   const srcset = $derived(
-    useVercel
-      ? vercelImageSrcset(src, resolved.widths, resolved.quality)
-      : isLocal
-        ? undefined
+    isPortfolioMaster
+      ? undefined
+      : useVercel
+        ? vercelImageSrcset(src, resolved.widths, resolved.quality)
         : buildImageSrcset(src, resolved.widths, resolved.quality) || undefined
   );
 
-  const resolvedSizes = $derived(resolved.sizes);
+  const resolvedSizes = $derived(isPortfolioMaster ? undefined : resolved.sizes);
 </script>
 
 <img
