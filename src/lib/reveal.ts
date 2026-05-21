@@ -6,6 +6,8 @@ type RevealOptions = {
   stage?: RevealStage;
   threshold?: number;
   rootMargin?: string;
+  /** Sin animación inicial: evita CLS en above-the-fold */
+  immediate?: boolean;
 };
 
 const STAGE_DELAY: Record<RevealStage, number> = {
@@ -19,7 +21,8 @@ function normalizeOptions(value: RevealOptions | undefined) {
     distance: value?.distance ?? 40,
     stage: value?.stage ?? 'content',
     threshold: value?.threshold ?? 0.24,
-    rootMargin: value?.rootMargin ?? '0px 0px -8% 0px'
+    rootMargin: value?.rootMargin ?? '0px 0px -8% 0px',
+    immediate: value?.immediate ?? false
   };
 }
 
@@ -40,6 +43,18 @@ export function reveal(node: HTMLElement, options?: RevealOptions) {
   applyAssemblyVars(node, config);
   let rafA = 0;
   let rafB = 0;
+
+  if (config.immediate) {
+    node.classList.add('is-visible');
+    return {
+      update(nextOptions?: RevealOptions) {
+        config = normalizeOptions(nextOptions);
+        applyAssemblyVars(node, config);
+        if (config.immediate) node.classList.add('is-visible');
+      },
+      destroy() {}
+    };
+  }
 
   const revealWithFrameGap = () => {
     rafA = requestAnimationFrame(() => {

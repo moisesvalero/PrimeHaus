@@ -31,7 +31,7 @@ export function mapSanityPrimeProject(
     images: {
       principal:
         raw.images?.principal ||
-        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80',
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=75&auto=format&fit=crop',
       secondary1: raw.images?.secondary1 || '',
       secondary2: raw.images?.secondary2 || ''
     },

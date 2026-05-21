@@ -9,6 +9,7 @@
   import { Input } from '$lib/components/ui/input';
   import { Label } from '$lib/components/ui/label';
   import { Textarea } from '$lib/components/ui/textarea';
+  import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
   import { untrack } from 'svelte';
 
   let { data } = $props();
@@ -330,10 +331,13 @@
   <section
     class="w-full h-[500px] bg-surface-container overflow-hidden grayscale relative border-t border-b border-outline-variant/30"
   >
-    <img
+    <ResponsiveImage
       src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=1600&q=80"
       alt="Ubicación de la oficina PrimeHaus en Madrid"
-      class="w-full h-full object-cover opacity-80"
+      width={1600}
+      height={500}
+      sizes="100vw"
+      class="h-full w-full object-cover opacity-80"
     />
     <div class="absolute inset-0 bg-black/30 backdrop-blur-[1px]"></div>
     <div

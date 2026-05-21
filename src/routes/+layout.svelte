@@ -69,11 +69,6 @@
       const nav = navigator.language || 'es';
       setLocale(nav.toLowerCase().startsWith('en') ? 'en' : 'es');
     }
-    setTimeout(() => {
-      document.querySelectorAll('.assembly-item:not(.is-visible)').forEach((el) => {
-        el.classList.add('is-visible');
-      });
-    }, 3000);
   });
 
   const currentLang = $derived(page.url.pathname.match(/^\/(es|en|fr|de)/)?.[1] || 'es');

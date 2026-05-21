@@ -8,6 +8,7 @@
   import Container from '$lib/components/ui/Container.svelte';
   import Section from '$lib/components/ui/Section.svelte';
   import Text from '$lib/components/ui/Text.svelte';
+  import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
 
   let { data } = $props();
   const post = $derived(data.post);
@@ -66,7 +67,15 @@
         class="premium-card aspect-[16/9] overflow-hidden border border-outline-variant/30 bg-surface-container"
         use:reveal={{ stage: 'content', delay: 120, distance: 44 }}
       >
-        <img src={post.image} alt={post.title} class="premium-image h-full w-full object-cover" />
+        <ResponsiveImage
+          src={post.image}
+          alt={post.title}
+          width={1280}
+          height={720}
+          sizes="(min-width: 1024px) 80vw, 100vw"
+          priority
+          class="premium-image h-full w-full object-cover"
+        />
       </div>
 
       <div class="mx-auto mt-16 max-w-[760px] space-y-14">

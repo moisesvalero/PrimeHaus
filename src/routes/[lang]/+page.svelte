@@ -7,6 +7,14 @@
   import { reveal } from '$lib/reveal';
   import Button from '$lib/components/ui/button/button.svelte';
   import Container from '$lib/components/ui/Container.svelte';
+  import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
+  import { buildImageSrc } from '$lib/utils/responsive-image';
+
+  const HERO_IMAGE =
+    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80';
+  const ABOUT_IMAGE =
+    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80';
+  const heroPreloadSrc = buildImageSrc(HERO_IMAGE, 1080, 75);
 
   let { data } = $props();
   const projects = $derived(data.projects || []);
@@ -33,14 +41,22 @@
   });
 </script>
 
+<svelte:head>
+  <link rel="preload" as="image" href={heroPreloadSrc} fetchpriority="high" />
+</svelte:head>
+
 <div>
   <!-- HERO -->
   <section class="relative min-h-[750px] flex items-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img
-        src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80"
+      <ResponsiveImage
+        src={HERO_IMAGE}
         alt="PrimeHaus Luxury Villa"
-        class="w-full h-full object-cover"
+        width={1600}
+        height={900}
+        sizes="100vw"
+        priority
+        class="h-full w-full object-cover"
       />
       <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60"></div>
     </div>
@@ -48,7 +64,7 @@
       <div class="grid grid-cols-12 gap-6">
         <div
           class="col-span-12 md:col-span-8 flex flex-col items-start"
-          use:reveal={{ stage: 'title' }}
+          use:reveal={{ stage: 'title', immediate: true }}
         >
           <span class="text-primary-fixed-dim font-bold tracking-[0.3em] uppercase text-xs mb-6">
             {$t('home.hero.eyebrow')}
@@ -178,10 +194,13 @@
             use:reveal={{ stage: 'content', delay: 110 }}
           >
             <div class="relative aspect-[4/3] overflow-hidden bg-surface-container">
-              <img
+              <ResponsiveImage
                 src={project.images.principal}
                 alt={project.title}
-                class="premium-image w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                width={800}
+                height={600}
+                sizes="(min-width: 768px) 33vw, 100vw"
+                class="premium-image h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {#if project.heroTag}
                 <span
@@ -277,10 +296,13 @@
             class="premium-card aspect-[4/5] overflow-hidden border border-outline-variant/30"
             use:reveal={{ stage: 'content', delay: 140 }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80"
+            <ResponsiveImage
+              src={ABOUT_IMAGE}
               alt="PrimeHaus Architecture"
-              class="premium-image w-full h-full object-cover"
+              width={800}
+              height={1000}
+              sizes="(min-width: 768px) 45vw, 100vw"
+              class="premium-image h-full w-full object-cover"
             />
           </div>
         </div>

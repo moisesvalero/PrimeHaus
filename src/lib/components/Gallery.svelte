@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
   import { cn } from '$lib/utils';
 
   type GalleryImage = {
@@ -24,11 +25,13 @@
     {#each images as image, i (i)}
       <li class="overflow-hidden border border-outline-variant/30 bg-surface-container group">
         <figure class="relative m-0 aspect-[4/5]">
-          <img
+          <ResponsiveImage
             src={image.src}
             alt={image.alt}
-            loading="lazy"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            width={640}
+            height={800}
+            sizes="(min-width: 768px) 33vw, 100vw"
+            class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <figcaption class="sr-only">{image.alt}</figcaption>
         </figure>

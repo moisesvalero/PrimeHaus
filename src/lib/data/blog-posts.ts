@@ -23,7 +23,7 @@ const spanishPosts: BlogPost[] = [
     category: 'Guía de compra',
     date: '18 mayo 2026',
     readTime: '6 min',
-    image: 'https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=1400&q=85',
+    image: 'https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=1200&q=75&auto=format&fit=crop',
     body: [
       {
         heading: 'La ubicación no es solo el barrio',
@@ -56,7 +56,7 @@ const spanishPosts: BlogPost[] = [
     category: 'Mercado prime',
     date: '12 mayo 2026',
     readTime: '5 min',
-    image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1400&q=85',
+    image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=75&auto=format&fit=crop',
     body: [
       {
         heading: 'La privacidad se diseña',
@@ -89,7 +89,7 @@ const spanishPosts: BlogPost[] = [
     category: 'Venta privada',
     date: '6 mayo 2026',
     readTime: '7 min',
-    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1400&q=85',
+    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=75&auto=format&fit=crop',
     body: [
       {
         heading: 'Ordenar antes de enseñar',

@@ -8,6 +8,7 @@
   import Button from '$lib/components/ui/button/button.svelte';
   import Container from '$lib/components/ui/Container.svelte';
   import { Input } from '$lib/components/ui/input';
+  import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
 
   let { data } = $props();
   const projects = $derived(data.projects || []);
@@ -320,10 +321,13 @@
                 href={resolve('/[lang]/proyectos/[slug]', { lang: $locale, slug: project.slug })}
                 class="block overflow-hidden mb-6 bg-surface-container border border-outline-variant/30 relative"
               >
-                <img
+                <ResponsiveImage
                   src={project.images.principal}
                   alt={project.title}
-                  class="premium-image w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+                  width={800}
+                  height={1000}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  class="premium-image aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {#if project.heroTag}
                   <span

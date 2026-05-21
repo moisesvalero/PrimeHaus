@@ -4,6 +4,7 @@
   import { locale, t } from '$lib/i18n';
   import Button from '$lib/components/ui/button/button.svelte';
   import Gallery from '$lib/components/Gallery.svelte';
+  import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
   import VideoEmbed from '$lib/components/VideoEmbed.svelte';
 
   let { data } = $props();
@@ -84,10 +85,14 @@
     <div
       class="relative aspect-[16/9] overflow-hidden border border-outline-variant/30 bg-surface-container"
     >
-      <img
+      <ResponsiveImage
         src={project.images.principal}
         alt={'Vista principal de ' + project.title}
-        class="w-full h-full object-cover"
+        width={1280}
+        height={720}
+        sizes="(min-width: 1024px) 90vw, 100vw"
+        priority
+        class="h-full w-full object-cover"
       />
       <div
         class="absolute bottom-6 left-6 bg-surface/90 backdrop-blur-sm px-6 py-3 border border-outline-variant/30"

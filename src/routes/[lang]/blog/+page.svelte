@@ -11,6 +11,7 @@
   import Section from '$lib/components/ui/Section.svelte';
   import Text from '$lib/components/ui/Text.svelte';
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
+  import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
 
   const buildDate = new Date().toISOString();
   const posts = $derived(getBlogPosts($locale));
@@ -91,9 +92,12 @@
               <div
                 class="aspect-[4/3] overflow-hidden border-b border-outline-variant/30 bg-surface-container"
               >
-                <img
+                <ResponsiveImage
                   src={post.image}
                   alt={post.title}
+                  width={800}
+                  height={600}
+                  sizes="(min-width: 768px) 50vw, 100vw"
                   class="premium-image h-full w-full object-cover"
                 />
               </div>

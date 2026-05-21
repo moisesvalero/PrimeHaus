@@ -4,6 +4,7 @@
   import { locale, t } from '$lib/i18n';
   import { reveal } from '$lib/reveal';
   import Button from '$lib/components/ui/button/button.svelte';
+  import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
 
   const teamMembers = [
     {
@@ -81,10 +82,14 @@
       class="mt-16 w-full h-[500px] sm:h-[600px] overflow-hidden border border-outline-variant/30 bg-surface-container"
       use:reveal={{ stage: 'content', delay: 120 }}
     >
-      <img
+      <ResponsiveImage
         src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80"
         alt="PrimeHaus Masterpiece Villa"
-        class="premium-image w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+        width={1600}
+        height={900}
+        sizes="100vw"
+        priority
+        class="premium-image h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
       />
     </div>
   </section>
@@ -115,10 +120,13 @@
         class="premium-card lg:col-span-6 relative h-[500px] sm:h-[650px] border border-outline-variant/30 bg-surface-container"
         use:reveal={{ stage: 'content', delay: 150 }}
       >
-        <img
+        <ResponsiveImage
           src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&q=80"
           alt="PrimeHaus Architecture Detail"
-          class="premium-image w-full h-full object-cover"
+          width={800}
+          height={1000}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          class="premium-image h-full w-full object-cover"
         />
         <div
           class="absolute -bottom-8 -left-8 bg-primary p-10 hidden sm:block border border-white/10"
@@ -193,10 +201,13 @@
           class="border border-outline-variant/30 bg-surface-container-lowest overflow-hidden group"
         >
           <div class="aspect-[3/4] overflow-hidden bg-surface-container relative">
-            <img
+            <ResponsiveImage
               src={member.img}
               alt={member.name + ' - ' + member.role}
-              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+              width={480}
+              height={640}
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+              class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
             />
           </div>
           <div class="p-6">
