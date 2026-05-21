@@ -4,28 +4,28 @@ export type ImagePreset = 'hero' | 'card' | 'gallery' | 'banner';
 
 export const IMAGE_PRESETS = {
   hero: {
-    widths: [640, 750, 1080, 1280, 1600] as const,
-    defaultWidth: 1080,
-    quality: 75,
+    widths: [640, 750, 1080, 1280, 1600, 1920] as const,
+    defaultWidth: 1600,
+    quality: 90,
     sizes: '100vw'
   },
-  /** Tarjetas con hover zoom: resolución alta para que no se pixelen al escalar */
+  /** Tarjetas + hover 1.055: srcset hasta 1920px, q90 (Vercel → AVIF) */
   card: {
-    widths: [640, 800, 1000, 1200, 1400] as const,
+    widths: [640, 828, 1000, 1200, 1600, 1920] as const,
     defaultWidth: 1200,
-    quality: 82,
+    quality: 90,
     sizes: '(min-width: 1024px) 32vw, (min-width: 768px) 50vw, 92vw'
   },
   gallery: {
-    widths: [640, 800, 1000, 1200, 1400] as const,
+    widths: [640, 828, 1000, 1200, 1600, 1920] as const,
     defaultWidth: 1200,
-    quality: 80,
+    quality: 88,
     sizes: '(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 90vw'
   },
   banner: {
-    widths: [640, 800, 1080, 1280, 1600] as const,
-    defaultWidth: 1280,
-    quality: 78,
+    widths: [640, 1080, 1280, 1600, 1920] as const,
+    defaultWidth: 1600,
+    quality: 88,
     sizes: '100vw'
   }
 } as const;
