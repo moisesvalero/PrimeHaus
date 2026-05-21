@@ -1,20 +1,27 @@
 const UNSPLASH_HOST = 'images.unsplash.com';
 
-export type ImagePreset = 'hero' | 'card' | 'gallery' | 'banner' | 'proyectos';
+export type ImagePreset = 'hero' | 'card' | 'featured' | 'gallery' | 'banner' | 'proyectos';
 
 export const IMAGE_PRESETS = {
   hero: {
-    widths: [640, 750, 1080, 1280, 1600, 1920] as const,
-    defaultWidth: 1600,
-    quality: 90,
-    sizes: '100vw'
+    widths: [640, 828, 1080, 1280, 1600, 1920] as const,
+    defaultWidth: 1280,
+    quality: 85,
+    sizes: '(max-width: 768px) 100vw, 1600px'
   },
-  /** Tarjetas pequeñas (home/blog) — Vercel con srcset */
+  /** Tarjetas pequeñas (blog) */
   card: {
-    widths: [640, 828, 1000, 1200, 1600, 1920] as const,
+    widths: [640, 828, 1000, 1200] as const,
+    defaultWidth: 1000,
+    quality: 88,
+    sizes: '(min-width: 1024px) 32vw, (min-width: 768px) 50vw, 90vw'
+  },
+  /** Home destacados 3 col: sin 640w, ~1200w retina + AVIF q88 */
+  featured: {
+    widths: [960, 1080, 1200, 1400, 1600] as const,
     defaultWidth: 1200,
-    quality: 90,
-    sizes: '(min-width: 1024px) 32vw, (min-width: 768px) 50vw, 92vw'
+    quality: 88,
+    sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 90vw'
   },
   /** Grid /proyectos: sin 640w — el navegador no puede pedir miniaturas */
   proyectos: {

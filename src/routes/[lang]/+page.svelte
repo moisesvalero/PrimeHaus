@@ -195,9 +195,9 @@
               <ResponsiveImage
                 src={project.images.principal}
                 alt={project.title}
-                preset="card"
-                width={640}
-                height={480}
+                preset="featured"
+                width={800}
+                height={600}
                 class="premium-image h-full w-full object-cover"
               />
               {#if project.heroTag}
