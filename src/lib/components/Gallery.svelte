@@ -31,7 +31,7 @@
             preset="gallery"
             width={640}
             height={800}
-            class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            class="premium-image h-full w-full object-cover"
           />
           <figcaption class="sr-only">{image.alt}</figcaption>
         </figure>

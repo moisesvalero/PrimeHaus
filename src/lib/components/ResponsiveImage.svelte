@@ -16,23 +16,25 @@
     preset,
     priority = false,
     quality,
+    srcWidth,
     class: className = ''
   }: {
     src: string;
     alt: string;
+    /** Solo reserva espacio (CLS); no limita la resolución descargada */
     width?: number;
     height?: number;
     sizes?: string;
     preset?: ImagePreset;
     priority?: boolean;
     quality?: number;
+    /** Ancho de descarga explícito (opcional) */
+    srcWidth?: number;
     class?: string;
   } = $props();
 
-  const resolved = $derived(resolveImageOptions(preset, { width, quality, sizes }));
-  const optimizedSrc = $derived(
-    buildImageSrc(src, priority && preset === 'hero' ? 750 : resolved.defaultWidth, resolved.quality)
-  );
+  const resolved = $derived(resolveImageOptions(preset, { srcWidth, quality, sizes }));
+  const optimizedSrc = $derived(buildImageSrc(src, resolved.defaultWidth, resolved.quality));
   const srcset = $derived(buildImageSrcset(src, resolved.widths, resolved.quality));
   const resolvedSizes = $derived(resolved.sizes);
 </script>

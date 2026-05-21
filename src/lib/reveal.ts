@@ -6,7 +6,7 @@ type RevealOptions = {
   stage?: RevealStage;
   threshold?: number;
   rootMargin?: string;
-  /** Sin animación inicial: evita CLS en above-the-fold */
+  /** Sin animación inicial: solo para texto above-the-fold (evita CLS) */
   immediate?: boolean;
 };
 
@@ -34,14 +34,6 @@ function applyAssemblyVars(node: HTMLElement, options: ReturnType<typeof normali
   node.style.setProperty('--assembly-distance', `${options.distance}px`);
 }
 
-function scheduleReveal(node: HTMLElement) {
-  if (typeof requestAnimationFrame !== 'undefined') {
-    requestAnimationFrame(() => node.classList.add('is-visible'));
-  } else {
-    node.classList.add('is-visible');
-  }
-}
-
 /**
  * Svelte action para reveal global con efecto de ensamblaje magnético.
  * Añade clases + variables CSS, y dispara la visibilidad al entrar en viewport.
@@ -49,8 +41,8 @@ function scheduleReveal(node: HTMLElement) {
 export function reveal(node: HTMLElement, options?: RevealOptions) {
   let config = normalizeOptions(options);
   applyAssemblyVars(node, config);
-  let observer: IntersectionObserver | null = null;
-  let idleId: number | null = null;
+  let rafA = 0;
+  let rafB = 0;
 
   if (config.immediate) {
     node.classList.add('is-visible');
@@ -64,26 +56,27 @@ export function reveal(node: HTMLElement, options?: RevealOptions) {
     };
   }
 
-  const startObserver = () => {
-    observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        scheduleReveal(node);
-        observer?.unobserve(node);
-      },
-      {
-        threshold: config.threshold,
-        rootMargin: config.rootMargin
-      }
-    );
-    observer.observe(node);
+  const revealWithFrameGap = () => {
+    rafA = requestAnimationFrame(() => {
+      rafB = requestAnimationFrame(() => {
+        node.classList.add('is-visible');
+      });
+    });
   };
 
-  if (typeof requestIdleCallback !== 'undefined') {
-    idleId = requestIdleCallback(startObserver, { timeout: 400 });
-  } else {
-    startObserver();
-  }
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) return;
+      revealWithFrameGap();
+      observer.unobserve(node);
+    },
+    {
+      threshold: config.threshold,
+      rootMargin: config.rootMargin
+    }
+  );
+
+  observer.observe(node);
 
   return {
     update(nextOptions?: RevealOptions) {
@@ -91,10 +84,9 @@ export function reveal(node: HTMLElement, options?: RevealOptions) {
       applyAssemblyVars(node, config);
     },
     destroy() {
-      if (idleId !== null && typeof cancelIdleCallback !== 'undefined') {
-        cancelIdleCallback(idleId);
-      }
-      observer?.disconnect();
+      cancelAnimationFrame(rafA);
+      cancelAnimationFrame(rafB);
+      observer.disconnect();
     }
   };
 }

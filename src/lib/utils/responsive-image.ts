@@ -4,27 +4,28 @@ export type ImagePreset = 'hero' | 'card' | 'gallery' | 'banner';
 
 export const IMAGE_PRESETS = {
   hero: {
-    widths: [400, 640, 750, 1080, 1280] as const,
-    defaultWidth: 750,
-    quality: 70,
+    widths: [640, 750, 1080, 1280, 1600] as const,
+    defaultWidth: 1080,
+    quality: 75,
     sizes: '100vw'
   },
+  /** Tarjetas con hover zoom: resolución alta para que no se pixelen al escalar */
   card: {
-    widths: [320, 400, 480, 640] as const,
-    defaultWidth: 480,
-    quality: 62,
-    sizes: '(min-width: 1024px) 30vw, (min-width: 768px) 33vw, 88vw'
+    widths: [640, 800, 1000, 1200, 1400] as const,
+    defaultWidth: 1200,
+    quality: 82,
+    sizes: '(min-width: 1024px) 32vw, (min-width: 768px) 50vw, 92vw'
   },
   gallery: {
-    widths: [320, 400, 480, 640, 800] as const,
-    defaultWidth: 480,
-    quality: 62,
-    sizes: '(min-width: 1024px) 28vw, (min-width: 768px) 50vw, 88vw'
+    widths: [640, 800, 1000, 1200, 1400] as const,
+    defaultWidth: 1200,
+    quality: 80,
+    sizes: '(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 90vw'
   },
   banner: {
-    widths: [400, 640, 800, 1080, 1280] as const,
-    defaultWidth: 800,
-    quality: 68,
+    widths: [640, 800, 1080, 1280, 1600] as const,
+    defaultWidth: 1280,
+    quality: 78,
     sizes: '100vw'
   }
 } as const;
@@ -87,13 +88,13 @@ export function buildImageSrcset(
 
 export function resolveImageOptions(
   preset: ImagePreset | undefined,
-  overrides: { width?: number; quality?: number; sizes?: string } = {}
+  overrides: { srcWidth?: number; quality?: number; sizes?: string } = {}
 ) {
   const base = preset ? IMAGE_PRESETS[preset] : null;
   return {
-    widths: base?.widths ?? ([400, 640, 800, 1080, 1280] as const),
-    defaultWidth: overrides.width ?? base?.defaultWidth ?? 800,
-    quality: overrides.quality ?? base?.quality ?? 75,
+    widths: base?.widths ?? ([640, 800, 1080, 1280, 1600] as const),
+    defaultWidth: overrides.srcWidth ?? base?.defaultWidth ?? 1200,
+    quality: overrides.quality ?? base?.quality ?? 80,
     sizes: overrides.sizes ?? base?.sizes ?? '100vw'
   };
 }

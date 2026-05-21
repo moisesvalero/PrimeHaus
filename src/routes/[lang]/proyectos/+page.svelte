@@ -325,9 +325,9 @@
                   src={project.images.principal}
                   alt={project.title}
                   preset="card"
-                  width={640}
-                  height={800}
-                  class="premium-image aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  width={800}
+                  height={1000}
+                  class="premium-image aspect-[4/5] w-full object-cover"
                 />
                 {#if project.heroTag}
                   <span
