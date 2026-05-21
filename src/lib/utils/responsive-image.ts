@@ -30,11 +30,12 @@ export const IMAGE_PRESETS = {
     quality: 92,
     sizes: '(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 96vw'
   },
+  /** Bloques grandes (about home, story sobre-nosotros): sin 640w */
   gallery: {
-    widths: [640, 828, 1000, 1200, 1600, 1920] as const,
-    defaultWidth: 1200,
+    widths: [1080, 1200, 1400, 1600, 1920] as const,
+    defaultWidth: 1400,
     quality: 88,
-    sizes: '(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 90vw'
+    sizes: '(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 92vw'
   },
   banner: {
     widths: [640, 1080, 1280, 1600, 1920] as const,
