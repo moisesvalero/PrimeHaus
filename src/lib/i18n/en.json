@@ -313,6 +313,19 @@
       "title": "Ready to find your architectural masterpiece?",
       "primary": "Schedule Private Consultation",
       "secondary": "Call an Advisor"
+    },
+    "filter": {
+      "searchPlaceholder": "Search by keyword...",
+      "all": "All",
+      "allTypes": "All types",
+      "location": "Location",
+      "type": "Type",
+      "noResults": "No properties found matching your search.",
+      "reset": "Reset filters",
+      "sortBy": "Sort by",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "default": "Default"
     }
   },
   "project": {

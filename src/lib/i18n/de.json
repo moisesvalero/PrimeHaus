@@ -110,6 +110,19 @@
       "title": "Bereit, Ihr architektonisches Meisterwerk zu finden?",
       "primary": "Private Beratung Vereinbaren",
       "secondary": "Berater Anrufen"
+    },
+    "filter": {
+      "searchPlaceholder": "Nach Stichwort suchen...",
+      "all": "Alle",
+      "allTypes": "Alle Typen",
+      "location": "Standort",
+      "type": "Typ",
+      "noResults": "Keine Immobilien gefunden, die Ihrer Suche entsprechen.",
+      "reset": "Filter zurücksetzen",
+      "sortBy": "Sortieren nach",
+      "priceAsc": "Preis: Aufsteigend",
+      "priceDesc": "Preis: Absteigend",
+      "default": "Standard"
     }
   },
   "project": {

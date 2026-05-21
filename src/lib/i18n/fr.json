@@ -110,6 +110,19 @@
       "title": "Prêt à trouver votre chef-d'œuvre architectural ?",
       "primary": "Planifier une Consultation Privée",
       "secondary": "Appeler un Conseiller"
+    },
+    "filter": {
+      "searchPlaceholder": "Rechercher par mot-clé...",
+      "all": "Tous",
+      "allTypes": "Tous les types",
+      "location": "Localisation",
+      "type": "Type",
+      "noResults": "Aucune propriété ne correspond à votre recherche.",
+      "reset": "Réinitialiser les filtres",
+      "sortBy": "Trier par",
+      "priceAsc": "Prix : du moins cher au plus cher",
+      "priceDesc": "Prix : du plus cher au moins cher",
+      "default": "Par défaut"
     }
   },
   "project": {

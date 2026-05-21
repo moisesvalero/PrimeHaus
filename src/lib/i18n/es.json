@@ -313,6 +313,19 @@
       "title": "¿Quiere que preparemos una selección a medida?",
       "primary": "Programar Consulta Privada",
       "secondary": "Llamar a un Asesor"
+    },
+    "filter": {
+      "searchPlaceholder": "Buscar por palabra clave...",
+      "all": "Todos",
+      "allTypes": "Todos los tipos",
+      "location": "Ubicación",
+      "type": "Tipo",
+      "noResults": "No se encontraron propiedades que coincidan con su búsqueda.",
+      "reset": "Restablecer filtros",
+      "sortBy": "Ordenar por",
+      "priceAsc": "Precio: Menor a Mayor",
+      "priceDesc": "Precio: Mayor a Menor",
+      "default": "Por defecto"
     }
   },
   "project": {
