@@ -19,6 +19,14 @@ export const siteConfig = {
     name: 'PrimeHaus Real Estate',
     url: 'https://primehaus.vercel.app'
   },
+  credits: {
+    designer: {
+      name: 'Moisés Valero',
+      url: 'https://moisesvalero.es'
+    },
+    github: 'https://github.com/moisesvalero/PrimeHaus',
+    linkedin: 'https://www.linkedin.com/in/moisesvalero/'
+  },
   nav: [
     { label: 'Inicio', href: '/' },
     { label: 'Proyectos', href: '/proyectos' },

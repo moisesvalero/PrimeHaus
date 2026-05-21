@@ -16,7 +16,12 @@
       "about": "Über uns",
       "blog": "Blog",
       "contact": "Kontakt",
-      "builtWith": "Kompromisslose Architektur und Exklusivität."
+      "builtWith": "Kompromisslose Architektur und Exklusivität.",
+      "designedBy": "Gestaltet von",
+      "aria": {
+        "github": "Projekt-Repository auf GitHub",
+        "linkedinDesigner": "Moisés Valero auf LinkedIn"
+      }
     },
     "aria": {
       "toggleMenu": "Menü umschalten",

@@ -16,7 +16,12 @@
       "about": "Sobre nosotros",
       "blog": "Blog",
       "contact": "Contacto",
-      "builtWith": "Arquitectura y exclusividad sin compromisos."
+      "builtWith": "Arquitectura y exclusividad sin compromisos.",
+      "designedBy": "Diseñado por",
+      "aria": {
+        "github": "Repositorio del proyecto en GitHub",
+        "linkedinDesigner": "LinkedIn de Moisés Valero"
+      }
     },
     "aria": {
       "toggleMenu": "Abrir o cerrar menú",
