@@ -54,20 +54,20 @@ El sitio prioriza:
 
 ## Rutas principales
 
-| Ruta | Descripcion |
-| --- | --- |
-| `/` | Home principal de PrimeHaus |
-| `/proyectos` | Catalogo de propiedades |
-| `/proyectos/[slug]` | Detalle de propiedad |
-| `/sobre-nosotros` | Pagina corporativa |
-| `/contacto` | Contacto privado |
-| `/blog` | Indice editorial |
-| `/blog/[slug]` | Articulo de blog |
-| `/llms.txt` | Indice Markdown para LLMs |
-| `/llms-full.txt` | Contenido completo del sitio para ingesta IA |
-| `/sitemap.xml` | Sitemap con rutas indexables |
-| `/robots.txt` | Politica de rastreo para crawlers tradicionales e IA |
-| `/api/og` | Imagen Open Graph dinamica |
+| Ruta                | Descripcion                                          |
+| ------------------- | ---------------------------------------------------- |
+| `/`                 | Home principal de PrimeHaus                          |
+| `/proyectos`        | Catalogo de propiedades                              |
+| `/proyectos/[slug]` | Detalle de propiedad                                 |
+| `/sobre-nosotros`   | Pagina corporativa                                   |
+| `/contacto`         | Contacto privado                                     |
+| `/blog`             | Indice editorial                                     |
+| `/blog/[slug]`      | Articulo de blog                                     |
+| `/llms.txt`         | Indice Markdown para LLMs                            |
+| `/llms-full.txt`    | Contenido completo del sitio para ingesta IA         |
+| `/sitemap.xml`      | Sitemap con rutas indexables                         |
+| `/robots.txt`       | Politica de rastreo para crawlers tradicionales e IA |
+| `/api/og`           | Imagen Open Graph dinamica                           |
 
 El proyecto tambien incluye rutas con prefijo de idioma bajo `src/routes/[lang]/`.
 
@@ -258,6 +258,6 @@ Despues, desplegar en Vercel conectando el repositorio o usando la CLI de Vercel
 
 ## Licencia
 
-Este proyecto no es open source. El codigo, el diseño y los assets estan protegidos por una licencia propietaria con todos los derechos reservados.
+Este proyecto se distribuye bajo PolyForm Noncommercial License 1.0.0.
 
-No se permite usar, copiar, modificar, desplegar, revender, publicar ni reutilizar este proyecto sin permiso previo por escrito o una licencia comercial pagada. Consulta `LICENSE`.
+Se permite usar, copiar, modificar y distribuir el proyecto solo para fines no comerciales, segun los terminos de `LICENSE`. El uso comercial requiere permiso previo por escrito o una licencia comercial separada.

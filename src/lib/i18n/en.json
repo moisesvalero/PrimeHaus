@@ -184,7 +184,7 @@
           },
           "comercial": {
             "q": "Can I use it for commercial projects?",
-            "a": "Yes. The template is MIT: use it for clients, products or landings with no paid licence restrictions."
+            "a": "Not under the included license. The template uses PolyForm Noncommercial 1.0.0, so commercial use requires prior permission or a separate commercial license."
           },
           "deploy": {
             "q": "How do I deploy to production?",

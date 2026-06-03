@@ -184,7 +184,7 @@
           },
           "comercial": {
             "q": "¿Puedo usarla en proyectos comerciales?",
-            "a": "Sí. La plantilla es MIT: úsala en clientes, productos o landings sin restricciones de licencia de pago."
+            "a": "No con la licencia incluida. La plantilla usa PolyForm Noncommercial 1.0.0, asi que el uso comercial requiere permiso previo o una licencia comercial separada."
           },
           "deploy": {
             "q": "¿Cómo despliego en producción?",
