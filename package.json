@@ -52,7 +52,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.12.4",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
+    "lint-staged": "^17.0.7",
     "mdsvex": "^0.12.3",
     "prettier": "^3.7.4",
     "prettier-plugin-svelte": "^3.4.0",
