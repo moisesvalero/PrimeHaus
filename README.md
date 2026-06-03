@@ -138,45 +138,45 @@ static/
 Requisitos:
 
 - Node.js 22 o superior.
-- npm.
+- pnpm 10.24.0.
 
 Instalacion:
 
 ```bash
-npm install
+pnpm install
 ```
 
 Servidor de desarrollo:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Servidor accesible en red local:
 
 ```bash
-npm run dev -- --host 127.0.0.1 --port 5173
+pnpm run dev -- --host 127.0.0.1 --port 5173
 ```
 
 ## Comandos utiles
 
 ```bash
-npm run check
-npm run lint
-npm run test
-npm run build
-npm run preview
-npm run format
+pnpm run check
+pnpm run lint
+pnpm test
+pnpm run build
+pnpm run preview
+pnpm run format
 ```
 
 Descripcion rapida:
 
-- `npm run check`: sincroniza SvelteKit y ejecuta `svelte-check`.
-- `npm run lint`: comprueba formato y ESLint.
-- `npm run test`: ejecuta Vitest.
-- `npm run build`: genera la build de produccion.
-- `npm run preview`: sirve la build generada.
-- `npm run format`: aplica Prettier.
+- `pnpm run check`: sincroniza SvelteKit y ejecuta `svelte-check`.
+- `pnpm run lint`: comprueba formato y ESLint.
+- `pnpm test`: ejecuta Vitest.
+- `pnpm run build`: genera la build de produccion.
+- `pnpm run preview`: sirve la build generada.
+- `pnpm run format`: aplica Prettier.
 
 ## Variables de entorno
 
@@ -231,15 +231,15 @@ Los componentes genericos van en `src/lib/components/ui/`. Los componentes espec
 Antes de entregar cambios importantes:
 
 ```bash
-npm run check
-npm run lint
-npm run build
+pnpm run check
+pnpm run lint
+pnpm run build
 ```
 
 Estado verificado en esta actualizacion:
 
 ```txt
-npm run check
+pnpm run check
 svelte-check found 0 errors and 0 warnings
 ```
 
@@ -250,8 +250,8 @@ El proyecto esta preparado para Vercel mediante `@sveltejs/adapter-vercel` y `ve
 Flujo recomendado:
 
 ```bash
-npm run check
-npm run build
+pnpm run check
+pnpm run build
 ```
 
 Despues, desplegar en Vercel conectando el repositorio o usando la CLI de Vercel.
