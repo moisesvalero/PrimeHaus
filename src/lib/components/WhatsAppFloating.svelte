@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
-  import { MessageCircle, Send, X } from 'lucide-svelte';
+  import { MessageCircle, Send, X } from '@lucide/svelte';
   import { siteConfig } from '$lib/site-config';
   import { t } from '$lib/i18n';
   import Button from '$lib/components/ui/button/button.svelte';

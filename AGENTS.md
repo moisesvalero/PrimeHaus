@@ -274,7 +274,7 @@ import {t} from '$lib/i18n/index';
 ## Dark mode
 
 ```svelte
-import {(mode, toggleMode)} from 'mode-watcher'; import {(Moon, Sun)} from 'lucide-svelte';
+import {(mode, toggleMode)} from 'mode-watcher'; import {(Moon, Sun)} from '@lucide/svelte';
 
 <Button variant="ghost" size="icon" onclick={toggleMode}>
   {#if mode.current === 'dark'}

@@ -27,7 +27,7 @@ El sitio prioriza:
 - TypeScript
 - Tailwind CSS v4
 - shadcn-svelte / bits-ui
-- lucide-svelte
+- @lucide/svelte
 - mode-watcher para modo claro/oscuro
 - Svelte stores para SEO, i18n y toasts
 - Sanity opcional para contenido inmobiliario

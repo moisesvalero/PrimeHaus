@@ -31,6 +31,16 @@
       "eslint --fix"
     ]
   },
+  "pnpm": {
+    "allowedDeprecatedVersions": {
+      "uuid": "8 || 10",
+      "whatwg-encoding": "3"
+    },
+    "onlyBuiltDependencies": [
+      "@sentry/cli",
+      "esbuild"
+    ]
+  },
   "devDependencies": {
     "@internationalized/date": "^3.12.1",
     "@lucide/svelte": "^1.14.0",
@@ -65,7 +75,6 @@
     "bits-ui": "^2.18.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-svelte": "^1.0.1",
     "mode-watcher": "^1.1.0",
     "resend": "^6.12.3",
     "svelte-sonner": "^1.1.1",
