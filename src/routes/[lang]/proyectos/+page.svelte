@@ -66,10 +66,30 @@
     if (!heroTag) return 'other';
     const tag = heroTag.toLowerCase();
     if (tag.includes('villa')) return 'villa';
-    if (tag.includes('atico') || tag.includes('ático') || tag.includes('penthouse')) return 'penthouse';
-    if (tag.includes('finca') || tag.includes('estate') || tag.includes('anwesen') || tag.includes('campagne')) return 'finca';
-    if (tag.includes('residencia') || tag.includes('residence') || tag.includes('résidence') || tag.includes('residenz')) return 'residence';
-    if (tag.includes('casa') || tag.includes('house') || tag.includes('haus') || tag.includes('maison') || tag.includes('palacete')) return 'house';
+    if (tag.includes('atico') || tag.includes('ático') || tag.includes('penthouse'))
+      return 'penthouse';
+    if (
+      tag.includes('finca') ||
+      tag.includes('estate') ||
+      tag.includes('anwesen') ||
+      tag.includes('campagne')
+    )
+      return 'finca';
+    if (
+      tag.includes('residencia') ||
+      tag.includes('residence') ||
+      tag.includes('résidence') ||
+      tag.includes('residenz')
+    )
+      return 'residence';
+    if (
+      tag.includes('casa') ||
+      tag.includes('house') ||
+      tag.includes('haus') ||
+      tag.includes('maison') ||
+      tag.includes('palacete')
+    )
+      return 'house';
     return 'other';
   }
 
@@ -80,13 +100,13 @@
   }
 
   const uniqueLocations = $derived.by(() => {
-    const locations = projects.map(p => getCity(p.location));
+    const locations = projects.map((p) => getCity(p.location));
     return ['all', ...new Set(locations.filter(Boolean))];
   });
 
   const uniqueTypes = $derived.by(() => {
-    const types = projects.map(p => getPropertyTypeKey(p.heroTag));
-    return ['all', ...new Set(types.filter(t => t !== 'other'))];
+    const types = projects.map((p) => getPropertyTypeKey(p.heroTag));
+    return ['all', ...new Set(types.filter((t) => t !== 'other'))];
   });
 
   const filteredProjects = $derived.by(() => {
@@ -94,7 +114,7 @@
 
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
-      list = list.filter(p => {
+      list = list.filter((p) => {
         return (
           p.title.toLowerCase().includes(q) ||
           p.location.toLowerCase().includes(q) ||
@@ -105,11 +125,11 @@
     }
 
     if (selectedLocation !== 'all') {
-      list = list.filter(p => getCity(p.location) === selectedLocation);
+      list = list.filter((p) => getCity(p.location) === selectedLocation);
     }
 
     if (selectedType !== 'all') {
-      list = list.filter(p => getPropertyTypeKey(p.heroTag) === selectedType);
+      list = list.filter((p) => getPropertyTypeKey(p.heroTag) === selectedType);
     }
 
     if (sortBy === 'priceAsc') {
@@ -197,13 +217,18 @@
       </div>
     {:else}
       <!-- FILTERS PANEL -->
-      <div class="flex flex-col gap-6 mb-16 pb-12 border-b border-outline-variant/30" use:reveal={{ stage: 'content', delay: 100 }}>
+      <div
+        class="flex flex-col gap-6 mb-16 pb-12 border-b border-outline-variant/30"
+        use:reveal={{ stage: 'content', delay: 100 }}
+      >
         <!-- TOP ROW: Search, Sort & Reset -->
         <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
           <div class="flex-1 flex flex-col md:flex-row gap-4 items-stretch md:items-center">
             <!-- Search Input -->
             <div class="relative w-full md:max-w-md">
-              <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant/50">
+              <span
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant/50"
+              >
                 <span class="material-symbols-outlined text-lg">search</span>
               </span>
               <Input
@@ -214,7 +239,7 @@
               />
               {#if searchQuery}
                 <button
-                  onclick={() => searchQuery = ''}
+                  onclick={() => (searchQuery = '')}
                   class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-on-surface transition-colors"
                 >
                   <span class="material-symbols-outlined text-sm">close</span>
@@ -228,11 +253,19 @@
                 bind:value={sortBy}
                 class="w-full h-11 pl-4 pr-10 bg-surface-container-low border border-outline-variant/30 rounded-none appearance-none focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary text-sm font-light text-on-surface transition-all duration-300 cursor-pointer"
               >
-                <option value="default">{$t('projects.filter.sortBy')}: {$t('projects.filter.default')}</option>
-                <option value="priceAsc">{$t('projects.filter.sortBy')}: {$t('projects.filter.priceAsc')}</option>
-                <option value="priceDesc">{$t('projects.filter.sortBy')}: {$t('projects.filter.priceDesc')}</option>
+                <option value="default"
+                  >{$t('projects.filter.sortBy')}: {$t('projects.filter.default')}</option
+                >
+                <option value="priceAsc"
+                  >{$t('projects.filter.sortBy')}: {$t('projects.filter.priceAsc')}</option
+                >
+                <option value="priceDesc"
+                  >{$t('projects.filter.sortBy')}: {$t('projects.filter.priceDesc')}</option
+                >
               </select>
-              <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-on-surface-variant/50">
+              <span
+                class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-on-surface-variant/50"
+              >
                 <span class="material-symbols-outlined text-lg">expand_more</span>
               </span>
             </div>
@@ -258,11 +291,11 @@
               {$t('projects.filter.location')}
             </span>
             <div class="flex flex-wrap gap-2">
-              {#each uniqueLocations as loc}
+              {#each uniqueLocations as loc (loc)}
                 <Button
                   variant={selectedLocation === loc ? 'default' : 'outline'}
                   size="sm"
-                  onclick={() => selectedLocation = loc}
+                  onclick={() => (selectedLocation = loc)}
                   class="rounded-none font-bold tracking-[0.15em] uppercase text-[10px] py-1.5 px-4 transition-all duration-300 hover:scale-[1.02]"
                 >
                   {loc === 'all' ? $t('projects.filter.all') : loc}
@@ -277,14 +310,16 @@
               {$t('projects.filter.type')}
             </span>
             <div class="flex flex-wrap gap-2">
-              {#each uniqueTypes as typeKey}
+              {#each uniqueTypes as typeKey (typeKey)}
                 <Button
                   variant={selectedType === typeKey ? 'default' : 'outline'}
                   size="sm"
-                  onclick={() => selectedType = typeKey}
+                  onclick={() => (selectedType = typeKey)}
                   class="rounded-none font-bold tracking-[0.15em] uppercase text-[10px] py-1.5 px-4 transition-all duration-300 hover:scale-[1.02]"
                 >
-                  {typeKey === 'all' ? $t('projects.filter.allTypes') : (typeLabels[$locale as SiteLocale]?.[typeKey] || typeKey)}
+                  {typeKey === 'all'
+                    ? $t('projects.filter.allTypes')
+                    : typeLabels[$locale as SiteLocale]?.[typeKey] || typeKey}
                 </Button>
               {/each}
             </div>
@@ -294,13 +329,17 @@
 
       <!-- PROJECTS DISPLAY -->
       {#if filteredProjects.length === 0}
-        <div class="text-center py-24 border border-outline-variant/30 bg-surface-container-low p-12" use:reveal={{ stage: 'content' }}>
-          <span class="material-symbols-outlined text-primary text-5xl mb-4 block"
-            >search_off</span
-          >
-          <h2 class="font-serif text-2xl text-on-surface mb-4">{$t('projects.filter.noResults')}</h2>
+        <div
+          class="text-center py-24 border border-outline-variant/30 bg-surface-container-low p-12"
+          use:reveal={{ stage: 'content' }}
+        >
+          <span class="material-symbols-outlined text-primary text-5xl mb-4 block">search_off</span>
+          <h2 class="font-serif text-2xl text-on-surface mb-4">
+            {$t('projects.filter.noResults')}
+          </h2>
           <p class="text-on-surface-variant max-w-md mx-auto mb-8">
-            {$t('projects.filter.noResultsDesc') || 'Intente ajustar sus criterios de búsqueda o restablezca los filtros.'}
+            {$t('projects.filter.noResultsDesc') ||
+              'Intente ajustar sus criterios de búsqueda o restablezca los filtros.'}
           </p>
           <Button
             variant="outline"

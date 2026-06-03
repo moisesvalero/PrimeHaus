@@ -71,7 +71,7 @@
 
 <img
   src={optimizedSrc}
-  srcset={srcset}
+  {srcset}
   sizes={resolvedSizes}
   {alt}
   {width}

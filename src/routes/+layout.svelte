@@ -70,8 +70,8 @@
     }
 
     const defer =
-      typeof requestIdleCallback !== 'undefined'
-        ? requestIdleCallback
+      typeof window.requestIdleCallback !== 'undefined'
+        ? window.requestIdleCallback.bind(window)
         : (cb: () => void) => window.setTimeout(cb, 1);
 
     defer(async () => {

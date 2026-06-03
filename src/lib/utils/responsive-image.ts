@@ -91,11 +91,7 @@ export function buildImageSrc(src: string, width = 800, quality = 75): string {
   return src;
 }
 
-export function buildImageSrcset(
-  src: string,
-  widths: readonly number[],
-  quality = 75
-): string {
+export function buildImageSrcset(src: string, widths: readonly number[], quality = 75): string {
   if (!isOptimizableImageUrl(src)) return '';
 
   return widths.map((w) => `${buildImageSrc(src, w, quality)} ${w}w`).join(', ');
