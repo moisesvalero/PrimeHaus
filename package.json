@@ -64,7 +64,7 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.68.0",
     "vite": "^8.0.0",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   },
   "dependencies": {
     "@react-email/render": "^2.1.0",
